@@ -1,0 +1,372 @@
+.btn, .cta, button {
+    @include taptarget();
+    background-color: $light;
+    height: 2em;
+    @inlcude transition;
+    margin: 0;
+
+    @include font(1, 500, 2, true);
+
+    &.small {
+        @include taptarget(-2);
+        @include line-height(2, true);
+    }
+
+    @media #{$lap} {
+      font-weight: 300;
+    }
+
+
+}
+
+.primary {
+    background-color: $green;
+    color: $lightest;
+    @include font-size(1.5);
+    @include transition($transition);
+
+    @media #{$desk} {
+        @include font-size(2);
+    }
+
+    &:hover, &:focus {
+        background-color: lighten($green, 10%);
+    }
+
+    &:active {
+        background-color: darken($green, 10%);
+    }
+
+    &.small {
+        @include font-size(1);
+    }
+
+}
+
+.btn.active {
+  background-color: $green;
+  color: $lightest;
+  @include transition($transition);
+
+  &:hover, &:focus {
+      background-color: lighten($green, 10%);
+  }
+
+  &:active {
+      background-color: darken($green, 10%);
+  }
+
+  &.small {
+      @include font-size(1);
+  }
+}
+
+.secondary {
+    background-color: $light;
+    color: $darker;
+    font-weight: 500;
+    @include transition($transition);
+
+    &:hover, &:focus {
+      background-color: $lighter;
+    }
+}
+
+.tertiary {
+    background: $lighter;
+    color: darken($dark, 10%);
+    border: 1px solid darken($dark, 10%) !important;
+    @include transition($transition);
+
+    &:hover, &:focus {
+      background-color: $lightest;
+    }
+}
+
+.add {
+  &:before {
+    @include pseudo(1.2em, 2em, "+");
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: 300;
+  }
+}
+
+.remove {
+  @extend .background-error;
+  @include transition($transition);
+  padding-left: 0.25em;
+  @media #{$lap} {
+    padding-left: .75em;
+  }
+
+  &:before {
+    @include pseudo(1.2em, 2em, "\2715");
+    text-align: left;
+    font-size: 1em;
+    font-weight: 300;
+  }
+
+  &:hover {
+    background-color: $red;
+    color: $lightest;
+  }
+
+}
+
+
+button:disabled, .disabled {
+    background: none;
+    color: darken($light, 10%);
+    border: 1px solid darken($light, 10%) !important;
+    @include transition($transition);
+
+    &:hover, &:focus {
+      background: none !important;
+    }
+}
+
+
+.btn_group {
+  margin-bottom: 2em;
+
+  .btn_group_item {
+    border-radius: 0;
+
+    &:first-of-type {
+      border-top-left-radius: $borderradius;
+      border-bottom-left-radius: $borderradius;
+    }
+
+    &:last-of-type {
+      border-top-right-radius: $borderradius;
+      border-bottom-right-radius: $borderradius;
+    }
+  }
+
+  input[type=radio]:checked + label {
+    &.btn_group_item {
+      background-color: $light-green !important;
+    }
+  }
+}
+
+
+.card {
+  overflow: hidden;
+  padding: 1em;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 1em;
+
+  background-color: $lighter;
+
+  @media #{$desk} {
+    margin-bottom: 2em;
+  }
+}
+
+.no-touch .card {
+  @include transition($transition);
+}
+
+.card.success {
+  outline-color: green;
+  background: $lighter-green;
+  box-shadow: none;
+}
+
+.background-success {
+  background-color: $lighter-green;
+}
+
+.background-info {
+  background-color: $lighter-yellow;
+}
+
+.background-error {
+  background-color: $lighter-red;
+}
+
+.text-success {
+  color: $dark-green;
+}
+
+.text-info {
+  color: $dark-yellow;
+}
+
+.text-error {
+  color: $red;
+}
+
+.success, .success > * {
+  @extend .background-success;
+  @extend .text-success;
+}
+
+.info, .info > * {
+  @extend .background-info;
+  @extend .text-info;
+}
+
+.error, .error > * {
+  @extend .background-error;
+  @extend .text-error;
+}
+
+
+.loading-panel {
+  width: 200px;
+  height: 100px;
+  padding-top: 20px;
+  margin: 0 auto;
+  text-align: center;
+
+  p {
+    display: block;
+    clear: both;
+    margin: 2em auto 4em;
+    text-align: center;
+
+    -webkit-animation: grey 2s infinite ease-in-out;
+    -moz-animation: grey 2s infinite ease-in-out;
+    animation: grey 2s infinite ease-in-out;
+  }
+}
+
+.ball {
+  display: block;
+  float: left;
+  width: 10px;
+  height: 10px;
+  margin: 10px 5px 40px;
+  border-radius: 50px;
+  }
+    .ball:nth-child(1) {
+      background: $light-blue;
+      -webkit-animation: right 1s infinite ease-in-out, blue 4s infinite ease-in-out;
+      -moz-animation: right 1s infinite ease-in-out, blue 4s infinite ease-in-out;
+      animation: right 1s infinite ease-in-out, blue 4s infinite ease-in-out;
+      margin-left: 25px;
+    }
+
+    .ball:nth-child(2) {
+      background: $dark-blue;
+      -webkit-animation: right 1.05s infinite ease-in-out, blue 4s infinite ease-in-out;
+      -moz-animation: right 1s infinite ease-in-out, blue 4s infinite ease-in-out;
+      animation: right 1s infinite ease-in-out, blue 4s infinite ease-in-out;
+    }
+
+    .ball:nth-child(3) {
+      background: $light-blue-light;
+      -webkit-animation: right 1.15s infinite ease-in-out, blue 3s infinite ease-in-out;
+      -moz-animation: right 1s infinite ease-in-out, blue 3s infinite ease-in-out;
+      animation: right 1s infinite ease-in-out, blue 3s infinite ease-in-out;
+    }
+
+    .ball:nth-child(4) {
+      background: $dark-blue-light;
+      -webkit-animation: right 1s infinite ease-in-out, blue 4s infinite ease-in-out;
+      -moz-animation: right 1s infinite ease-in-out, blue 4s infinite ease-in-out;
+      animation: right 1s infinite ease-in-out, blue 4s infinite ease-in-out;
+     }
+
+    .ball:nth-child(5) {
+      background: $light-blue-lighter;
+      -webkit-animation: right 1.15s infinite ease-in-out, blue 5s infinite ease-in-out;
+      -moz-animation: right 1s infinite ease-in-out, blue 5s infinite ease-in-out;
+      animation: right 1s infinite ease-in-out, blue 5s infinite ease-in-out;
+    }
+
+    .ball:nth-child(6) {
+      background: $green;
+      -webkit-animation: right 1.05s infinite ease-in-out, blue 4s infinite ease-in-out;
+      -moz-animation: right 1.05s infinite ease-in-out, blue 4s infinite ease-in-out;
+      animation: right 1.05s infinite ease-in-out, blue 4s infinite ease-in-out;
+     }
+
+    .ball:nth-child(7) {
+      background: $light-blue;
+      -webkit-animation: right 1s infinite ease-in-out, blue 4s infinite ease-in-out;
+      -moz-animation: right 1s infinite ease-in-out, blue 4s infinite ease-in-out;
+      animation: right 1s infinite ease-in-out, blue 4s infinite ease-in-out;
+    }
+
+
+@-webkit-keyframes right {
+  0%   { -webkit-transform: translateY(-15px);   }
+  50%  { -webkit-transform: translateY(15px);    }
+  100% { -webkit-transform: translateY(-15px);   }
+}
+
+@-webkit-keyframes left {
+  0%   { -webkit-transform: translateY(15px);    }
+  50%  { -webkit-transform: translateY(-15px);   }
+  100% { -webkit-transform: translateY(15px);    }
+}
+
+@-webkit-keyframes blue {
+  0%   { background: $light-blue;   }
+  25%  { background: $dark-blue;    }
+  50%  { background: $green;        }
+  75%  { background: $light-green;          }
+  100% { background: $light-blue;   }
+}
+
+@-webkit-keyframes grey {
+  0%   { color: $dark;   }
+  50%  { color: $lighter;    }
+  100% { color: $dark;   }
+}
+
+@-moz-keyframes right {
+  0%   { -moz-transform: translateY(-15px);   }
+  50%  { -moz-transform: translateY(15px);    }
+  100% { -moz-transform: translateY(-15px);   }
+}
+
+@-moz-keyframes left {
+  0%   { -moz-transform: translateY(15px);    }
+  50%  { -moz-transform: translateY(-15px);   }
+  100% { -moz-transform: translateY(15px);    }
+}
+
+@-moz-keyframes blue {
+  0%   { background: $light-blue;   }
+  25%  { background: $dark-blue;    }
+  50%  { background: $green;        }
+  75%  { background: $red;          }
+  100% { background: $light-blue;   }
+}
+
+@-moz-keyframes grey {
+  0%   { color: $dark;   }
+  50%  { color: $lighter;    }
+  100% { color: $dark;   }
+}
+
+@keyframes right {
+  0%   { transform: translateY(-15px);  }
+  50%  { transform: translateY(15px);   }
+  100% { transform: translateY(-15px);  }
+}
+
+@keyframes left {
+  0%   { transform: translateY(15px);   }
+  50%  { transform: translateY(-15px);  }
+  100% { transform: translateY(15px);   }
+}
+
+@keyframes blue {
+  0%   { background: $light-blue;   }
+  25%  { background: $dark-blue;    }
+  50%  { background: $green;        }
+  75%  { background: $red;          }
+  100% { background: $light-blue;   }
+}
+
+@keyframes grey {
+  0%   { color: $dark;   }
+  50%  { color: $lighter;    }
+  100% { color: $dark;   }
+}

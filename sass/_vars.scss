@@ -1,0 +1,131 @@
+/*------------------------------------*\
+    VARS.SCSS
+\*------------------------------------*/
+/**
+ * Any variables you find set in inuit.css’ `_vars.scss` that you do not wish to
+ * keep, simply redefine here. This means that if inuit.css, for example, sets
+ * your `$base-font-size` at 16px and you wish it to be 14px, simply redeclare
+ * that variable in this file. inuit.css ignores its own variables in favour of
+ * using your own, so you can completely modify how inuit.css works without ever
+ * having to alter the framework itself.
+ */
+
+
+
+
+
+/*------------------------------------*\
+    $OBJECTS-AND-ABSTRACTIONS
+\*------------------------------------*/
+/**
+ * All of inuit.css’ objects and abstractions are initially turned off by
+ * default. This means that you start any project with as little as possible,
+ * and introducing objects and abstractions is as simple as switching the
+ * following variables to `true`.
+ */
+$use-grids:         true;
+$use-flexbox:       true;
+$use-columns:       true;
+$use-nav:           true;
+$use-options:       true;
+$use-pagination:    true;
+$use-breadcrumb:    true;
+$use-media:         true;
+$use-marginalia:    true;
+$use-island:        true;
+$use-block-list:    true;
+$use-matrix:        true;
+$use-split:         true;
+$use-this-or-this:  true;
+$use-link-complex:  true;
+$use-flyout:        true;
+$use-arrows:        true;
+$use-sprite:        true;
+$use-icon-text:     true;
+$use-beautons:      true;
+$use-lozenges:      true;
+$use-rules:         true;
+$use-stats:         true;
+$use-greybox:       true;
+$push:              true;
+
+
+
+
+/*------------------------------------*\
+    $OVERRIDES
+\*------------------------------------*/
+/**
+ * Place any variables that should override inuit.css’ defaults here.
+ */
+
+/*------------------------------------*\
+    $CUSTOM
+\*------------------------------------*/
+/**
+ * Place any of your own variables that sit on top of inuit.css here.
+ */
+ /* Typography */
+$ratio: 1.5;
+$baseline: 1.3;
+$rootfontsize: 16; // pixel value
+$mintapheight: 3;
+$tapheight: 4;
+$taptarget: $tapheight*$rootfontsize;
+
+// Colors
+$light: #cbcbcb;
+$lighter: lighten($light, 15);
+$lightest: lighten($light, 50);
+$medium: darken($light, 15);
+$dark: darken($light, 35);
+$darker: darken($light, 70);
+$darkest: darken($light, 90);
+
+$green: #4a993d;
+$lighter-green: lighten($green, 50);
+$light-green: lighten($green, 40);
+$dark-green: darken($green, 50);
+
+$yellow: #ae9912;
+$lighter-yellow: lighten($yellow, 50);
+$light-yellow: lighten($yellow, 40);
+$dark-yellow: darken($yellow, 50);
+
+$red: #993d3d;
+$lighter-red: lighten($red, 50);
+$light-red: lighten($red, 40);
+$dark-red: darken($red, 25);
+
+$light-blue: #3e6d9d;
+$light-blue-light: lighten($light-blue, 25);
+$light-blue-lighter: lighten($light-blue, 50);
+$light-blue-lightest: lighten($light-blue, 75);
+$light-blue-dark: darken($light-blue, 25);
+$light-blue-darker: darken($light-blue, 50);
+$light-blue-darkest: darken($light-blue, 75);
+
+
+$dark-blue: #232e50;
+$dark-blue-light: lighten($dark-blue, 25);
+$dark-blue-lighter: lighten($dark-blue, 50);
+$dark-blue-lightest: lighten($dark-blue, 75);
+$dark-blue-dark: darken($dark-blue, 25);
+$dark-blue-darker: darken($dark-blue, 50);
+$dark-blue-darkest: darken($dark-blue, 75);
+
+$borderradius: 5px;
+
+/* MEDIA QUERIES */
+$palm: "only screen and (max-width : 20em)";
+$lap: "only screen and (min-width : 30em)";
+$desk: "only screen and (min-width : 50em)";
+$desk-wide: "only screen and (min-width : 75em)";
+
+/* Animations and Transitions */
+$transition: all .3s ease-in-out;
+
+/* Atoms */
+$lineweight: 1px !default;
+$linetype: solid !default;
+$linecolor: $dark !default;

@@ -1,0 +1,1639 @@
+xmp {
+    list-style: none;
+    text-indent: 0;
+    @include font-size(.9);
+    margin: 0;
+    border-radius: $borderradius;
+    background: $lighter;
+    padding: 1em;
+    color: $light-blue;
+}
+
+.pattern {
+    padding-bottom: 3em;
+    margin-bottom: 3em;
+    border-bottom: $lineweight $linetype $lighter;
+}
+
+body {
+    @media #{$desk} {
+        margin: 0 auto;
+        max-width: 60em;
+        overflow: hidden;
+    }
+}
+
+*, *:before, *:after {
+    box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    -webkit-box-sizing: border-box !important;
+}
+
+header {
+}
+
+.need-help {
+  @media #{$desk} {
+    display: none;
+  }
+}
+
+.trust-asset {
+    width: auto;
+    height: 2em;
+    display: block;
+    float: right;
+    margin: 5px 1em 0 0;
+    line-height: 2em;
+
+    @media #{$lap} {
+        &:before {
+            @include pseudo(10em, 1em, "Secure Transaction");
+            color: $light-blue;
+            text-align: right;
+            margin-right: 1em;
+            line-height: 1em;
+        }
+    }
+
+    @media #{$desk} {
+        &:before {
+            color: $lighter;
+        }
+    }
+
+
+    .trust-asset-lock {
+        width: 2em;
+        height: 2em;
+
+        .lock {
+            fill: $light-blue;
+
+            @media #{$desk} {
+                fill: $lighter;
+            }
+        }
+    }
+}
+
+article {
+
+    @media #{$lap} {
+        // width: 96%;
+        margin: 0 auto;
+//        overflow: hidden;
+    }
+}
+
+.nav--fit {
+    width: 101%;
+}
+
+
+.hide {
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+}
+
+.address-wrapper {
+    list-style: none;
+
+    li {
+        display: block;
+        float: left;
+    }
+}
+
+    .global-nav {
+        height: (($tapheight - 1) * $rootfontsize) + px;
+        height: ($tapheight - 1) + rem;
+        background-color: $light-blue-lighter;
+        display: block;
+        overflow: hidden;
+
+        @media #{$desk} {
+            background-color: $light;
+        }
+
+    }
+
+	.logo {
+
+        img {
+            height: $tapheight - 1.3 + em;
+            padding: 5px 0 0 1em;
+            display: block;
+            max-width: 100%;
+        }
+
+	}
+
+
+    .progress {
+        background: $lighter;
+        text-align: center;
+
+        @media #{$desk} {
+            background: none;
+            width: 96%;
+            margin: 0 auto;
+        }
+
+        ul {
+          margin: 0;
+        }
+
+        li {
+          list-style: none;
+          display: block;
+          float: left;
+          padding: 5px;
+          margin: 0;
+          width: 25%;
+
+
+          @media #{$desk} {
+              $pillsize: 40px;
+              @include transition($transition);
+              @include font(1, 300, 4);
+              background-color: $lightest !important;
+              color: $dark;
+              font-weight: normal;
+              text-align: left;
+              padding-left: $pillsize * 1.5 + 20px;
+              height: 5em;
+              margin: 0;
+
+              // &:hover {
+              //     color: $light-blue-light;
+              // }
+
+              &:before {
+                  @include transition($transition);
+                  display: block;
+                  width: $pillsize;
+                  height: $pillsize;
+                  content: "1";
+                  background: $light;
+                  color: $dark;
+                  border-radius: $pillsize;
+                  line-height: $pillsize;
+                  position: absolute;
+                  margin-top: 1em;
+                  margin-left: -$pillsize*1.5;
+                  text-align: center;
+              }
+          }
+
+
+
+          a {
+              display: block;
+              text-align: center;
+              width: 100%;
+              margin: 0;
+              padding: 0;
+              border-bottom: 0;
+              @include font(0.9, 500, 1);
+              @include transition($transition);
+              color: $light;
+              text-decoration: none;
+
+              // &:hover {
+              //     color: $light-blue;
+              //
+              //     &:before {
+              //         background: $light-blue-light;
+              //         color: $lightest;
+              //     }
+              // }
+
+              &:visited {
+                  background-color: $lighter;
+                  color: $light;
+
+              }
+
+              @media #{$lap} {
+                height: 3em;
+                line-height: 3em !important;
+              }
+
+              @media #{$desk} {
+                display: inline;
+              }
+
+
+          }
+
+
+
+        &.active {
+            background-color: $light-blue !important;
+            color: $lightest;
+
+            @media #{$desk} {
+              background-color: $lightest !important;
+
+              &:before {
+                  background: $light-blue !important;
+                  color: $lightest !important;
+              }
+            }
+
+            a {
+              color: $lightest;
+
+              @media #{$desk} {
+                color: $light-blue !important;
+              }
+            }
+        }
+
+        &.completed {
+            background-color: $light-blue-light;
+            color: $lightest;
+
+            @media #{$desk} {
+              &:before {
+                  background: $light-blue-light;
+                  color: $lightest;
+              }
+            }
+
+            a {
+              color: $lightest;
+
+              @media #{$desk} {
+                color: $light-blue-light;
+
+                // &:hover {
+                //   background-color: none !important;
+                // }
+              }
+            }
+        }
+
+}
+
+
+        .shipping, .method {
+          a {
+            @include line-height(1, true);
+
+          }
+        }
+
+        .billing, .review {
+          margin: 0;
+          a {
+            @include line-height(2, true);
+            margin: 0;
+          }
+        }
+
+
+
+
+        @media #{$desk} {
+            .shipping:before {
+                content: "1";
+            }
+
+            .method:before {
+              content: "2";
+            }
+
+            .billing:before {
+                content: "3";
+            }
+
+            .review:before {
+                content: "4";
+            }
+        }
+
+        .nav {
+            margin-bottom: 0;
+        }
+    }
+
+    .cancel-order {
+        @include rem-height($tapheight);
+
+        a {
+            @include transition($transition);
+            @include rem-height($tapheight);
+            @include font(2, 100, 3);
+            background-color: $red;
+
+            &:hover {
+              background-color: $dark-red;
+            }
+        }
+    }
+
+
+
+    .cta_bar {
+
+        @include rem-height($tapheight*2);
+
+        @media #{$lap} {
+          @include rem-height($tapheight);
+        }
+
+        background-color: $light;
+
+        .grid__item {
+            @include rem-height($tapheight);
+            clear: both;
+            display: block;
+
+            @media #{$lap}{
+              clear: none;
+            }
+
+
+              text-align: center;
+              float: left;
+
+
+        }
+
+        .total {
+            text-align: center;
+            @include font(1.5, 300, 3.25);
+
+            @media #{$desk} {
+                @include font(2, 100, 3.25);
+            }
+
+            &:before {
+                @include pseudo(6rem, 1, "Total: ");
+                margin-right: .6em;
+
+            }
+        }
+
+        .btn {
+          text-indent: 1em;
+
+          @media #{$lap} {
+            text-indent: 0;
+          }
+
+        }
+
+
+
+
+    }
+
+    #content {
+        min-height: 1000px;
+        background-color: $lightest;
+    }
+
+    #help-content, .privacy-policy, .shipping-policy {
+        background-color: $dark;
+    }
+
+    #help-content {
+        padding-top: $taptarget+px;
+    }
+
+
+.changeaddress, .createaddress {
+    margin: 1em auto;
+    width: 100%;
+}
+
+.changeaddress {
+    @media #{$lap} {
+        margin-top: 0;
+    }
+}
+
+.address-item, .credit-card, .credit-card-item, .billing-data {
+    text-align: left;
+
+    span {
+        display: inline-block;
+        text-align: left;
+    }
+
+    .name, .company, .country, .type, .masked-number, .expiration {
+        display: block;
+    }
+
+
+    .edit {
+        position: relative;
+        float: left;
+        margin-bottom: 1em;
+    }
+
+    .address {
+        text-align: left;
+        display: block;
+        float: left;
+        margin-left: 0;
+        margin-top: 0;
+        clear: left !important;
+
+        @media #{$lap}{
+            clear: none;
+            margin-left: 1.5em;
+        }
+
+        @media #{$desk}{
+            margin-left: 0;
+            clear: both;
+        }
+    }
+
+}
+
+
+
+.billing-data, .credit-card-item {
+  padding-top: 0;
+
+  button {
+    display: block;
+    // margin-top: -2em;
+    margin-bottom: 1em;
+  }
+
+  .credit-card {
+    margin-top: -50px !important;
+    overflow: hidden;
+    display: block;
+    margin-bottom: 1em;
+  }
+
+  .address {
+    display: block;
+    clear: both;
+    margin-top: 1em;
+  }
+}
+
+.credit-card-item {
+  button {
+    margin-top: -2em;
+  }
+}
+
+.label {
+  font-weight: 500 !important;
+}
+
+.create-credit-card-wrapper {
+  margin-bottom: 1em;
+}
+
+input[type=radio] + label.card {
+    .shiptothis, .paywiththis {
+        position: relative;
+        display: block;
+        height: 100%;
+        float: right;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .shiptothis:after {
+      @include pseudo(100%, 2em, "Ship to this address");
+    }
+
+    .paywiththis {
+      &:after {
+        @include pseudo(100%, 2em, "Pay with this card");
+      }
+    }
+
+    button {
+        display: block;
+        height: 2em;
+    }
+
+}
+
+.expired, .expired input[type=radio]:checked + label {
+
+  .card, &.card {
+    background-color: $lighter-red;
+
+    &:before {
+      content: "";
+    }
+  }
+
+  // the selected one
+  &.card {
+    .paywiththis:before {
+      margin-top: -0.25em;
+    }
+  }
+
+  .edit-credit-card {
+    border-color: $red !important;
+    color: $red !important;
+  }
+
+  .paywiththis {
+    background: none;
+
+
+    &:before {
+      @include pseudo(auto, .5em, '\2718');
+      float: right;
+      color: $red !important;
+      @include font-size(2);
+      @include line-height(1);
+      text-align: center;
+      display: block;
+      margin-left: 0.25em;
+    }
+
+    &:after {
+      @include pseudo(auto, 1em, "Expired");
+      color: $red !important;
+      position: relative;
+      display: block;
+      float: right;
+      margin-top: -1.1em;
+      margin-right: 2em;
+      text-align: right;
+      content: "Expired" !important;
+    }
+  }
+}
+
+input[type=radio]:checked + label.card {
+
+    &:hover {
+      background-color: $lighter-green !important;
+    }
+
+    .shiptothis, .paywiththis {
+        background: none;
+        margin-top: 0.5em;
+
+        @media #{$desk}{
+            margin-top: 1em;
+        }
+
+        &:after {
+            @include pseudo(auto, 1em, "Selected");
+            color: $green;
+            position: relative;
+            display: block;
+            float: right;
+            margin-top: -.7em;
+            margin-right: 0;
+
+            @media #{$desk} {
+              margin-top: -1.125em;
+            }
+        }
+    }
+}
+
+.new-address {
+  clear: both;
+  margin-bottom: 2em;
+
+  button {
+    margin-right: 1em;
+  }
+
+  .country {
+    text-align: center !important;
+
+    label {
+      margin-bottom: 1em;
+    }
+  }
+}
+
+
+
+.buttons {
+  margin-bottom: 1em;
+}
+
+.carrier {
+  width: 30% !important;
+  font-weight: 500;
+  text-align: right;
+  padding-right: 10px;
+
+  @media #{$lap} {
+    width: 18% !important;
+  }
+
+  @media #{$desk} {
+    width: 12% !important;
+  }
+
+  &:before {
+    @include pseudo(2em, 2em, "\ ");
+    margin: 5px 1em 0 0;
+    display: block;
+    float: left;
+    position: absolute;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &.ups:before {
+    background-image: url('../images/United_Parcel_Service_logo.svg');
+    margin-top: -2px;
+
+    @media #{$desk} {
+      margin-top: 5px;
+    }
+  }
+
+  &.usps:before {
+    background-image: url('../images/United_States_Postal_Service_Logo_Icon.svg');
+
+    margin-top: 2px;
+
+    @media #{$desk} {
+      margin-top: 10px;
+    }
+  }
+}
+
+.shipping-option-item {
+  .shipping-option {
+    span {
+      display: block;
+      width: 100%;
+      float: left;
+      margin: 0;
+      @include font-size(0.8);
+
+      @media #{$lap} {
+        @include font(1, 300, 2);
+      }
+    }
+
+
+    .method {
+      width: 60%;
+      font-style: italic;
+
+      @media #{$desk} {
+        width: 30%;
+      }
+    }
+
+
+    .delivery-date {
+
+      &:before {
+        @include pseudo(27.5%, 1em, "Arrives: ");
+        @include font(0.8, 500, 0.7);
+        margin-right: 0.7em;
+        text-align: right;
+
+        @media #{$lap} {
+          @include font(1, 500);
+          width: 16%;
+        }
+
+        @media #{$desk} {
+          display: none;
+        }
+      }
+
+      @media #{$desk} {
+        width: 42%;
+      }
+    }
+
+    .price {
+      font-weight: 700;
+      line-height: 1.2em;
+      @media #{$desk} {
+        width: 10%;
+        @include line-height(2);
+      }
+
+      &:before {
+        @include pseudo(27.5%, 1em, "Price: ");
+        @include font(0.8, 500, 0.7);
+        margin-right: 0.7em;
+        text-align: right;
+
+        @media #{$lap} {
+          width: 16%;
+          @include font(1, 500);
+        }
+
+        @media #{$desk} {
+          display: none;
+        }
+      }
+    }
+
+    &.labels {
+      display: none;
+
+      @media #{$desk} {
+        display: block;
+        padding: 1em;
+        span {
+          margin: 0;
+          padding: 0;
+          font-weight: 500;
+          text-align: left;
+          font-style: normal;
+
+          &.carrier {
+            &:before {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.shipping-method {
+  p {
+    margin-left: 1em;
+
+    @media #{$desk} {
+      margin-left: 0;
+    }
+  }
+}
+
+.default-payment {
+  .card {
+    margin-top: 0;
+    padding-top: 1em;
+  }
+}
+
+.billing-data {
+  .address {
+    color: $dark;
+    margin-top: 1em;
+
+  }
+}
+
+.credit-card, .credit-card-item {
+  overflow: visible;
+  clear: both;
+
+  .address {
+    margin-top: 0;
+  }
+
+  .name, .masked-number, .expiration, .label, .type {
+    clear: none;
+    float: left;
+    margin-right: 1em;
+  }
+
+  button {
+    float: left;
+    clear: right !important;
+  }
+}
+
+.promo-code {
+  overflow: auto;
+  margin-bottom: 0 !important;
+
+
+  input {
+    text-transform: uppercase;
+    width: 55% !important;
+    margin-bottom: 0;
+
+    @media #{$lap}{
+      width: 80% !important;
+    }
+
+    @media #{$desk}{
+      width: 70% !important;
+    }
+  }
+
+  button {
+    margin: 0;
+    float: right;
+  }
+}
+
+#promo-code-form {
+  &.success {
+    .card {
+      @extend .background-success;
+
+      .promo-details {
+        display: block !important;
+        color: $green;
+        width: 60%;
+        float: left;
+        span {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  &.error {
+    .card {
+      @extend .background-error;
+    }
+  }
+}
+
+.promo-error-message {
+  color: $red;
+
+  span {
+    font-weight: 700;
+  }
+}
+
+.billing-address-container {
+  h3 {
+    padding-left: 0;
+  }
+}
+
+.billtothis {
+  &:after {
+    @include pseudo(auto, 1em, "Select this billing address");
+  }
+
+  display: block;
+  float: right;
+}
+
+/*
+  CREDIT CARD ICONS
+*/
+
+// General icon setup
+.type {
+  display: block;
+  width: 30px;
+  height: 20px;
+  overflow: hidden;
+  text-indent: 101%;
+  text-align:right !important;
+  background: url("../images/creditcards.png") 0 0;
+  // background: url("../images/creditcards.svg") 0 0;
+  background-size: auto 20px;
+  background-repeat: no-repeat;
+  margin-left: 2px;
+
+  clear: left !important;
+
+  &.visa {
+    background-position: 0 0;
+  }
+
+  &.mastercard {
+    background-position: -30px 0;
+  }
+
+  &.amex, &.americanexpress {
+    background-position: -60px 0;
+  }
+
+  &.discover {
+    background-position: -87px 0;
+  }
+
+  &.paypal {
+    background-position: -120px 0; //-96px
+  }
+}
+
+// When editing a card the icon should display larger
+.add-edit-credit-card {
+  .type {
+    width: 58px;
+    height: 40px;
+    background-size: auto 40px;
+
+    &.visa {
+      background-position: 0 0;
+    }
+
+    &.mastercard {
+      background-position: -60px 0;
+    }
+
+    &.amex, &.americanexpress {
+      background-position: -120px 0;
+    }
+
+    &.discover {
+      background-position: -174px 0;
+    }
+
+    &.paypal {
+      background-position: -232px 0;
+    }
+  }
+
+  .cc-number-masked {
+    @include font(1.5, 100, 2);
+  }
+
+  .billing-address {
+    .street {
+      @include clear;
+    }
+
+    .city {
+      margin-right: 0;
+    }
+
+    .state {
+      margin-left: 0.25em;
+    }
+  }
+
+  .buttons button {
+
+      margin-top: 1em;
+
+  }
+
+  .save_button {
+    float: right !important;
+  }
+
+}
+
+#payment-option-credit-card + label {
+  min-height: 5rem;
+
+  @media #{$lap}{
+    min-height: 3rem;
+  }
+
+  .payment-option {
+    text-align: center;
+    width: 100%;
+    float: left;
+
+    @media #{$lap} {
+      text-align: left;
+    }
+
+    &:after {
+      @include pseudo(119px, 20px, "\ ");
+      display: block;
+      background: url("../images/creditcards.png");
+      background-size: auto 20px;
+      margin: 0 auto;
+      margin-bottom: -4px;
+      clear: both;
+
+      @media #{$lap} {
+        display: inline-block;
+        margin-left: 1em;
+      }
+    }
+  }
+}
+
+#payment-option-paypal + label {
+  min-height: 5rem;
+  text-align: center;
+
+  @media #{$lap}{
+    min-height: 3rem;
+    text-align: left;
+  }
+
+  .payment-option {
+    text-align: center;
+    width: 100%;
+    float: left;
+
+    @media #{$lap} {
+      text-align: left;
+    }
+
+    &:after {
+      @include pseudo(30px, 20px, "\ ");
+      display: block;
+      margin: 0 auto;
+      background: url("../images/creditcards.png");
+      background-position: -120px 0;
+      background-size: auto 20px;
+      margin-bottom: -4px;
+      clear: both;
+
+      @media #{$lap} {
+        display: inline-block;
+        margin-left: 1em;
+      }
+    }
+  }
+}
+
+#payment-option-default + label .type {
+  clear: none !important;
+  display: inline-block;
+  height: auto;
+  margin: 0 .25em 0 1em;
+  margin-bottom: -4px;
+}
+
+.paypal-container {
+  margin-top: -1em;
+  margin-bottom: 2em;
+
+  p {
+    padding: 1em;
+    color: $dark-yellow !important;
+  }
+}
+
+
+
+
+
+.promo-code-container {
+  form {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.incomplete {
+  background: $lightest !important;
+  @include border('all', 1px, solid, $light);
+}
+
+.selected.incomplete, input[type=radio]:checked + label.incomplete {
+  @include border('all', 1px, solid, $green);
+}
+
+.checkbox-input {
+  clear: none;
+  float: left;
+  margin-right: 1em;
+  margin-top: 3px;
+}
+
+.card-number_read_only {
+  .type {
+    float: left;
+    margin-right: 0.5em;
+  }
+}
+
+.billing-address {
+  font-weight: 500;
+
+  span {
+    font-weight: 300;
+  }
+
+  .city {
+    clear: left;
+    display: block;
+    float: left;
+    margin-right: 0.5em;
+  }
+}
+
+// REVIEW STEP
+.cart-items {
+  width: 100%;
+
+  .cart-item {
+    width: 100%;
+
+    &:nth-of-type(odd) {
+      background-color: $lighter;
+    }
+
+    &.header {
+      display: none;
+
+      @media #{$desk} {
+        display: block;
+        background-color: $light;
+
+        .field {
+          margin-top: 0 !important;
+          margin-bottom: 0 !important;
+        }
+
+        .label {
+          display: block !important;
+          font-weight: 700 !important;
+        }
+      }
+    }
+
+    .thumbnail {
+      width: 30%;
+
+      @media #{$lap} {
+        width: 30%;
+        float: left;
+        clear: none;
+      }
+
+      @media #{$desk} {
+        width: 20%;
+        float: none;
+      }
+    }
+
+    .form-fields {
+      width: 100%;
+
+      .label {
+        float: left;
+        width: 26%;
+        margin-right: 1em;
+
+        @media #{$desk} {
+          display: none;
+        }
+      }
+
+      .field {
+        margin-bottom: 1em;
+
+        &.quantity {
+          .label {
+            width: 100%;
+            margin-bottom: 0.25em;
+          }
+          input[type=text], input[type=tel], input[type=number] {
+            width: 25%;
+          }
+          .update-cart-item {
+            width: 25%;
+            text-align: center;
+            margin-left: 1em;
+            padding: 0;
+            @media #{$desk} {
+              margin-top: .7em;
+              margin-left: 0;
+            }
+          }
+          @media #{$desk} {
+            input[type=text], input[type=tel], input[type=number] {
+              width: 100%;
+            }
+            .update-cart-item {
+              width: 100%;
+            }
+          }
+        }
+
+        &.buttons {
+          width: 30%;
+
+          float: right;
+          text-align: center;
+
+          button {
+            width: 100%;
+            margin-top: -11em;
+
+            @media #{$desk} {
+              margin-top: 0 !important;
+            }
+          }
+        }
+
+        @media #{$desk} {
+          &.name {
+            width: 35%;
+          }
+
+          &.price, &.quantity, &.total {
+            width: 12.5%;
+          }
+
+          &.buttons {
+            width: 15%;
+            margin-top: 0.5em;
+          }
+
+          &.name, &.price, &.total {
+            margin-top: 1em;
+          }
+
+          display: block;
+          float: left;
+          margin-right: 1em;
+        }
+      }
+    }
+  }
+}
+
+// Price break-down
+.cost-breakdown {
+
+  .field {
+    margin-bottom: 0;
+  }
+
+  .label {
+    width: 30%;
+
+    @media #{$lap} {
+      width: 50%;
+      text-align: right;
+    }
+
+    @media #{$desk} {
+      width: 71%;
+    }
+
+    p {
+      margin-left: 1em;
+    }
+
+    span {
+      font-weight: 300;
+    }
+  }
+
+  .value {
+    width: 29%;
+  }
+
+  .total {
+    @include border(top);
+    padding-top: .5em;
+    @include font(2, 100);
+
+    p {
+      margin-left: 1rem;
+    }
+  }
+
+  .discount {
+    .value {
+      &:before {
+        @include pseudo(.5em, 1em, "-");
+        margin-left: -.5em;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+// Review Checkout Selections
+.selection-container {
+  h3 {
+    padding-left: 1rem;
+  }
+
+  h4 {
+    margin-bottom: 1rem;
+  }
+
+  button {
+    float: right;
+    margin-top: -5.25rem;
+  }
+
+  .billing-information {
+    h4 {
+      margin-bottom: 4rem;
+    }
+
+    button {
+      margin-top: -6.25rem;
+    }
+  }
+
+
+}
+
+.order-review {
+  .card {
+    min-height: 150px;
+
+    .address {
+      span {
+        display: block;
+        float: left;
+        margin: 0 0.25em 0 0;
+      }
+      .company, .street, .city, .country, .phone {
+        clear: left;
+      }
+
+      .name {
+        margin-right: 0;
+      }
+
+      .phone, .street {
+        margin-top: 1em;
+      }
+    }
+
+    .change {
+      margin: 0;
+      float: right;
+    }
+  }
+
+  .shipping-option {
+    span {
+      display: block;
+      float: left;
+      margin-right: 1em;
+    }
+
+    .delivery-date, .price {
+      clear: left;
+    }
+
+    .carrier {
+      width: 30% !important;
+      padding-right: 0;
+      text-align: left;
+      padding-left: 2.5em;
+
+      &:before {
+        display: inline-block !important;
+        margin-top: -2px;
+        margin-left: -2.5em;
+      }
+    }
+
+    .delivery-date, .price {
+      width: 100%;
+      display: block;
+      margin-top: 1em;
+
+      &:before {
+        font-weight: 500;
+        @include pseudo(30%, 1em, "\ ");
+        margin-right: 1em;
+        text-align: left;
+      }
+    }
+
+    .delivery-date:before {
+      content: "Delivery date: ";
+    }
+
+    .price:before {
+      content: "Shipping cost: ";
+    }
+
+  }
+}
+
+footer {
+    .help {
+        min-height: ($tapheight - 1) + em;
+        h2, p {
+          text-align: center;
+          margin: 2rem;
+        }
+
+        h2 {
+          font-weight: 100;
+          margin-bottom: 0;
+        }
+
+        p {
+          margin-top: 1rem;
+          margin-bottom: 0;
+          @include font(1.2, 100);
+        }
+    }
+
+    .help, .privacy-policy, .shipping-policy {
+      a {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-top: 2em !important;
+        display: block;
+        @include taptarget();
+        text-align: center;
+        width: 90%;
+        @extend .btn;
+        @extend .tertiary;
+
+        // &:hover {
+        //   background-color: $light !important;
+        //   color: $dark;
+        //   border-color: $dark;
+        // }
+      }
+    }
+
+    .privacy-policy {
+      a {
+        @media #{$lap} {
+          margin-bottom: 2em !important;
+        }
+      }
+    }
+
+    .shipping-policy {
+      a {
+        margin-bottom: 2em !important;
+      }
+    }
+}
+
+// MODAL
+
+.modal-inner {
+  header {
+    padding: 1em 3em !important;
+  }
+}
+
+.semantic-content.is-active:before {
+  background: $dark !important;
+}
+
+.modal-close {
+
+  @media #{$lap}{
+    text-align: center;
+    @include font(3, 100, 2);
+    margin-right: -3px;
+  }
+
+  color: $dark;
+
+  &:after {
+
+
+    @media #{$lap}{
+      width: 50px;
+      height: 50px;
+    }
+
+    @media #{$desk}{
+      margin-left: 275px !important;
+    }
+  }
+}
+
+.modal-content {
+  padding: 3em !important;
+
+  h1 {
+    @extend .h2;
+    padding: 0;
+    margin-top: 0 !important;
+
+  }
+
+  h2 {
+    padding: 0  !important;
+    @extend .h3;
+  }
+
+  h3 {
+    padding: 0 !important;
+    @extend .h4;
+  }
+}
+
+#cancel-order-modal{
+  text-align: center;
+
+  a {
+    display: block;
+    clear: both;
+    border-bottom: none;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+}
+
+.remove-confirmation {
+  .remove-cart-item {
+    @include transition($transition);
+    -webkit-transform: translateY(0);
+    opacity: 1;
+  }
+
+  span {
+    display: block;
+    @include transition($transition);
+    margin-top: 0;
+    -webkit-transform: translateY(100px);
+    opacity: 0;
+    height: 0;
+  }
+
+  &.confirm {
+    .remove-cart-item {
+      -webkit-transform: translateY(-30px);
+      opacity: 0;
+    }
+
+    span {
+      display: block;
+      opacity: 1;
+      -webkit-transform: translateY(0px);
+      height: auto;
+
+      margin-top: -145px;
+
+      @media #{$lap} {
+        margin-top: -95px;
+      }
+
+      @media #{$desk} {
+        margin-top: -25px;
+      }
+
+      p {
+        display: block;
+        clear: both;
+        margin-bottom: 0;
+        @media #{$lap} {
+          margin-bottom: 10px;
+        }
+      }
+
+      button {
+        position: relative;
+        margin-top: 10px !important;
+      }
+
+      .yes {
+        @extend .error;
+        @media #{$lap} {
+          margin-bottom: 10px;
+        }
+      }
+
+      .no {
+        @extend .success;
+      }
+
+    }
+  }
+}
+
+
+// ORDER CONFIRMATION
+
+.order-confirmation {
+  text-align: center;
+  h2 {
+    text-align: center;
+    color: $green;
+  }
+
+  .order-number {
+    font-weight: 700;
+  }
+
+  button {
+    margin-top: 3rem;
+  }
+}
+
+/* Colors */
+.bg-lightest { background-color: $lightest; }
+.bg-lighter { background-color: $lighter; }
+.bg-light { background-color: $light; }
+.bg-dark { background-color: $dark; }
+.bg-darkest { background-color: $darkest; }
+
+.graybox, .greybox {
+}
+
+
+/* Typography */
+a, a:link, a:hover, a:active, a:focus {
+    text-decoration: none;
+    border-bottom: 1px solid;
+}

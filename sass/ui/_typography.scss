@@ -1,0 +1,69 @@
+.heading {
+  margin-top: 1em;
+  padding: 0;
+  text-align: center;
+
+  @media #{$desk} {
+    padding-left: 1em;
+    text-align: left;
+  }
+}
+
+h1, .h1 {
+  @include font(3, 500);
+  @extend .heading;
+
+  @media #{$lap}{
+      @include font(3);
+  }
+
+  @media #{$desk} {
+      @include font(4, 100, 4);
+  }
+}
+
+h2, .h2 {
+  @include font(1.5, 500, 1);
+  @extend .heading;
+
+  @media #{$lap}{
+      @include font(2);
+      padding: 0;
+  }
+
+  @media #{$desk} {
+      text-align: left;
+      @include font(3, 100)
+  }
+}
+
+h3, .h3 {
+  @include font(1.5, 300);
+  @extend .heading;
+
+  @media #{$lap}{
+      @include font(1.5, 100);
+  }
+
+  @media #{$desk} {
+      @include font(2, 300)
+  }
+}
+
+h4, .h4 {
+  @include font(1, 500);
+  @extend .heading;
+
+  @media #{$lap}{
+      @include font(1.25, 500);
+  }
+
+  @media #{$desk} {
+      @include font(1.5, 300)
+  }
+}
+
+
+body {
+  @include font(1,1);
+}

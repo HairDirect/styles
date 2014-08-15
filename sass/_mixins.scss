@@ -1,0 +1,110 @@
+@mixin font-size($size, $important: null) {
+  @if $important == important {
+    font-size: ($size * $rootfontsize) + px !important;
+    font-size: $size + rem !important;
+  }  @else {
+    font-size: ($size * $rootfontsize) + px;
+    font-size: $size + rem;
+  }
+}
+
+@mixin line-height($size, $auto: false) {
+  @if $auto == false {
+    $size: $size * $baseline;
+  }
+    line-height: ($size * $rootfontsize) + px;
+    line-height: $size + rem;
+}
+
+@mixin font-family($font-weight: 300) {
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: $font-weight;
+    letter-spacing: 0;
+}
+
+@mixin font($size: 1, $font-weight: 300, $line-height: $size, $line-height-auto: false) {
+    @include font-size($size);
+    @include font-family($font-weight);
+
+    @if $line-height != null {
+      @include line-height($line-height, false);
+    } @else {
+      @include line-height($line-height, $line-height-auto);
+    }
+}
+
+@mixin rem-height($size, $important: null) {
+    @if $important == 'important' {
+        height: ($size * $rootfontsize) + px !important;
+        height: $size + rem !important;
+    }
+    @else if $important == '!important' {
+        height: ($size * $rootfontsize) + px !important;
+        height: $size + rem !important;
+    }
+    @else {
+        height: ($size * $rootfontsize) + px;
+        height: $size + rem;
+    }
+}
+
+@mixin taptarget($adjust: 0) {
+    @include rem-height($tapheight+$adjust);
+    min-height: (($mintapheight+$adjust) * $rootfontsize) + px;
+    min-height: ($mintapheight+$adjust) + rem;
+}
+
+// PSEUDO ELEMENT
+//
+// quickly create the foundation of a pseudo element
+// e.g. SASS: @include pseudo(40px, 40px, "Your message here");
+
+@mixin pseudo($width, $height, $content) {
+    display: inline-block;
+    position: relative;
+    content: $content;
+    width: $width;
+    height: $height;
+}
+
+@mixin outline {
+    outline: 1px solid red;
+}
+
+$borderstyle: $lineweight $linetype $linecolor;
+
+@mixin border($location: 'all', $lineweight: $lineweight, $linetype: $linetype, $linecolor: $linecolor) {
+    @if $location == 'all' {
+        border: $lineweight $linetype $linecolor;
+    } @else if $location == 'none' {
+        border: none;
+    } @else {
+        border-#{$location}: $lineweight $linetype $linecolor;
+    }
+
+}
+
+// REM ATTRIBUTE
+//
+// Set a rem value with pixel fallback for any element attribute
+// e.g. SASS: @include rem-attribute('margin-top', 2);
+// CSS: margin-top: 31px; margin-top: 2rem;
+
+@mixin rem-attribute($attribute, $value) {
+  #{$attribute}: $value * $basefontsize + px;
+  #{$attribute}: $value + rem;
+}
+
+
+@mixin clear($location: "after") {
+  @if $location == "after" {
+    &:after {
+      @include pseudo(100%,0,"\ ");
+      display: table;
+      clear: both;
+    }
+  }
+  @else {
+    clear: $location;
+  }
+}
