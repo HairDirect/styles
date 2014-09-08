@@ -764,6 +764,18 @@ input[type=radio]:checked + label.card {
 	}
 }
 
+.payment-option-list.btn_group {
+	margin-bottom: 0;
+}
+
+.credit-card-list-container {
+	margin-top: 2rem;
+}
+
+#credit-card-form > h2 {
+	margin-top: 0;
+} 
+
 .default-payment {
 	.card {
 		margin-top: 0;
@@ -1053,10 +1065,6 @@ input[type=radio]:checked + label.card {
 		color: $dark-yellow !important;
 	}
 }
-
-
-
-
 
 .promo-code-container {
 	form {
