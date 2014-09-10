@@ -835,7 +835,7 @@ input[type=radio]:checked + label.card {
 	}
 }
 
-#promo-code-form {
+#promo-code-form { 
 	&.success {
 		.card {
 			@extend .background-success;
