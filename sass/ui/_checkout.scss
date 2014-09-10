@@ -1512,6 +1512,34 @@ footer {
 		padding: 0 !important;
 		@extend .h4;
 	}
+
+    .flag {
+        height: 54px;
+        width: 81px;
+        display: inline-block;
+        &.us {
+            background: url(//media.hairdirect.com/store/images/us-flag.png) no-repeat;
+        }
+
+        &.uk {
+            background: url(//media.hairdirect.com/store/images/uk-flag.png) no-repeat;
+        }
+
+        &.eu {
+            background: url(//media.hairdirect.com/store/images/eu-flag.png) no-repeat;
+        }
+    }
+
+    
+    span.arrow{
+        color: #90A8B0;
+	    font-size: 54px;
+	    font-family: arial;
+	    font-weight: bold;
+	    position: relative;
+	    bottom: 12px;
+	    margin: 0 8px;
+    }
 }
 
 #cancel-order-modal {
