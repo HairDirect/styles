@@ -10,10 +10,6 @@
  * having to alter the framework itself.
  */
 
-
-
-
-
 /*------------------------------------*\
     $OBJECTS-AND-ABSTRACTIONS
 \*------------------------------------*/
@@ -49,15 +45,21 @@ $use-stats:         true;
 $use-greybox:       true;
 $push:              true;
 
-
-
-
 /*------------------------------------*\
     $OVERRIDES
 \*------------------------------------*/
 /**
  * Place any variables that should override inuit.css’ defaults here.
  */
+
+/*------------------------------------*\
+    $BRAND
+\*------------------------------------*/
+/**
+ * How big would you like round corners to be by default?
+ */
+$brand-round: 6px!default;
+$circle: 50%;
 
 /*------------------------------------*\
     $CUSTOM
@@ -74,7 +76,15 @@ $tapheight: 4;
 $taptarget: $tapheight*$rootfontsize;
 
 // Colors
+$white: #fff;
+$near-white: #fefefe;
+$white-smoke: #fafafa;
+$light-gray: #f5f5f5;
+$medium-gray: #e8e8e8;
+$dark-gray: #7a7a7a;
+
 $light: #cbcbcb;
+$nav-blue: #4e88bd;
 $lighter: lighten($light, 15);
 $lightest: lighten($light, 50);
 $medium: darken($light, 15);
@@ -114,8 +124,6 @@ $dark-blue-dark: darken($dark-blue, 25);
 $dark-blue-darker: darken($dark-blue, 50);
 $dark-blue-darkest: darken($dark-blue, 75);
 
-$borderradius: 5px;
-
 /* MEDIA QUERIES */
 $palm: "only screen and (max-width : 20em)";
 $lap: "only screen and (min-width : 30em)";
@@ -129,3 +137,5 @@ $transition: all .3s ease-in-out;
 $lineweight: 1px !default;
 $linetype: solid !default;
 $linecolor: $dark !default;
+$text-shadow-dark: 0 2px 0 rgba(0, 0, 0, 0.5);
+$text-shadow-light: 0px 1px 0px rgba(0, 0, 0, 0.1);

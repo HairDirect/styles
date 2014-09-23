@@ -17,8 +17,8 @@
 }
 
 @mixin font-family($font-weight: 300) {
-    font-family: 'Helvetica Neue', Helvetica, sans-serif;
-    font-weight: $font-weight;
+    font-family: HelveticaNeueETW01-45Lt, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: $font-weight;
     letter-spacing: 0;
 }
 

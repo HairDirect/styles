@@ -3,7 +3,7 @@ xmp {
 	text-indent: 0;
 	@include font-size(.9);
 	margin: 0;
-	border-radius: $borderradius;
+	border-radius: $brand-round;
 	background: $lighter;
 	padding: 1em;
 	color: $light-blue;
@@ -16,6 +16,8 @@ xmp {
 }
 
 body {
+	background-color: $white-smoke;
+
 	@media #{$desk} {
 		margin: 0 auto;
 		max-width: 60em;
@@ -53,7 +55,8 @@ header {
 	@media #{$lap} {
 		&:before {
 			@include pseudo(10em, 1em, "Secure Transaction");
-			color: $light-blue;
+			color: #212121;
+			font-size: 20px;
 			text-align: right;
 			margin-right: 1em;
 			line-height: 1em;
@@ -62,7 +65,7 @@ header {
 
 	@media #{$desk} {
 		&:before {
-			color: $lighter;
+			color: #212121;
 		}
 	}
 
@@ -84,9 +87,7 @@ header {
 article {
 
 	@media #{$lap} {
-		// width: 96%;
 		margin: 0 auto;
-		//        overflow: hidden;
 	}
 }
 
@@ -113,13 +114,9 @@ article {
 .global-nav {
 	height: (($tapheight - 1) * $rootfontsize) + px;
 	height: ($tapheight - 1) + rem;
-	background-color: $light-blue-lighter;
+	background-color: $white;
 	display: block;
 	overflow: hidden;
-
-	@media #{$desk} {
-		background-color: $light;
-	}
 }
 
 .logo {
@@ -134,13 +131,15 @@ article {
 
 
 .progress {
-	background: $lighter;
 	text-align: center;
+	box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.04);
+	margin-top: .5em;
+	@media #{$palm} {
+		margin-top: 0;
+	}
 
 	@media #{$desk} {
-		background: none;
-		width: 96%;
-		margin: 0 auto;
+		width: 98%;
 	}
 
 	ul {
@@ -151,160 +150,108 @@ article {
 		list-style: none;
 		display: block;
 		float: left;
-		padding: 5px;
 		margin: 0;
 		width: 25%;
-
+		height: 4em;
 
 		@media #{$desk} {
-			$pillsize: 40px;
-			@include transition($transition);
-			@include font(1, 300, 4);
-			background-color: $lightest !important;
-			color: $dark;
-			font-weight: normal;
-			text-align: left;
-			padding-left: $pillsize * 1.5 + 20px;
-			height: 5em;
-			margin: 0;
-			// &:hover {
-			//     color: $light-blue-light;
-			// }
-			&:before {
-				@include transition($transition);
-				display: block;
-				width: $pillsize;
-				height: $pillsize;
-				content: "1";
-				background: $light;
-				color: $dark;
-				border-radius: $pillsize;
-				line-height: $pillsize;
-				position: absolute;
-				margin-top: 1em;
-				margin-left: -$pillsize*1.5;
-				text-align: center;
-			}
+			height: 3em;
 		}
 
-
+		border: 1px solid $medium-gray;
+		background-color: $white-smoke;
+		@include transition($transition);
 
 		a {
 			display: block;
+			float: left;
 			text-align: center;
 			width: 100%;
 			margin: 0;
-			padding: 0;
 			border-bottom: 0;
 			@include font(0.9, 500, 1);
 			@include transition($transition);
-			color: $light;
+			color: $dark-gray;
 			text-decoration: none;
-			// &:hover {
-			//     color: $light-blue;
-			//
-			//     &:before {
-			//         background: $light-blue-light;
-			//         color: $lightest;
-			//     }
-			// }
-			&:visited {
-				background-color: $lighter;
-				color: $light;
-			}
-
-			@media #{$lap} {
-				height: 3em;
-				line-height: 3em !important;
-			}
+			text-shadow: $text-shadow-light;
+			@extend %vertical-align;
 
 			@media #{$desk} {
-				display: inline;
+				&:before, &:after {
+					content: " ";
+					display: block;
+					width: 0;
+					height: 0;
+					border-top: 23px solid transparent;
+					border-bottom: 23px solid transparent;
+					top: 100%;
+					margin-top: -33px;
+					position: absolute;
+					@include transition($transition);
+				}
+
+				&:before {
+					border-left: 14px solid $medium-gray;
+					margin-left: 1px;
+					left: 100%;
+					z-index: 1;
+				}
+
+				&:after {
+					border-left: 14px solid $white-smoke;
+					left: 100%;
+					z-index: 2;
+				}
 			}
 		}
 
-
-
 		&.active {
-			background-color: $light-blue !important;
-			color: $lightest;
-
-			@media #{$desk} {
-				background-color: $lightest !important;
-
-				&:before {
-					background: $light-blue !important;
-					color: $lightest !important;
-				}
-			}
+			background-color: $nav-blue;
+			border-color: $nav-blue;
 
 			a {
-				color: $lightest;
+				color: $near-white;
+				font-weight: bold;
+				text-shadow: $text-shadow-dark;
 
 				@media #{$desk} {
-					color: $light-blue !important;
+					&:before, &:after {
+						border-left-color: $nav-blue;
+					}
 				}
 			}
 		}
 
 		&.completed {
-			background-color: $light-blue-light;
-			color: $lightest;
-
-			@media #{$desk} {
-				&:before {
-					background: $light-blue-light;
-					color: $lightest;
-				}
-			}
+			background-color: $light-gray;
 
 			a {
-				color: $lightest;
-
 				@media #{$desk} {
-					color: $light-blue-light;
-					// &:hover {
-					//   background-color: none !important;
-					// }
+					&:after {
+						border-left-color: $light-gray;
+					}
 				}
 			}
 		}
-	}
 
+		&:hover, &.active:hover {
+			background-color: $white;
+			border-color: $medium-gray;
 
-	.shipping, .method {
-		a {
-			@include line-height(1, true);
-		}
-	}
+			a, a:hover {
+				color: $dark-gray;
+				text-shadow: $text-shadow-light;
 
-	.billing, .review {
-		margin: 0;
+				@media #{$desk} {
+					&:before {
+						border-left-color: $medium-gray;
+					}
 
-		a {
-			@include line-height(2, true);
-			margin: 0;
-		}
-	}
-
-
-
-
-	@media #{$desk} {
-		.shipping:before {
-			content: "1";
-		}
-
-		.method:before {
-			content: "2";
-		}
-
-		.billing:before {
-			content: "3";
-		}
-
-		.review:before {
-			content: "4";
+					&:after {
+						border-left-color: $white;
+					}
+				}
+			}
 		}
 	}
 
@@ -487,30 +434,22 @@ input[type=radio] + label.card {
 		float: right;
 		margin-top: 0;
 		margin-bottom: 0;
-	}
-
-	.shiptothis:after {
-		@include pseudo(100%, 2em, "Ship to this address");
-	}
-
-	.paywiththis {
-		&:after {
-			@include pseudo(100%, 2em, "Pay with this card");
-		}
-	}
-
-	.billtothis:after {
-		@include pseudo(100%, 2em, "Use this billing address");
+		border-radius: $circle;
+		border: 1px solid #cecece;
+		color: #cecece;
+		font-size: 25px;
+		background: none;
+		padding: 0px 7px;
+		text-shadow: 0px 1px 1px rgba(65, 114, 21, 0.004);
 	}
 
 	button {
 		display: block;
-		height: 2em;
+		/*height: 2em;*/
 	}
 }
 
 .expired, .expired input[type=radio]:checked + label {
-
 	.card, &.card {
 		background-color: $lighter-red;
 
@@ -561,9 +500,14 @@ input[type=radio] + label.card {
 
 input[type=radio]:checked + label.card {
 
-	&:hover {
-		background-color: $lighter-green !important;
+	.shiptothis, .paywiththis, .billtothis {
+		background-color: #6aa9d5;
+		color: $white;
+		border-color: #6aa9d5;
 	}
+}
+
+/*input[type=radio]:checked + label.card {
 
 	.shiptothis, .paywiththis, .billtothis {
 		background: none;
@@ -574,8 +518,6 @@ input[type=radio]:checked + label.card {
 		}
 
 		&:after {
-			@include pseudo(auto, 1em, "Selected");
-			color: $green;
 			position: relative;
 			display: block;
 			float: right;
@@ -587,7 +529,7 @@ input[type=radio]:checked + label.card {
 			}
 		}
 	}
-}
+}*/
 
 .new-address {
 	clear: both;
@@ -774,7 +716,7 @@ input[type=radio]:checked + label.card {
 
 #credit-card-form > h2 {
 	margin-top: 0;
-} 
+}
 
 .default-payment {
 	.card {
@@ -835,7 +777,7 @@ input[type=radio]:checked + label.card {
 	}
 }
 
-#promo-code-form { 
+#promo-code-form {
 	&.success {
 		.card {
 			@extend .background-success;
@@ -1513,33 +1455,34 @@ footer {
 		@extend .h4;
 	}
 
-    .flag {
-        height: 54px;
-        width: 81px;
-        display: inline-block;
-        &.us {
-            background: url(//media.hairdirect.com/store/images/us-flag.png) no-repeat;
-        }
+	.flag {
+		height: 54px;
+		width: 81px;
+		display: inline-block;
 
-        &.uk {
-            background: url(//media.hairdirect.com/store/images/uk-flag.png) no-repeat;
-        }
+		&.us {
+			background: url(//media.hairdirect.com/store/images/us-flag.png) no-repeat;
+		}
 
-        &.eu {
-            background: url(//media.hairdirect.com/store/images/eu-flag.png) no-repeat;
-        }
-    }
+		&.uk {
+			background: url(//media.hairdirect.com/store/images/uk-flag.png) no-repeat;
+		}
 
-    
-    span.arrow{
-        color: #90A8B0;
-	    font-size: 54px;
-	    font-family: arial;
-	    font-weight: bold;
-	    position: relative;
-	    bottom: 12px;
-	    margin: 0 8px;
-    }
+		&.eu {
+			background: url(//media.hairdirect.com/store/images/eu-flag.png) no-repeat;
+		}
+	}
+
+
+	span.arrow {
+		color: #90A8B0;
+		font-size: 54px;
+		font-family: arial;
+		font-weight: bold;
+		position: relative;
+		bottom: 12px;
+		margin: 0 8px;
+	}
 }
 
 #cancel-order-modal {
