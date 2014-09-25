@@ -2,7 +2,7 @@
 	@include taptarget();
 	background-color: $light;
 	height: 2em;
-	@inlcude transition;
+	@include transition($transition);
 	margin: 0;
 
 	@include font(1, 500, 2, true);
@@ -14,29 +14,6 @@
 
 	@media #{$lap} {
 		font-weight: 300;
-	}
-}
-
-.primary {
-	background-color: $green;
-	color: $lightest;
-	@include font-size(1.5);
-	@include transition($transition);
-
-	@media #{$desk} {
-		@include font-size(2);
-	}
-
-	&:hover, &:focus {
-		background-color: lighten($green, 10%);
-	}
-
-	&:active {
-		background-color: darken($green, 10%);
-	}
-
-	&.small {
-		@include font-size(1);
 	}
 }
 

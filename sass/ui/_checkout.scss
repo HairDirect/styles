@@ -23,6 +23,8 @@ body {
 		max-width: 60em;
 		overflow: hidden;
 	}
+
+	box-shadow: 0px 0px 62px -25px rgba(50, 50, 50, 0.75);
 }
 
 *, *:before, *:after {
@@ -31,7 +33,18 @@ body {
 	-webkit-box-sizing: border-box !important;
 }
 
-header {
+.checkout {
+	> article, > header {
+		@media #{$desk} {
+			padding: 1em 2em;
+		}
+	}
+
+	> footer {
+		@media #{$desk} {
+			padding: 1em 5em;
+		}
+	}
 }
 
 .clear {
@@ -51,28 +64,25 @@ header {
 	float: right;
 	margin: 5px 1em 0 0;
 	line-height: 2em;
+	color: #212121;
 
 	@media #{$lap} {
 		&:before {
 			@include pseudo(10em, 1em, "Secure Transaction");
-			color: #212121;
+			display: inline;
+			content: "Secure Transaction";
 			font-size: 20px;
-			text-align: right;
-			margin-right: 1em;
-			line-height: 1em;
+			vertical-align: top;
+			position: relative;
+			top: 50%;
 		}
 	}
-
-	@media #{$desk} {
-		&:before {
-			color: #212121;
-		}
-	}
-
 
 	.trust-asset-lock {
 		width: 2em;
 		height: 2em;
+		position: relative;
+		top: 32%;
 
 		.lock {
 			fill: $light-blue;
@@ -112,8 +122,7 @@ article {
 }
 
 .global-nav {
-	height: (($tapheight - 1) * $rootfontsize) + px;
-	height: ($tapheight - 1) + rem;
+	height: 4.9em;
 	background-color: $white;
 	display: block;
 	overflow: hidden;
@@ -122,24 +131,31 @@ article {
 .logo {
 
 	img {
-		height: $tapheight - 1.3 + em;
-		padding: 5px 0 0 1em;
-		display: block;
-		max-width: 100%;
+		height: 4em;
+		position: relative;
+		top: .4em;
+		left: .4em;
+		min-width: 99px;
+
+		@media #{$palm} {
+			height: 3em;
+			top: .9em;
+			left: .9em;
+			min-width: 74px;
+		}
 	}
 }
 
-
 .progress {
 	text-align: center;
-	box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.04);
 	margin-top: .5em;
+
 	@media #{$palm} {
 		margin-top: 0;
 	}
 
 	@media #{$desk} {
-		width: 98%;
+		width: 98.6%;
 	}
 
 	ul {
@@ -153,6 +169,7 @@ article {
 		margin: 0;
 		width: 25%;
 		height: 4em;
+		box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.04);
 
 		@media #{$desk} {
 			height: 3em;
@@ -169,12 +186,13 @@ article {
 			width: 100%;
 			margin: 0;
 			border-bottom: 0;
+			padding: 6% 0;
 			@include font(0.9, 500, 1);
 			@include transition($transition);
 			color: $dark-gray;
 			text-decoration: none;
 			text-shadow: $text-shadow-light;
-			@extend %vertical-align;
+			@include vertical-align;
 
 			@media #{$desk} {
 				&:before, &:after {
@@ -182,10 +200,11 @@ article {
 					display: block;
 					width: 0;
 					height: 0;
+					padding: 0;
 					border-top: 23px solid transparent;
 					border-bottom: 23px solid transparent;
 					top: 100%;
-					margin-top: -33px;
+					margin-top: -22%;
 					position: absolute;
 					@include transition($transition);
 				}
@@ -206,17 +225,17 @@ article {
 		}
 
 		&.active {
-			background-color: $nav-blue;
-			border-color: $nav-blue;
+			background-color: $nav-blue !important;
+			border-color: $nav-blue !important;
 
 			a {
-				color: $near-white;
-				font-weight: bold;
-				text-shadow: $text-shadow-dark;
+				color: $near-white !important;
+				font-weight: bold !important;
+				text-shadow: $text-shadow-dark !important;
 
 				@media #{$desk} {
 					&:before, &:after {
-						border-left-color: $nav-blue;
+						border-left-color: $nav-blue !important;
 					}
 				}
 			}
@@ -275,17 +294,14 @@ article {
 	}
 }
 
-
-
 .cta_bar {
-
 	@include rem-height($tapheight*2);
 
 	@media #{$lap} {
 		@include rem-height($tapheight);
 	}
 
-	background-color: $light;
+	margin-bottom: 2em;
 
 	.grid__item {
 		@include rem-height($tapheight);
@@ -296,30 +312,53 @@ article {
 			clear: none;
 		}
 
+		@media #{$palm} {
+			margin-top: 1em;
+		}
+
+		&.palm-one-whole {
+			@media #{$palm} {
+				padding-left: 0;
+			}
+		}
+
 		text-align: center;
 		float: left;
 	}
 
-	.total {
-		text-align: center;
-		@include font(1.5, 300, 3.25);
+	.footer-total-container {
+		border: 1px solid $medium-gray;
+		border-radius: $brand-round;
+		background-image: -moz-linear-gradient( 90deg, rgb(250,250,250) 0%, rgb(255,255,255)s 100%);
+		background-image: -webkit-linear-gradient( 90deg, rgb(250,250,250) 0%, rgb(255,255,255) 100%);
+		background-image: -ms-linear-gradient( 90deg, rgb(250,250,250) 0%, rgb(255,255,255) 100%);
+		box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.04);
 
-		@media #{$desk} {
-			@include font(2, 100, 3.25);
-		}
+		.total {
+			text-align: center;
+			@include font(1.5, bold, 1);
+			position: relative;
+			top: 32%;
+			text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.004);
+			margin-bottom: 0;
 
-		&:before {
-			@include pseudo(6rem, 1, "Total: ");
-			margin-right: .6em;
+			@media #{$desk} {
+				@include font(1.9, normal, 1);
+			}
+
+			&:before {
+				@include pseudo(auto, auto, "Total");
+				@include font(.8, bold, 1);
+				top: -5px;
+				text-transform: uppercase;
+				margin-right: .5em;
+			}
 		}
 	}
 
 	.btn {
-		text-indent: 1em;
-
-		@media #{$lap} {
-			text-indent: 0;
-		}
+		height: 100%;
+		width: 100%;
 	}
 }
 
@@ -328,14 +367,43 @@ article {
 	background-color: $lightest;
 }
 
-#help-content, .privacy-policy, .shipping-policy {
-	background-color: $dark;
-}
+.checkout > footer {
+	min-height: ($tapheight - 1) + em;
+	border: 1px solid #d8d8d8;
+	background-color: #eaeaea;
+	padding-top: 1em;
+	padding-bottom: 3em;
 
-#help-content {
-	padding-top: $taptarget+px;
-}
+	#help-content {
+		h2, p {
+			text-align: center;
+			@include rem-attribute('margin', 2);
+			color: #5d5d5d;
+			text-shadow: $text-shadow-white;
+		}
 
+		h2 {
+			margin-bottom: .5em;
+		}
+
+		a.btn {
+			text-align: center;
+			width: 100%;
+		}
+
+		> div {
+			margin-bottom: 1em;
+		}
+
+		> div.left {
+			text-align: left;
+		}
+
+		> div.right {
+			text-align: right;
+		}
+	}
+}
 
 .changeaddress, .createaddress {
 	margin: 1em auto;
@@ -445,7 +513,6 @@ input[type=radio] + label.card {
 
 	button {
 		display: block;
-		/*height: 2em;*/
 	}
 }
 
@@ -507,30 +574,6 @@ input[type=radio]:checked + label.card {
 	}
 }
 
-/*input[type=radio]:checked + label.card {
-
-	.shiptothis, .paywiththis, .billtothis {
-		background: none;
-		margin-top: 0.5em;
-
-		@media #{$desk} {
-			margin-top: 1em;
-		}
-
-		&:after {
-			position: relative;
-			display: block;
-			float: right;
-			margin-top: -.7em;
-			margin-right: 0;
-
-			@media #{$desk} {
-				margin-top: -1.125em;
-			}
-		}
-	}
-}*/
-
 .new-address {
 	clear: both;
 	margin-bottom: 2em;
@@ -578,22 +621,22 @@ input[type=radio]:checked + label.card {
 		background-repeat: no-repeat;
 	}
 
-	&.ups:before {
-		background-image: url('../images/United_Parcel_Service_logo.svg');
-		margin-top: -2px;
-
-		@media #{$desk} {
-			margin-top: 5px;
-		}
+	&.carrier.ups:before {
+		background-image: url('//media.hairdirect.com/store/images/ups-icon.svg');
 	}
 
-	&.usps:before {
-		background-image: url('../images/United_States_Postal_Service_Logo_Icon.svg');
-		margin-top: 2px;
+	&.carrier.usps:before {
+		margin-top: 11px;
+		background-image: url('//media.hairdirect.com/store/images/usps-icon.svg');
+	}
 
-		@media #{$desk} {
-			margin-top: 10px;
-		}
+	&.carrier.postnl:before {
+		background-image: url('//media.hairdirect.com/store/images/postnl-icon.svg');
+	}
+
+	&.carrier.gls:before {
+		margin-top: 16px;
+		background-image: url('//media.hairdirect.com/store/images/gls-icon.svg');
 	}
 }
 
@@ -1341,61 +1384,6 @@ input[type=radio]:checked + label.card {
 
 		.price:before {
 			content: "Shipping cost: ";
-		}
-	}
-}
-
-footer {
-	.help {
-		min-height: ($tapheight - 1) + em;
-
-		h2, p {
-			text-align: center;
-			margin: 2rem;
-		}
-
-		h2 {
-			font-weight: 100;
-			margin-bottom: 0;
-		}
-
-		p {
-			margin-top: 1rem;
-			margin-bottom: 0;
-			@include font(1.2, 100);
-		}
-	}
-
-	.help, .privacy-policy, .shipping-policy {
-		a {
-			margin-left: auto !important;
-			margin-right: auto !important;
-			margin-top: 2em !important;
-			display: block;
-			@include taptarget();
-			text-align: center;
-			width: 90%;
-			@extend .btn;
-			@extend .tertiary;
-			// &:hover {
-			//   background-color: $light !important;
-			//   color: $dark;
-			//   border-color: $dark;
-			// }
-		}
-	}
-
-	.privacy-policy {
-		a {
-			@media #{$lap} {
-				margin-bottom: 2em !important;
-			}
-		}
-	}
-
-	.shipping-policy {
-		a {
-			margin-bottom: 2em !important;
 		}
 	}
 }

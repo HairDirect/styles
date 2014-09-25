@@ -91,7 +91,7 @@ $borderstyle: $lineweight $linetype $linecolor;
 // CSS: margin-top: 31px; margin-top: 2rem;
 
 @mixin rem-attribute($attribute, $value) {
-  #{$attribute}: $value * $basefontsize + px;
+  #{$attribute}: $value * $rootfontsize + px;
   #{$attribute}: $value + rem;
 }
 
@@ -107,4 +107,10 @@ $borderstyle: $lineweight $linetype $linecolor;
   @else {
     clear: $location;
   }
+}
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }

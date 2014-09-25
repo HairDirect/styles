@@ -92,9 +92,9 @@ $dark: darken($light, 35);
 $darker: darken($light, 70);
 $darkest: darken($light, 90);
 
-$green: #4a993d;
-$lighter-green: lighten($green, 50);
-$light-green: lighten($green, 40);
+$green: #5e9c1c;
+$lighter-green: #59a71e;
+$light-green: #70b822;
 $dark-green: darken($green, 50);
 
 $yellow: #ae9912;
@@ -137,5 +137,6 @@ $transition: all .3s ease-in-out;
 $lineweight: 1px !default;
 $linetype: solid !default;
 $linecolor: $dark !default;
-$text-shadow-dark: 0 2px 0 rgba(0, 0, 0, 0.5);
+$text-shadow-dark: 1px 1px 0 rgba(0, 0, 0, 1);
 $text-shadow-light: 0px 1px 0px rgba(0, 0, 0, 0.1);
+$text-shadow-white: 0px 1px 0px #fff;
