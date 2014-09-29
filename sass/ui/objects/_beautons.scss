@@ -1,13 +1,10 @@
-/**
- * Positive actions; e.g. sign in, purchase, submit, etc.
- */
 .btn--positive, button.btn--positive {
 	border: 1px solid $green;
 	border-radius: 6px;
 	background-image: -moz-linear-gradient( 90deg, $lighter-green 0%, $light-green 100%);
 	background-image: -webkit-linear-gradient( 90deg, $lighter-green 0%, $light-green 100%);
 	background-image: -ms-linear-gradient( 90deg, $lighter-green 0%, $light-green 100%);
-	@include font-size(1.3);
+	@include font-size(1.250);
 	font-weight: bold !important;
 	text-shadow: $text-shadow-dark;
 	color: $lightest;
@@ -23,15 +20,26 @@
 		background-image: -moz-linear-gradient( 90deg, $light-green 0%, $lighter-green 100%);
 		background-image: -webkit-linear-gradient( 90deg, $light-green 0%, $lighter-green 100%);
 		background-image: -ms-linear-gradient( 90deg, $light-green 0%, $lighter-green 100%);
-	}
+	} 
 }
 
 .btn--secondary, .btn.btn--secondary {
 	border-style: solid;
 	border-width: 1px;
 	border-radius: 4px;
-	@include font-size(1.1);
+	@include font-size(1.125);
 	font-weight: bold;
+}
+
+.btn--alpha, .btn--beta, .btn--gamma {
+	&:disabled {
+		border-color: #e7e7e7;
+		background-image: -moz-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
+		background-image: -webkit-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
+		background-image: -ms-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
+		color: #b9b9b9;
+		text-shadow: $text-shadow-white;
+	}
 }
 
 .btn--alpha {

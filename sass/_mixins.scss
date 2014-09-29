@@ -95,7 +95,6 @@ $borderstyle: $lineweight $linetype $linecolor;
   #{$attribute}: $value + rem;
 }
 
-
 @mixin clear($location: "after") {
   @if $location == "after" {
     &:after {

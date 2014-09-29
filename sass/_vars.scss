@@ -44,6 +44,7 @@ $use-rules:         true;
 $use-stats:         true;
 $use-greybox:       true;
 $push:              true;
+$pull:				true;
 
 /*------------------------------------*\
     $OVERRIDES
@@ -102,7 +103,7 @@ $lighter-yellow: lighten($yellow, 50);
 $light-yellow: lighten($yellow, 40);
 $dark-yellow: darken($yellow, 50);
 
-$red: #993d3d;
+$red: #f87d7f;
 $lighter-red: lighten($red, 50);
 $light-red: lighten($red, 40);
 $dark-red: darken($red, 25);
@@ -137,6 +138,6 @@ $transition: all .3s ease-in-out;
 $lineweight: 1px !default;
 $linetype: solid !default;
 $linecolor: $dark !default;
-$text-shadow-dark: 1px 1px 0 rgba(0, 0, 0, 1);
+$text-shadow-dark: 0px -1px 0 #000;
 $text-shadow-light: 0px 1px 0px rgba(0, 0, 0, 0.1);
 $text-shadow-white: 0px 1px 0px #fff;

@@ -12,7 +12,7 @@ input[type=text] + label, input[type=tel] + label, textarea + label, select + la
 	position: absolute;
 	@include font(1,300,3);
 	z-index: 99;
-	color: $dark;
+	color: #464646;
 	padding: 0 1rem;
 	margin-top: -3.5em;
 	letter-spacing: 0;
@@ -20,27 +20,53 @@ input[type=text] + label, input[type=tel] + label, textarea + label, select + la
 
 input[type=text], input[type=tel], input[type=number], textarea, select {
 	width: 100%;
-	@include border;
-	background: none;
+	border: 1px solid #c5c8cc;
 	border-radius: $brand-round;
 	position: relative;
 	top: 0;
 	left: 0;
 	z-index: 1;
 	padding: 1em 1em 0;
+	color: #282828;
+	background-color: $white;
+	outline: 0;
 
 	&.nolabel {
 		padding-top: 0;
 	}
 
-	outline: 0;
-	background-color: $lightest;
-	@include transition($transition);
+	& + label {
+		color: #a1a1a1;
+	}
+
+	&:focus {
+		padding-left: .944em;
+		padding-top: .944em;
+		border-width: 2px;
+		border-color: #6fadd6 !important;
+
+		& + label {
+			@extend %textinputlabel;
+		}
+	}
 
 	&.required {
+		border-color: #818386;
+
 		& + label {
+			color: #464646;
+
 			&:after {
 				@extend .required_indicator;
+			}
+		}
+
+		&.complete {
+			& + label {
+				&:after {
+					@extend .required_indicator;
+					color: #464646 !important;
+				}
 			}
 		}
 	}
@@ -59,14 +85,10 @@ input[type=text], input[type=tel], input[type=number], textarea, select {
 	}
 
 	&.error {
-		background-color: $lighter-red !important;
 		border-color: $red !important;
 
-		&:focus {
-			background-color: $light-red !important;
-		}
-
 		& + label {
+			font-weight: bold;
 			color: $red !important;
 		}
 	}
@@ -74,14 +96,6 @@ input[type=text], input[type=tel], input[type=number], textarea, select {
 	&:valid {
 		// Hides the label
 		background: $lightest;
-	}
-
-	&:focus {
-		background-color: $lighter;
-	}
-
-	&:focus + label {
-		@extend %textinputlabel;
 	}
 }
 
@@ -117,14 +131,16 @@ textarea, textarea.threelines {
 		margin-top: -6.5rem;
 	}
 
-	&:focus + label {
-		margin-top: -6.2rem;
-	}
-
 	& + label.notempty {
 		margin-top: -6.2rem !important;
 	}
 
+	&:focus {
+		@include rem-attribute('padding-top', 1.438);
+		& + label {
+			margin-top: -6.2rem;
+		}
+	}
 
 	&.fourlines {
 		@include rem-height($formfieldheight * 2.5, important);
@@ -158,13 +174,11 @@ textarea, textarea.threelines {
 		}
 	}
 }
-
 /********************************
 
 RADIO BUTTON CARD STYLE
 
 *********************************/
-
 input[type=radio] {
 	display: none;
 
@@ -199,7 +213,6 @@ input[type=radio] {
 		}
 	}
 }
-
 /********************************
 
 DROP DOWN
@@ -363,33 +376,34 @@ input.autocomplete {
 		}
 	}
 }
-
 /********************************
 
 OTHER STYLES
 
 *********************************/
-
 .required_indicator:after {
-	@include pseudo(auto, 1em, "*");
-	color: red;
-	margin-left: 4px;
+	@include pseudo(auto, auto, "*");
+	color: #f84f52;
+	margin-left: 2px;
+	margin-top: 4px;
+	font-weight: bold;
 	float: right;
+	@include font-size(1.4);
 }
 
 .required-field-message {
-	@extend .text-error;
+	@include font(.6, bold);
+	text-transform: uppercase;
+	color: #f84f52;
 	text-align: right;
 	@extend .required_indicator;
+	text-shadow: 0px 1px 0px #ccc;
 }
-
-
 /********************************
 
 VALIDATION
 
 *********************************/
-
 .error-container {
 	padding-left: 1.5em;
 
@@ -423,12 +437,14 @@ input.error, textarea.error {
 input ~ .error, label ~ .error {
 	display: block;
 	clear: both;
-	background: $light-red;
-	padding: 1em;
+	background: $red;
+	color: $white;
+	padding: .5em;
+	@include font-size(.875);
 	font-weight: bold;
 	border-bottom-left-radius: $brand-round;
 	border-bottom-right-radius: $brand-round;
 	@include border(all, $lineweight, $linetype, $red);
-	@include border(top, 0);
+	border-top-width: 0px;
 	text-align: left;
 }

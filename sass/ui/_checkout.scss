@@ -40,6 +40,22 @@ body {
 		}
 	}
 
+	> article {
+		form {
+			h2 {
+				margin-top: 1em;
+			}
+		}
+
+		h2 {
+			margin-top: 1em;
+
+			@media #{$desk} {
+				margin-top: 0;
+			}
+		}
+	}
+
 	> footer {
 		@media #{$desk} {
 			padding: 1em 5em;
@@ -51,7 +67,11 @@ body {
 	clear: both;
 }
 
-.need-help {
+.need-help-container {
+	text-align: center;
+	color: #4f86b7;
+	line-height: 4.6em;
+
 	@media #{$desk} {
 		display: none;
 	}
@@ -91,13 +111,6 @@ body {
 				fill: $lighter;
 			}
 		}
-	}
-}
-
-article {
-
-	@media #{$lap} {
-		margin: 0 auto;
 	}
 }
 
@@ -160,114 +173,119 @@ article {
 
 	ul {
 		margin: 0;
-	}
-
-	li {
-		list-style: none;
-		display: block;
-		float: left;
-		margin: 0;
-		width: 25%;
-		height: 4em;
 		box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.04);
 
-		@media #{$desk} {
-			height: 3em;
-		}
-
-		border: 1px solid $medium-gray;
-		background-color: $white-smoke;
-		@include transition($transition);
-
-		a {
+		li {
+			list-style: none;
 			display: block;
 			float: left;
-			text-align: center;
-			width: 100%;
 			margin: 0;
-			border-bottom: 0;
-			padding: 6% 0;
-			@include font(0.9, 500, 1);
-			@include transition($transition);
-			color: $dark-gray;
-			text-decoration: none;
-			text-shadow: $text-shadow-light;
-			@include vertical-align;
+			width: 25%;
+			height: 4em;
 
 			@media #{$desk} {
-				&:before, &:after {
-					content: " ";
-					display: block;
-					width: 0;
-					height: 0;
-					padding: 0;
-					border-top: 23px solid transparent;
-					border-bottom: 23px solid transparent;
-					top: 100%;
-					margin-top: -22%;
-					position: absolute;
-					@include transition($transition);
-				}
-
-				&:before {
-					border-left: 14px solid $medium-gray;
-					margin-left: 1px;
-					left: 100%;
-					z-index: 1;
-				}
-
-				&:after {
-					border-left: 14px solid $white-smoke;
-					left: 100%;
-					z-index: 2;
-				}
+				height: 3em;
 			}
-		}
 
-		&.active {
-			background-color: $nav-blue !important;
-			border-color: $nav-blue !important;
+			border: 1px solid $medium-gray;
+			background-color: $white-smoke;
+			@include transition($transition);
 
 			a {
-				color: $near-white !important;
-				font-weight: bold !important;
-				text-shadow: $text-shadow-dark !important;
+				display: block;
+				float: left;
+				text-align: center;
+				width: 100%;
+				margin: 0;
+				border-bottom: 0;
+				padding: 6% 0;
+				@include font(0.9, 500, 1);
+				@include transition($transition);
+				color: $dark-gray;
+				text-decoration: none;
+				text-shadow: $text-shadow-light;
+				@include vertical-align;
 
 				@media #{$desk} {
 					&:before, &:after {
-						border-left-color: $nav-blue !important;
+						content: " ";
+						display: block;
+						width: 0;
+						height: 0;
+						padding: 0;
+						@include rem-attribute('border-top-width', 1.7);
+						@include rem-attribute('border-bottom-width', 1.7);
+						border-bottom-style: solid;
+						border-top-style: solid;
+						border-bottom-color: transparent;
+						border-top-color: transparent;
+						border-left-style: solid;
+						@include rem-attribute('border-left-width', 1);
+						top: 100%;
+						left: 99.5%;
+						@include rem-attribute('margin-top', -3.26);
+						position: absolute;
+						@include transition($transition);
 					}
-				}
-			}
-		}
 
-		&.completed {
-			background-color: $light-gray;
-
-			a {
-				@media #{$desk} {
-					&:after {
-						border-left-color: $light-gray;
-					}
-				}
-			}
-		}
-
-		&:hover, &.active:hover {
-			background-color: $white;
-			border-color: $medium-gray;
-
-			a, a:hover {
-				color: $dark-gray;
-				text-shadow: $text-shadow-light;
-
-				@media #{$desk} {
 					&:before {
 						border-left-color: $medium-gray;
+						@include rem-attribute('margin-left', .1);
+						z-index: 1;
 					}
 
 					&:after {
-						border-left-color: $white;
+						border-left-color: $white-smoke;
+						z-index: 2;
+					}
+				}
+			}
+
+			&.active {
+				background-color: $nav-blue !important;
+				border-color: $nav-blue !important;
+
+				a {
+					color: $near-white !important;
+					font-weight: bold !important;
+					text-shadow: $text-shadow-dark !important;
+
+					@media #{$desk} {
+						&:before, &:after {
+							border-left-color: $nav-blue !important;
+						}
+					}
+				}
+			}
+
+			&.completed {
+				background-color: $light-gray;
+
+				a {
+					@media #{$desk} {
+						&:after {
+							border-left-color: $light-gray;
+						}
+					}
+				}
+			}
+
+			&:hover, &.active:hover {
+				background-color: $white;
+				border-color: $medium-gray;
+
+				a, a:hover {
+					color: $dark-gray;
+					text-shadow: $text-shadow-light;
+
+					@media #{$desk} {
+						&:before {
+							border-left-color: $medium-gray;
+						}
+
+						&:after {
+							border-left-color: $white;
+						}
 					}
 				}
 			}
@@ -276,21 +294,6 @@ article {
 
 	.nav {
 		margin-bottom: 0;
-	}
-}
-
-.cancel-order {
-	@include rem-height($tapheight);
-
-	a {
-		@include transition($transition);
-		@include rem-height($tapheight);
-		@include font(2, 100, 3);
-		background-color: $red;
-
-		&:hover {
-			background-color: $dark-red;
-		}
 	}
 }
 
@@ -405,12 +408,40 @@ article {
 	}
 }
 
+.cancel-order {
+	text-align: center;
+	margin: 2em 0;
+
+	> a {
+		@media #{$palm} {
+			width: 100%;
+		}
+	}
+}
+
+form {
+	> ul.card {
+		padding-left: 0;
+		padding-right: $base-spacing-unit;
+	}
+
+	h2 {
+		@include font-size(1.9);
+		color: #222;
+		line-height: 0.867;
+		text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.004);
+	}
+}
+
 .changeaddress, .createaddress {
 	margin: 1em auto;
 	width: 100%;
 }
 
 .changeaddress {
+	position: relative;
+	top: -0.95em;
+
 	@media #{$lap} {
 		margin-top: 0;
 	}
@@ -424,7 +455,11 @@ article {
 		text-align: left;
 	}
 
-	.name, .company, .country, .type, .masked-number, .expiration {
+	.name {
+		font-weight: bold;
+	}
+
+	.company, .country, .type, .masked-number, .expiration {
 		display: block;
 	}
 
@@ -495,7 +530,20 @@ article {
 }
 
 input[type=radio] + label.card {
-	.shiptothis, .paywiththis, .billtothis {
+	&:hover, &:focus {
+		border-color: $medium-gray;
+		color: #282828;
+	}
+
+	&:active {
+		color: #282828;
+		border-color: $medium-gray;
+		background-image: -moz-linear-gradient( 90deg, $white 0%, $white-smoke 100%);
+		background-image: -webkit-linear-gradient( 90deg, $white 0%, $white-smoke 100%);
+		background-image: -ms-linear-gradient( 90deg, $white 0%, $white-smoke 100%);
+	}
+
+	> span.btn {
 		position: relative;
 		display: block;
 		height: 100%;
@@ -508,7 +556,7 @@ input[type=radio] + label.card {
 		font-size: 25px;
 		background: none;
 		padding: 0px 7px;
-		text-shadow: 0px 1px 1px rgba(65, 114, 21, 0.004);
+		text-shadow: $text-shadow-light;
 	}
 
 	button {
@@ -524,53 +572,21 @@ input[type=radio] + label.card {
 			content: "";
 		}
 	}
-	// the selected one
-	&.card {
-		.paywiththis:before {
-			margin-top: -0.25em;
-		}
-	}
 
 	.edit-credit-card {
 		border-color: $red !important;
 		color: $red !important;
 	}
-
-	.paywiththis {
-		background: none;
-
-
-		&:before {
-			@include pseudo(auto, .5em, '\2718');
-			float: right;
-			color: $red !important;
-			@include font-size(2);
-			@include line-height(1);
-			text-align: center;
-			display: block;
-			margin-left: 0.25em;
-		}
-
-		&:after {
-			@include pseudo(auto, 1em, "Expired");
-			color: $red !important;
-			position: relative;
-			display: block;
-			float: right;
-			margin-top: -1.1em;
-			margin-right: 2em;
-			text-align: right;
-			content: "Expired" !important;
-		}
-	}
 }
 
 input[type=radio]:checked + label.card {
+	color: #282828;
 
-	.shiptothis, .paywiththis, .billtothis {
+	> span.btn {
 		background-color: #6aa9d5;
 		color: $white;
 		border-color: #6aa9d5;
+		text-shadow: 0px -1px 0px #000;
 	}
 }
 
