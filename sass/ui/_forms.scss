@@ -137,6 +137,7 @@ textarea, textarea.threelines {
 
 	&:focus {
 		@include rem-attribute('padding-top', 1.438);
+
 		& + label {
 			margin-top: -6.2rem;
 		}
@@ -207,9 +208,6 @@ input[type=radio] {
 			margin-top: -.7em;
 			margin-right: 1em;
 
-			@media #{$desk} {
-				margin-top: -1.725em;
-			}
 		}
 	}
 }
@@ -383,7 +381,7 @@ OTHER STYLES
 *********************************/
 .required_indicator:after {
 	@include pseudo(auto, auto, "*");
-	color: #f84f52;
+	color: $red;
 	margin-left: 2px;
 	margin-top: 4px;
 	font-weight: bold;
@@ -394,7 +392,7 @@ OTHER STYLES
 .required-field-message {
 	@include font(.6, bold);
 	text-transform: uppercase;
-	color: #f84f52;
+	color: $red;
 	text-align: right;
 	@extend .required_indicator;
 	text-shadow: 0px 1px 0px #ccc;
@@ -405,23 +403,35 @@ VALIDATION
 
 *********************************/
 .error-container {
-	padding-left: 1.5em;
+	padding-left: 1.34em;
 
-	.message {
-		@include font(1.5, 300);
-
+	.card {
+		@include rem-attribute('margin-top', 2);
+		border: 1px solid $medium-red;
+		background-image: none;
+		background-color: $red;
+		color: $dark-red;
 		@media #{$desk} {
-			@include font(2, 300);
+			margin-top: 0;
 		}
-	}
+		h3.message {
+			margin-top: 0;
+		}
 
-	.details {
-		font-weight: 700;
+		.details {
+			@include font-size(1);
+			font-weight: bold;
+			@include rem-attribute('margin-bottom', .5);
+		}
 
 		ul {
-			margin-top: 0.5em;
+			list-style-type: none;
+			@include font-size(1);
+			@include rem-attribute('margin-left', 1);
 
 			li {
+				list-style-type: none;
+				color: $white;
 				@include line-height(1.25);
 				font-weight: 300;
 			}
