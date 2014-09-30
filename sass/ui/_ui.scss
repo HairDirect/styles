@@ -68,7 +68,6 @@
 }
 
 .remove {
-	@extend .background-error;
 	@include transition($transition);
 	padding-left: 0.25em;
 
@@ -138,25 +137,22 @@ button:disabled, .disabled {
 	background-image: -ms-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
 	box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.04);
 	color: #7c7c7c;
+
+	&.info {
+		background-image: none;
+		background-color: $yellow;
+		border-bottom-color: $dark-yellow;
+		color: #282828;
+		@include font-size(1);
+
+		> p {
+			margin-bottom: 0;
+		}
+	}
 }
 
 .no-touch .card {
 	@include transition($transition);
-}
-
-.card.success {
-}
-
-.background-success {
-	background-color: $lighter-green;
-}
-
-.background-info {
-	background-color: $lighter-yellow;
-}
-
-.background-error {
-	background-color: $lighter-red;
 }
 
 .text-success {
@@ -171,13 +167,7 @@ button:disabled, .disabled {
 	color: $red;
 }
 
-.info, .info > * {
-	@extend .background-info;
-	@extend .text-info;
-}
-
 .error, .error > * {
-	@extend .background-error;
 	@extend .text-error;
 }
 

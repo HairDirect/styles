@@ -635,6 +635,22 @@ input[type=radio]:checked + label.card {
 		position: absolute;
 		background-size: contain;
 		background-repeat: no-repeat;
+		z-index: 1;
+	}
+
+	&:after {
+		@include transition($transition);
+		content: " ";
+		@include rem-attribute('margin-top', -2.3);
+		display: block;
+		float: left;
+		position: absolute;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-color: rgba(250, 250, 250, 0.5);
+		z-index: 2;
+		@include rem-attribute('height', 2);
+		@include rem-attribute('width', 2);
 	}
 
 	&.carrier.ups:before {
@@ -657,6 +673,10 @@ input[type=radio]:checked + label.card {
 }
 
 .shipping-option-item {
+	label.card:hover .carrier:after, input[type=radio]:checked + label.card .carrier:after {
+		background-color: transparent;
+	}
+
 	.shipping-option {
 		span {
 			display: block;
@@ -670,7 +690,6 @@ input[type=radio]:checked + label.card {
 			}
 		}
 
-
 		.method {
 			width: 60%;
 			font-style: italic;
@@ -679,7 +698,6 @@ input[type=radio]:checked + label.card {
 				width: 30%;
 			}
 		}
-
 
 		.delivery-date {
 
@@ -839,8 +857,6 @@ input[type=radio]:checked + label.card {
 #promo-code-form {
 	&.success {
 		.card {
-			@extend .background-success;
-
 			.promo-details {
 				display: block !important;
 				color: $green;
@@ -851,12 +867,6 @@ input[type=radio]:checked + label.card {
 					font-weight: 700;
 				}
 			}
-		}
-	}
-
-	&.error {
-		.card {
-			@extend .background-error;
 		}
 	}
 }
