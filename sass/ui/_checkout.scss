@@ -627,48 +627,61 @@ input[type=radio]:checked + label.card {
 		width: 12% !important;
 	}
 
-	&:before {
+	&:before, &:after {
+		@include transition($transition);
 		@include pseudo(2em, 2em, "\ ");
-		margin: 5px 1em 0 0;
+		position: absolute;
 		display: block;
 		float: left;
-		position: absolute;
 		background-size: contain;
 		background-repeat: no-repeat;
+	}
+
+	&:before {
 		z-index: 1;
 	}
 
 	&:after {
-		@include transition($transition);
-		content: " ";
-		@include rem-attribute('margin-top', -2.3);
-		display: block;
-		float: left;
-		position: absolute;
-		background-size: contain;
-		background-repeat: no-repeat;
+		@include rem-attribute('margin-top', -1.5);
 		background-color: rgba(250, 250, 250, 0.5);
 		z-index: 2;
-		@include rem-attribute('height', 2);
-		@include rem-attribute('width', 2);
 	}
 
-	&.carrier.ups:before {
-		background-image: url('//media.hairdirect.com/store/images/ups-icon.svg');
+	&.carrier.ups {
+		&:before {
+			@include rem-attribute('margin-top', -.25);
+			background-image: url('//media.hairdirect.com/store/images/ups-icon.svg');
+		}
+
+		&:after {
+			@include rem-attribute('margin-top', -1.7);
+		}
 	}
 
 	&.carrier.usps:before {
-		margin-top: 11px;
 		background-image: url('//media.hairdirect.com/store/images/usps-icon.svg');
 	}
 
-	&.carrier.postnl:before {
-		background-image: url('//media.hairdirect.com/store/images/postnl-icon.svg');
+	&.carrier.postnl {
+		&:before {
+			@include rem-attribute('margin-top', -.375);
+			background-image: url('//media.hairdirect.com/store/images/postnl-icon.svg');
+		}
+
+		&:after {
+			@include rem-attribute('margin-top', -1.8);
+		}
 	}
 
-	&.carrier.gls:before {
-		margin-top: 16px;
-		background-image: url('//media.hairdirect.com/store/images/gls-icon.svg');
+	&.carrier.gls {
+		&:before {
+			@include rem-attribute('margin-top', .313);
+			background-image: url('//media.hairdirect.com/store/images/gls-icon.svg');
+		}
+
+		&:after {
+			@include rem-attribute('margin-top', -1.8);
+		}
 	}
 }
 
@@ -677,22 +690,21 @@ input[type=radio]:checked + label.card {
 		background-color: transparent;
 	}
 
+	input[type=radio] + label.card > span.btn {
+		@include rem-attribute('margin-top', .25);
+	}
+
 	.shipping-option {
 		span {
-			display: block;
+			display: inline-block;
 			width: 100%;
-			float: left;
 			margin: 0;
-			@include font-size(0.8);
-
-			@media #{$lap} {
-				@include font(1, 300, 2);
-			}
+			vertical-align: middle;
 		}
 
 		.method {
 			width: 60%;
-			font-style: italic;
+			font-weight: bold;
 
 			@media #{$desk} {
 				width: 30%;
@@ -700,7 +712,6 @@ input[type=radio]:checked + label.card {
 		}
 
 		.delivery-date {
-
 			&:before {
 				@include pseudo(27.5%, 1em, "Arrives: ");
 				@include font(0.8, 500, 0.7);
@@ -718,13 +729,14 @@ input[type=radio]:checked + label.card {
 			}
 
 			@media #{$desk} {
-				width: 42%;
+				width: 40%;
 			}
 		}
 
 		.price {
-			font-weight: 700;
+			font-weight: bold;
 			line-height: 1.2em;
+			@include font-size(1.875);
 
 			@media #{$desk} {
 				width: 10%;
