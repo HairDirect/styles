@@ -181,10 +181,10 @@ body {
 			float: left;
 			margin: 0;
 			width: 25%;
-			height: 4em;
+			height: 3em;
 
-			@media #{$desk} {
-				height: 3em;
+			@media #{$palm} {
+				height: 4em;
 			}
 
 			border: 1px solid $medium-gray;
@@ -544,19 +544,13 @@ input[type=radio] + label.card {
 	}
 
 	> span.btn {
+		@extend .check-button;
 		position: relative;
 		display: block;
 		height: 100%;
 		float: right;
 		margin-top: 0;
 		margin-bottom: 0;
-		border-radius: $circle;
-		border: 1px solid #cecece;
-		color: #cecece;
-		font-size: 25px;
-		background: none;
-		padding: 0px 7px;
-		text-shadow: $text-shadow-light;
 	}
 
 	button {
@@ -579,14 +573,28 @@ input[type=radio] + label.card {
 	}
 }
 
+.check-button {
+	border-radius: $circle;
+	border: 1px solid #cecece;
+	color: #cecece;
+	font-size: 25px;
+	background: none;
+	padding: 0px 7px;
+	text-shadow: $text-shadow-light;
+}
+
+.check-button-checked {
+	background-color: #6aa9d5;
+	color: $white;
+	border-color: #6aa9d5;
+	text-shadow: 0px -1px 0px #000;
+}
+
 input[type=radio]:checked + label.card {
 	color: #282828;
 
 	> span.btn {
-		background-color: #6aa9d5;
-		color: $white;
-		border-color: #6aa9d5;
-		text-shadow: 0px -1px 0px #000;
+		@extend .check-button-checked;
 	}
 }
 
@@ -607,181 +615,162 @@ input[type=radio]:checked + label.card {
 	}
 }
 
-
-
 .buttons {
 	margin-bottom: 1em;
 }
 
-.carrier {
-	width: 30% !important;
-	font-weight: 500;
-	text-align: right;
-	padding-right: 10px;
+.shipping-option-item {
+	@include font-size(1);
 
 	@media #{$lap} {
-		width: 18% !important;
+		@include font-size(1.125);
 	}
 
-	@media #{$desk} {
-		width: 12% !important;
-	}
+	> label.card > .grid {
+		width: 110%;
 
-	&:before, &:after {
-		@include transition($transition);
-		@include pseudo(2em, 2em, "\ ");
-		position: absolute;
-		display: block;
-		float: left;
-		background-size: contain;
-		background-repeat: no-repeat;
-	}
-
-	&:before {
-		z-index: 1;
-	}
-
-	&:after {
-		@include rem-attribute('margin-top', -1.5);
-		background-color: rgba(250, 250, 250, 0.5);
-		z-index: 2;
-	}
-
-	&.carrier.ups {
-		&:before {
-			@include rem-attribute('margin-top', -.25);
-			background-image: url('//media.hairdirect.com/store/images/ups-icon.svg');
-		}
-
-		&:after {
-			@include rem-attribute('margin-top', -1.7);
+		@media #{$lap} {
+			width: 100%;
 		}
 	}
 
-	&.carrier.usps:before {
-		background-image: url('//media.hairdirect.com/store/images/usps-icon.svg');
-	}
+	.grid__item {
+		@include rem-attribute('padding-left', .5);
 
-	&.carrier.postnl {
-		&:before {
-			@include rem-attribute('margin-top', -.375);
-			background-image: url('//media.hairdirect.com/store/images/postnl-icon.svg');
-		}
-
-		&:after {
-			@include rem-attribute('margin-top', -1.8);
+		@media #{$lap} {
+			@include rem-attribute('padding-left', 2, true);
 		}
 	}
 
-	&.carrier.gls {
-		&:before {
-			@include rem-attribute('margin-top', .313);
-			background-image: url('//media.hairdirect.com/store/images/gls-icon.svg');
-		}
-
-		&:after {
-			@include rem-attribute('margin-top', -1.8);
-		}
-	}
-}
-
-.shipping-option-item {
-	label.card:hover .carrier:after, input[type=radio]:checked + label.card .carrier:after {
+	label.card:hover .carrier-image > span:after, input[type=radio]:checked + label.card .carrier-image > span:after {
 		background-color: transparent;
 	}
 
-	input[type=radio] + label.card > span.btn {
-		@include rem-attribute('margin-top', .25);
+	input[type=radio] + label.card span.btn {
+		@extend .check-button;
+		padding: 0 6px;
 	}
 
-	.shipping-option {
-		span {
-			display: inline-block;
-			width: 100%;
-			margin: 0;
-			vertical-align: middle;
+	input[type=radio]:checked + label.card span.btn {
+		@extend .check-button-checked;
+	}
+
+	.carrier-image {
+		&.grid__item {
+			@include rem-attribute('padding-left', .75);
+
+			@media #{$lap} {
+				@include rem-attribute('padding-left', 2, true);
+			}
 		}
 
-		.method {
-			width: 60%;
+		position: relative;
+		@include transition($transition);
+		@include rem-attribute('height', 3);
+		@include rem-attribute('margin-left', 1);
+
+		span {
+			display: inline-block;
+			background-size: contain;
+			background-repeat: no-repeat;
+			@include rem-attribute('width', 2.5);
+			@include rem-attribute('height', 2.5);
+
+			&.ups {
+				background-image: url('//media.hairdirect.com/store/images/ups-icon.svg');
+			}
+
+			&.usps {
+				@include rem-attribute('margin-top', 1);
+				background-image: url('//media.hairdirect.com/store/images/usps-icon.svg');
+			}
+
+			&.postnl {
+				background-image: url('//media.hairdirect.com/store/images/postnl-icon.svg');
+			}
+
+			&.gls {
+				@include rem-attribute('margin-top', 1.3);
+				background-image: url('//media.hairdirect.com/store/images/gls-icon.svg');
+			}
+
+			&:after {
+				height: 100%;
+				width: 100%;
+				@include transition($transition);
+				content: " ";
+				display: inline-block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background-color: rgba(250, 250, 250, 0.5);
+				z-index: 2;
+			}
+		}
+	}
+
+	.details {
+		@media #{$desk} {
+			@include rem-attribute('padding-left', 0, true);
+		}
+
+		ul, li {
+			@include font-size(.75);
+
+			@media #{$lap} {
+				@include font-size(1);
+			}
+
+			list-style-image: none;
+			list-style-type: none;
+			margin: 0;
+		}
+
+		ul {
+			@media #{$desk} {
+				display: table;
+				width: 100%;
+			}
+		}
+
+		li {
+			@media #{$desk} {
+				display: table-cell;
+				vertical-align: middle;
+				@include rem-attribute('padding-right', .5)
+			}
+		}
+
+		li.carrier {
 			font-weight: bold;
 
 			@media #{$desk} {
-				width: 30%;
+				width: 19%;
+				font-weight: normal;
 			}
 		}
 
-		.delivery-date {
-			&:before {
-				@include pseudo(27.5%, 1em, "Arrives: ");
-				@include font(0.8, 500, 0.7);
-				margin-right: 0.7em;
-				text-align: right;
-
-				@media #{$lap} {
-					@include font(1, 500);
-					width: 16%;
-				}
-
-				@media #{$desk} {
-					display: none;
-				}
+		li.method {
+			@media #{$desk} {
+				width: 41%;
+				font-weight: bold;
 			}
+		}
 
+		li.delivery-date {
 			@media #{$desk} {
 				width: 40%;
 			}
 		}
+	}
 
-		.price {
-			font-weight: bold;
-			line-height: 1.2em;
+	.price {
+		@media #{$lap} {
 			@include font-size(1.875);
-
-			@media #{$desk} {
-				width: 10%;
-				@include line-height(2);
-			}
-
-			&:before {
-				@include pseudo(27.5%, 1em, "Price: ");
-				@include font(0.8, 500, 0.7);
-				margin-right: 0.7em;
-				text-align: right;
-
-				@media #{$lap} {
-					width: 16%;
-					@include font(1, 500);
-				}
-
-				@media #{$desk} {
-					display: none;
-				}
-			}
 		}
 
-		&.labels {
-			display: none;
-
-			@media #{$desk} {
-				display: block;
-				padding: 1em;
-
-				span {
-					margin: 0;
-					padding: 0;
-					font-weight: 500;
-					text-align: left;
-					font-style: normal;
-
-					&.carrier {
-						&:before {
-							display: none;
-						}
-					}
-				}
-			}
-		}
+		text-align: right;
+		font-weight: bold;
 	}
 }
 
@@ -900,6 +889,7 @@ input[type=radio]:checked + label.card {
 /*
   CREDIT CARD ICONS
 */
+
 
 // General icon setup
 .type {
