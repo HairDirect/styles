@@ -626,6 +626,11 @@ input[type=radio]:checked + label.card {
 		@include font-size(1.125);
 	}
 
+	&.no-shipping > label.card {
+		@include rem-attribute('margin-top', 1);
+		color: #282828;
+	}
+
 	> label.card > .grid {
 		width: 110%;
 
