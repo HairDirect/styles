@@ -102,25 +102,36 @@ button:disabled, .disabled {
 
 
 .btn_group {
-	margin-bottom: 2em;
+	@include rem-attribute('margin-bottom', 1);
 
-	.btn_group_item {
-		border-radius: 0;
+	input[type=radio] + label {
+		&.btn_group_item {
+			text-align: center;
+			@extend .btn--secondary;
+			@extend .btn--beta;
+			border-radius: 0 !important;
+			@include transition(none);
 
-		&:first-of-type {
-			border-top-left-radius: $brand-round;
-			border-bottom-left-radius: $brand-round;
-		}
+			&:first-of-type {
+				border-top-left-radius: $brand-round !important;
+				border-bottom-left-radius: $brand-round !important;
+			}
 
-		&:last-of-type {
-			border-top-right-radius: $brand-round;
-			border-bottom-right-radius: $brand-round;
+			&:last-of-type {
+				border-top-right-radius: $brand-round !important;
+				border-bottom-right-radius: $brand-round !important;
+			}
 		}
 	}
 
 	input[type=radio]:checked + label {
 		&.btn_group_item {
-			background-color: $light-green !important;
+			@extend .btn--alpha;
+
+			&:hover, &:focus, &:active {
+				@include transition(none);
+				@include alpha-background;
+			}
 		}
 	}
 }

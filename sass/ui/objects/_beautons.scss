@@ -1,6 +1,6 @@
 .btn--positive, button.btn--positive {
 	border: 1px solid $green;
-	border-radius: 6px;
+	border-radius: $brand-round;
 	background-image: -moz-linear-gradient( 90deg, $lighter-green 0%, $light-green 100%);
 	background-image: -webkit-linear-gradient( 90deg, $lighter-green 0%, $light-green 100%);
 	background-image: -ms-linear-gradient( 90deg, $lighter-green 0%, $light-green 100%);
@@ -32,6 +32,7 @@
 }
 
 .btn--alpha, .btn--beta, .btn--gamma {
+	font-size: inherit;
 	&:disabled {
 		border-color: #e7e7e7;
 		background-image: -moz-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
@@ -46,21 +47,7 @@
 	color: $white;
 	text-shadow: $text-shadow-dark;
 	border-color: $nav-blue;
-	background-image: -moz-linear-gradient( 90deg, #4d83b6 0%, #6aabd7 100%);
-	background-image: -webkit-linear-gradient( 90deg, #4d83b6 0%, #6aabd7 100%);
-	background-image: -ms-linear-gradient( 90deg, #4d83b6 0%, #6aabd7 100%);
-
-	&:hover, &:focus {
-		background-image: -moz-linear-gradient( 90deg, #5591ca 0%, #71b7e6 100%);
-		background-image: -webkit-linear-gradient( 90deg, #5591ca 0%, #71b7e6 100%);
-		background-image: -ms-linear-gradient( 90deg, #5591ca 0%, #71b7e6 100%);
-	}
-
-	&:active {
-		background-image: -moz-linear-gradient( 90deg, #6aabd7 0%, #4d83b6 100%);
-		background-image: -webkit-linear-gradient( 90deg, #6aabd7 0%, #4d83b6 100%);
-		background-image: -ms-linear-gradient( 90deg, #6aabd7 0%, #4d83b6 100%);
-	}
+	@include alpha-background(true, true);
 }
 
 .btn--beta {
