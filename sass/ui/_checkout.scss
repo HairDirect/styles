@@ -452,8 +452,8 @@ form {
 		margin-top: 0;
 	}
 }
-
-.address-item, .credit-card, .credit-card-item, .billing-data {
+/*.address-item, .credit-card, .credit-card-item, .billing-data {*/
+.address-item, .credit-card, .billing-data {
 	text-align: left;
 
 	span {
@@ -497,8 +497,8 @@ form {
 }
 
 
-
-.billing-data, .credit-card-item {
+/*.billing-data, .credit-card-item {*/
+.billing-data {
 	padding-top: 0;
 
 	button {
@@ -521,11 +521,11 @@ form {
 	}
 }
 
-.credit-card-item {
+/*.credit-card-item {
 	button {
 		margin-top: -2em;
 	}
-}
+}*/
 
 .label {
 	font-weight: 500 !important;
@@ -564,18 +564,10 @@ input[type=radio] + label.card {
 	}
 }
 
-.expired, .expired input[type=radio]:checked + label {
-	.card, &.card {
-		background-color: $lighter-red;
-
-		&:before {
-			content: "";
-		}
-	}
-
-	.edit-credit-card {
-		border-color: $red !important;
-		color: $red !important;
+input[type=radio]:disabled + label.card {
+	&:hover, &:focus, &:active {
+		border-color: #cacaca;
+		color: #7c7c7c;
 	}
 }
 
@@ -585,7 +577,7 @@ input[type=radio] + label.card {
 	color: #cecece;
 	font-size: 25px;
 	background: none;
-	padding: 0px 7px;
+	padding: 0px 6px;
 	text-shadow: $text-shadow-light;
 }
 
@@ -659,7 +651,6 @@ input[type=radio]:checked + label.card {
 
 	input[type=radio] + label.card span.btn {
 		@extend .check-button;
-		padding: 0 6px;
 	}
 
 	input[type=radio]:checked + label.card span.btn {
@@ -714,7 +705,7 @@ input[type=radio]:checked + label.card {
 				position: absolute;
 				top: 0;
 				left: 0;
-				background-color: rgba(250, 250, 250, 0.5);
+				background-color: $white-overlay;
 				z-index: 2;
 			}
 		}
@@ -725,12 +716,7 @@ input[type=radio]:checked + label.card {
 			@include rem-attribute('padding-left', 0, true);
 		}
 
-		ul, li {
-			@include font-size(1);
-			list-style-image: none;
-			list-style-type: none;
-			margin: 0;
-		}
+		@include stripped-list;
 
 		ul {
 			@media #{$desk} {
@@ -740,6 +726,8 @@ input[type=radio]:checked + label.card {
 		}
 
 		li {
+			@include font-size(1);
+
 			@media #{$desk} {
 				display: table-cell;
 				vertical-align: middle;
@@ -816,73 +804,123 @@ input[type=radio]:checked + label.card {
 	}
 }
 
-.credit-card, .credit-card-item {
-	overflow: visible;
-	clear: both;
+/** Credit card item styles **/
 
-	.address {
-		margin-top: 0;
-	}
-
-	.name, .masked-number, .expiration, .label, .type {
-		clear: none;
-		float: left;
-		margin-right: 1em;
-	}
-
-	button {
-		float: left;
-		clear: right !important;
-	}
-}
-
-.promo-code {
-	overflow: auto;
-	margin-bottom: 0 !important;
-
-
-	input {
-		text-transform: uppercase;
-		width: 55% !important;
-		margin-bottom: 0;
-
-		@media #{$lap} {
-			width: 80% !important;
-		}
-
-		@media #{$desk} {
-			width: 70% !important;
+.credit-card-item {
+	input[type=radio] + label.card {
+		span.btn {
+			@extend .check-button;
 		}
 	}
 
-	button {
-		margin: 0;
-		float: right;
-	}
-}
+	input[type=radio]:checked + label.card {
+		span.btn {
+			@extend .check-button-checked;
+		}
 
-#promo-code-form {
-	&.success {
-		.card {
-			.promo-details {
-				display: block !important;
-				color: $green;
-				width: 60%;
+		.type:after {
+			background-color: transparent;
+		}
+	}
+
+	label.card:hover .type:after {
+		background-color: transparent;
+	}
+
+	input[type=radio]:disabled + label.card {
+		.expiration {
+			color: $red;
+		}
+
+		.type:after {
+			background-color: $white-overlay;
+		}
+	}
+
+	.card {
+		.button-item {
+			@include rem-attribute('margin-bottom', 1);
+
+			.btn.tertiary {
 				float: left;
+			}
 
-				span {
-					font-weight: 700;
-				}
+			.btn.secondary, .expired-label {
+				float: right;
+			}
+
+			.expired-label {
+				text-transform: uppercase;
+				font-weight: bold;
+				color: $red;
+			}
+		}
+
+		.masked-number > span {
+			font-weight: bold;
+		}
+
+		.address {
+			@include rem-attribute('margin-top', 1);
+
+			> .label {
+				color: #8a8a8a;
+				text-transform: uppercase;
+				@include font-size(.625);
 			}
 		}
 	}
+
+	@include stripped-list;
 }
 
-.promo-error-message {
-	color: $red;
+/* Promo code styles */
+.promo-code-container {
+	@include font-size(.875);
 
-	span {
-		font-weight: 700;
+	button {
+		width: 100%;
+
+		@media #{$desk} {
+			width: auto;
+		}
+	}
+
+	.remove-promo, .apply-promo {
+		@include rem-attribute('margin-top', 1);
+
+		@media #{$desk} {
+			text-align: right;
+			@include rem-attribute('margin-top', 0);
+		}
+	}
+	/* Promo code entry form styles */
+	> .promo-form {
+		@include rem-attribute('margin-bottom', 2);
+
+		input[type=text] {
+			@include rem-attribute('height', 3);
+			text-transform: uppercase;
+		}
+	}
+	/* Promo code success panel */
+	> .success > .card {
+		color: #4f86b7;
+		border-color: #6aa9d5;
+
+		> .grid {
+			@media #{$lap} {
+				display: table;
+				width: 100%;
+			}
+
+			> .grid__item {
+				@media #{$lap} {
+					display: table-cell;
+					vertical-align: middle;
+				}
+			}
+		}
 	}
 }
 
@@ -901,14 +939,14 @@ input[type=radio]:checked + label.card {
 .type {
 	background: url("//media.hairdirect.com/store/images/creditcards.png") 0 0;
 	background-repeat: no-repeat;
-	background-size: auto 20px;
+	background-size: auto 1.875em;
 	display: block;
-	width: 30px;
-	height: 20px;
+	width: 2.85em;
+	height: 1.875em;
 	overflow: hidden;
-	text-indent: 101%;
+	position: relative;
+	text-indent: 1000%;
 	text-align: right !important;
-	margin-left: 2px;
 	clear: left !important;
 
 	&.visa {
@@ -916,19 +954,32 @@ input[type=radio]:checked + label.card {
 	}
 
 	&.mastercard {
-		background-position: -30px 0;
+		background-position: -2.84em 0;
 	}
 
 	&.amex, &.americanexpress {
-		background-position: -60px 0;
+		background-position: -5.67em 0;
 	}
 
 	&.discover {
-		background-position: -87px 0;
+		background-position: -8.5em 0;
 	}
 
 	&.paypal {
-		background-position: -120px 0; //-96px
+		background-position: -11.34em 0;
+	}
+
+	&:after {
+		height: 100%;
+		width: 100%;
+		@include transition($transition);
+		content: " ";
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: $white-overlay;
+		z-index: 2;
 	}
 }
 
@@ -1001,18 +1052,6 @@ input[type=radio]:checked + label.card {
 .paypal-container {
 	margin-top: -1em;
 	margin-bottom: 2em;
-
-	p {
-		padding: 1em;
-		color: $dark-yellow !important;
-	}
-}
-
-.promo-code-container {
-	form {
-		margin: 0;
-		padding: 0;
-	}
 }
 
 .incomplete {

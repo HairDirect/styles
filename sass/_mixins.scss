@@ -145,3 +145,11 @@ $borderstyle: $lineweight $linetype $linecolor;
 		}
 	}
 }
+
+@mixin stripped-list {
+	ul, li {
+		list-style-image: none;
+		list-style-type: none;
+		margin: 0;
+	}
+}
