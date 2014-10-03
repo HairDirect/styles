@@ -49,12 +49,21 @@ body {
 
 		form {
 			h2 {
-				margin-top: 1em;
+				@include rem-attribute('margin-top', 1);
+				@include font-size(1.5);
+				@include line-height(1.5);
+				color: #222;
+				font-weight: bold;
+
+				@media #{$desk} {
+					@include font-size(1.875);
+					font-weight: normal;
+				}
 			}
 		}
 
 		h2 {
-			margin-top: 1em;
+			@include rem-attribute('margin-top', 2);
 
 			@media #{$desk} {
 				margin-top: 0;
@@ -430,13 +439,6 @@ form {
 		padding-left: 0;
 		padding-right: $base-spacing-unit;
 	}
-
-	h2 {
-		@include font-size(1.9);
-		color: #222;
-		line-height: 0.867;
-		text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.004);
-	}
 }
 
 .changeaddress, .createaddress {
@@ -452,7 +454,7 @@ form {
 		margin-top: 0;
 	}
 }
-/*.address-item, .credit-card, .credit-card-item, .billing-data {*/
+
 .address-item, .credit-card, .billing-data {
 	text-align: left;
 
@@ -486,18 +488,14 @@ form {
 
 		@media #{$lap} {
 			clear: none;
-			margin-left: 1.5em;
 		}
 
 		@media #{$desk} {
-			margin-left: 0;
 			clear: both;
 		}
 	}
 }
 
-
-/*.billing-data, .credit-card-item {*/
 .billing-data {
 	padding-top: 0;
 
@@ -517,15 +515,10 @@ form {
 	.address {
 		display: block;
 		clear: both;
+		color: $dark;
 		margin-top: 1em;
 	}
 }
-
-/*.credit-card-item {
-	button {
-		margin-top: -2em;
-	}
-}*/
 
 .label {
 	font-weight: 500 !important;
@@ -783,11 +776,7 @@ input[type=radio]:checked + label.card {
 }
 
 .credit-card-list-container {
-	margin-top: 2rem;
-}
-
-#credit-card-form > h2 {
-	margin-top: 0;
+	@include rem-attribute('margin-top', 2)
 }
 
 .default-payment {
@@ -797,15 +786,57 @@ input[type=radio]:checked + label.card {
 	}
 }
 
-.billing-data {
-	.address {
-		color: $dark;
-		margin-top: 1em;
+/* Promo code styles */
+.promo-code-container {
+	@include font-size(.875);
+
+	button {
+		width: 100%;
+
+		@media #{$desk} {
+			width: auto;
+		}
+	}
+
+	.remove-promo, .apply-promo {
+		@include rem-attribute('margin-top', 1);
+
+		@media #{$desk} {
+			text-align: right;
+			@include rem-attribute('margin-top', 0);
+		}
+	}
+	/* Promo code entry form styles */
+	> .promo-form {
+		@include rem-attribute('margin-bottom', 2);
+
+		input[type=text] {
+			@include rem-attribute('height', 3);
+			text-transform: uppercase;
+		}
+	}
+	/* Promo code success panel */
+	> .success > .card {
+		color: #4f86b7;
+		border-color: #6aa9d5;
+
+		> .grid {
+			@media #{$lap} {
+				display: table;
+				width: 100%;
+			}
+
+			> .grid__item {
+				@media #{$lap} {
+					display: table-cell;
+					vertical-align: middle;
+				}
+			}
+		}
 	}
 }
 
-/** Credit card item styles **/
-
+/* Credit card item styles */
 .credit-card-item {
 	input[type=radio] + label.card {
 		span.btn {
@@ -864,9 +895,7 @@ input[type=radio]:checked + label.card {
 			@include rem-attribute('margin-top', 1);
 
 			> .label {
-				color: #8a8a8a;
-				text-transform: uppercase;
-				@include font-size(.625);
+				@include small-label-text;
 			}
 		}
 	}
@@ -874,53 +903,95 @@ input[type=radio]:checked + label.card {
 	@include stripped-list;
 }
 
-/* Promo code styles */
-.promo-code-container {
-	@include font-size(.875);
+/* Credit Card Form */
+#credit-card-form {
+	.card-wallet {
+		text-align: left;
+		margin-bottom: 0;
 
-	button {
-		width: 100%;
-
-		@media #{$desk} {
-			width: auto;
+		.input, label {
+			display: inline;
 		}
-	}
-
-	.remove-promo, .apply-promo {
-		@include rem-attribute('margin-top', 1);
 
 		@media #{$desk} {
 			text-align: right;
-			@include rem-attribute('margin-top', 0);
+			@include rem-attribute('margin-top', 1.2);
+			@include rem-attribute('margin-bottom', 1.5);
 		}
 	}
-	/* Promo code entry form styles */
-	> .promo-form {
-		@include rem-attribute('margin-bottom', 2);
 
-		input[type=text] {
-			@include rem-attribute('height', 3);
-			text-transform: uppercase;
+	.card-number_read_only {
+		> .type:after {
+			background-color: transparent;
 		}
 	}
-	/* Promo code success panel */
-	> .success > .card {
-		color: #4f86b7;
-		border-color: #6aa9d5;
 
-		> .grid {
-			@media #{$lap} {
-				display: table;
-				width: 100%;
+	.card-number {
+		position: relative;
+
+		&.visa:after, &.mastercard:after, &.amex:after, &.americanexpress:after, &.discover:after {
+			content: " ";
+			display: inline-block;
+			position: absolute;
+			top: 1px;
+			border-top-right-radius: $brand-round;
+			right: 1px;
+			z-index: 2;
+			background: url("//media.hairdirect.com/store/images/creditcards.png") 0 0;
+			background-repeat: no-repeat;
+			background-size: auto 1em;
+			width: 1.5em;
+			height: 1em;
+			overflow: hidden;
+		}
+
+		&.visa:after {
+			background-position: 0 0;
+		}
+
+		&.mastercard:after {
+			background-position: -1.5em 0;
+		}
+
+		&.amex:after, &.americanexpress:after {
+			background-position: -3em 0;
+		}
+
+		&.discover:after {
+			background-position: -4.5em 0;
+		}
+	}
+	/*.cc-number-masked {
+		@include font(1.5, 100, 2);
+	}*/
+	.billing-address {
+		.address {
+			> .label {
+				@include small-label-text;
 			}
 
-			> .grid__item {
-				@media #{$lap} {
-					display: table-cell;
-					vertical-align: middle;
-				}
+			.street {
+				@include clear;
+			}
+
+			.city {
+				margin-right: 0;
+			}
+
+			.state {
+				margin-left: 0.25em;
 			}
 		}
+	}
+	/*.buttons button {
+		margin-top: 1em;
+	}
+
+	.save_button {
+		float: right !important;
+	}*/
+	.form-fields > li.buttons {
+		@include rem-attribute('margin-bottom', .5);
 	}
 }
 
@@ -930,12 +1001,7 @@ input[type=radio]:checked + label.card {
 	}
 }
 
-/*
-  CREDIT CARD ICONS
-*/
-
-
-// General icon setup
+/* CREDIT CARD ICONS */
 .type {
 	background: url("//media.hairdirect.com/store/images/creditcards.png") 0 0;
 	background-repeat: no-repeat;
@@ -980,72 +1046,6 @@ input[type=radio]:checked + label.card {
 		left: 0;
 		background-color: $white-overlay;
 		z-index: 2;
-	}
-}
-
-.card-number {
-	position: relative;
-
-	span.type {
-		z-index: 99;
-		position: absolute;
-		top: 11%;
-		left: 93%;
-	}
-}
-
-// When editing a card the icon should display larger
-.add-edit-credit-card {
-	.type {
-		width: 58px;
-		height: 40px;
-		background-size: auto 40px;
-
-		&.visa {
-			background-position: 0 0;
-		}
-
-		&.mastercard {
-			background-position: -60px 0;
-		}
-
-		&.amex, &.americanexpress {
-			background-position: -120px 0;
-		}
-
-		&.discover {
-			background-position: -174px 0;
-		}
-
-		&.paypal {
-			background-position: -232px 0;
-		}
-	}
-
-	.cc-number-masked {
-		@include font(1.5, 100, 2);
-	}
-
-	.billing-address {
-		.street {
-			@include clear;
-		}
-
-		.city {
-			margin-right: 0;
-		}
-
-		.state {
-			margin-left: 0.25em;
-		}
-	}
-
-	.buttons button {
-		margin-top: 1em;
-	}
-
-	.save_button {
-		float: right !important;
 	}
 }
 

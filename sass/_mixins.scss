@@ -1,3 +1,21 @@
+@mixin font($size: 1, $font-weight: 300, $line-height: $size, $line-height-auto: false) {
+	@include font-size($size);
+	@include font-family($font-weight);
+
+	@if $line-height != null {
+		@include line-height($line-height, false);
+	}
+	@else {
+		@include line-height($line-height, $line-height-auto);
+	}
+}
+
+@mixin font-family($font-weight: 300) {
+	font-family: HelveticaNeueETW01-45Lt, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: $font-weight;
+	letter-spacing: 0;
+}
+
 @mixin font-size($size, $important: null) {
 	@if $important == important {
 		font-size: ($size * $rootfontsize) + px !important;
@@ -16,24 +34,6 @@
 
 	line-height: ($size * $rootfontsize) + px;
 	line-height: $size + rem;
-}
-
-@mixin font-family($font-weight: 300) {
-	font-family: HelveticaNeueETW01-45Lt, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-weight: $font-weight;
-	letter-spacing: 0;
-}
-
-@mixin font($size: 1, $font-weight: 300, $line-height: $size, $line-height-auto: false) {
-	@include font-size($size);
-	@include font-family($font-weight);
-
-	@if $line-height != null {
-		@include line-height($line-height, false);
-	}
-	@else {
-		@include line-height($line-height, $line-height-auto);
-	}
 }
 
 @mixin rem-height($size, $important: null) {
@@ -152,4 +152,10 @@ $borderstyle: $lineweight $linetype $linecolor;
 		list-style-type: none;
 		margin: 0;
 	}
+}
+
+@mixin small-label-text {
+	color: #8a8a8a;
+	text-transform: uppercase;
+	@include font-size(.625);
 }

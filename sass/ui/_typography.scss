@@ -23,18 +23,13 @@ h1, .h1 {
 
 h2, .h2 {
 	color: #4f86b7;
-	@include font(1.5, 500, 1);
+	@include font(1.875, bold, 2);
 	
 	@extend .heading;
 
-	@media #{$lap} {
-		@include font(2);
-		padding: 0;
-	}
-
 	@media #{$desk} {
 		text-align: left;
-		@include font(3, 100)
+		@include font(3.125, normal)
 	}
 }
 
