@@ -1054,15 +1054,6 @@ input[type=radio]:checked + label.card {
 	margin-bottom: 2em;
 }
 
-.incomplete {
-	background: $lightest !important;
-	@include border('all', 1px, solid, $light);
-}
-
-.selected.incomplete, input[type=radio]:checked + label.incomplete {
-	@include border('all', 1px, solid, $green);
-}
-
 .checkbox-input {
 	clear: none;
 	float: left;
