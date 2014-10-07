@@ -1088,45 +1088,65 @@ input[type=radio]:checked + label.card {
 
 		.cart-item {
 			width: 100%;
-			padding: 1em 0;
+			padding: .5em 0;
 			border-bottom: 1px solid #ccc;
+
+			@media #{$desk} {
+				@include rem-attribute('max-height', 9.188);
+			}
 
 			> .grid {
 				margin: 0;
 
+				@media #{$desk} {
+					display: table;
+					width: 100%;
+				}
+
 				& > .grid__item {
+					@media #{$desk} {
+						display: table-cell;
+						vertical-align: middle;
+					}
+
 					@include rem-attribute('padding-left', .5);
 
 					&.thumbnail {
 						> img {
-							@include rem-attribute('max-height', 8.75);
+							@include rem-attribute('max-height', 9);
+
+							@media #{$desk} {
+								@include rem-attribute('max-height', 8);
+							}
 						}
 					}
 				}
 
-				.grid {
-					> li.grid__item {
+				> .details > .grid {
+					position: relative;
+
+					> li {
 						padding-left: 0;
 						@include rem-attribute('margin-bottom', 1);
 
 						&.description {
-							position: relative;
-							@include rem-attribute('min-height', 2.875);
-
-							span {
+							> span {
+								@include rem-attribute('min-height', 2.875);
 								@include rem-attribute('padding-right', 3);
-							}
 
-							.round-button {
-								position: absolute;
-								top: 1%;
-								right: 1%;
-								@include rem-attribute('margin-right', .5);
-								@include clear;
+								@media #{$desk} {
+									padding-right: 0;
+									min-height: 0;
+									padding-right: 0;
+								}
 							}
 						}
 
 						&.quantity {
+							@media #{$desk} {
+								@include rem-attribute('max-width', 10);
+							}
+
 							> input[type=number] {
 								@include taptarget(-2);
 								z-index: 1;
@@ -1134,6 +1154,10 @@ input[type=radio]:checked + label.card {
 								padding-right: 0;
 								border-top-right-radius: 0;
 								border-bottom-right-radius: 0;
+
+								@media #{$desk} {
+									@include rem-attribute('max-width', 5);
+								}
 
 								&:focus {
 									border-color: #c5c8cc;
@@ -1145,6 +1169,11 @@ input[type=radio]:checked + label.card {
 
 							> button {
 								width: 45%;
+
+								@media #{$desk} {
+									@include rem-attribute('max-width', 5.625);
+								}
+
 								position: relative;
 								right: 6px;
 								z-index: 2;
@@ -1156,14 +1185,45 @@ input[type=radio]:checked + label.card {
 
 						&.unit-price {
 							@include font-size(1);
+
+							@media #{$desk} {
+								position: relative;
+								top: .25em;
+							}
 						}
 
 						&.extended-price {
+							text-align: right;
+							padding-right: .5em;
+
 							@media #{$lap} {
 								@include font-size(1.5);
 							}
 
+							@media #{$desk} {
+								text-align: right;
+								display: block;
+								float: right;
+								right: 10%;
+								top: 3px;
+								position: relative;
+								padding-right: 0;
+							}
+
 							font-weight: bold;
+						}
+
+						&.remove-item {
+							position: absolute;
+							top: 1%;
+							right: 1%;
+							@include rem-attribute('margin-right', .5);
+							@include clear;
+
+							@media #{$desk} {
+								right: .5em;
+								top: 40%;
+							}
 						}
 					}
 				}

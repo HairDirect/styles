@@ -58,6 +58,10 @@
 	}
 }
 
+.tertiary-hover {
+	background-color: #eee;
+}
+
 .add {
 	&:before {
 		@include pseudo(1.2em, 2em, "+");
@@ -161,6 +165,7 @@ button:disabled, .disabled {
 			transition: none;
 			fill: #cecece;
 		}
+
 		height: 100%;
 		width: 100%;
 	}
