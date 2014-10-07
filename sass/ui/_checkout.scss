@@ -188,7 +188,7 @@ body {
 
 	ul {
 		margin: 0;
-		box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.04);
+		@include box-shadow-light;
 
 		li {
 			list-style: none;
@@ -350,7 +350,7 @@ body {
 		background-image: -moz-linear-gradient( 90deg, rgb(250,250,250) 0%, rgb(255,255,255)s 100%);
 		background-image: -webkit-linear-gradient( 90deg, rgb(250,250,250) 0%, rgb(255,255,255) 100%);
 		background-image: -ms-linear-gradient( 90deg, rgb(250,250,250) 0%, rgb(255,255,255) 100%);
-		box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.04);
+		@include box-shadow-light;
 
 		.total {
 			text-align: center;
@@ -961,9 +961,7 @@ input[type=radio]:checked + label.card {
 			background-position: -4.5em 0;
 		}
 	}
-	/*.cc-number-masked {
-		@include font(1.5, 100, 2);
-	}*/
+
 	.billing-address {
 		.address {
 			> .label {
@@ -983,13 +981,7 @@ input[type=radio]:checked + label.card {
 			}
 		}
 	}
-	/*.buttons button {
-		margin-top: 1em;
-	}
 
-	.save_button {
-		float: right !important;
-	}*/
 	.form-fields > li.buttons {
 		@include rem-attribute('margin-bottom', .5);
 	}
@@ -1084,135 +1076,96 @@ input[type=radio]:checked + label.card {
 }
 
 // REVIEW STEP
-.cart-items {
-	width: 100%;
+.cart-total-container {
+	border: 1px solid #ccc;
+	border-radius: $brand-round;
+	background-color: $white;
+	@include stripped-list;
+	@include box-shadow-light;
 
-	.cart-item {
+	.cart-items {
 		width: 100%;
 
-		&:nth-of-type(odd) {
-			background-color: $lighter;
-		}
-
-		&.header {
-			display: none;
-
-			@media #{$desk} {
-				display: block;
-				background-color: $light;
-
-				.field {
-					margin-top: 0 !important;
-					margin-bottom: 0 !important;
-				}
-
-				.label {
-					display: block !important;
-					font-weight: 700 !important;
-				}
-			}
-		}
-
-		.thumbnail {
-			width: 30%;
-
-			@media #{$lap} {
-				width: 30%;
-				float: left;
-				clear: none;
-			}
-
-			@media #{$desk} {
-				width: 20%;
-				float: none;
-			}
-		}
-
-		.form-fields {
+		.cart-item {
 			width: 100%;
+			padding: 1em 0;
+			border-bottom: 1px solid #ccc;
 
-			.label {
-				float: left;
-				width: 26%;
-				margin-right: 1em;
+			> .grid {
+				margin: 0;
 
-				@media #{$desk} {
-					display: none;
-				}
-			}
+				& > .grid__item {
+					@include rem-attribute('padding-left', .5);
 
-			.field {
-				margin-bottom: 1em;
-
-				&.quantity {
-					.label {
-						width: 100%;
-						margin-bottom: 0.25em;
-					}
-
-					input[type=text], input[type=tel], input[type=number] {
-						width: 25%;
-					}
-
-					.update-cart-item {
-						width: 25%;
-						text-align: center;
-						margin-left: 1em;
-						padding: 0;
-
-						@media #{$desk} {
-							margin-top: .7em;
-							margin-left: 0;
-						}
-					}
-
-					@media #{$desk} {
-						input[type=text], input[type=tel], input[type=number] {
-							width: 100%;
-						}
-
-						.update-cart-item {
-							width: 100%;
+					&.thumbnail {
+						> img {
+							@include rem-attribute('max-height', 8.75);
 						}
 					}
 				}
 
-				&.buttons {
-					width: 30%;
-					float: right;
-					text-align: center;
+				.grid {
+					> li.grid__item {
+						padding-left: 0;
+						@include rem-attribute('margin-bottom', 1);
 
-					button {
-						width: 100%;
-						margin-top: -11em;
+						&.description {
+							position: relative;
+							@include rem-attribute('min-height', 2.875);
 
-						@media #{$desk} {
-							margin-top: 0 !important;
+							span {
+								@include rem-attribute('padding-right', 3);
+							}
+
+							.round-button {
+								position: absolute;
+								top: 1%;
+								right: 1%;
+								@include rem-attribute('margin-right', .5);
+								@include clear;
+							}
+						}
+
+						&.quantity {
+							> input[type=number] {
+								@include taptarget(-2);
+								z-index: 1;
+								width: 51%;
+								padding-right: 0;
+								border-top-right-radius: 0;
+								border-bottom-right-radius: 0;
+
+								&:focus {
+									border-color: #c5c8cc;
+									border-width: 1px;
+									padding-left: 1em;
+									padding-top: inherit;
+								}
+							}
+
+							> button {
+								width: 45%;
+								position: relative;
+								right: 6px;
+								z-index: 2;
+								bottom: 2px;
+								border-top-left-radius: 0;
+								border-bottom-left-radius: 0;
+							}
+						}
+
+						&.unit-price {
+							@include font-size(1);
+						}
+
+						&.extended-price {
+							@media #{$lap} {
+								@include font-size(1.5);
+							}
+
+							font-weight: bold;
 						}
 					}
-				}
-
-				@media #{$desk} {
-					&.name {
-						width: 35%;
-					}
-
-					&.price, &.quantity, &.total {
-						width: 12.5%;
-					}
-
-					&.buttons {
-						width: 15%;
-						margin-top: 0.5em;
-					}
-
-					&.name, &.price, &.total {
-						margin-top: 1em;
-					}
-
-					display: block;
-					float: left;
-					margin-right: 1em;
 				}
 			}
 		}
