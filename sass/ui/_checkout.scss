@@ -1087,6 +1087,7 @@ input[type=radio]:checked + label.card {
 		width: 100%;
 
 		.cart-item {
+			position: relative;
 			width: 100%;
 			padding: .5em 0;
 			border-bottom: 1px solid #ccc;
@@ -1095,9 +1096,38 @@ input[type=radio]:checked + label.card {
 				@include rem-attribute('max-height', 9.188);
 			}
 
+			> .confirmation {
+				position: absolute;
+				width: 100%;
+				z-index: 2;
+				background-color: $white;
+				text-align: center;
+				height: 98%;
+				@include rem-attribute('margin-top', -.375);
+
+				> h4 {
+					text-align: center;
+					font-weight: bold;
+				}
+
+				button.btn {
+					font-weight: normal;
+					@include font-size(1);
+					@include rem-attribute('min-width', 6);
+
+					&.cancel {
+						@include rem-attribute('margin-right', 1);
+					}
+
+					&.confirm {
+						@include rem-attribute('margin-left', 1);
+					}
+				}
+			}
+
 			> .grid {
 				margin: 0;
-
+				z-index: 1;
 				@media #{$desk} {
 					display: table;
 					width: 100%;
@@ -1149,7 +1179,6 @@ input[type=radio]:checked + label.card {
 
 							> input[type=number] {
 								@include taptarget(-2);
-								z-index: 1;
 								width: 51%;
 								padding-right: 0;
 								border-top-right-radius: 0;
@@ -1176,7 +1205,6 @@ input[type=radio]:checked + label.card {
 
 								position: relative;
 								right: 6px;
-								z-index: 2;
 								bottom: 2px;
 								border-top-left-radius: 0;
 								border-bottom-left-radius: 0;
