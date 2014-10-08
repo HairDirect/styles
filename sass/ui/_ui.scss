@@ -144,30 +144,63 @@ button:disabled, .disabled {
 	width: 2em;
 	height: 2em;
 	border-radius: $circle;
-	border: 1px solid #cecece;
+	border: 1px solid #b2b2b2;
 	background-color: $white;
 	position: relative;
 	cursor: pointer;
 	transition: none;
 
-	&:hover {
-		transition: none;
-		background-color: $red;
-		border-color: $medium-red;
+	svg {
+		height: 100%;
+		width: 100%;
 
-		.remove {
-			fill: $white;
+		path {
+			transition: none;
+			fill: #7c7c7c;
 		}
 	}
 
-	& svg {
-		.remove {
-			transition: none;
-			fill: #cecece;
+	&:hover {
+		transition: none;
+		background-color: #5088ba;
+		border-color: #5088ba;
+
+		svg {
+			path {
+				fill: $white;
+			}
+		}
+	}
+	/* Size overrides */
+	&.small {
+		width: 1em;
+		height: 1em;
+
+		svg {
+			position: relative;
+			bottom: 2px;
+		}
+	}
+	/* Negative overrides */
+	&.negative {
+		border-color: #cecece;
+
+		&:hover {
+			background-color: $red;
+			border-color: $medium-red;
+
+			svg {
+				path {
+					fill: $white;
+				}
+			}
 		}
 
-		height: 100%;
-		width: 100%;
+		svg {
+			path {
+				fill: #cecece;
+			}
+		}
 	}
 }
 

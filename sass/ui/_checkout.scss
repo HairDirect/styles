@@ -1128,6 +1128,7 @@ input[type=radio]:checked + label.card {
 			> .grid {
 				margin: 0;
 				z-index: 1;
+
 				@media #{$desk} {
 					display: table;
 					width: 100%;
@@ -1258,57 +1259,54 @@ input[type=radio]:checked + label.card {
 			}
 		}
 	}
-}
 
-// Price break-down
-.cost-breakdown {
-
-	.field {
-		margin-bottom: 0;
-	}
-
-	.label {
-		width: 30%;
-
-		@media #{$lap} {
-			width: 50%;
-			text-align: right;
+	.total-container {
+		padding: 1em;
+		
+		> div.float--right{
+			width: 100%;
+			@include rem-attribute('max-width', 20);
 		}
 
-		@media #{$desk} {
-			width: 71%;
-		}
+		dd {
+			@include rem-attribute('margin-bottom', .4);
 
-		p {
-			margin-left: 1em;
-		}
-
-		span {
-			font-weight: 300;
-		}
-	}
-
-	.value {
-		width: 29%;
-	}
-
-	.total {
-		@include border(top);
-		padding-top: .5em;
-		@include font(2, 100);
-
-		p {
-			margin-left: 1rem;
-		}
-	}
-
-	.discount {
-		.value {
-			&:before {
-				@include pseudo(.5em, 1em, "-");
-				margin-left: -.5em;
-				margin-right: 0;
+			&.exclude-tax {
+				position: relative;
+				@include rem-attribute('top', 2);
 			}
+
+			&.subtotal, &.tax, &.total {
+				@include rem-attribute('margin-right', 1.4);
+			}
+
+			&.exclude-tax {
+				@include small-label-text;
+				strong {
+					@include font-size(.875);
+				}
+			}
+		}
+
+		dt {
+			&.split__title {
+				@include rem-attribute('min-width', 5.7);
+				text-align: right;
+			}
+		}
+
+		.total {
+			@include rem-attribute('padding-top', .5);
+			@include border(top, $lineweight, $linetype, $medium-gray);
+			@include font-size(1.4);
+			font-weight: bold;
+			@media #{$lap} {
+				@include font-size(1.875);
+			}
+		}
+
+		.round-button {
+			margin: .111em 0 .111em .222em;
 		}
 	}
 }
