@@ -374,9 +374,9 @@ body {
 	.footer-total-container {
 		border: 1px solid $medium-gray;
 		border-radius: $brand-round;
-		background-image: -moz-linear-gradient( 90deg, rgb(250,250,250) 0%, rgb(255,255,255)s 100%);
-		background-image: -webkit-linear-gradient( 90deg, rgb(250,250,250) 0%, rgb(255,255,255) 100%);
-		background-image: -ms-linear-gradient( 90deg, rgb(250,250,250) 0%, rgb(255,255,255) 100%);
+		background-image: -moz-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
+		background-image: -webkit-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
+		background-image: -ms-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
 		@include box-shadow-light;
 
 		.total {
