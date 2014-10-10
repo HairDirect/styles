@@ -33,10 +33,253 @@ body {
 	-webkit-box-sizing: border-box !important;
 }
 
+/* HEADER */
+.global-nav {
+	height: 4.9em;
+	background-color: $white;
+	display: block;
+	overflow: hidden;
+
+	> div.grid {
+		height: 100%;
+		position: relative;
+
+		> .grid__item {
+			padding-left: 0;
+		}
+		/* LOGO */
+		> .logo {
+			position: absolute;
+			top: 14%;
+			padding-left: .5em;
+
+			@media #{$desk} {
+				@include rem-attribute('padding-left', 2.25);
+			}
+
+			> a {
+				text-decoration: none;
+				border: none;
+
+				img {
+					min-width: 99px;
+					width: 99px;
+				}
+			}
+		}
+		/* HELP */
+		> .help {
+			position: absolute;
+			text-align: center;
+			top: 0;
+			left: 30%;
+
+			@media #{$lap} {
+				left: 26%;
+			}
+
+			> a {
+				cursor: pointer;
+				margin-bottom: 0;
+				text-align: center;
+				color: #4f86b7;
+				line-height: 4.6em;
+
+				@media #{$desk} {
+					display: none;
+				}
+			}
+		}
+		/* TRUST ASSET */
+		> .trust {
+			position: absolute;
+			right: 0;
+
+			@media #{$lap} {
+				@include rem-attribute('min-width', 14);
+			}
+
+			@media #{$desk} {
+				@include rem-attribute('right', 2.25);
+			}
+
+			.trust-asset {
+				display: block;
+				float: right;
+				@include rem-attribute('margin-top', 1.125);
+				@include rem-attribute('line-height', 2.875);
+				color: #282828;
+
+				@media #{$lap} {
+					&:before {
+						@include pseudo(10em, 1em, "Secure Transaction");
+						display: inline;
+						content: "Secure Transaction";
+						vertical-align: top;
+						position: relative;
+						top: 50%;
+					}
+				}
+
+				.trust-asset-lock {
+					width: 2em;
+					height: 2em;
+
+					.lock {
+						fill: $light-blue;
+
+						@media #{$desk} {
+							fill: $lighter;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 .checkout {
 	> header {
 		@media #{$desk} {
 			padding: 1em 2em;
+		}
+		/* PROGRESS BAR */
+		.progress {
+			text-align: center;
+			margin-top: .5em;
+
+			@media #{$palm} {
+				margin-top: 0;
+			}
+
+			@media #{$desk} {
+				width: 98.6%;
+			}
+
+			ul {
+				margin: 0;
+				@include box-shadow-light;
+
+				li {
+					list-style: none;
+					display: block;
+					float: left;
+					margin: 0;
+					width: 25%;
+					height: 3em;
+
+					@media #{$palm} {
+						height: 4em;
+					}
+
+					border: 1px solid $medium-gray;
+					background-color: $white-smoke;
+					@include transition($transition);
+
+					a {
+						display: block;
+						float: left;
+						text-align: center;
+						width: 100%;
+						margin: 0;
+						border-bottom: 0;
+						padding: 6% 0;
+						@include font(0.9, 500, 1);
+						@include transition($transition);
+						color: $dark-gray;
+						text-decoration: none;
+						text-shadow: $text-shadow-light;
+						@include vertical-align;
+
+						@media #{$desk} {
+							&:before, &:after {
+								content: " ";
+								display: block;
+								width: 0;
+								height: 0;
+								padding: 0;
+								@include rem-attribute('border-top-width', 1.7);
+								@include rem-attribute('border-bottom-width', 1.7);
+								border-bottom-style: solid;
+								border-top-style: solid;
+								border-bottom-color: transparent;
+								border-top-color: transparent;
+								border-left-style: solid;
+								@include rem-attribute('border-left-width', 1);
+								top: 100%;
+								left: 99.5%;
+								@include rem-attribute('margin-top', -3.26);
+								position: absolute;
+								@include transition($transition);
+							}
+
+							&:before {
+								border-left-color: $medium-gray;
+								@include rem-attribute('margin-left', .1);
+								z-index: 1;
+							}
+
+							&:after {
+								border-left-color: $white-smoke;
+								z-index: 2;
+							}
+						}
+					}
+
+					&.active {
+						background-color: $nav-blue !important;
+						border-color: $nav-blue !important;
+
+						a {
+							color: $near-white !important;
+							font-weight: bold !important;
+							text-shadow: $text-shadow-dark !important;
+
+							@media #{$desk} {
+								&:before, &:after {
+									border-left-color: $nav-blue !important;
+								}
+							}
+						}
+					}
+
+					&.completed {
+						background-color: $light-gray;
+
+						a {
+							@media #{$desk} {
+								&:after {
+									border-left-color: $light-gray;
+								}
+							}
+						}
+					}
+
+					&:hover, &.active:hover {
+						background-color: $white;
+						border-color: $medium-gray;
+
+						a, a:hover {
+							color: $dark-gray;
+							text-shadow: $text-shadow-light;
+
+							@media #{$desk} {
+								&:before {
+									border-left-color: $medium-gray;
+								}
+
+								&:after {
+									border-left-color: $white;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.nav {
+				margin-bottom: 0;
+			}
 		}
 	}
 
@@ -82,53 +325,6 @@ body {
 	clear: both;
 }
 
-.need-help-container {
-	text-align: center;
-	color: #4f86b7;
-	line-height: 4.6em;
-
-	@media #{$desk} {
-		display: none;
-	}
-}
-
-.trust-asset {
-	width: auto;
-	height: 2em;
-	display: block;
-	float: right;
-	margin: 5px 1em 0 0;
-	line-height: 2em;
-	color: #212121;
-
-	@media #{$lap} {
-		&:before {
-			@include pseudo(10em, 1em, "Secure Transaction");
-			display: inline;
-			content: "Secure Transaction";
-			font-size: 20px;
-			vertical-align: top;
-			position: relative;
-			top: 50%;
-		}
-	}
-
-	.trust-asset-lock {
-		width: 2em;
-		height: 2em;
-		position: relative;
-		top: 32%;
-
-		.lock {
-			fill: $light-blue;
-
-			@media #{$desk} {
-				fill: $lighter;
-			}
-		}
-	}
-}
-
 .nav--fit {
 	width: 101%;
 }
@@ -149,182 +345,16 @@ body {
 	}
 }
 
-.global-nav {
-	height: 4.9em;
-	background-color: $white;
-	display: block;
-	overflow: hidden;
-}
-
-.logo {
-
-	img {
-		height: 4em;
-		position: relative;
-		top: .4em;
-		left: .4em;
-		min-width: 99px;
-
-		@media #{$palm} {
-			height: 3em;
-			top: .9em;
-			left: .9em;
-			min-width: 74px;
-		}
-	}
-}
-
-.progress {
-	text-align: center;
-	margin-top: .5em;
-
-	@media #{$palm} {
-		margin-top: 0;
-	}
-
-	@media #{$desk} {
-		width: 98.6%;
-	}
-
-	ul {
-		margin: 0;
-		@include box-shadow-light;
-
-		li {
-			list-style: none;
-			display: block;
-			float: left;
-			margin: 0;
-			width: 25%;
-			height: 3em;
-
-			@media #{$palm} {
-				height: 4em;
-			}
-
-			border: 1px solid $medium-gray;
-			background-color: $white-smoke;
-			@include transition($transition);
-
-			a {
-				display: block;
-				float: left;
-				text-align: center;
-				width: 100%;
-				margin: 0;
-				border-bottom: 0;
-				padding: 6% 0;
-				@include font(0.9, 500, 1);
-				@include transition($transition);
-				color: $dark-gray;
-				text-decoration: none;
-				text-shadow: $text-shadow-light;
-				@include vertical-align;
-
-				@media #{$desk} {
-					&:before, &:after {
-						content: " ";
-						display: block;
-						width: 0;
-						height: 0;
-						padding: 0;
-						@include rem-attribute('border-top-width', 1.7);
-						@include rem-attribute('border-bottom-width', 1.7);
-						border-bottom-style: solid;
-						border-top-style: solid;
-						border-bottom-color: transparent;
-						border-top-color: transparent;
-						border-left-style: solid;
-						@include rem-attribute('border-left-width', 1);
-						top: 100%;
-						left: 99.5%;
-						@include rem-attribute('margin-top', -3.26);
-						position: absolute;
-						@include transition($transition);
-					}
-
-					&:before {
-						border-left-color: $medium-gray;
-						@include rem-attribute('margin-left', .1);
-						z-index: 1;
-					}
-
-					&:after {
-						border-left-color: $white-smoke;
-						z-index: 2;
-					}
-				}
-			}
-
-			&.active {
-				background-color: $nav-blue !important;
-				border-color: $nav-blue !important;
-
-				a {
-					color: $near-white !important;
-					font-weight: bold !important;
-					text-shadow: $text-shadow-dark !important;
-
-					@media #{$desk} {
-						&:before, &:after {
-							border-left-color: $nav-blue !important;
-						}
-					}
-				}
-			}
-
-			&.completed {
-				background-color: $light-gray;
-
-				a {
-					@media #{$desk} {
-						&:after {
-							border-left-color: $light-gray;
-						}
-					}
-				}
-			}
-
-			&:hover, &.active:hover {
-				background-color: $white;
-				border-color: $medium-gray;
-
-				a, a:hover {
-					color: $dark-gray;
-					text-shadow: $text-shadow-light;
-
-					@media #{$desk} {
-						&:before {
-							border-left-color: $medium-gray;
-						}
-
-						&:after {
-							border-left-color: $white;
-						}
-					}
-				}
-			}
-		}
-	}
-
-	.nav {
-		margin-bottom: 0;
-	}
-}
-
 .cta_bar {
-	@include rem-height($tapheight*2);
-
-	@media #{$lap} {
-		@include rem-height($tapheight);
-	}
-
 	margin-bottom: 2em;
+	height: auto;
 
 	.grid__item {
 		@include rem-height($tapheight);
 		clear: both;
 		display: block;
+		text-align: center;
+		float: left;
 
 		@media #{$lap} {
 			clear: none;
@@ -334,14 +364,11 @@ body {
 			margin-top: 1em;
 		}
 
-		&.palm-one-whole {
+		&.one-whole {
 			@media #{$palm} {
 				padding-left: 0;
 			}
 		}
-
-		text-align: center;
-		float: left;
 	}
 
 	.footer-total-container {
@@ -1415,6 +1442,11 @@ input[type=radio]:checked + label.card {
 
 /* Special Instructions */
 .special-instructions-container {
+	h3 {
+		color: #282828;
+		@include rem-attribute('margin-top', 1);
+	}
+
 	label {
 		@include small-label-text;
 	}
