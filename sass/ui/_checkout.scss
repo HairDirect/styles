@@ -129,14 +129,11 @@ body {
 		/* PROGRESS BAR */
 		.progress {
 			text-align: center;
-			margin-top: .5em;
+			margin-top: 0;
 			position: relative;
 
-			@media #{$palm} {
-				margin-top: 0;
-			}
-
 			@media #{$desk} {
+				margin-top: .5em;
 				width: 98.6%;
 			}
 
@@ -545,18 +542,16 @@ input[type=radio] + label.card {
 		background-image: -ms-linear-gradient( 90deg, $white 0%, $white-smoke 100%);
 	}
 
-	> span.btn {
-		@extend .check-button;
-		position: relative;
-		display: block;
-		height: 100%;
-		float: right;
-		margin-top: 0;
-		margin-bottom: 0;
-	}
-
 	button {
 		display: block;
+	}
+}
+
+input[type=radio]:checked + label.card {
+	color: #282828;
+
+	.round-button {
+		@extend %round-button-selected;
 	}
 }
 
@@ -564,31 +559,6 @@ input[type=radio]:disabled + label.card {
 	&:hover, &:focus, &:active {
 		border-color: #cacaca;
 		color: #7c7c7c;
-	}
-}
-
-.check-button {
-	border-radius: $circle;
-	border: 1px solid #cecece;
-	color: #cecece;
-	font-size: 25px;
-	background: none;
-	padding: 0px 6px;
-	text-shadow: $text-shadow-light;
-}
-
-.check-button-checked {
-	background-color: #6aa9d5;
-	color: $white;
-	border-color: #6aa9d5;
-	text-shadow: 0px -1px 0px #000;
-}
-
-input[type=radio]:checked + label.card {
-	color: #282828;
-
-	> span.btn {
-		@extend .check-button-checked;
 	}
 }
 
@@ -643,14 +613,6 @@ input[type=radio]:checked + label.card {
 
 	label.card:hover .carrier-image > span:after, input[type=radio]:checked + label.card .carrier-image > span:after {
 		background-color: transparent;
-	}
-
-	input[type=radio] + label.card span.btn {
-		@extend .check-button;
-	}
-
-	input[type=radio]:checked + label.card span.btn {
-		@extend .check-button-checked;
 	}
 
 	.carrier-image {
@@ -858,17 +820,7 @@ input[type=radio]:checked + label.card {
 
 /* Credit card item styles */
 .credit-card-item {
-	input[type=radio] + label.card {
-		span.btn {
-			@extend .check-button;
-		}
-	}
-
 	input[type=radio]:checked + label.card {
-		span.btn {
-			@extend .check-button-checked;
-		}
-
 		.type:after {
 			background-color: transparent;
 		}

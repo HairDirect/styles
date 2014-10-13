@@ -140,6 +140,18 @@ button:disabled, .disabled {
 	}
 }
 
+%round-button-selected {
+	transition: none;
+	background-color: #5088ba;
+	border-color: #5088ba;
+
+	svg {
+		path {
+			fill: $white;
+		}
+	}
+}
+
 .round-button {
 	width: 2em;
 	height: 2em;
@@ -161,15 +173,7 @@ button:disabled, .disabled {
 	}
 
 	&:hover {
-		transition: none;
-		background-color: #5088ba;
-		border-color: #5088ba;
-
-		svg {
-			path {
-				fill: $white;
-			}
-		}
+		@extend %round-button-selected;
 	}
 	/* Size overrides */
 	&.small {
