@@ -1598,21 +1598,34 @@ input[type=radio]:disabled + label.card {
 
 
 // ORDER CONFIRMATION
-
 .order-confirmation {
-	text-align: center;
+	@include rem-attribute('min-height', 25);
 
-	h2 {
-		text-align: center;
-		color: $green;
-	}
+	> .card {
+		color: #282828;
+		margin-top: .5em;
 
-	.order-number {
-		font-weight: 700;
-	}
+		> h3 {
+			color: #4f86b7;
+			font-weight: bold;
+			@include rem-attribute('margin-top', 1);
+		}
 
-	button {
-		margin-top: 3rem;
+		> div {
+			@include rem-attribute('margin-bottom', 2);
+
+			> p {
+				@include rem-attribute('margin-bottom', .5);
+			}
+		}
+
+		> button.btn--positive {
+			@include rem-attribute('margin-bottom', 1);
+
+			@media #{$palm} {
+				@include font-size(1);
+			}
+		}
 	}
 }
 
