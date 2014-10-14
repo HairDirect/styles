@@ -1,3 +1,9 @@
+*, *:before, *:after {
+	box-sizing: border-box !important;
+	-moz-box-sizing: border-box !important;
+	-webkit-box-sizing: border-box !important;
+}
+
 body {
 	background-color: $white-smoke;
 
@@ -5,15 +11,8 @@ body {
 		margin: 0 auto;
 		max-width: 60em;
 		overflow: hidden;
+		box-shadow: 0px 0px 62px -25px rgba(50, 50, 50, 0.75);
 	}
-
-	box-shadow: 0px 0px 62px -25px rgba(50, 50, 50, 0.75);
-}
-
-*, *:before, *:after {
-	box-sizing: border-box !important;
-	-moz-box-sizing: border-box !important;
-	-webkit-box-sizing: border-box !important;
 }
 
 /* HEADER */
@@ -312,6 +311,8 @@ body {
 	}
 
 	> footer {
+		padding: 1em .25em 3em .25em;
+
 		@media #{$desk} {
 			padding: 1em 5em;
 		}
@@ -428,7 +429,7 @@ body {
 			margin-bottom: .5em;
 		}
 
-		a.btn {
+		.btn {
 			text-align: center;
 			width: 100%;
 		}
@@ -450,8 +451,9 @@ body {
 .cancel-order {
 	text-align: center;
 	margin: 2em 0;
+	padding: 0em .25em;
 
-	> a {
+	> button {
 		@media #{$palm} {
 			width: 100%;
 		}
@@ -1413,116 +1415,122 @@ input[type=radio]:disabled + label.card {
 }
 
 /* Modal */
-.modal-inner {
-	header {
-		padding: 1em 3em !important;
-	}
-}
-
-.semantic-content.is-active:before {
-	background: $dark !important;
-}
-
-.modal-close {
+.semantic-content {
+	background-color: $white;
 
 	@media #{$lap} {
-		text-align: center;
-		@include font(3, 100, 2);
-		margin-right: -3px;
+		width: 85%;
+		border-radius: $brand-round;
+		@include rem-attribute('margin-top', 3);
+		height: 85%;
+		@include rem-attribute('max-height', 60);
 	}
 
-	color: $dark;
-
-	&:after {
-
-
-		@media #{$lap} {
-			width: 50px;
-			height: 50px;
-		}
-
-		@media #{$desk} {
-			margin-left: 275px !important;
-		}
-	}
-}
-
-.modal-content {
-	padding: 1em !important;
-	color: #282828;
-
-	h1 {
-		@extend .h2;
-		color: #282828 !important;
-		font-size: 2em !important;
-		padding: 0;
-		margin-top: 0 !important;
+	@media #{$desk} {
+		width: 60%;
 	}
 
-	h2 {
-		@extend .h3;
-		color: #282828 !important;
-		font-size: 1.5em !important;
-		padding: 0 !important;
-	}
-
-	h3 {
-		@extend .h4;
-		font-size: 1em !important;
-		font-weight: bold !important;
-		padding: 0 !important;
-	}
-
-	.flag {
-		height: 54px;
-		width: 81px;
-		display: inline-block;
-
-		&.us {
-			background: url(//media.hairdirect.com/store/images/us-flag.png) no-repeat;
-		}
-
-		&.uk {
-			background: url(//media.hairdirect.com/store/images/uk-flag.png) no-repeat;
-		}
-
-		&.eu {
-			background: url(//media.hairdirect.com/store/images/eu-flag.png) no-repeat;
-		}
-	}
-
-
-	span.arrow {
-		color: #90A8B0;
-		font-size: 54px;
-		font-family: arial;
-		font-weight: bold;
+	> header {
+		@include font-size(1.5);
+		border-bottom: 1px solid #e8e8e8;
+		padding: .5em;
 		position: relative;
-		bottom: 12px;
-		margin: 0 8px;
-	}
-}
 
-#cancel-order-modal {
-	.modal-content {
-		h3 {
-			text-align: center;
+		> button {
+			display: block;
+			float: right;
+			position: absolute;
+			right: 1em;
+			top: .6em;
+		}
+	}
+
+	> .modal-inner {
+		@media #{$lap} {
+			height: 92%;
+			width: 99.9%;
+			overflow-y: auto;
 		}
 
-		ul {
-			li:first-child {
-				text-align: right;
+		padding: 1em;
+		color: #282828;
 
-				a:hover {
-					border-bottom-color: #cdcdcd;
+		> .modal-content {
+			h1 {
+				@extend .h2;
+				color: #282828 !important;
+				font-size: 2em !important;
+				padding: 0;
+				margin-top: 0 !important;
+			}
+
+			h2 {
+				@extend .h3;
+				color: #282828 !important;
+				font-size: 1.5em !important;
+				padding: 0 !important;
+			}
+
+			h3 {
+				@extend .h4;
+				font-size: 1em !important;
+				font-weight: bold !important;
+				padding: 0 !important;
+			}
+
+			.flag {
+				height: 54px;
+				width: 81px;
+				display: inline-block;
+
+				&.us {
+					background: url(//media.hairdirect.com/store/images/us-flag.png) no-repeat;
+				}
+
+				&.uk {
+					background: url(//media.hairdirect.com/store/images/uk-flag.png) no-repeat;
+				}
+
+				&.eu {
+					background: url(//media.hairdirect.com/store/images/eu-flag.png) no-repeat;
 				}
 			}
 
-			li:last-child {
-				text-align: left;
 
-				a:hover {
-					border-bottom-color: #4e88bd;
+			span.arrow {
+				color: #90A8B0;
+				font-size: 54px;
+				font-family: arial;
+				font-weight: bold;
+				position: relative;
+				bottom: 12px;
+				margin: 0 8px;
+			}
+		}
+	}
+}
+
+#cancel-order-modal.semantic-content {
+	height: 100%;
+
+	@media #{$lap} {
+		@include rem-attribute('height', 14);
+		@include rem-attribute('width', 25);
+	}
+
+	> .modal-inner {
+		> .modal-content {
+			h3 {
+				text-align: center;
+			}
+
+			ul {
+				li:first-child {
+					text-align: right;
+				}
+
+				li:last-child {
+					text-align: left;
 				}
 			}
 		}
@@ -1650,15 +1658,8 @@ input[type=radio]:disabled + label.card {
 	background-color: $darkest;
 }
 
-.graybox, .greybox {
-}
-
-
 /* Typography */
 a, a:link, a:hover, a:active, a:focus {
 	text-decoration: none;
 	border-bottom: 1px solid;
 }
-
-
-/** KOSER **/
