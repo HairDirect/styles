@@ -1510,14 +1510,18 @@ input[type=radio]:disabled + label.card {
 	}
 }
 
-#cancel-order-modal.semantic-content {
-	height: 100%;
+#cancel-order-modal, #promo-discount-help-modal, #shipping-option-help-modal {
+	&.semantic-content {
+		height: 100%;
 
-	@media #{$lap} {
-		@include rem-attribute('height', 14);
-		@include rem-attribute('width', 25);
+		@media #{$lap} {
+			@include rem-attribute('height', 14);
+			@include rem-attribute('width', 25);
+		}
 	}
+}
 
+#cancel-order-modal.semantic-content {
 	> .modal-inner {
 		> .modal-content {
 			h3 {
