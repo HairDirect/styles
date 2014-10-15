@@ -141,7 +141,7 @@ button:disabled, .disabled {
 }
 
 %round-button-selected {
-	transition: none;
+	@include transition($transition);
 	background-color: #5088ba;
 	border-color: #5088ba;
 
@@ -160,14 +160,14 @@ button:disabled, .disabled {
 	background-color: $white;
 	position: relative;
 	cursor: pointer;
-	transition: none;
+	@include transition($transition);
 
 	svg {
 		height: 100%;
 		width: 100%;
 
 		path {
-			transition: none;
+			@include transition($transition);
 			fill: #7c7c7c;
 		}
 	}
