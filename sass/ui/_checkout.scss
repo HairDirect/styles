@@ -1435,17 +1435,28 @@ input[type=radio]:disabled + label.card {
 	}
 
 	> header {
-		@include font-size(1.5);
+		@include font-size(1);
+		font-weight: bold;
 		border-bottom: 1px solid #e8e8e8;
-		padding: .5em;
+		padding: 1em;
 		position: relative;
+
+		@media #{$lap} {
+			padding: .5em;
+			@include font-size(1.5);
+			font-weight: normal;
+		}
 
 		> button {
 			display: block;
 			float: right;
 			position: absolute;
 			right: 1em;
-			top: .6em;
+			top: 1em;
+
+			@media #{$lap} {
+				top: .6em;
+			}
 		}
 	}
 
