@@ -124,12 +124,12 @@ $borderstyle: $lineweight $linetype $linecolor;
 	transform: translateY(-50%);
 }
 
-@mixin alpha-background($include-hover: "false", $include-press: "false") {
+@mixin alpha-background($include-hover: false, $include-press: false) {
 	background-image: -moz-linear-gradient( 90deg, #4d83b6 0%, #6aabd7 100%);
 	background-image: -webkit-linear-gradient( 90deg, #4d83b6 0%, #6aabd7 100%);
 	background-image: -ms-linear-gradient( 90deg, #4d83b6 0%, #6aabd7 100%);
 
-	@if $include-hover == "true" {
+	@if $include-hover == true {
 		&:hover, &:focus {
 			background-image: -moz-linear-gradient( 90deg, #5591ca 0%, #71b7e6 100%);
 			background-image: -webkit-linear-gradient( 90deg, #5591ca 0%, #71b7e6 100%);
@@ -137,7 +137,7 @@ $borderstyle: $lineweight $linetype $linecolor;
 		}
 	}
 
-	@if $include-press == "true" {
+	@if $include-press == true {
 		&:active {
 			background-image: -moz-linear-gradient( 90deg, #6aabd7 0%, #4d83b6 100%);
 			background-image: -webkit-linear-gradient( 90deg, #6aabd7 0%, #4d83b6 100%);

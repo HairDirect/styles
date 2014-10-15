@@ -449,13 +449,17 @@ body {
 }
 
 .cancel-order {
-	text-align: center;
-	margin: 2em 0;
-	padding: 0em .25em;
+	padding-left: .25em;
+	padding-right: .25em;
 
-	> button {
-		@media #{$palm} {
-			width: 100%;
+	> div {
+		text-align: center;
+		margin: 2em 0;
+
+		> button {
+			@media #{$palm} {
+				width: 100%;
+			}
 		}
 	}
 }
