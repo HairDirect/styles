@@ -1428,6 +1428,7 @@ input[type=radio]:disabled + label.card {
 		@include rem-attribute('margin-top', 3);
 		height: 85%;
 		@include rem-attribute('max-height', 60);
+		box-shadow: $modal-box-shadow;
 	}
 
 	@media #{$desk} {

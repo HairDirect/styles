@@ -1,0 +1,219 @@
+.waiting-container {
+	min-height: 16px;
+	transition: opacity 0.25s;
+	opacity: 1;
+
+	&.hidden {
+		opacity: 0;
+	}
+
+	&.overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	&.fixed {
+		position: fixed;
+		z-index: 9999;
+	}
+}
+
+.waiting-overlay {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.65);
+}
+
+.waiting-indicator {
+	width: 250px;
+	height: 200px;
+	margin-left: -125px;
+	padding: 1em;
+	margin-top: -100px;
+	background: #FFF;
+	box-shadow: $modal-box-shadow;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	overflow: hidden;
+
+	&.center, &.top, &.bottom {
+		position: absolute;
+	}
+
+	&.center {
+		top: 50%;
+		left: 50%;
+	}
+
+	&.top {
+		top: 10%;
+		margin-top: 0;
+	}
+
+	&.bottom {
+		top: auto;
+		bottom: 0;
+		margin-top: 0;
+	}
+
+	&.left {
+		left: 0;
+		margin-left: 0;
+	}
+
+	&.right {
+		left: auto;
+		right: 0;
+		margin-left: 0;
+	}
+
+	.message {
+		color: #282828;
+		position: relative;
+		text-align: center;
+		font-weight: bold;
+		margin-top: 1em;
+		font-size: .889em;
+	}
+
+	.spinner {
+		position: relative;
+		width: 100px;
+		height: 100px;
+		margin: 0 auto;
+	}
+
+	.spinner-item {
+		position: absolute;
+		background-color: #282828;
+		width: 23px;
+		height: 23px;
+		-moz-border-radius: 15px;
+		-moz-animation-name: bounce_circularG;
+		-moz-animation-duration: 0.64s;
+		-moz-animation-iteration-count: infinite;
+		-moz-animation-direction: linear;
+		-webkit-border-radius: 15px;
+		-webkit-animation-name: bounce_circularG;
+		-webkit-animation-duration: 0.64s;
+		-webkit-animation-iteration-count: infinite;
+		-webkit-animation-direction: linear;
+		-ms-border-radius: 15px;
+		-ms-animation-name: bounce_circularG;
+		-ms-animation-duration: 0.64s;
+		-ms-animation-iteration-count: infinite;
+		-ms-animation-direction: linear;
+		-o-border-radius: 15px;
+		-o-animation-name: bounce_circularG;
+		-o-animation-duration: 0.64s;
+		-o-animation-iteration-count: infinite;
+		-o-animation-direction: linear;
+		border-radius: 15px;
+		animation-name: bounce_circularG;
+		animation-duration: 0.64s;
+		animation-iteration-count: infinite;
+		animation-direction: linear;
+	}
+
+	#spinner-item1 {
+		left: 0;
+		top: 39px;
+		@include animation-delay("0.24");
+	}
+
+	#spinner-item2 {
+		left: 11px;
+		top: 11px;
+		@include animation-delay("0.32");
+	}
+
+	#spinner-item3 {
+		top: 0;
+		left: 39px;
+		@include animation-delay("0.4");
+	}
+
+	#spinner-item4 {
+		right: 11px;
+		top: 11px;
+		@include animation-delay("0.48");
+	}
+
+	#spinner-item5 {
+		right: 0;
+		top: 39px;
+		@include animation-delay("0.56");
+	}
+
+	#spinner-item6 {
+		right: 11px;
+		bottom: 11px;
+		@include animation-delay("0.64");
+	}
+
+	#spinner-item7 {
+		left: 39px;
+		bottom: 0;
+		@include animation-delay("0.72");
+	}
+
+	#spinner-item8 {
+		left: 11px;
+		bottom: 11px;
+		@include animation-delay("0.8");
+	}
+}
+
+@-moz-keyframes bounce_circularG {
+	0% {
+		-moz-transform: scale(1);
+	}
+
+	100% {
+		-moz-transform: scale(0.3);
+	}
+}
+
+@-webkit-keyframes bounce_circularG {
+	0% {
+		-webkit-transform: scale(1);
+	}
+
+	100% {
+		-webkit-transform: scale(0.3);
+	}
+}
+
+@-ms-keyframes bounce_circularG {
+	0% {
+		-ms-transform: scale(1);
+	}
+
+	100% {
+		-ms-transform: scale(0.3);
+	}
+}
+
+@-o-keyframes bounce_circularG {
+	0% {
+		-o-transform: scale(1);
+	}
+
+	100% {
+		-o-transform: scale(0.3);
+	}
+}
+
+@keyframes bounce_circularG {
+	0% {
+		transform: scale(1);
+	}
+
+	100% {
+		transform: scale(0.3);
+	}
+}

@@ -163,3 +163,11 @@ $borderstyle: $lineweight $linetype $linecolor;
 @mixin box-shadow-light {
 	box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.04);
 }
+
+@mixin animation-delay($delay: "0.00") {
+	-moz-animation-delay: #{$delay}s;
+	-webkit-animation-delay: #{$delay}s;
+	-ms-animation-delay: #{$delay}s;
+	-o-animation-delay: #{$delay}s;
+	animation-delay: #{$delay}s;
+}
