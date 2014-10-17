@@ -15,6 +15,12 @@ body {
 	}
 }
 
+/* Typography */
+a, a:link, a:hover, a:active, a:focus {
+	text-decoration: none;
+	border-bottom: 1px solid;
+}
+
 /* HEADER */
 .global-nav {
 	height: 4.9em;
@@ -332,11 +338,6 @@ body {
 	clear: both;
 }
 
-.nav--fit {
-	width: 101%;
-}
-
-
 .hide {
 	visibility: hidden;
 	height: 0;
@@ -412,11 +413,6 @@ body {
 		height: 100%;
 		width: 100%;
 	}
-}
-
-#content {
-	min-height: 1000px;
-	background-color: $lightest;
 }
 
 .checkout > footer {
@@ -759,13 +755,6 @@ input[type=radio]:disabled + label.card {
 	@include rem-attribute('margin-top', 2)
 }
 
-.default-payment {
-	.card {
-		margin-top: 0;
-		padding-top: 1em;
-	}
-}
-
 /* Promo code styles */
 .promo-code-container {
 	@include font-size(.875);
@@ -835,6 +824,8 @@ input[type=radio]:disabled + label.card {
 
 /* Credit card item styles */
 .credit-card-item {
+	@include stripped-list;
+
 	input[type=radio]:checked + label.card {
 		.type:after {
 			background-color: transparent;
@@ -874,8 +865,6 @@ input[type=radio]:disabled + label.card {
 			}
 		}
 	}
-
-	@include stripped-list;
 }
 
 /* Credit Card Form */
@@ -1249,18 +1238,15 @@ input[type=radio]:disabled + label.card {
 			&.exclude-tax {
 				position: relative;
 				@include rem-attribute('top', 2);
-			}
-
-			&.subtotal, &.tax, &.total {
-				@include rem-attribute('margin-right', 1.4);
-			}
-
-			&.exclude-tax {
 				@include small-label-text;
 
 				strong {
 					@include font-size(.875);
 				}
+			}
+
+			&.subtotal, &.tax, &.total {
+				@include rem-attribute('margin-right', 1.4);
 			}
 		}
 
@@ -1576,74 +1562,6 @@ input[type=radio]:disabled + label.card {
 	}
 }
 
-.remove-confirmation {
-	.remove-cart-item {
-		@include transition($transition);
-		-webkit-transform: translateY(0);
-		opacity: 1;
-	}
-
-	span {
-		display: block;
-		@include transition($transition);
-		margin-top: 0;
-		-webkit-transform: translateY(100px);
-		opacity: 0;
-		height: 0;
-	}
-
-	&.confirm {
-		.remove-cart-item {
-			-webkit-transform: translateY(-30px);
-			opacity: 0;
-		}
-
-		span {
-			display: block;
-			opacity: 1;
-			-webkit-transform: translateY(0px);
-			height: auto;
-			margin-top: -145px;
-
-			@media #{$lap} {
-				margin-top: -95px;
-			}
-
-			@media #{$desk} {
-				margin-top: -25px;
-			}
-
-			p {
-				display: block;
-				clear: both;
-				margin-bottom: 0;
-
-				@media #{$lap} {
-					margin-bottom: 10px;
-				}
-			}
-
-			button {
-				position: relative;
-				margin-top: 10px !important;
-			}
-
-			.yes {
-				@extend .error;
-
-				@media #{$lap} {
-					margin-bottom: 10px;
-				}
-			}
-
-			.no {
-				@extend .success;
-			}
-		}
-	}
-}
-
-
 // ORDER CONFIRMATION
 .order-confirmation {
 	@include rem-attribute('min-height', 25);
@@ -1674,31 +1592,4 @@ input[type=radio]:disabled + label.card {
 			}
 		}
 	}
-}
-
-/* Colors */
-.bg-lightest {
-	background-color: $lightest;
-}
-
-.bg-lighter {
-	background-color: $lighter;
-}
-
-.bg-light {
-	background-color: $light;
-}
-
-.bg-dark {
-	background-color: $dark;
-}
-
-.bg-darkest {
-	background-color: $darkest;
-}
-
-/* Typography */
-a, a:link, a:hover, a:active, a:focus {
-	text-decoration: none;
-	border-bottom: 1px solid;
 }
