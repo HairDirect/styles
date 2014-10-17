@@ -138,10 +138,15 @@ body {
 
 			ul {
 				margin: 0;
+				display: table;
+				width: 100%;
+
 				@include box-shadow-light;
 
 				@media #{$desk} {
 					box-shadow: none;
+					display: block;
+					width: auto;
 				}
 
 				&:after {
@@ -159,17 +164,22 @@ body {
 				li {
 					list-style: none;
 					position: relative;
-					display: block;
-					float: left;
+					display: table-cell;
+					vertical-align: middle;
 					margin: 0;
 					width: 25%;
-					height: 3em;
+					height: 4em;
 					border: 1px solid $medium-gray;
 					background-color: $white-smoke;
 					@include transition($transition);
 
-					@media #{$palm} {
-						height: 4em;
+					@media #{$lap} {
+						height: 3em;
+					}
+
+					@media #{$desk} {
+						display: block;
+						float: left;
 					}
 
 					&.review {
@@ -252,17 +262,14 @@ body {
 					}
 
 					a {
-						display: block;
-						float: left;
 						text-align: center;
 						width: 100%;
 						margin: 0;
 						border-bottom: 0;
-						padding: 6% 0;
+						padding: 6%;
 						color: $dark-gray;
 						text-decoration: none;
 						text-shadow: $text-shadow-light;
-						@include vertical-align;
 						@include font-size(.75);
 						@include transition($transition);
 
@@ -271,6 +278,8 @@ body {
 						}
 
 						@media #{$desk} {
+							display: block;
+							float: left;
 							left: 7%;
 						}
 					}
@@ -1008,8 +1017,8 @@ input[type=radio]:disabled + label.card {
 }
 
 .paypal-container {
-	margin-top: -1em;
-	margin-bottom: 2em;
+	margin-top: -1.5em;
+	margin-bottom: 1em;
 }
 
 .checkbox-input {
@@ -1377,6 +1386,16 @@ input[type=radio]:disabled + label.card {
 					background-image: url('//media.hairdirect.com/store/images/gls-icon.svg');
 				}
 			}
+		}
+
+		.surepost {
+			@include small-label-text;
+			margin-top: 1em;
+			color: #282828;
+			text-transform: uppercase;
+			line-height: 1.5em;
+			position: relative;
+			top: 1em;
 		}
 	}
 	/* Payment information styles */

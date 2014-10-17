@@ -70,10 +70,6 @@
 	height: $height;
 }
 
-@mixin outline {
-	outline: 1px solid red;
-}
-
 $borderstyle: $lineweight $linetype $linecolor;
 
 @mixin border($location: 'all', $lineweight: $lineweight, $linetype: $linetype, $linecolor: $linecolor) {
@@ -116,12 +112,6 @@ $borderstyle: $lineweight $linetype $linecolor;
 	@else {
 		clear: $location;
 	}
-}
-
-@mixin vertical-align {
-	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
 }
 
 @mixin alpha-background($include-hover: false, $include-press: false) {
