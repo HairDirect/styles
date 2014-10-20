@@ -7,13 +7,13 @@
 	@include font-size(1.250);
 	font-weight: bold !important;
 	text-shadow: $text-shadow-dark;
-	color: $lightest;
+	color: $white;
 
 	&:hover, &:focus {
-		border-color: #68ac1f;
-		background-image: -moz-linear-gradient( 90deg, #61b621 0%, #7bca25 100%);
-		background-image: -webkit-linear-gradient( 90deg, #61b621 0%, #7bca25 100%);
-		background-image: -ms-linear-gradient( 90deg, #61b621 0%, #7bca25 100%);
+		border-color: $green1;
+		background-image: -moz-linear-gradient( 90deg, $green2 0%, $green3 100%);
+		background-image: -webkit-linear-gradient( 90deg, $green2 0%, $green3 100%);
+		background-image: -ms-linear-gradient( 90deg, $green2 0%, $green3 100%);
 	}
 
 	&:active {
@@ -34,11 +34,11 @@
 .btn--alpha, .btn--beta, .btn--gamma {
 	font-size: inherit;
 	&:disabled {
-		border-color: #e7e7e7;
+		border-color: $gray1;
 		background-image: -moz-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
 		background-image: -webkit-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
 		background-image: -ms-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
-		color: #b9b9b9;
+		color: $gray2;
 		text-shadow: $text-shadow-white;
 	}
 }
@@ -51,45 +51,45 @@
 }
 
 .btn--beta {
-	color: #515151;
+	color: $gray3;
 	text-shadow: $text-shadow-white;
-	border-color: #cdcdcd;
-	background-image: -moz-linear-gradient( 90deg, #f1f1f1 0%, $white 100%);
-	background-image: -webkit-linear-gradient( 90deg, #f1f1f1 0%, $white 100%);
-	background-image: -ms-linear-gradient( 90deg, #f1f1f1 0%, $white 100%);
+	border-color: $gray4;
+	background-image: -moz-linear-gradient( 90deg, $gray5 0%, $white 100%);
+	background-image: -webkit-linear-gradient( 90deg, $gray5 0%, $white 100%);
+	background-image: -ms-linear-gradient( 90deg, $gray5 0%, $white 100%);
 
 	&:hover, &:focus {
-		background-image: -moz-linear-gradient( 90deg, #f8f8f8 0%, $white 100%);
-		background-image: -webkit-linear-gradient( 90deg, #f8f8f8 0%, $white 100%);
-		background-image: -ms-linear-gradient( 90deg, #f8f8f8 0%, $white 100%);
+		background-image: -moz-linear-gradient( 90deg, $gray6 0%, $white 100%);
+		background-image: -webkit-linear-gradient( 90deg, $gray6 0%, $white 100%);
+		background-image: -ms-linear-gradient( 90deg, $gray6 0%, $white 100%);
 	}
 
 	&:active {
-		background-image: -moz-linear-gradient( 90deg, $white 0%, #f1f1f1 100%);
-		background-image: -webkit-linear-gradient( 90deg, $white 0%, #f1f1f1 100%);
-		background-image: -ms-linear-gradient( 90deg, $white 0%, #f1f1f1 100%);
+		background-image: -moz-linear-gradient( 90deg, $white 0%, $gray5 100%);
+		background-image: -webkit-linear-gradient( 90deg, $white 0%, $gray5 100%);
+		background-image: -ms-linear-gradient( 90deg, $white 0%, $gray5 100%);
 	}
 }
 
 .btn--gamma {
 	color: $white;
 	text-shadow: $text-shadow-dark;
-	border-color: #808285 !important;
+	border-color: $gray7 !important;
 	border-radius: 6px;
-	background-image: -moz-linear-gradient( 90deg, #a2a2a2 0%, #ababab 100%);
-	background-image: -webkit-linear-gradient( 90deg, #a2a2a2 0%, #ababab 100%);
-	background-image: -ms-linear-gradient( 90deg, #a2a2a2 0%, #ababab 100%);
+	background-image: -moz-linear-gradient( 90deg, $gray8 0%, $gray9 100%);
+	background-image: -webkit-linear-gradient( 90deg, $gray8 0%, $gray9 100%);
+	background-image: -ms-linear-gradient( 90deg, $gray8 0%, $gray9 100%);
 
 	&:hover, &:focus {
-		background-image: -moz-linear-gradient( 90deg, #b2b2b2 0%, #c2c2c2 100%);
-		background-image: -webkit-linear-gradient( 90deg,#b2b2b2 0%, #c2c2c2 100%);
-		background-image: -ms-linear-gradient( 90deg, #b2b2b2 0%, #c2c2c2 100%);
+		background-image: -moz-linear-gradient( 90deg, $gray10 0%, $gray11 100%);
+		background-image: -webkit-linear-gradient( 90deg, $gray10 0%, $gray11 100%);
+		background-image: -ms-linear-gradient( 90deg, $gray10 0%, $gray11 100%);
 	}
 
 	&:active {
-		background-image: -moz-linear-gradient( 90deg, #ababab 0%, #a2a2a2 100%);
-		background-image: -webkit-linear-gradient( 90deg, #ababab 0%, #a2a2a2 100%);
-		background-image: -ms-linear-gradient( 90deg, #ababab 0%, #a2a2a2 100%);
+		background-image: -moz-linear-gradient( 90deg, $gray9 0%, $gray8 100%);
+		background-image: -webkit-linear-gradient( 90deg, $gray9 0%, $gray8 100%);
+		background-image: -ms-linear-gradient( 90deg, $gray9 0%, $gray8 100%);
 	}
 }
 

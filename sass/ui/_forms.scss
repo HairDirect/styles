@@ -12,7 +12,7 @@ input[type=text] + label, input[type=tel] + label, input[type=number] + label, t
 	position: absolute;
 	@include font(1,300,3);
 	z-index: 99;
-	color: #464646;
+	color: $gray21;
 	padding: 0 1rem;
 	margin-top: -3.5em;
 	letter-spacing: 0;
@@ -20,14 +20,14 @@ input[type=text] + label, input[type=tel] + label, input[type=number] + label, t
 
 input[type=text], input[type=tel], input[type=number], textarea, select {
 	width: 100%;
-	border: 1px solid #c5c8cc;
+	border: 1px solid $gray20;
 	border-radius: $brand-round;
 	position: relative;
 	top: 0;
 	left: 0;
 	z-index: 1;
 	padding: 1em 1em 0;
-	color: #282828;
+	color: $gray12;
 	background-color: $white;
 	outline: 0;
 
@@ -36,14 +36,14 @@ input[type=text], input[type=tel], input[type=number], textarea, select {
 	}
 
 	& + label {
-		color: #a1a1a1;
+		color: $gray22;
 	}
 
 	&:focus {
 		padding-left: .944em;
 		padding-top: .944em;
 		border-width: 2px;
-		border-color: #6fadd6 !important;
+		border-color: $blue3 !important;
 
 		& + label {
 			@extend %textinputlabel;
@@ -51,10 +51,10 @@ input[type=text], input[type=tel], input[type=number], textarea, select {
 	}
 
 	&.required {
-		border-color: #818386;
+		border-color: $gray23;
 
 		& + label {
-			color: #464646;
+			color: $gray21;
 
 			&:after {
 				@extend .required_indicator;
@@ -65,22 +65,9 @@ input[type=text], input[type=tel], input[type=number], textarea, select {
 			& + label {
 				&:after {
 					@extend .required_indicator;
-					color: #464646 !important;
+					color: $gray21 !important;
 				}
 			}
-		}
-	}
-
-	&.valid {
-		background-color: $lighter-green !important;
-		border-color: $green !important;
-
-		&:focus {
-			background-color: $light-green !important;
-		}
-
-		& + label {
-			color: $green !important;
 		}
 	}
 
@@ -91,11 +78,6 @@ input[type=text], input[type=tel], input[type=number], textarea, select {
 			font-weight: bold;
 			color: $red !important;
 		}
-	}
-
-	&:valid {
-		// Hides the label
-		background: $lightest;
 	}
 }
 
@@ -209,7 +191,7 @@ OTHER STYLES
 	color: $red;
 	text-align: right;
 	@extend .required_indicator;
-	text-shadow: 0px 1px 0px #ccc;
+	text-shadow: 0px 1px 0px $gray19;
 }
 
 /********************************

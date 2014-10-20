@@ -1,6 +1,5 @@
 .btn, .cta, button {
-	@include taptarget();
-	background-color: $light;
+	@include taptarget;
 	height: 2em;
 	@include transition($transition);
 	margin: 0;
@@ -17,49 +16,31 @@
 	}
 }
 
-.btn.active {
-	background-color: $green;
-	color: $lightest;
-	@include transition($transition);
-
-	&:hover, &:focus {
-		background-color: lighten($green, 10%);
-	}
-
-	&:active {
-		background-color: darken($green, 10%);
-	}
-
-	&.small {
-		@include font-size(1);
-	}
-}
-
 .tertiary {
 	text-transform: uppercase;
 	font-weight: bold;
 	font-size: 12px;
-	border: 1px solid #b2b2b2;
+	border: 1px solid $gray10;
 	border-radius: 4px;
 	background-color: $white;
-	color: #7c7c7c;
+	color: $gray18;
 	@include transition($transition);
 
 	&:hover, &:focus, &:active {
-		border-color: #afafaf;
+		border-color: $gray24;
 	}
 
 	&:hover, &:focus {
-		background-color: #eee;
+		background-color: $gray25;
 	}
 
 	&:active {
-		background-color: #d5d5d5;
+		background-color: $gray26;
 	}
 }
 
 .tertiary-hover {
-	background-color: #eee;
+	background-color: $gray25;
 }
 
 .add {
@@ -88,22 +69,9 @@
 
 	&:hover {
 		background-color: $red;
-		color: $lightest;
+		color: $white;
 	}
 }
-
-
-button:disabled, .disabled {
-	background: none;
-	color: darken($light, 10%);
-	border: 1px solid darken($light, 10%) !important;
-	@include transition($transition);
-
-	&:hover, &:focus {
-		background: none !important;
-	}
-}
-
 
 .btn_group {
 	@include rem-attribute('margin-bottom', 1);
@@ -142,8 +110,8 @@ button:disabled, .disabled {
 
 %round-button-selected {
 	@include transition($transition);
-	background-color: #5088ba;
-	border-color: #5088ba;
+	background-color: $blue4;
+	border-color: $blue4;
 
 	svg {
 		path {
@@ -156,7 +124,7 @@ button:disabled, .disabled {
 	width: 2em;
 	height: 2em;
 	border-radius: $circle;
-	border: 1px solid #b2b2b2;
+	border: 1px solid $gray10;
 	background-color: $white;
 	position: relative;
 	cursor: pointer;
@@ -168,7 +136,7 @@ button:disabled, .disabled {
 
 		path {
 			@include transition($transition);
-			fill: #7c7c7c;
+			fill: $gray18;
 		}
 	}
 
@@ -187,7 +155,7 @@ button:disabled, .disabled {
 	}
 	/* Negative overrides */
 	&.negative {
-		border-color: #cecece;
+		border-color: $gray27;
 
 		&:hover {
 			background-color: $red;
@@ -202,7 +170,7 @@ button:disabled, .disabled {
 
 		svg {
 			path {
-				fill: #cecece;
+				fill: $gray27;
 			}
 		}
 	}
@@ -212,19 +180,19 @@ button:disabled, .disabled {
 	overflow: hidden;
 	padding: 1em;
 	margin-bottom: 1em;
-	border: 1px solid #cacaca;
+	border: 1px solid $gray17;
 	border-radius: $brand-round;
 	background-image: -moz-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
 	background-image: -webkit-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
 	background-image: -ms-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
 	@include box-shadow-light;
-	color: #7c7c7c;
+	color: $gray18;
 
 	&.info {
 		background-image: none;
 		background-color: $yellow;
 		border-bottom-color: $dark-yellow;
-		color: #282828;
+		color: $gray12;
 		@include font-size(1);
 
 		> p {

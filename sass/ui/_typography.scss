@@ -22,7 +22,7 @@ h1, .h1 {
 }
 
 h2, .h2 {
-	color: #4f86b7;
+	color: $blue1;
 	@include font(1.875, bold, 2);
 	
 	@extend .heading;
