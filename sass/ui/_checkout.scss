@@ -7,6 +7,7 @@
 body {
 	background-color: $white-smoke;
 	max-width: 60em;
+
 	@media #{$desk} {
 		margin: 0 auto;
 		overflow: hidden;
@@ -661,6 +662,7 @@ input[type=radio]:disabled + label.card {
 				position: absolute;
 				top: 0;
 				left: 0;
+				background-color: $white-smoke; /* FALLBACK */
 				background-color: $whitesmoke-overlay;
 				z-index: 2;
 			}
@@ -829,6 +831,7 @@ input[type=radio]:disabled + label.card {
 		}
 
 		.type:after {
+			background-color: $white-smoke; /* FALLBACK */
 			background-color: $whitesmoke-overlay;
 		}
 	}
@@ -987,6 +990,7 @@ input[type=radio]:disabled + label.card {
 		position: absolute;
 		top: 0;
 		left: 0;
+		background-color: $white-smoke; /* FALLBACK */
 		background-color: $whitesmoke-overlay;
 		z-index: 2;
 	}
