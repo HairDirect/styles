@@ -112,24 +112,25 @@
 	}
 }
 
+@mixin gradient-background($color1, $color2) {
+	background-color: $color1;
+	background-image: -moz-linear-gradient( 90deg, $color1 0%, $color2 100%);
+	background-image: -webkit-linear-gradient( 90deg, $color1 0%, $color2 100%);
+	background-image: -ms-linear-gradient( 90deg, $color1 0%, $color2 100%);
+}
+
 @mixin alpha-background($include-hover: false, $include-press: false) {
-	background-image: -moz-linear-gradient( 90deg, $blue5 0%, $blue6 100%);
-	background-image: -webkit-linear-gradient( 90deg, $blue5 0%, $blue6 100%);
-	background-image: -ms-linear-gradient( 90deg, $blue5 0%, $blue6 100%);
+	@include gradient-background($blue5, $blue6);
 
 	@if $include-hover == true {
 		&:hover, &:focus {
-			background-image: -moz-linear-gradient( 90deg, $blue7 0%, $blue8 100%);
-			background-image: -webkit-linear-gradient( 90deg, $blue7 0%, $blue8 100%);
-			background-image: -ms-linear-gradient( 90deg, $blue7 0%, $blue8 100%);
+			@include gradient-background($blue7, $blue8);
 		}
 	}
 
 	@if $include-press == true {
 		&:active {
-			background-image: -moz-linear-gradient( 90deg, $blue6 0%, $blue5 100%);
-			background-image: -webkit-linear-gradient( 90deg, $blue6 0%, $blue5 100%);
-			background-image: -ms-linear-gradient( 90deg, $blue6 0%, $blue5 100%);
+			@include gradient-background($blue6, $blue5);
 		}
 	}
 }

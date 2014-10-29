@@ -1,9 +1,7 @@
 .btn--positive, button.btn--positive {
 	border: 1px solid $green;
 	border-radius: $brand-round;
-	background-image: -moz-linear-gradient( 90deg, $lighter-green 0%, $light-green 100%);
-	background-image: -webkit-linear-gradient( 90deg, $lighter-green 0%, $light-green 100%);
-	background-image: -ms-linear-gradient( 90deg, $lighter-green 0%, $light-green 100%);
+	@include gradient-background($lighter-green, $light-green);
 	@include font-size(1.250);
 	font-weight: bold !important;
 	text-shadow: $text-shadow-dark;
@@ -11,16 +9,12 @@
 
 	&:hover, &:focus {
 		border-color: $green1;
-		background-image: -moz-linear-gradient( 90deg, $green2 0%, $green3 100%);
-		background-image: -webkit-linear-gradient( 90deg, $green2 0%, $green3 100%);
-		background-image: -ms-linear-gradient( 90deg, $green2 0%, $green3 100%);
+		@include gradient-background($green2, $green3);
 	}
 
 	&:active {
-		background-image: -moz-linear-gradient( 90deg, $light-green 0%, $lighter-green 100%);
-		background-image: -webkit-linear-gradient( 90deg, $light-green 0%, $lighter-green 100%);
-		background-image: -ms-linear-gradient( 90deg, $light-green 0%, $lighter-green 100%);
-	} 
+		@include gradient-background($light-green, $lighter-green);
+	}
 }
 
 .btn--secondary, .btn.btn--secondary {
@@ -33,11 +27,10 @@
 
 .btn--alpha, .btn--beta, .btn--gamma {
 	font-size: inherit;
+
 	&:disabled {
 		border-color: $gray1;
-		background-image: -moz-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
-		background-image: -webkit-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
-		background-image: -ms-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
+		@include gradient-background($white-smoke, $white);
 		color: $gray2;
 		text-shadow: $text-shadow-white;
 	}
@@ -54,20 +47,14 @@
 	color: $gray3;
 	text-shadow: $text-shadow-white;
 	border-color: $gray4;
-	background-image: -moz-linear-gradient( 90deg, $gray5 0%, $white 100%);
-	background-image: -webkit-linear-gradient( 90deg, $gray5 0%, $white 100%);
-	background-image: -ms-linear-gradient( 90deg, $gray5 0%, $white 100%);
+	@include gradient-background($gray5, $white);
 
 	&:hover, &:focus {
-		background-image: -moz-linear-gradient( 90deg, $gray6 0%, $white 100%);
-		background-image: -webkit-linear-gradient( 90deg, $gray6 0%, $white 100%);
-		background-image: -ms-linear-gradient( 90deg, $gray6 0%, $white 100%);
+		@include gradient-background($gray6, $white);
 	}
 
 	&:active {
-		background-image: -moz-linear-gradient( 90deg, $white 0%, $gray5 100%);
-		background-image: -webkit-linear-gradient( 90deg, $white 0%, $gray5 100%);
-		background-image: -ms-linear-gradient( 90deg, $white 0%, $gray5 100%);
+		@include gradient-background($white, $gray5);
 	}
 }
 
@@ -75,21 +62,15 @@
 	color: $white;
 	text-shadow: $text-shadow-dark;
 	border-color: $gray7 !important;
-	border-radius: 6px;
-	background-image: -moz-linear-gradient( 90deg, $gray8 0%, $gray9 100%);
-	background-image: -webkit-linear-gradient( 90deg, $gray8 0%, $gray9 100%);
-	background-image: -ms-linear-gradient( 90deg, $gray8 0%, $gray9 100%);
+	border-radius: $brand-round;
+	@include gradient-background($gray8, $gray9);
 
 	&:hover, &:focus {
-		background-image: -moz-linear-gradient( 90deg, $gray10 0%, $gray11 100%);
-		background-image: -webkit-linear-gradient( 90deg, $gray10 0%, $gray11 100%);
-		background-image: -ms-linear-gradient( 90deg, $gray10 0%, $gray11 100%);
+		@include gradient-background($gray10, $gray11);
 	}
 
 	&:active {
-		background-image: -moz-linear-gradient( 90deg, $gray9 0%, $gray8 100%);
-		background-image: -webkit-linear-gradient( 90deg, $gray9 0%, $gray8 100%);
-		background-image: -ms-linear-gradient( 90deg, $gray9 0%, $gray8 100%);
+		@include gradient-background($gray9, $gray8);
 	}
 }
 

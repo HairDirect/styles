@@ -182,9 +182,7 @@
 	margin-bottom: 1em;
 	border: 1px solid $gray17;
 	border-radius: $brand-round;
-	background-image: -moz-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
-	background-image: -webkit-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
-	background-image: -ms-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
+	@include gradient-background($white-smoke, $white);
 	@include box-shadow-light;
 	color: $gray18;
 

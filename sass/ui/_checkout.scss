@@ -373,9 +373,7 @@ a, a:link, a:hover, a:active, a:focus {
 	.footer-total-container {
 		border: 1px solid $medium-gray;
 		border-radius: $brand-round;
-		background-image: -moz-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
-		background-image: -webkit-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
-		background-image: -ms-linear-gradient( 90deg, $white-smoke 0%, $white 100%);
+		@include gradient-background($white-smoke, $white);
 		@include box-shadow-light;
 
 		.total {
@@ -539,9 +537,7 @@ input[type=radio] + label.card {
 	&:active {
 		color: $gray12;
 		border-color: $medium-gray;
-		background-image: -moz-linear-gradient( 90deg, $white 0%, $white-smoke 100%);
-		background-image: -webkit-linear-gradient( 90deg, $white 0%, $white-smoke 100%);
-		background-image: -ms-linear-gradient( 90deg, $white 0%, $white-smoke 100%);
+		@include gradient-background($white, $white-smoke);
 	}
 
 	button {
