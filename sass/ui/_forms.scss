@@ -13,7 +13,9 @@ input[type=text] + label, input[type=tel] + label, input[type=number] + label, t
 	@include font(1,300,3);
 	z-index: 99;
 	color: $gray21;
-	padding: 0 1rem;
+	padding: 0;
+	@include rem-attribute('padding-left', 1);
+	@include rem-attribute('padding-right', 1);
 	margin-top: -3.5em;
 	letter-spacing: 0;
 }
@@ -83,11 +85,13 @@ input[type=text], input[type=tel], input[type=number], textarea, select {
 
 // make the active label style stick when there is content in the field
 %textinputlabel {
-	padding: 0 1rem;
+	padding: 0;
+	@include rem-attribute('padding-left', 1);
+	@include rem-attribute('padding-right', 1);
 	@include font(0.6, 500, 1);
-	height: 1rem;
+	@include rem-attribute('height', 1);
 	text-transform: uppercase;
-	margin-top: -3rem;
+	@include rem-attribute('margin-top', -3);
 	letter-spacing: 1px !important;
 	pointer-events: none;
 }
@@ -95,8 +99,8 @@ input[type=text], input[type=tel], input[type=number], textarea, select {
 label.notempty {
 	@extend %textinputlabel;
 	@include font-size(0.6, important);
-	line-height: 1rem !important;
-	margin-top: -3rem !important;
+	@include rem-attribute('line-height', 1, true);
+	@include rem-attribute('margin-top', -3, true);
 	font-weight: 500 !important;
 }
 
@@ -107,21 +111,21 @@ textarea {
 	@include line-height(1.5);
 	display: block;
 	resize: none;
-	padding-top: 1.5rem;
+	@include rem-attribute('padding-top', 1.5);
 
 	& + label {
-		margin-top: -6.5rem;
+		@include rem-attribute('margin-top', -6.5);
 	}
 
 	& + label.notempty {
-		margin-top: -6.2rem !important;
+		@include rem-attribute('margin-top', -6.2, true);
 	}
 
 	&:focus {
 		@include rem-attribute('padding-top', 1.438);
 
 		& + label {
-			margin-top: -6.2rem;
+			@include rem-attribute('margin-top', -6.2);
 		}
 	}
 }

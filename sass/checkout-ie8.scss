@@ -1,5 +1,12 @@
-﻿/* Override for round button styles.*/
+﻿@import "vars";
+
+body {
+	border: 1px solid $gray15;
+	padding: 0 1em;	
+}
+
 input[type=radio] + label.card {
+	/* Override for round button styles.*/
 	.round-button {
 		vertical-align: middle;
 		text-align: center;
@@ -7,6 +14,28 @@ input[type=radio] + label.card {
 	}
 }
 
+/* Hide the animated divs, and use an animated gif instead */
+.waiting-indicator {
+	.spinner {
+		background: url(//media.hairdirect.com/images/loading.gif) no-repeat center left;
+	}
+
+	.spinner-item {
+		display: none;
+	}
+}
+
+/* Since IE8 doesn't recognize the pseudo selector :disabled, we need to target the attribute value */
+.btn--alpha, .btn--beta, .btn--gamma {
+	&[disabled=disabled] {
+		border-color: $gray1 !important;
+		background-color: $white-smoke!important;
+		color: $gray2 !important;
+		text-shadow: $text-shadow-white !important;
+	}
+}
+
+/* Hide the arrow pseudo elements in the progress bar */
 .checkout > header .progress ul li:before, li:after {
 	display: none;
 }

@@ -29,10 +29,10 @@
 	font-size: inherit;
 
 	&:disabled {
-		border-color: $gray1;
-		@include gradient-background($white-smoke, $white);
-		color: $gray2;
-		text-shadow: $text-shadow-white;
+		border-color: $gray1 !important;
+		@include gradient-background($white-smoke, $white, true);
+		color: $gray2 !important;
+		text-shadow: $text-shadow-white !important;
 	}
 }
 
