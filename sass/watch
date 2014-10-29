@@ -5,7 +5,7 @@
 
 # No minification
 sass --watch style.scss:style.css --style expanded
-
 #sass --watch style.scss:style.min.css --style compressed
+sass --watch checkout-ie8.scss:checkout-ie8.css --style expanded
 
 exit 0

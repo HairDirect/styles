@@ -1,0 +1,12 @@
+﻿/* Override for round button styles.*/
+input[type=radio] + label.card {
+	.round-button {
+		vertical-align: middle;
+		text-align: center;
+		padding-top: 3px;
+	}
+}
+
+.checkout > header .progress ul li:before, li:after {
+	display: none;
+}

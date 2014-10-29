@@ -6,10 +6,9 @@
 
 body {
 	background-color: $white-smoke;
-
+	max-width: 60em;
 	@media #{$desk} {
 		margin: 0 auto;
-		max-width: 60em;
 		overflow: hidden;
 		box-shadow: 0px 0px 62px -25px $gray-overlay-medium-dark;
 	}
@@ -550,7 +549,7 @@ input[type=radio] + label.card {
 	}
 }
 
-input[type=radio]:checked + label.card {
+input[type=radio][checked=checked] + label.card {
 	color: $gray12;
 
 	.round-button {
@@ -614,7 +613,7 @@ input[type=radio]:disabled + label.card {
 		}
 	}
 
-	label.card:hover .carrier-image > span:after, input[type=radio]:checked + label.card .carrier-image > span:after {
+	label.card:hover .carrier-image > span:after, input[type=radio][checked=checked] + label.card .carrier-image > span:after {
 		background-color: transparent;
 	}
 
@@ -818,7 +817,7 @@ input[type=radio]:disabled + label.card {
 .credit-card-item {
 	@include stripped-list;
 
-	input[type=radio]:checked + label.card {
+	input[type=radio][checked=checked] + label.card {
 		.type:after {
 			background-color: transparent;
 		}

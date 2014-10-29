@@ -96,7 +96,7 @@
 		}
 	}
 
-	input[type=radio]:checked + label {
+	input[type=radio][checked=checked] + label {
 		&.btn_group_item {
 			@extend .btn--alpha;
 
@@ -112,7 +112,7 @@
 	@include transition($transition);
 	background-color: $blue4;
 	border-color: $blue4;
-
+	color: $white;
 	svg {
 		path {
 			fill: $white;
