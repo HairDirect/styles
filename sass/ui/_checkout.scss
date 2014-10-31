@@ -546,7 +546,7 @@ input[type=radio] + label.card {
 	}
 }
 
-input[type=radio][checked=checked] + label.card {
+input[type=radio]:checked + label.card {
 	color: $gray12;
 
 	.round-button {
@@ -610,7 +610,7 @@ input[type=radio]:disabled + label.card {
 		}
 	}
 
-	label.card:hover .carrier-image > span:after, input[type=radio][checked=checked] + label.card .carrier-image > span:after {
+	label.card:hover .carrier-image > span:after, input[type=radio]:checked + label.card .carrier-image > span:after {
 		background-color: transparent;
 	}
 
@@ -815,7 +815,7 @@ input[type=radio]:disabled + label.card {
 .credit-card-item {
 	@include stripped-list;
 
-	input[type=radio][checked=checked] + label.card {
+	input[type=radio]:checked + label.card {
 		.type:after {
 			background-color: transparent;
 		}
@@ -1129,7 +1129,35 @@ input[type=radio]:disabled + label.card {
 						}
 
 						&.quantity {
-							@media #{$desk} {
+							> input, button {
+								display: inline-block;
+								@include rem-attribute("height", 2);
+								vertical-align: top;
+								margin: 0px;
+							}
+
+							> input {
+								width: 50%;
+								padding: 0 0 0 .5em;
+								border-top-right-radius: 0px;
+								border-bottom-right-radius: 0px;
+
+								&:focus {
+									border-color: $gray20;
+									border-width: 1px;
+									padding-left: .5em;
+									padding-top: inherit;
+								}
+							}
+
+							> button {
+								width: 46%;
+								border-top-left-radius: 0px;
+								border-bottom-left-radius: 0px;
+								position: relative;
+								right: 7px;
+							}
+							/*@media #{$desk} {
 								@include rem-attribute('max-width', 10);
 							}
 
@@ -1164,7 +1192,7 @@ input[type=radio]:disabled + label.card {
 								bottom: 2px;
 								border-top-left-radius: 0;
 								border-bottom-left-radius: 0;
-							}
+							}*/
 						}
 
 						&.unit-price {

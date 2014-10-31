@@ -1,8 +1,11 @@
 ﻿@import "vars";
+@import "bourbon/bourbon";
+@import "mixins";
 
+/* Give the body a border to provide some structure to the checkout. */
 body {
 	border: 1px solid $gray15;
-	padding: 0 1em;	
+	padding: 0 1em;
 }
 
 input[type=radio] + label.card {
@@ -26,16 +29,169 @@ input[type=radio] + label.card {
 }
 
 /* Since IE8 doesn't recognize the pseudo selector :disabled, we need to target the attribute value */
-.btn--alpha, .btn--beta, .btn--gamma {
-	&[disabled=disabled] {
+.btn--alpha, .btn--beta, .btn--gamma, .tertiary {
+	&[disabled=disabled], &[disabled=disabled]:hover {
 		border-color: $gray1 !important;
-		background-color: $white-smoke!important;
+		background-color: $white-smoke !important;
 		color: $gray2 !important;
 		text-shadow: $text-shadow-white !important;
 	}
 }
 
+.btn--alpha {
+	color: $white;
+	text-shadow: $text-shadow-dark;
+	border-color: $nav-blue;
+	@include alpha-background(true, true);
+}
+
+/* Need to use [checked=checked] in place of :checked since IE8 doesn't support that pseudo selector */
+.btn_group {
+	input[type=radio][checked=checked] + label.btn_group_item {
+		color: $white;
+		text-shadow: $text-shadow-dark;
+		border-color: $nav-blue;
+		@include alpha-background(true, true);
+
+		&:hover, &:focus, &:active {
+			@include transition(none);
+			@include alpha-background;
+		}
+	}
+}
+
 /* Hide the arrow pseudo elements in the progress bar */
 .checkout > header .progress ul li:before, li:after {
-	display: none;
+	display: none !important;
+}
+
+/* Hide image container since SVG is not supported. The images aren't critical to the design. */
+.shipping-option-item .carrier-image span, .selection-container .shipping-option .carrier-image span {
+	&.ups, &.usps, &.postnl, &.gls {
+		display: none !important;
+	}
+}
+
+/* Need to use [checked=checked] in place of :checked since IE8 doesn't support that pseudo selector */
+.shipping-option-item {
+	label.card:hover .carrier-image > span:after, input[type=radio][checked=checked] + label.card .carrier-image > span:after {
+		background-color: transparent !important;
+	}
+}
+
+/* Need to use [checked=checked] in place of :checked since IE8 doesn't support that pseudo selector */
+input[type=radio][checked=checked] + label.card {
+	color: $gray12;
+
+	.round-button {
+		@include transition($transition);
+		background-color: $blue4;
+		border-color: $blue4;
+		color: $white;
+	}
+}
+
+/* Credit card item styles */
+.type {
+	background: none !important;
+	text-indent: 0 !important;
+	overflow: visible !important;
+	text-align: right !important;
+	height: 100% !important;
+	width: 100% !important;
+	text-transform: capitalize !important;
+	display: inline !important;
+
+	&:after {
+		display: none !important;
+	}
+}
+
+/* Hide the credit card icons, and move the card type to the upper-right hand corner of the card (next to the select box) */
+.credit-card-item {
+	label.card {
+		& > div.grid {
+			position: relative !important;
+
+			& > .type-item {
+				width: 9em !important;
+				position: absolute !important;
+				top: .3em !important;
+				right: 3em !important;
+				text-align: right !important;
+			}
+		}
+	}
+
+	.type-item {
+		position: relative !important;
+	}
+
+	input[type=radio][checked=checked] + label.card {
+		.type:after {
+			display: none !important;
+		}
+	}
+
+	label.card:hover .type:after {
+		display: none !important;
+	}
+
+	input[type=radio][disabled] + label.card {
+		.type:after {
+			display: none !important;
+		}
+	}
+}
+
+/* Cart overrides */
+.cart-total-container {
+	.cart-items {
+		.cart-item {
+			> .grid {
+				> .details > .grid {
+					/*  fix quantity field padding */
+					> li.quantity {
+						> input {
+							padding-top: 4px;
+
+							&:focus {
+								padding-top: 4px;
+							}
+						}
+					}
+					/* fix remove button styles */
+					> li.remove-item {
+						> .round-button {
+							text-align: center;
+							color: $gray18;
+
+							&:hover {
+								color: $white;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.total-container {
+		.cost-breakdown {
+			dd.shipping, dd.discount {
+				> .round-button {
+					text-align: center;
+					position: relative;
+					bottom: -3px;
+					line-height: 12px;
+					color: $gray18;
+
+					&:hover {
+						color: $white;
+						background-color: $blue4;
+					}
+				}
+			}
+		}
+	}
 }

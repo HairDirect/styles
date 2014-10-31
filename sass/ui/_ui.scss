@@ -96,7 +96,7 @@
 		}
 	}
 
-	input[type=radio][checked=checked] + label {
+	input[type=radio]:checked + label {
 		&.btn_group_item {
 			@extend .btn--alpha;
 

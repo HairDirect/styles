@@ -25,10 +25,10 @@
 	font-weight: bold;
 }
 
-.btn--alpha, .btn--beta, .btn--gamma {
+.btn--alpha, .btn--beta, .btn--gamma, .tertiary {
 	font-size: inherit;
 
-	&:disabled {
+	&:disabled, &:disabled:hover {
 		border-color: $gray1 !important;
 		@include gradient-background($white-smoke, $white, true);
 		color: $gray2 !important;
