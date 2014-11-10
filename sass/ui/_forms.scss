@@ -21,6 +21,9 @@ input[type=text] + label, input[type=tel] + label, input[type=number] + label, t
 }
 
 input[type=text], input[type=tel], input[type=number], textarea, select {
+	 -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 	width: 100%;
 	border: 1px solid $gray20;
 	border-radius: $brand-round;

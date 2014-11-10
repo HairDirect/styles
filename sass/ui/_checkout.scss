@@ -951,10 +951,10 @@ input[type=radio]:disabled + label.card {
 .type {
 	background: url("//media.hairdirect.com/store/images/creditcards.png") 0 0;
 	background-repeat: no-repeat;
-	background-size: auto 1.875em;
+	background-size: auto 33px;
 	display: block;
-	width: 2.85em;
-	height: 1.875em;
+	width: 49px;
+	height: 33px;
 	overflow: hidden;
 	position: relative;
 	text-indent: 1000%;
@@ -966,19 +966,19 @@ input[type=radio]:disabled + label.card {
 	}
 
 	&.mastercard {
-		background-position: -2.84em 0;
+		background-position: -50px 0;
 	}
 
 	&.amex, &.americanexpress {
-		background-position: -5.67em 0;
+		background-position: -99px 0;
 	}
 
 	&.discover {
-		background-position: -8.5em 0;
+		background-position: -149px 0;
 	}
 
 	&.paypal {
-		background-position: -11.34em 0;
+		background-position: -199px 0;
 	}
 
 	&:after {
