@@ -531,7 +531,6 @@ form {
 
 input[type=radio] + label.card {
 	&:hover, &:focus {
-		//border-color: $medium-gray;
 		border-color: $gray17;
 		color: $gray12;
 	}
@@ -559,8 +558,10 @@ input[type=radio]:checked + label.card {
 
 input[type=radio]:disabled + label.card {
 	&:hover, &:focus, &:active {
-		border-color: $gray17;
-		color: $gray18;
+		border: 1px solid $medium-gray !important;
+		@include gradient-background($white-smoke, $white, true);
+		color: $gray18 !important;
+		cursor: default !important;
 	}
 }
 
@@ -1543,7 +1544,7 @@ input[type=radio]:disabled + label.card {
 	> .modal-inner {
 		> .modal-content {
 			h3 {
-				text-align: left; 
+				text-align: left;
 			}
 
 			ul {
