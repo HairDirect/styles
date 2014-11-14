@@ -171,6 +171,7 @@ a, a:link, a:hover, a:active, a:focus {
 					background-color: $white-smoke;
 					@include rem-attribute('line-height', .889);
 					@include transition($transition);
+					cursor: default;
 
 					@media #{$lap} {
 						height: 3em;
@@ -194,15 +195,17 @@ a, a:link, a:hover, a:active, a:focus {
 
 					&.completed {
 						background-color: $light-gray;
-					}
+						cursor: pointer;
 
-					&:hover {
-						background-color: $white;
-						border-color: $medium-gray;
+						&:hover {
+							background-color: $white;
+							border-color: $medium-gray;
 
-						a, a:hover {
-							color: $dark-gray;
-							text-shadow: $text-shadow-light;
+							a, a:hover {
+								cursor: pointer;
+								color: $dark-gray;
+								text-shadow: $text-shadow-light;
+							}
 						}
 					}
 					/* Specific step styles */
@@ -227,6 +230,35 @@ a, a:link, a:hover, a:active, a:focus {
 							width: 22.5%;
 						}
 					}
+
+					/* Progress item text */
+					a {
+						text-align: center;
+						display: inline-block;
+						height: 100%;
+						width: 100%;
+						margin: 0;
+						border-bottom: 0;
+						padding: 11px 16% 6% 16%;
+						color: $dark-gray;
+						text-decoration: none;
+						text-shadow: $text-shadow-light;
+						cursor: default;
+						@include font-size(.75);
+						@include transition($transition);
+
+						@media #{$lap} {
+							padding: 19px 6% 6% 6%;
+						}
+
+						@media #{$desk} {
+							@include font-size(.875);
+							display: block;
+							float: left;
+							position: relative;
+						}
+					}
+
 					/* ARROWS */
 					@media #{$desk} {
 
@@ -263,42 +295,16 @@ a, a:link, a:hover, a:active, a:focus {
 							}
 						}
 
+						&.completed:hover:after {
+							border-left-color: $white !important;
+						}
+
 						&.completed:after {
 							border-left-color: $light-gray !important;
 						}
 
 						&:hover:before {
 							border-left-color: $medium-gray;
-						}
-
-						&:hover:after {
-							border-left-color: $white !important;
-						}
-					}
-					/* Progress item text */
-					a {
-						text-align: center;
-						display: inline-block;
-						height: 100%;
-						width: 100%;
-						margin: 0;
-						border-bottom: 0;
-						padding: 11px 16% 6% 16%;
-						color: $dark-gray;
-						text-decoration: none;
-						text-shadow: $text-shadow-light;
-						@include font-size(.75);
-						@include transition($transition);
-
-						@media #{$lap} {
-							padding: 19px 6% 6% 6%;
-						}
-
-						@media #{$desk} {
-							@include font-size(.875);
-							display: block;
-							float: left;
-							position: relative;
 						}
 					}
 				}
