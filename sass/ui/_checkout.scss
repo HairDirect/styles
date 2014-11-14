@@ -162,8 +162,8 @@ a, a:link, a:hover, a:active, a:focus {
 				li {
 					list-style: none;
 					position: relative;
-					display: table-cell;
-					vertical-align: middle;
+					display: block;
+					float: left;
 					margin: 0;
 					width: 25%;
 					height: 3em;
@@ -173,23 +173,20 @@ a, a:link, a:hover, a:active, a:focus {
 					@include transition($transition);
 					cursor: default;
 
-					@media #{$lap} {
-						height: 3em;
-					}
-
-					@media #{$desk} {
-						display: block;
-						float: left;
-					}
-
 					&.active {
 						background-color: $nav-blue !important;
 						border-color: $nav-blue !important;
 
-						a {
-							color: $near-white !important;
-							font-weight: bold !important;
-							text-shadow: $text-shadow-dark !important;
+						> .outer-container > .inner-container > .element {
+							a {
+								color: $near-white !important;
+								font-weight: bold !important;
+								text-shadow: $text-shadow-dark !important;
+
+								&:hover {
+									cursor: pointer;
+								}
+							}
 						}
 					}
 
@@ -200,7 +197,9 @@ a, a:link, a:hover, a:active, a:focus {
 						&:hover {
 							background-color: $white;
 							border-color: $medium-gray;
+						}
 
+						> .outer-container > .inner-container > .element {
 							a, a:hover {
 								cursor: pointer;
 								color: $dark-gray;
@@ -231,37 +230,47 @@ a, a:link, a:hover, a:active, a:focus {
 						}
 					}
 
-					/* Progress item text */
-					a {
-						text-align: center;
-						display: inline-block;
-						height: 100%;
+					> .outer-container {
+						display: table;
 						width: 100%;
-						margin: 0;
-						border-bottom: 0;
-						padding: 11px 16% 6% 16%;
-						color: $dark-gray;
-						text-decoration: none;
-						text-shadow: $text-shadow-light;
-						cursor: default;
-						@include font-size(.75);
-						@include transition($transition);
+						height: 100%;
 
-						@media #{$lap} {
-							padding: 19px 6% 6% 6%;
-						}
+						> .inner-container {
+							display: table-cell;
+							vertical-align: middle;
+							width: 100%;
+							margin: 0 auto;
+							text-align: center;
 
-						@media #{$desk} {
-							@include font-size(.875);
-							display: block;
-							float: left;
-							position: relative;
+							> .element {
+								/* Progress item text */
+								a {
+									text-align: center;
+									display: inline-block;
+									height: 100%;
+									width: 100%;
+									margin: 0;
+									border-bottom: 0;
+									color: $dark-gray;
+									text-decoration: none;
+									text-shadow: $text-shadow-light;
+									cursor: default;
+									@include font-size(.75);
+									@include transition($transition);
+
+									@media #{$lap} {
+										@include font-size(.875);
+									}
+
+									@media #{$desk} {
+										position: relative;
+									}
+								}
+							}
 						}
 					}
-
 					/* ARROWS */
 					@media #{$desk} {
-
 						&:before, &:after {
 							box-shadow: none;
 							content: "";
@@ -285,7 +294,7 @@ a, a:link, a:hover, a:active, a:focus {
 							border-left-color: $white-smoke !important;
 						}
 						/* ARROW OVERRIDES */
-						&.active, &.active:hover, &.active.completed {
+						&.active, &.active:hover, &.active.completed, &.active.completed:hover {
 							&:before {
 								border-left-color: $nav-blue;
 							}
