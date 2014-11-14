@@ -531,7 +531,8 @@ form {
 
 input[type=radio] + label.card {
 	&:hover, &:focus {
-		border-color: $medium-gray;
+		//border-color: $medium-gray;
+		border-color: $gray17;
 		color: $gray12;
 	}
 
@@ -547,6 +548,8 @@ input[type=radio] + label.card {
 }
 
 input[type=radio]:checked + label.card {
+	background-color: $white;
+	background-image: none;
 	color: $gray12;
 
 	.round-button {
@@ -1459,7 +1462,7 @@ input[type=radio]:disabled + label.card {
 
 	> .modal-inner {
 		@media #{$lap} {
-			height: 92%;
+			height: 89%;
 			width: 99.9%;
 			overflow-y: auto;
 		}
@@ -1547,6 +1550,10 @@ input[type=radio]:disabled + label.card {
 
 				li:last-child {
 					text-align: left;
+				}
+
+				button {
+					@include rem-attribute('width', 6);
 				}
 			}
 		}

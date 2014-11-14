@@ -165,7 +165,7 @@ $transition: all .3s ease-in-out;
 /* Atoms */
 $lineweight: 1px !default;
 $linetype: solid !default;
-$text-shadow-dark: 0px -1px 1px $gray-overlay-medium;
+$text-shadow-dark: 0px 1px 1px $gray-overlay-medium;
 $text-shadow-light: 0px 1px 0px $gray-overlay;
 $text-shadow-white: 0px 1px 0px $white;
 $modal-box-shadow: 0px 0px 26px 1px $black-overlay-medium;
