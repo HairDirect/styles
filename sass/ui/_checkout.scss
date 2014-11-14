@@ -1473,6 +1473,7 @@ input[type=radio]:disabled + label.card {
 		> .modal-content {
 			h1 {
 				@extend .h2;
+				text-align: left !important;
 				color: $gray12 !important;
 				font-size: 2em !important;
 				padding: 0;
@@ -1481,6 +1482,7 @@ input[type=radio]:disabled + label.card {
 
 			h2 {
 				@extend .h3;
+				text-align: left !important;
 				color: $gray12 !important;
 				font-size: 1.5em !important;
 				padding: 0 !important;
@@ -1488,6 +1490,7 @@ input[type=radio]:disabled + label.card {
 
 			h3 {
 				@extend .h4;
+				text-align: left !important;
 				font-size: 1em !important;
 				font-weight: bold !important;
 				padding: 0 !important;
@@ -1540,7 +1543,7 @@ input[type=radio]:disabled + label.card {
 	> .modal-inner {
 		> .modal-content {
 			h3 {
-				text-align: center;
+				text-align: left; 
 			}
 
 			ul {

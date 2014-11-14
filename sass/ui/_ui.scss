@@ -113,6 +113,7 @@
 	background-color: $blue4;
 	border-color: $blue4;
 	color: $white;
+
 	svg {
 		path {
 			fill: $white;
@@ -145,12 +146,16 @@
 	}
 	/* Size overrides */
 	&.small {
+		position: relative;
 		width: 1em;
 		height: 1em;
 
 		svg {
-			position: relative;
-			bottom: 2px;
+			position: absolute;
+			top: 2px;
+			height: 12px;
+			width: 12px;
+			right: 2px;
 		}
 	}
 	/* Negative overrides */
