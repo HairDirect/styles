@@ -166,9 +166,10 @@ a, a:link, a:hover, a:active, a:focus {
 					vertical-align: middle;
 					margin: 0;
 					width: 25%;
-					height: 4em;
+					height: 3em;
 					border: 1px solid $medium-gray;
 					background-color: $white-smoke;
+					@include rem-attribute('line-height', .889);
 					@include transition($transition);
 
 					@media #{$lap} {
@@ -178,6 +179,47 @@ a, a:link, a:hover, a:active, a:focus {
 					@media #{$desk} {
 						display: block;
 						float: left;
+					}
+
+					&.active {
+						background-color: $nav-blue !important;
+						border-color: $nav-blue !important;
+
+						a {
+							color: $near-white !important;
+							font-weight: bold !important;
+							text-shadow: $text-shadow-dark !important;
+						}
+					}
+
+					&.completed {
+						background-color: $light-gray;
+					}
+
+					&:hover {
+						background-color: $white;
+						border-color: $medium-gray;
+
+						a, a:hover {
+							color: $dark-gray;
+							text-shadow: $text-shadow-light;
+						}
+					}
+					/* Specific step styles */
+					&.shipping {
+						a {
+							@media #{$desk} {
+								left: 10px;
+							}
+						}
+					}
+
+					&.method, &.billing, &.review {
+						a {
+							@media #{$desk} {
+								left: 16px;
+							}
+						}
 					}
 
 					&.review {
@@ -233,38 +275,15 @@ a, a:link, a:hover, a:active, a:focus {
 							border-left-color: $white !important;
 						}
 					}
-
-					&.active {
-						background-color: $nav-blue !important;
-						border-color: $nav-blue !important;
-
-						a {
-							color: $near-white !important;
-							font-weight: bold !important;
-							text-shadow: $text-shadow-dark !important;
-						}
-					}
-
-					&.completed {
-						background-color: $light-gray;
-					}
-
-					&:hover {
-						background-color: $white;
-						border-color: $medium-gray;
-
-						a, a:hover {
-							color: $dark-gray;
-							text-shadow: $text-shadow-light;
-						}
-					}
-
+					/* Progress item text */
 					a {
 						text-align: center;
+						display: inline-block;
+						height: 100%;
 						width: 100%;
 						margin: 0;
 						border-bottom: 0;
-						padding: 6%;
+						padding: 11px 16% 6% 16%;
 						color: $dark-gray;
 						text-decoration: none;
 						text-shadow: $text-shadow-light;
@@ -272,13 +291,14 @@ a, a:link, a:hover, a:active, a:focus {
 						@include transition($transition);
 
 						@media #{$lap} {
-							@include font-size(.875);
+							padding: 19px 6% 6% 6%;
 						}
 
 						@media #{$desk} {
+							@include font-size(.875);
 							display: block;
 							float: left;
-							left: 7%;
+							position: relative;
 						}
 					}
 				}
