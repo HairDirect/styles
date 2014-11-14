@@ -195,10 +195,9 @@ OTHER STYLES
 .required-field-message {
 	@include font(.6, bold);
 	text-transform: uppercase;
-	color: $red;
+	color: $red; 
 	text-align: right;
 	@extend .required_indicator;
-	text-shadow: 0px 1px 0px $gray19;
 }
 
 /********************************

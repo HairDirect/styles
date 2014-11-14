@@ -1157,42 +1157,6 @@ input[type=radio]:disabled + label.card {
 								position: relative;
 								right: 7px;
 							}
-							/*@media #{$desk} {
-								@include rem-attribute('max-width', 10);
-							}
-
-							> input[type=number] {
-								@include taptarget(-2);
-								width: 51%;
-								padding-right: 0;
-								border-top-right-radius: 0;
-								border-bottom-right-radius: 0;
-
-								@media #{$desk} {
-									@include rem-attribute('max-width', 5);
-								}
-
-								&:focus {
-									border-color: $gray20;
-									border-width: 1px;
-									padding-left: 1em;
-									padding-top: inherit;
-								}
-							}
-
-							> button {
-								width: 45%;
-
-								@media #{$desk} {
-									@include rem-attribute('max-width', 5.625);
-								}
-
-								position: relative;
-								right: 6px;
-								bottom: 2px;
-								border-top-left-radius: 0;
-								border-bottom-left-radius: 0;
-							}*/
 						}
 
 						&.unit-price {
@@ -1227,14 +1191,14 @@ input[type=radio]:disabled + label.card {
 
 						&.remove-item {
 							position: absolute;
-							top: 1%;
+							top: 0%;
 							right: 1%;
 							@include rem-attribute('margin-right', .5);
 							@include clear;
 
 							@media #{$desk} {
 								right: .5em;
-								top: 40%;
+								top: 45%;
 							}
 						}
 					}
@@ -1245,6 +1209,8 @@ input[type=radio]:disabled + label.card {
 
 	.total-container {
 		padding: 1em;
+		z-index: 1;
+		//-webkit-tap-highlight-color: rgba(0,0,0,0);
 
 		> div.float--right {
 			width: 100%;
@@ -1283,11 +1249,12 @@ input[type=radio]:disabled + label.card {
 			font-weight: bold;
 
 			@media #{$lap} {
-				@include font-size(1.875);
+				@include font-size(1.875); 
 			}
 		}
 
 		.round-button {
+			z-index: 2;
 			margin: .111em 0 .111em .222em;
 		}
 	}
@@ -1457,31 +1424,27 @@ input[type=radio]:disabled + label.card {
 
 	@media #{$desk} {
 		width: 60%;
+		@include rem-attribute('max-width', 37.778);
 	}
 
 	> header {
 		@include font-size(1);
 		font-weight: bold;
 		border-bottom: 1px solid $medium-gray;
-		padding: 1em;
+		@include rem-attribute('padding', 1);
 		position: relative;
 
 		@media #{$lap} {
-			padding: .5em;
 			@include font-size(1.5);
 			font-weight: normal;
 		}
 
-		> button {
+		> .round-button {
 			display: block;
 			float: right;
 			position: absolute;
-			right: 1em;
-			top: 1em;
-
-			@media #{$lap} {
-				top: .6em;
-			}
+			@include rem-attribute('top', .75);
+			@include rem-attribute('right', 1);
 		}
 	}
 

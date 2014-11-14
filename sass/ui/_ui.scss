@@ -121,8 +121,8 @@
 }
 
 .round-button {
-	width: 2em;
-	height: 2em;
+	@include rem-attribute('width', 2);
+	@include rem-attribute('height', 2);
 	border-radius: $circle;
 	border: 1px solid $gray10;
 	background-color: $white;
