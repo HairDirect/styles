@@ -1087,167 +1087,172 @@ input[type=radio]:disabled + label.card {
 	@include stripped-list;
 	@include box-shadow-light;
 
-	.cart-items {
-		width: 100%;
+	.shopping-cart-container {
+		@include clear-tap-style;
 
-		.cart-item {
-			position: relative;
+		.cart-items {
+			@include clear-tap-style;
 			width: 100%;
-			padding: .5em 0;
-			border-bottom: 1px solid $gray19;
 
-			@media #{$desk} {
-				@include rem-attribute('max-height', 9.188);
-			}
-
-			> .confirmation {
-				position: absolute;
+			.cart-item {
+				position: relative;
 				width: 100%;
-				z-index: 2;
-				background-color: $white;
-				text-align: center;
-				height: 98%;
-				@include rem-attribute('margin-top', -.375);
-
-				> h4 {
-					text-align: center;
-					font-weight: bold;
-				}
-
-				button.btn {
-					font-weight: normal;
-					@include font-size(1);
-					@include rem-attribute('min-width', 6);
-
-					&.cancel {
-						@include rem-attribute('margin-right', 1);
-					}
-
-					&.confirm {
-						@include rem-attribute('margin-left', 1);
-					}
-				}
-			}
-
-			> .grid {
-				margin: 0;
-				z-index: 1;
+				padding: .5em 0;
+				border-bottom: 1px solid $gray19;
 
 				@media #{$desk} {
-					display: table;
-					width: 100%;
+					@include rem-attribute('max-height', 9.188);
 				}
 
-				& > .grid__item {
-					@media #{$desk} {
-						display: table-cell;
-						vertical-align: middle;
+				> .confirmation {
+					position: absolute;
+					width: 100%;
+					z-index: 2;
+					background-color: $white;
+					text-align: center;
+					height: 98%;
+					@include rem-attribute('margin-top', -.375);
+
+					> h4 {
+						text-align: center;
+						font-weight: bold;
 					}
 
-					@include rem-attribute('padding-left', .5);
+					button.btn {
+						font-weight: normal;
+						@include font-size(1);
+						@include rem-attribute('min-width', 6);
 
-					&.thumbnail {
-						> img {
-							@include rem-attribute('max-height', 9);
+						&.cancel {
+							@include rem-attribute('margin-right', 1);
+						}
 
-							@media #{$desk} {
-								@include rem-attribute('max-height', 8);
-							}
+						&.confirm {
+							@include rem-attribute('margin-left', 1);
 						}
 					}
 				}
 
-				> .details > .grid {
-					position: relative;
+				> .grid {
+					margin: 0;
+					z-index: 1;
 
-					> li {
-						padding-left: 0;
-						@include rem-attribute('margin-bottom', 1);
+					@media #{$desk} {
+						display: table;
+						width: 100%;
+					}
 
-						&.description {
-							> span {
-								@include rem-attribute('min-height', 2.875);
-								@include rem-attribute('padding-right', 3);
+					& > .grid__item {
+						@media #{$desk} {
+							display: table-cell;
+							vertical-align: middle;
+						}
+
+						@include rem-attribute('padding-left', .5);
+
+						&.thumbnail {
+							> img {
+								@include rem-attribute('max-height', 9);
 
 								@media #{$desk} {
-									padding-right: 0;
-									min-height: 0;
-									padding-right: 0;
+									@include rem-attribute('max-height', 8);
 								}
 							}
 						}
+					}
 
-						&.quantity {
-							> input, button {
-								display: inline-block;
-								@include rem-attribute("height", 2);
-								vertical-align: top;
-								margin: 0px;
-							}
+					> .details > .grid {
+						position: relative;
 
-							> input {
-								width: 50%;
-								padding: 0 0 0 .5em;
-								border-top-right-radius: 0px;
-								border-bottom-right-radius: 0px;
+						> li {
+							padding-left: 0;
+							@include rem-attribute('margin-bottom', 1);
 
-								&:focus {
-									border-color: $gray20;
-									border-width: 1px;
-									padding-left: .5em;
-									padding-top: inherit;
+							&.description {
+								> span {
+									@include rem-attribute('min-height', 2.875);
+									@include rem-attribute('padding-right', 3);
+
+									@media #{$desk} {
+										padding-right: 0;
+										min-height: 0;
+										padding-right: 0;
+									}
 								}
 							}
 
-							> button {
-								width: 46%;
-								border-top-left-radius: 0px;
-								border-bottom-left-radius: 0px;
-								position: relative;
-								right: 7px;
+							&.quantity {
+								> input, button {
+									display: inline-block;
+									@include rem-attribute("height", 2);
+									vertical-align: top;
+									margin: 0px;
+								}
+
+								> input {
+									width: 50%;
+									padding: 0 0 0 .5em;
+									border-top-right-radius: 0px;
+									border-bottom-right-radius: 0px;
+
+									&:focus {
+										border-color: $gray20;
+										border-width: 1px;
+										padding-left: .5em;
+										padding-top: inherit;
+									}
+								}
+
+								> button {
+									width: 46%;
+									border-top-left-radius: 0px;
+									border-bottom-left-radius: 0px;
+									position: relative;
+									right: 7px;
+								}
 							}
-						}
 
-						&.unit-price {
-							@include font-size(1);
+							&.unit-price {
+								@include font-size(1);
 
-							@media #{$desk} {
-								position: relative;
-								top: .25em;
-							}
-						}
-
-						&.extended-price {
-							text-align: right;
-							padding-right: .5em;
-
-							@media #{$lap} {
-								@include font-size(1.5);
+								@media #{$desk} {
+									position: relative;
+									top: .25em;
+								}
 							}
 
-							@media #{$desk} {
+							&.extended-price {
 								text-align: right;
-								display: block;
-								float: right;
-								right: 10%;
-								top: 3px;
-								position: relative;
-								padding-right: 0;
+								padding-right: .5em;
+
+								@media #{$lap} {
+									@include font-size(1.5);
+								}
+
+								@media #{$desk} {
+									text-align: right;
+									display: block;
+									float: right;
+									right: 10%;
+									top: 3px;
+									position: relative;
+									padding-right: 0;
+								}
+
+								font-weight: bold;
 							}
 
-							font-weight: bold;
-						}
+							&.remove-item {
+								position: absolute;
+								top: 0%;
+								right: 1%;
+								@include rem-attribute('margin-right', .5);
+								@include clear;
 
-						&.remove-item {
-							position: absolute;
-							top: 0%;
-							right: 1%;
-							@include rem-attribute('margin-right', .5);
-							@include clear;
-
-							@media #{$desk} {
-								right: .5em;
-								top: 45%;
+								@media #{$desk} {
+									right: .5em;
+									top: 45%;
+								}
 							}
 						}
 					}
@@ -1259,7 +1264,8 @@ input[type=radio]:disabled + label.card {
 	.total-container {
 		padding: 1em;
 		z-index: 1;
-		//-webkit-tap-highlight-color: rgba(0,0,0,0);
+		@include clear-tap-style;
+
 		> div.float--right {
 			width: 100%;
 			@include rem-attribute('max-width', 20);
