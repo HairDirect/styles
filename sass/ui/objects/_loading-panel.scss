@@ -1,5 +1,8 @@
 .waiting-container {
 	min-height: 16px;
+	-moz-transition: opacity 0.25s;
+	-o-transition: opacity 0.25s;
+	-webkit-transition: opacity 0.25s;
 	transition: opacity 0.25s;
 	opacity: 1;
 
@@ -32,6 +35,7 @@
 	width: 250px;
 	height: 200px;
 	margin-left: -125px;
+	margin-top: -100px;
 	padding: 1em;
 	margin-top: -100px;
 	background: $white;
@@ -48,11 +52,6 @@
 	&.center {
 		top: 50%;
 		left: 50%;
-	}
-
-	&.top {
-		top: 37%;
-		margin-top: 0;
 	}
 
 	&.bottom {
@@ -88,6 +87,8 @@
 		height: 80px;
 		border-radius: 40px;
 		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
 		border: solid 10px $gray-overlay;
 		border-top-color: $gray12;
 		-moz-animation-name: spin;
@@ -126,7 +127,7 @@
 		-ms-transform: rotate(360deg);
 		-o-transform: rotate(360deg);
 		transform: rotate(360deg);
-	} 
+	}
 }
 
 @keyframes spin {
@@ -136,5 +137,14 @@
 		-ms-transform: rotate(360deg);
 		-o-transform: rotate(360deg);
 		transform: rotate(360deg);
-	} 
-} 
+	}
+}
+
+/* Graceful Degredation */
+.no-cssanimations {
+	.waiting-indicator .spinner {
+		background: url(//media.hairdirect.com/images/loading.gif) no-repeat center left;
+		border-radius: 0px;
+		border: none;
+	}
+}
