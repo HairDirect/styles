@@ -1474,10 +1474,10 @@ input[type=radio]:disabled + label.card {
 		height: 85%;
 		@include rem-attribute('max-height', 60);
 		box-shadow: $modal-box-shadow;
+		@include rem-attribute('max-width', 37.778);
 	}
 
 	@media #{$desk} {
-		width: 60%;
 		@include rem-attribute('max-width', 37.778);
 	}
 
@@ -1503,14 +1503,14 @@ input[type=radio]:disabled + label.card {
 	}
 
 	> .modal-inner {
+		padding: 1em;
+		color: $gray12;
+
 		@media #{$lap} {
 			height: 89%;
 			width: 99.9%;
 			overflow-y: auto;
 		}
-
-		padding: 1em;
-		color: $gray12;
 
 		> .modal-content {
 			h1 {
@@ -1537,6 +1537,114 @@ input[type=radio]:disabled + label.card {
 				font-weight: bold !important;
 				padding: 0 !important;
 			}
+		}
+	}
+}
+
+/* Modal Overrides */
+
+#cancel-order-modal, #promo-discount-help-modal, #shipping-option-help-modal, #store-changer-modal {
+	&.semantic-content {
+		/* Make sure that mobile height fills the screen when the content wouldn't. */
+		height: 100%;
+	}
+}
+
+#cancel-order-modal, #promo-discount-help-modal, #shipping-option-help-modal {
+	&.semantic-content {
+		@media #{$lap} {
+			@include rem-attribute('height', 14);
+		}
+	}
+}
+
+#cancel-order-modal.semantic-content {
+	> .modal-inner {
+		> .modal-content {
+			h3 {
+				text-align: center !important;
+			}
+
+			ul {
+				li:first-child {
+					text-align: right;
+				}
+
+				li:last-child {
+					text-align: left;
+				}
+
+				button {
+					@include rem-attribute('width', 6);
+				}
+			}
+		}
+	}
+}
+
+#store-changer-modal.semantic-content {
+	> .modal-inner {
+		padding-left: 0;
+		padding-right: 0;
+		padding-top: 0;
+
+		> .modal-content {
+			@include stripped-list;
+
+			.cart-items {
+				.cart-item {
+					border-bottom: 1px solid $medium-gray;
+					@include rem-attribute('padding-top', 1);
+					@include rem-attribute('padding-bottom', 1);
+					@include rem-attribute('padding-left', 1, true);
+					@include rem-attribute('padding-right', 1, true);
+
+					&.removed {
+						.details > span.message {
+							color: $medium-red;
+						}
+					}
+
+					.image {
+						padding-left: 0;
+
+						& > img {
+							vertical-align: middle;
+							@include rem-attribute('min-width', 8);
+						}
+					}
+
+					.details {
+						@media #{$lap} {
+							padding-left: 0;
+						}
+
+						> span {
+							display: block;
+						}
+
+						> span.description {
+							@include rem-attribute('margin-bottom', .25);
+						}
+
+						> span.message {
+							@include rem-attribute('margin-top', 1);
+							color: $blue1;
+							font-weight: bold;
+						}
+					}
+				}
+			}
+
+			.buttons {
+				@include rem-attribute('margin-top', 2.5);
+				@include rem-attribute('padding-left', 1);
+				@include rem-attribute('padding-right', 1);
+
+				> div {
+					@include rem-attribute('margin-bottom', 1);
+				}
+			}
 
 			.flag {
 				height: 54px;
@@ -1556,7 +1664,6 @@ input[type=radio]:disabled + label.card {
 				}
 			}
 
-
 			span.arrow {
 				color: $blue2;
 				font-size: 54px;
@@ -1565,41 +1672,6 @@ input[type=radio]:disabled + label.card {
 				position: relative;
 				bottom: 12px;
 				margin: 0 8px;
-			}
-		}
-	}
-}
-
-#cancel-order-modal, #promo-discount-help-modal, #shipping-option-help-modal {
-	&.semantic-content {
-		height: 100%;
-
-		@media #{$lap} {
-			@include rem-attribute('height', 14);
-			@include rem-attribute('width', 25);
-		}
-	}
-}
-
-#cancel-order-modal.semantic-content {
-	> .modal-inner {
-		> .modal-content {
-			h3 {
-				text-align: left;
-			}
-
-			ul {
-				li:first-child {
-					text-align: right;
-				}
-
-				li:last-child {
-					text-align: left;
-				}
-
-				button {
-					@include rem-attribute('width', 6);
-				}
 			}
 		}
 	}
