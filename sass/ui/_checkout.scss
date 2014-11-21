@@ -1477,10 +1477,6 @@ input[type=radio]:disabled + label.card {
 		@include rem-attribute('max-width', 37.778);
 	}
 
-	@media #{$desk} {
-		@include rem-attribute('max-width', 37.778);
-	}
-
 	> header {
 		@include font-size(1);
 		font-weight: bold;
@@ -1583,101 +1579,149 @@ input[type=radio]:disabled + label.card {
 }
 
 #store-changer-modal.semantic-content {
+	@media #{$lap} {
+		height: 85%;
+	}
+
 	> .modal-inner {
-		padding-left: 0;
-		padding-right: 0;
-		padding-top: 0;
+		&.store-changer > .modal-content {
+			.flags {
+				text-align: center;
+				@include rem-attribute('padding-top', 1);
+				@include rem-attribute('padding-bottom', 2);
 
-		> .modal-content {
-			@include stripped-list;
+				#fromStore {
+					position: relative;
 
-			.cart-items {
-				.cart-item {
-					border-bottom: 1px solid $medium-gray;
-					@include rem-attribute('padding-top', 1);
-					@include rem-attribute('padding-bottom', 1);
-					@include rem-attribute('padding-left', 1, true);
-					@include rem-attribute('padding-right', 1, true);
+					&:after {
+						content: " ";
+						display: block;
+						position: absolute;
+						height: 100%;
+						width: 100%;
+						background-color: $white;
+						opacity: .75;
+					}
+				}
 
-					&.removed {
-						.details > span.message {
-							color: $medium-red;
-						}
+				.flag {
+					@include rem-attribute('margin-left', 1);
+					@include rem-attribute('margin-right', 1);
+
+					@include rem-attribute('height', 4.125);
+					@include rem-attribute('width', 6.188);
+
+					@media #{$lap} {
+						@include rem-attribute('height', 5.5); //99
+						@include rem-attribute('width', 8.25);
 					}
 
-					.image {
-						padding-left: 0;
+					display: inline-block;
 
-						& > img {
-							vertical-align: middle;
-							@include rem-attribute('min-width', 8);
-						}
+					&.us {
+						background: url(//media.hairdirect.com/store/images/us-flag.svg) no-repeat;
 					}
 
-					.details {
-						@media #{$lap} {
-							padding-left: 0;
-						}
-
-						> span {
-							display: block;
-						}
-
-						> span.description {
-							@include rem-attribute('margin-bottom', .25);
-						}
-
-						> span.message {
-							@include rem-attribute('margin-top', 1);
-							color: $blue1;
-							font-weight: bold;
-						}
+					&.uk {
+						background: url(//media.hairdirect.com/store/images/uk-flag.svg) no-repeat;
 					}
+
+					&.eu {
+						background: url(//media.hairdirect.com/store/images/eu-flag.svg) no-repeat;
+					}
+				}
+
+				.arrow {
+					display: inline-block;
+					border-top: 8px solid $transparent;
+					border-bottom: 8px solid $transparent;
+					border-left: 8px solid $gray8;
 				}
 			}
 
-			.buttons {
-				@include rem-attribute('margin-top', 2.5);
-				@include rem-attribute('padding-left', 1);
-				@include rem-attribute('padding-right', 1);
-
-				> div {
-					@include rem-attribute('margin-bottom', 1);
-				}
-			}
-
-			.flag {
-				height: 54px;
-				width: 81px;
-				display: inline-block;
-
-				&.us {
-					background: url(//media.hairdirect.com/store/images/us-flag.png) no-repeat;
-				}
-
-				&.uk {
-					background: url(//media.hairdirect.com/store/images/uk-flag.png) no-repeat;
-				}
-
-				&.eu {
-					background: url(//media.hairdirect.com/store/images/eu-flag.png) no-repeat;
-				}
-			}
-
-			span.arrow {
-				color: $blue2;
-				font-size: 54px;
-				font-family: arial;
+			.explanation {
 				font-weight: bold;
-				position: relative;
-				bottom: 12px;
-				margin: 0 8px;
+			}
+
+			.learn-more {
+				text-align: center;
+
+				> span {
+					cursor: pointer;
+					color: $blue1;
+					font-weight: bold;
+					@include rem-attribute('font-size', 1);
+				}
+			}
+		}
+
+		&.store-change-outcome {
+			> .modal-content {
+				padding-left: 0;
+				padding-right: 0;
+				padding-top: 0;
+				@include stripped-list;
+
+				.cart-items {
+					.cart-item {
+						border-bottom: 1px solid $medium-gray;
+						@include rem-attribute('padding-top', 1);
+						@include rem-attribute('padding-bottom', 1);
+						@include rem-attribute('padding-left', 1, true);
+						@include rem-attribute('padding-right', 1, true);
+
+						&.removed {
+							.details > span.message {
+								color: $medium-red;
+							}
+						}
+
+						.image {
+							padding-left: 0;
+
+							& > img {
+								vertical-align: middle;
+								@include rem-attribute('min-width', 8);
+							}
+						}
+
+						.details {
+							@media #{$lap} {
+								padding-left: 0;
+							}
+
+							> span {
+								display: block;
+							}
+
+							> span.description {
+								@include rem-attribute('margin-bottom', .25);
+							}
+
+							> span.message {
+								@include rem-attribute('margin-top', 1);
+								color: $blue1;
+								font-weight: bold;
+							}
+						}
+					}
+				}
+
+				.buttons {
+					@include rem-attribute('margin-top', 2.5);
+					@include rem-attribute('padding-left', 1);
+					@include rem-attribute('padding-right', 1);
+
+					> div {
+						@include rem-attribute('margin-bottom', 1);
+					}
+				}
 			}
 		}
 	}
 }
 
-// ORDER CONFIRMATION
+/* ORDER CONFIRMATION */
 .order-confirmation {
 	@include rem-attribute('min-height', 25);
 
@@ -1704,6 +1748,32 @@ input[type=radio]:disabled + label.card {
 
 			@media #{$palm} {
 				@include font-size(1);
+			}
+		}
+	}
+}
+
+/* Feature Detection */
+
+/* NO SVG */
+.no-svg {
+	#store-changer-modal.semantic-content > .modal-inner &.store-changer > .modal-content {
+		span.arrow {
+			content: '\25BA'; // Right Arrow
+			border: none;
+		}
+
+		.flags .flag {
+			&.us {
+				background: url(//media.hairdirect.com/store/images/us-flag.png) no-repeat;
+			}
+
+			&.uk {
+				background: url(//media.hairdirect.com/store/images/uk-flag.png) no-repeat;
+			}
+
+			&.eu {
+				background: url(//media.hairdirect.com/store/images/eu-flag.png) no-repeat;
 			}
 		}
 	}
