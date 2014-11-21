@@ -65,6 +65,11 @@ input[type=radio] + label.card {
 	display: none !important;
 }
 
+/* Remove background color of flag pseudo element since opacity is not supported. */
+#store-changer-modal.semantic-content > .modal-inner.store-changer > .modal-content .flags #fromStore:after {
+	display: none;
+}
+
 /* Hide image container since SVG is not supported. The images aren't critical to the design. */
 .shipping-option-item .carrier-image span, .selection-container .shipping-option .carrier-image span {
 	&.ups, &.usps, &.postnl, &.gls {
@@ -176,7 +181,7 @@ input[type=radio][checked=checked] + label.card {
 		}
 	}
 
-	.total-container { 
+	.total-container {
 		.cost-breakdown {
 			dd.shipping, dd.discount {
 				> .round-button {

@@ -461,7 +461,6 @@ a, a:link, a:hover, a:active, a:focus {
 
 		.btn {
 			text-align: center;
-			width: 100%;
 		}
 
 		> div {
@@ -1584,6 +1583,8 @@ input[type=radio]:disabled + label.card {
 	}
 
 	> .modal-inner {
+		@include rem-attribute('margin-bottom', 1);
+
 		&.store-changer > .modal-content {
 			.flags {
 				text-align: center;
@@ -1656,10 +1657,11 @@ input[type=radio]:disabled + label.card {
 		}
 
 		&.store-change-outcome {
+			padding-left: 0;
+			padding-right: 0;
+			padding-top: 0;
+
 			> .modal-content {
-				padding-left: 0;
-				padding-right: 0;
-				padding-top: 0;
 				@include stripped-list;
 
 				.cart-items {
@@ -1706,16 +1708,16 @@ input[type=radio]:disabled + label.card {
 						}
 					}
 				}
+			}
+		}
 
-				.buttons {
-					@include rem-attribute('margin-top', 2.5);
-					@include rem-attribute('padding-left', 1);
-					@include rem-attribute('padding-right', 1);
+		.buttons {
+			@include rem-attribute('margin-top', 2.5);
+			@include rem-attribute('padding-left', 1);
+			@include rem-attribute('padding-right', 1);
 
-					> div {
-						@include rem-attribute('margin-bottom', 1);
-					}
-				}
+			> div {
+				@include rem-attribute('margin-bottom', 1);
 			}
 		}
 	}
@@ -1757,12 +1759,7 @@ input[type=radio]:disabled + label.card {
 
 /* NO SVG */
 .no-svg {
-	#store-changer-modal.semantic-content > .modal-inner &.store-changer > .modal-content {
-		span.arrow {
-			content: '\25BA'; // Right Arrow
-			border: none;
-		}
-
+	#store-changer-modal.semantic-content > .modal-inner.store-changer > .modal-content {
 		.flags .flag {
 			&.us {
 				background: url(//media.hairdirect.com/store/images/us-flag.png) no-repeat;
