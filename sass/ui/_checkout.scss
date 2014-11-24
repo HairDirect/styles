@@ -620,6 +620,18 @@ input[type=radio]:disabled + label.card {
 	margin-bottom: 1em;
 }
 
+/* Shipping Method Styles */
+#shipping-method {
+	.shipping-policy-button {
+		cursor: pointer;
+		color: $blue1;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
 .shipping-option-item {
 	@include font-size(1);
 
