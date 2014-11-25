@@ -20,7 +20,7 @@
 
 	&.fixed {
 		position: fixed;
-		z-index: 9999;
+		z-index: 100005;
 	}
 }
 
@@ -29,6 +29,7 @@
 	height: 100%;
 	background-color: $white;
 	background-color: $gray-overlay-dark;
+	/*z-index: 10004;*/
 }
 
 .waiting-indicator {
