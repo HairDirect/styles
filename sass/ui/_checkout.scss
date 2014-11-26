@@ -1115,6 +1115,21 @@ input[type=radio]:disabled + label.card {
 					@include rem-attribute('max-height', 9.188);
 				}
 
+				&.sale > .grid > .grid__item.thumbnail > span:after {
+					content: "Sale";
+					text-transform: uppercase;
+					font-weight: bold;
+					text-align: center;
+					background-color: $orange;
+					background-color: $orange-overlay;
+					display: block;
+					color: $white;
+					position: absolute;
+					@include rem-attribute('font-size', .625);
+					width: 100%;
+					bottom: 0;
+				}
+
 				> .confirmation {
 					position: absolute;
 					width: 100%;
@@ -1162,11 +1177,15 @@ input[type=radio]:disabled + label.card {
 						@include rem-attribute('padding-left', .5);
 
 						&.thumbnail {
-							> img {
-								@include rem-attribute('max-height', 9);
+							> span {
+								position: relative;
 
-								@media #{$desk} {
-									@include rem-attribute('max-height', 8);
+								> img {
+									@include rem-attribute('max-height', 9);
+
+									@media #{$desk} {
+										@include rem-attribute('max-height', 8);
+									}
 								}
 							}
 						}
