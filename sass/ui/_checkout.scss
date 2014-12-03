@@ -526,7 +526,7 @@ form {
 		font-weight: bold;
 	}
 
-	.company, .country, .type, .masked-number, .expiration {
+	.company, .country, .street, .street2,  .type, .masked-number, .expiration {
 		display: block;
 	}
 
@@ -856,6 +856,10 @@ input[type=radio]:disabled + label.card {
 
 			> .label {
 				@include small-label-text;
+			}
+
+			> .street, .street-additional {
+				display: block;
 			}
 		}
 	}
@@ -1365,7 +1369,7 @@ input[type=radio]:disabled + label.card {
 		.address {
 			@include rem-attribute('line-height', 1.5);
 
-			> .company, > .street, > .country, > .phone {
+			> .company, > .street, > .street-additional, > .country, > .phone {
 				display: block;
 			}
 		}
