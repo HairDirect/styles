@@ -766,9 +766,19 @@ input[type=radio]:disabled + label.card {
 		}
 	}
 
+	.price, .selection {
+		@media #{$lap} {
+			@include rem-attribute('padding-left', .5, true);
+		}
+	}
+
 	.price {
 		@media #{$lap} {
 			@include font-size(1.875);
+		}
+
+		@media #{$desk} {
+			padding-left: 0 !important;
 		}
 
 		text-align: right;
