@@ -411,6 +411,7 @@ a, a:link, a:hover, a:active, a:focus {
 		border-radius: $brand-round;
 		@include gradient-background($white-smoke, $white);
 		@include box-shadow-light;
+		position: relative;
 
 		.total {
 			text-align: center;
@@ -431,6 +432,14 @@ a, a:link, a:hover, a:active, a:focus {
 				text-transform: uppercase;
 				margin-right: .5em;
 			}
+		}
+
+		.tax-indicator {
+			position: absolute;
+			text-align: right;
+			right: 6px;
+			bottom: -2px;
+			@include small-label-text;
 		}
 	}
 
@@ -1584,14 +1593,14 @@ input[type=radio]:disabled + label.card {
 
 /* Modal Overrides */
 
-#cancel-order-modal, #promo-discount-help-modal, #shipping-option-help-modal, #store-changer-modal {
+#cancel-order-modal, #promo-discount-help-modal, #shipping-option-help-modal, #store-changer-modal, #call-us-modal {
 	&.semantic-content {
 		/* Make sure that mobile height fills the screen when the content wouldn't. */
 		height: 100%;
 	}
 }
 
-#cancel-order-modal, #promo-discount-help-modal, #shipping-option-help-modal {
+#cancel-order-modal, #promo-discount-help-modal, #shipping-option-help-modal, #call-us-modal {
 	&.semantic-content {
 		@media #{$lap} {
 			@include rem-attribute('height', 14);
