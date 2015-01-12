@@ -1,0 +1,8 @@
+﻿@if $use-flexbox == true {
+	/* Override html style if popup overlay is currently open */
+	html.flexbox.popup_visible {
+		display: table;
+		width: 100%;
+	}
+}
+//endif
