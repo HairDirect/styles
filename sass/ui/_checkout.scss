@@ -371,6 +371,36 @@ a, a:link, a:hover, a:active, a:focus {
 	overflow: hidden;
 }
 
+.span-link{
+    cursor: pointer;
+	color: $blue1;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.vat-mobile{
+    display: block;
+    > .span-link{
+        font-size: 0.625rem;
+        top: 1rem;
+        position: relative;
+    }
+}
+.vat-inline{
+        display: none;
+    }
+
+@media #{$lap} {
+    .vat-inline{
+        display: inline;
+    }
+    .vat-mobile{
+        display: none;
+    }
+}
+
 .address-wrapper {
 	list-style: none;
 
@@ -630,17 +660,6 @@ input[type=radio]:disabled + label.card {
 }
 
 /* Shipping Method Styles */
-#shipping-method {
-	.shipping-policy-button {
-		cursor: pointer;
-		color: $blue1;
-
-		&:hover {
-			text-decoration: underline;
-		}
-	}
-}
-
 .shipping-option-item {
 	@include font-size(1);
 
@@ -842,22 +861,22 @@ input[type=radio]:disabled + label.card {
 			text-transform: uppercase;
 		}
 	}
-	/* Promo code success panel */
-	> .success > .card {
-		color: $blue1;
-		border-color: $blue2;
+}
 
-		> .grid {
+.success > .card {
+	color: $blue1;
+	border-color: $blue2;
+
+	> .grid {
+		@media #{$lap} {
+			display: table;
+			width: 100%;
+		}
+
+		> .grid__item {
 			@media #{$lap} {
-				display: table;
-				width: 100%;
-			}
-
-			> .grid__item {
-				@media #{$lap} {
-					display: table-cell;
-					vertical-align: middle;
-				}
+				display: table-cell;
+				vertical-align: middle;
 			}
 		}
 	}
@@ -1323,6 +1342,12 @@ input[type=radio]:disabled + label.card {
 			width: 100%;
 			@include rem-attribute('max-width', 20);
 		}
+        @media #{$lap}{
+            > div.float--right {
+			width: 100%;
+            @include rem-attribute('max-width', 24);
+            }
+        }
 
 		dd {
 			@include rem-attribute('margin-bottom', .4);
@@ -1346,6 +1371,9 @@ input[type=radio]:disabled + label.card {
 			&.split__title {
 				@include rem-attribute('min-width', 5.7);
 				text-align: right;
+                @media #{$lap}{
+			        @include rem-attribute('min-width', 10);
+                }
 			}
 		}
 
@@ -1496,6 +1524,32 @@ input[type=radio]:disabled + label.card {
 	}
 }
 
+#vat-exclusion-form-modal{
+    width: 100%;
+    
+    @media #{$lap}{
+        width: auto;
+    }
+
+    .apply{
+        width: 100%;
+
+        @media #{$desk}{
+            width: auto;
+        }
+    }
+
+    .field{
+        @include rem-attribute('margin-top', 1);        
+    }
+
+    &.semantic-content {
+		@media #{$lap} {
+			height: auto !important;
+		}
+	}
+}
+
 /* Special Instructions */
 .special-instructions-container {
 	h3 {
@@ -1593,7 +1647,7 @@ input[type=radio]:disabled + label.card {
 
 /* Modal Overrides */
 
-#cancel-order-modal, #promo-discount-help-modal, #shipping-option-help-modal, #store-changer-modal, #call-us-modal {
+#cancel-order-modal, #promo-discount-help-modal, #shipping-option-help-modal, #store-changer-modal, #call-us-modal, #vat-exclusion-form-modal {
 	&.semantic-content {
 		/* Make sure that mobile height fills the screen when the content wouldn't. */
 		height: 100%;
