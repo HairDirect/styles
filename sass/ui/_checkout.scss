@@ -371,8 +371,8 @@ a, a:link, a:hover, a:active, a:focus {
 	overflow: hidden;
 }
 
-.span-link{
-    cursor: pointer;
+.span-link {
+	cursor: pointer;
 	color: $blue1;
 
 	&:hover {
@@ -380,25 +380,28 @@ a, a:link, a:hover, a:active, a:focus {
 	}
 }
 
-.vat-mobile{
-    display: block;
-    > .span-link{
-        font-size: 0.625rem;
-        top: 1rem;
-        position: relative;
-    }
+.vat-mobile {
+	display: block;
+
+	> .span-link {
+		font-size: 0.625rem;
+		top: 1rem;
+		position: relative;
+	}
 }
-.vat-inline{
-        display: none;
-    }
+
+.vat-inline {
+	display: none;
+}
 
 @media #{$lap} {
-    .vat-inline{
-        display: inline;
-    }
-    .vat-mobile{
-        display: none;
-    }
+	.vat-inline {
+		display: inline;
+	}
+
+	.vat-mobile {
+		display: none;
+	}
 }
 
 .address-wrapper {
@@ -565,7 +568,7 @@ form {
 		font-weight: bold;
 	}
 
-	.company, .country, .street, .street2,  .type, .masked-number, .expiration {
+	.company, .country, .street, .street2, .type, .masked-number, .expiration {
 		display: block;
 	}
 
@@ -1342,12 +1345,13 @@ input[type=radio]:disabled + label.card {
 			width: 100%;
 			@include rem-attribute('max-width', 20);
 		}
-        @media #{$lap}{
-            > div.float--right {
-			width: 100%;
-            @include rem-attribute('max-width', 24);
-            }
-        }
+
+		@media #{$lap} {
+			> div.float--right {
+				width: 100%;
+				@include rem-attribute('max-width', 24);
+			}
+		}
 
 		dd {
 			@include rem-attribute('margin-bottom', .4);
@@ -1371,9 +1375,10 @@ input[type=radio]:disabled + label.card {
 			&.split__title {
 				@include rem-attribute('min-width', 5.7);
 				text-align: right;
-                @media #{$lap}{
-			        @include rem-attribute('min-width', 10);
-                }
+
+				@media #{$lap} {
+					@include rem-attribute('min-width', 10);
+				}
 			}
 		}
 
@@ -1524,26 +1529,26 @@ input[type=radio]:disabled + label.card {
 	}
 }
 
-#vat-exclusion-form-modal{
-    width: 100%;
-    
-    @media #{$lap}{
-        width: auto;
-    }
+#vat-exclusion-form-modal {
+	width: 100%;
 
-    .apply{
-        width: 100%;
+	@media #{$lap} {
+		width: auto;
+	}
 
-        @media #{$desk}{
-            width: auto;
-        }
-    }
+	.apply {
+		width: 100%;
 
-    .field{
-        @include rem-attribute('margin-top', 1);        
-    }
+		@media #{$desk} {
+			width: auto;
+		}
+	}
 
-    &.semantic-content {
+	.field {
+		@include rem-attribute('margin-top', 1);
+	}
+
+	&.semantic-content {
 		@media #{$lap} {
 			height: auto !important;
 		}
@@ -1617,6 +1622,8 @@ input[type=radio]:disabled + label.card {
 		}
 
 		> .modal-content {
+			background-color: $white;
+
 			h1 {
 				@extend .h2;
 				text-align: left !important;
