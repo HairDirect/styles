@@ -23,7 +23,7 @@ a, a:link, a:hover, a:active, a:focus {
 
 /* HEADER */
 .global-nav {
-	height: 4.9em;
+	height: 4.0em;
 	background-color: $white;
 	display: block;
 	overflow: hidden;
@@ -50,8 +50,8 @@ a, a:link, a:hover, a:active, a:focus {
 				border: none;
 
 				img {
-					min-width: 99px;
-					width: 99px;
+					min-width: 82px;
+					width: 82px;
 				}
 			}
 		}
@@ -71,7 +71,7 @@ a, a:link, a:hover, a:active, a:focus {
 				margin-bottom: 0;
 				text-align: center;
 				color: $blue1;
-				line-height: 4.6em;
+				line-height: 3.6em;
 
 				@media #{$desk} {
 					display: none;
@@ -94,7 +94,7 @@ a, a:link, a:hover, a:active, a:focus {
 			.trust-asset {
 				display: block;
 				float: right;
-				@include rem-attribute('margin-top', 1.125);
+				@include rem-attribute('margin-top', 1);
 				@include rem-attribute('line-height', 2.875);
 				color: $gray12;
 
@@ -103,9 +103,8 @@ a, a:link, a:hover, a:active, a:focus {
 						@include pseudo(10em, 1em, "Secure Transaction");
 						display: inline;
 						content: "Secure Transaction";
-						vertical-align: top;
 						position: relative;
-						top: 50%;
+						bottom: 6px;
 					}
 				}
 
@@ -467,7 +466,7 @@ a, a:link, a:hover, a:active, a:focus {
 			}
 		}
 
-		.tax-indicator {
+		.footer-message {
 			position: absolute;
 			text-align: right;
 			right: 6px;
