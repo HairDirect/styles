@@ -1613,6 +1613,7 @@ input[type=radio]:disabled + label.card {
 	> .modal-inner {
 		padding: 1em;
 		color: $gray12;
+		background-color: $white;
 
 		@media #{$lap} {
 			height: 89%;
@@ -1621,8 +1622,6 @@ input[type=radio]:disabled + label.card {
 		}
 
 		> .modal-content {
-			background-color: $white;
-
 			h1 {
 				@extend .h2;
 				text-align: left !important;
