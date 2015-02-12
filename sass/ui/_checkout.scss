@@ -1664,6 +1664,12 @@ input[type=radio]:disabled + label.card {
 		@media #{$lap} {
 			@include rem-attribute('height', 14);
 		}
+
+		> .modal-inner {
+			@media #{$lap} {
+				height: auto;
+			}
+		}
 	}
 }
 
