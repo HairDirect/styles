@@ -1,3 +1,15 @@
+/* Typography */
+a, a:link, a:hover, a:active, a:focus, .link {
+	text-decoration: none;
+	border-bottom: 1px solid;
+}
+
+.link {
+	border-bottom-color: $blue9;
+	color: $blue9;
+	cursor: pointer;
+}
+
 .btn, .cta, button {
 	@include taptarget;
 	height: 2em;
