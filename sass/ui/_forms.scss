@@ -4,7 +4,7 @@ form {
 	display: block;
 }
 
-input[type=text], input[type=tel], input[type=number], select {
+input[type=text], input[type=tel], input[type=search], input[type=number], select {
 	@include rem-height($formfieldheight);
 }
 
@@ -20,7 +20,7 @@ input[type=text] + label, input[type=tel] + label, input[type=number] + label, t
 	letter-spacing: 0;
 }
 
-input[type=text], input[type=tel], input[type=number], textarea, select {
+input[type=text], input[type=tel], input[type=search], input[type=number], textarea, select {
 	 -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
