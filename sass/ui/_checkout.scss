@@ -354,16 +354,6 @@ body {
 	}
 }
 
-.clear {
-	clear: both;
-}
-
-.hide {
-	visibility: hidden;
-	height: 0;
-	overflow: hidden;
-}
-
 .span-link {
 	cursor: pointer;
 	color: $blue1;
@@ -394,15 +384,6 @@ body {
 
 	.vat-mobile {
 		display: none;
-	}
-}
-
-.address-wrapper {
-	list-style: none;
-
-	li {
-		display: block;
-		float: left;
 	}
 }
 
@@ -528,25 +509,7 @@ body {
 	}
 }
 
-form {
-	> ul.card {
-		padding-left: 0;
-		padding-right: $base-spacing-unit;
-	}
-}
-
-.changeaddress, .createaddress {
-	margin: 1em auto;
-	width: 100%;
-}
-
-.changeaddress {
-	@media #{$lap} {
-		margin-top: 0;
-	}
-}
-
-.address-item, .credit-card {
+.credit-card {
 	text-align: left;
 
 	span {
@@ -558,7 +521,7 @@ form {
 		font-weight: bold;
 	}
 
-	.company, .country, .street, .street2, .type, .masked-number, .expiration {
+	.type, .masked-number, .expiration {
 		display: block;
 	}
 
@@ -568,87 +531,9 @@ form {
 		float: left;
 		margin-bottom: 1em;
 	}
-
-	.address {
-		text-align: left;
-		display: block;
-		float: left;
-		margin-left: 0;
-		margin-top: 0;
-		clear: left !important;
-
-		@media #{$lap} {
-			clear: none;
-		}
-
-		@media #{$desk} {
-			clear: both;
-		}
-	}
-}
-
-.label {
-	font-weight: 500 !important;
 }
 
 .create-credit-card-wrapper {
-	margin-bottom: 1em;
-}
-
-input[type=radio] + label.card {
-	&:hover, &:focus {
-		border-color: $gray17;
-		color: $gray12;
-	}
-
-	&:active {
-		color: $gray12;
-		border-color: $medium-gray;
-		@include gradient-background($white, $white-smoke);
-	}
-
-	button {
-		display: block;
-	}
-}
-
-input[type=radio]:checked + label.card {
-	background-color: $white;
-	background-image: none;
-	color: $gray12;
-
-	.round-button {
-		@extend %round-button-selected;
-	}
-}
-
-input[type=radio]:disabled + label.card {
-	&:hover, &:focus, &:active {
-		border: 1px solid $medium-gray !important;
-		@include gradient-background($white-smoke, $white, true);
-		color: $gray18 !important;
-		cursor: default !important;
-	}
-}
-
-.new-address {
-	clear: both;
-	margin-bottom: 2em;
-
-	button {
-		margin-right: 1em;
-	}
-
-	.country {
-		/*text-align: center !important;*/
-
-		label {
-			margin-bottom: 1em;
-		}
-	}
-}
-
-.buttons {
 	margin-bottom: 1em;
 }
 
@@ -856,42 +741,13 @@ input[type=radio]:disabled + label.card {
 	}
 }
 
-.success > .card {
-	color: $blue1;
-	border-color: $blue2;
 
-	> .grid {
-		@media #{$lap} {
-			display: table;
-			width: 100%;
-		}
-
-		> .grid__item {
-			@media #{$lap} {
-				display: table-cell;
-				vertical-align: middle;
-			}
-		}
-	}
-}
 
 /* Shared credit card item & payment summary styles */
 .credit-card-item, .billing-information {
 	.card {
 		.masked-number > span {
 			font-weight: bold;
-		}
-
-		.address {
-			@include rem-attribute('margin-top', 1);
-
-			> .label {
-				@include small-label-text;
-			}
-
-			> .street, .street-additional {
-				display: block;
-			}
 		}
 	}
 }
@@ -1010,35 +866,9 @@ input[type=radio]:disabled + label.card {
 			}
 		}
 
-		.billing-address {
-			.address {
-				> .label {
-					@include small-label-text;
-				}
-
-				.street {
-					@include clear;
-				}
-
-				.city {
-					margin-right: 0;
-				}
-
-				.state {
-					margin-left: 0.25em;
-				}
-			}
-		}
-
 		> li.buttons {
 			@include rem-attribute('margin-bottom', .5);
 		}
-	}
-}
-
-.billing-address-container {
-	h3 {
-		padding-left: 0;
 	}
 }
 
@@ -1096,30 +926,8 @@ input[type=radio]:disabled + label.card {
 	margin-bottom: 1em;
 }
 
-.checkbox-input {
-	clear: none;
-	float: left;
-	margin-right: 1em;
-	margin-top: 3px;
-}
-
 .card-number_read_only {
 	.type {
-		float: left;
-		margin-right: 0.5em;
-	}
-}
-
-.billing-address {
-	font-weight: 500;
-
-	span {
-		font-weight: 300;
-	}
-
-	.city {
-		clear: left;
-		display: block;
 		float: left;
 		margin-right: 0.5em;
 	}

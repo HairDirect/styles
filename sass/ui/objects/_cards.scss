@@ -1,0 +1,61 @@
+﻿form {
+    > ul.card {
+        padding-left: 0;
+        padding-right: $base-spacing-unit;
+    }
+}
+
+input[type=radio] + label.card {
+    &:hover, &:focus {
+        border-color: $gray17;
+        color: $gray12;
+    }
+
+    &:active {
+        color: $gray12;
+        border-color: $medium-gray;
+        @include gradient-background($white, $white-smoke);
+    }
+
+    button {
+        display: block;
+    }
+}
+
+input[type=radio]:checked + label.card {
+    background-color: $white;
+    background-image: none;
+    color: $gray12;
+
+    .round-button {
+        @extend %round-button-selected;
+    }
+}
+
+input[type=radio]:disabled + label.card {
+    &:hover, &:focus, &:active {
+        border: 1px solid $medium-gray !important;
+        @include gradient-background($white-smoke, $white, true);
+        color: $gray18 !important;
+        cursor: default !important;
+    }
+}
+
+.success > .card {
+    color: $blue1;
+    border-color: $blue2;
+
+    > .grid {
+        @media #{$lap} {
+            display: table;
+            width: 100%;
+        }
+
+        > .grid__item {
+            @media #{$lap} {
+                display: table-cell;
+                vertical-align: middle;
+            }
+        }
+    }
+}

@@ -10,6 +10,44 @@
  * project-specific components afterwards.
  */
 
+/*------------------------------------*\
+    $OBJECTS-AND-ABSTRACTIONS
+\*------------------------------------*/
+/**
+ * All of inuit.css’ objects and abstractions are initially turned off by
+ * default. This means that you start any project with as little as possible,
+ * and introducing objects and abstractions is as simple as switching the
+ * following variables to `true`.
+ */
+$use-grids: true;
+$use-flexbox: true;
+$use-columns: true;
+$use-nav: true;
+$use-block-list: true;
+$use-media: true;
+$use-split: true;
+$use-lozenges: true;
+$use-arrows: true;
+$use-beautons: true;
+
+$use-options: false;
+$use-pagination: false;
+$use-breadcrumb: false;
+$use-marginalia: false;
+$use-island: false;
+$use-matrix: false;
+$use-this-or-this: false;
+$use-link-complex: false;
+$use-flyout: false;
+$use-sprite: false;
+$use-icon-text: false;
+$use-rules: false;
+$use-stats: false;
+$use-greybox: false;
+$push: false;
+$pull: false;
+$palm-push: false;
+$palm-pull: false;
 
 /*
  * Setup
@@ -26,7 +64,10 @@
 @import "ui/objects/beautons";
 @import "ui/objects/flexbox";
 @import "ui/objects/loading-panel";
-@import "ui/objects/_address.scss";
+@import "ui/objects/_select2.scss";
+@import "ui/objects/_cards.scss";
+@import "ui/_common.scss";
+@import "ui/_address-form.scss";
 @import "ui/checkout";
 @import "ui/ui";
 @import "ui/forms";

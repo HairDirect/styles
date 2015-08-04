@@ -1,0 +1,99 @@
+﻿*, *:before, *:after {
+    box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    -webkit-box-sizing: border-box !important;
+}
+
+.address-wrapper {
+    list-style: none;
+
+    li {
+        display: block;
+        float: left;
+    }
+}
+
+.changeaddress, .createaddress {
+    margin: 1em auto;
+    width: 100%;
+}
+
+.changeaddress {
+    @media #{$lap} {
+        margin-top: 0;
+    }
+}
+
+.address-item {
+    text-align: left;
+
+    span {
+        display: inline-block;
+        text-align: left;
+    }
+
+    .name {
+        font-weight: bold;
+    }
+
+    .company, .country, .street, .street2, .type, .masked-number, .expiration {
+        display: block;
+    }
+
+
+    .edit {
+        position: relative;
+        float: left;
+        margin-bottom: 1em;
+    }
+
+    .address {
+        text-align: left;
+        display: block;
+        float: left;
+        margin-left: 0;
+        margin-top: 0;
+        clear: left !important;
+
+        @media #{$lap} {
+            clear: none;
+        }
+
+        @media #{$desk} {
+            clear: both;
+        }
+    }
+}
+
+input[type=radio] + label.card {
+    &:hover, &:focus {
+        border-color: $gray17;
+        color: $gray12;
+    }
+
+    &:active {
+        color: $gray12;
+        border-color: $medium-gray;
+        @include gradient-background($white, $white-smoke);
+    }
+
+    button {
+        display: block;
+    }
+}
+
+.new-address {
+    clear: both;
+    margin-bottom: 2em;
+
+    button {
+        margin-right: 1em;
+    }
+
+    .country {
+        /*text-align: center !important;*/
+        label {
+            margin-bottom: 1em;
+        }
+    }
+}

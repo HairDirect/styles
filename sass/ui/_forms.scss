@@ -272,3 +272,10 @@ input ~ .error, label ~ .error {
 	border-top-width: 0px;
 	text-align: left;
 }
+
+.checkbox-input {
+	clear: none;
+	float: left;
+	margin-right: 1em;
+	margin-top: 3px;
+}

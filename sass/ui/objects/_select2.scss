@@ -82,7 +82,44 @@ $color_royal_blue_approx: #3875d7;
         border-bottom-left-radius: 6px;
         border-bottom-right-radius: 6px;
     }
+
+    span.link {
+        border-bottom-color: $blue9;
+        color: $blue9;
+        cursor: pointer;
+    }
+
+    input[type=search] {
+        height: 3.25rem;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 100%;
+        border: 1px solid $gray20;
+        border-radius: $brand-round;
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        padding: 1em 1em 0;
+        color: $gray12;
+        background-color: $white;
+        outline: 0;
+
+        &:focus {
+            padding-left: .944em;
+            padding-top: .944em;
+            border-width: 2px;
+            border-color: $blue3 !important;
+
+            & + label {
+                @extend %textinputlabel;
+            }
+        }
+        
+    }
 }
+
 .select2-results {
 	display: block;
 }
