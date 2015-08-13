@@ -741,6 +741,12 @@ body {
 	}
 }
 
+.same-as-shipping > label { 
+    display: inline-block;
+    @include rem-attribute('margin-left', .5);
+}
+
+
 
 
 /* Shared credit card item & payment summary styles */
