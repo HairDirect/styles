@@ -1,0 +1,10 @@
+css/checkout.css
+*.sln
+sass/css/*
+sass/style.css
+sass/style.css*
+sass/style*.css*
+sass/my-account.css
+sass/prepros.cfg
+*.suo
+sass/checkout-ie8.css
