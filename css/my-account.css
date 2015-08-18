@@ -4614,6 +4614,12 @@ VALIDATION
   margin-top: .5em !important;
 }
 
+@media only screen and (max-width: 50em) {
+  .addresses .new-address h2 {
+    font-size: 1.5rem !important;
+  }
+}
+
 .addresses #shipping-addresses .buttons, .addresses #billing-addresses .buttons {
   margin-bottom: 0 !important;
 }
