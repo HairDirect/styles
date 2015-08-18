@@ -4606,6 +4606,18 @@ VALIDATION
   margin-bottom: 1em;
 }
 
+.addresses .new-address h2 {
+  font-size: 1.875rem !important;
+  color: #222 !important;
+  line-height: 1.95rem !important;
+  font-weight: normal !important;
+  margin-top: .5em !important;
+}
+
+.addresses #shipping-addresses .buttons, .addresses #billing-addresses .buttons {
+  margin-bottom: 0 !important;
+}
+
 .addresses .form > ul.card {
   padding-left: 0;
   padding-right: 24px;

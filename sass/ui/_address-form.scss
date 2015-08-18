@@ -96,4 +96,18 @@ input[type=radio] + label.card {
             margin-bottom: 1em;
         }
     }
+
+    h2 {
+        font-size: 1.875rem !important;
+        color: #222 !important;
+        line-height: 1.95rem !important;
+        font-weight: normal !important;
+        margin-top: .5em !important;
+    }
+}
+
+#shipping-addresses, #billing-addresses {
+    .buttons{
+        margin-bottom: 0 !important;
+    }
 }
