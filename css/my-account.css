@@ -4653,6 +4653,17 @@ VALIDATION
   color: #282828;
 }
 
+.addresses input[type=radio]:checked + label.card .round-button {
+  background-color: #5088ba;
+  border-color: #5088ba;
+  color: white;
+}
+
+.addresses label > * {
+  display: block;
+  pointer-events: none;
+}
+
 .addresses input[type=radio]:disabled + label.card:hover, .addresses input[type=radio]:disabled + label.card:focus, .addresses input[type=radio]:disabled + label.card:active {
   border: 1px solid #e8e8e8 !important;
   background-color: #fafafa !important;

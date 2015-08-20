@@ -29,7 +29,16 @@ input[type=radio]:checked + label.card {
 
     .round-button {
         @extend %round-button-selected;
+            background-color: $blue4;
+            border-color: $blue4;
+            color: white;
     }
+}
+
+//fast-click bug fix
+label > * {
+    display: block;
+    pointer-events: none;
 }
 
 input[type=radio]:disabled + label.card {
