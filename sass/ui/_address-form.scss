@@ -106,8 +106,15 @@ input[type=radio] + label.card {
         font-weight: normal !important;
         margin-top: .5em !important;
     }
-}
 
+}
+@media only screen and (max-width: 50em) {
+    .new-address {
+        h2 {
+            font-size: 1.5rem !important;
+        }
+    }
+}
 #shipping-addresses, #billing-addresses {
     .buttons{
         margin-bottom: 0 !important;
