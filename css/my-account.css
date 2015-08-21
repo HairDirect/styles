@@ -4090,7 +4090,7 @@ VALIDATION
   background-image: -ms-linear-gradient(90deg, #4d83b6 0%, #6aabd7 100%);
 }
 
-.addresses .round-button:hover, .addresses input[type=radio]:checked + label.card .round-button {
+.addresses .round-button:hover, .addresses .round-button:active, .addresses input[type=radio]:checked + label.card .round-button {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -4099,7 +4099,7 @@ VALIDATION
   color: white;
 }
 
-.addresses .round-button:hover svg path, .addresses input[type=radio]:checked + label.card .round-button svg path {
+.addresses .round-button:hover svg path, .addresses .round-button:active svg path, .addresses input[type=radio]:checked + label.card .round-button svg path {
   fill: white;
 }
 
@@ -4863,7 +4863,7 @@ VALIDATION
   background-image: -ms-linear-gradient(90deg, #4d83b6 0%, #6aabd7 100%);
 }
 
-.addresses .round-button:hover, .addresses input[type=radio]:checked + label.card .round-button {
+.addresses .round-button:hover, .addresses .round-button:active, .addresses input[type=radio]:checked + label.card .round-button {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -4872,7 +4872,7 @@ VALIDATION
   color: white;
 }
 
-.addresses .round-button:hover svg path, .addresses input[type=radio]:checked + label.card .round-button svg path {
+.addresses .round-button:hover svg path, .addresses .round-button:active svg path, .addresses input[type=radio]:checked + label.card .round-button svg path {
   fill: white;
 }
 

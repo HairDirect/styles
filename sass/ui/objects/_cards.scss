@@ -29,9 +29,9 @@ input[type=radio]:checked + label.card {
 
     .round-button {
         @extend %round-button-selected;
-            background-color: $blue4;
-            border-color: $blue4;
-            color: white;
+        background-color: $blue4;
+        border-color: $blue4;
+        color: white;
     }
 }
 
