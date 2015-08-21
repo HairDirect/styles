@@ -1,0 +1,7303 @@
+@charset "UTF-8";
+/*------------------------------------*    STYLE.CSS
+\*------------------------------------*/
+/*
+ *
+ * sass --watch style.scss:style.min.css --style compressed
+ *
+ * Here we pull in some variables, include the inuit.css framework, then add our
+ * project-specific components afterwards.
+ */
+/*------------------------------------*    $OBJECTS-AND-ABSTRACTIONS
+\*------------------------------------*/
+/**
+ * All of inuit.css’ objects and abstractions are initially turned off by
+ * default. This means that you start any project with as little as possible,
+ * and introducing objects and abstractions is as simple as switching the
+ * following variables to `true`.
+ */
+/*
+ * Setup
+ */
+/*------------------------------------*    VARS.SCSS
+\*------------------------------------*/
+/**
+ * Any variables you find set in inuit.css’ `_vars.scss` that you do not wish to
+ * keep, simply redefine here. This means that if inuit.css, for example, sets
+ * your `$base-font-size` at 16px and you wish it to be 14px, simply redeclare
+ * that variable in this file. inuit.css ignores its own variables in favour of
+ * using your own, so you can completely modify how inuit.css works without ever
+ * having to alter the framework itself.
+ */
+/*------------------------------------*    $OVERRIDES
+\*------------------------------------*/
+/**
+ * Place any variables that should override inuit.css’ defaults here.
+ */
+/*------------------------------------*    $BRAND
+\*------------------------------------*/
+/**
+ * How big would you like round corners to be by default?
+ */
+/*------------------------------------*    $CUSTOM
+\*------------------------------------*/
+/**
+ * Place any of your own variables that sit on top of inuit.css here.
+ */
+/* Typography */
+/* Opacity */
+/* MEDIA QUERIES */
+/* Animations and Transitions */
+/* Atoms */
+/*------------------------------------*    INUIT.CSS
+\*------------------------------------*/
+/*!*
+ *
+ * inuitcss.com -- @inuitcss -- @csswizardry
+ *
+ */
+/**
+ * inuit.css acts as a base stylesheet which you should extend with your own
+ * theme stylesheet.
+ *
+ * inuit.css aims to do the heavy lifting; sorting objects and abstractions,
+ * design patterns and fiddly bits of CSS, whilst leaving as much design as
+ * possible to you. inuit.css is the scaffolding to your decorator.
+ *
+ * This stylesheet is heavily documented and contains lots of comments, please
+ * take care to read and refer to them as you build. For further support please
+ * tweet at @inuitcss.
+ *
+ * Owing to the amount of comments please only ever use minified CSS in
+ * production. This file is purely a dev document.
+ *
+ * The table of contents below maps to section titles of the same name, to jump
+ * to any section simply run a find for $[SECTION-TITLE].
+ *
+ * Most objects and abstractions come with a chunk of markup that you should be
+ * able to paste into any view to quickly see how the CSS works in conjunction
+ * with the correct HTML.
+ *
+ * inuit.css is written to this standard: github.com/csswizardry/CSS-Guidelines
+ *
+ * LICENSE
+ *
+ * Copyright 2013 Harry Roberts
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Thank you for choosing inuit.css. May your web fonts render perfectly.
+ */
+/*------------------------------------*    $CONTENTS
+\*------------------------------------*/
+/**
+ * CONTENTS............You’re reading it!
+ * WARNING.............Here be dragons!
+ * IMPORTS.............Begin importing the sections below
+ *
+ * MIXINS..............Super-simple Sass stuff
+ * NORMALIZE...........normalize.css
+ * RESET...............Set some defaults
+ * CLEARFIX............
+ * SHARED..............Shared declarations
+ *
+ * MAIN................High-level elements like `html`, `body`, etc.
+ * HEADINGS............Double-stranded heading hierarchy
+ * PARAGRAPHS..........
+ * SMALLPRINT..........Smaller text elements like `small`
+ * QUOTES..............
+ * CODE................
+ * LISTS...............
+ * IMAGES..............
+ * TABLES..............
+ * FORMS...............
+ *
+ * GRIDS...............Fluid, proportional and nestable grids
+ * FLEXBOX.............Crudely emulate flexbox
+ * COLUMNS.............CSS3 columns
+ * NAV.................A simple abstraction to put a list in horizontal nav mode
+ * OPTIONS.............Grouped nav items
+ * PAGINATION..........Very stripped back, basic paginator
+ * BREADCRUMB..........Simple breadcrumb trail object
+ * MEDIA...............Media object
+ * MARGINALIA..........Simple marginalia content
+ * ISLAND..............Boxed off content
+ * BLOCK-LIST..........Blocky lists of content
+ * MATRIX..............Gridded lists
+ * SPLIT...............A simple split-in-two object
+ * THIS-OR-THIS........Options object
+ * LINK-COMPLEX........
+ * FLYOUT..............Flyout-on-hover object
+ * ARROWS..............CSS arrows
+ * SPRITE..............Generic spriting element
+ * ICON-TEXT...........Icon and text couplings
+ * BEAUTONS............Use the beautons micro library
+ * LOZENGES............Basic lozenge styles
+ * RULES...............Horizontal rules
+ * STATS...............Simple stats object
+ * GREYBOX.............Wireframing styles
+ *
+ * WIDTHS..............Width classes for use alongside the grid system etc.
+ * PUSH................Push classes for manipulating grids
+ * PULL................Pull classes for manipulating grids
+ * BRAND...............Helper class to apply brand treatment to elements
+ * HELPER..............A series of helper classes to use arbitrarily
+ * DEBUG...............Enable to add visual flags for debugging purposes
+ */
+/*------------------------------------*    $WARNING
+\*------------------------------------*/
+/*
+ * inuit.css, being an OO framework, works in keeping with the open/closed
+ * principle. The variables you set previously are now being used throughout
+ * inuit.css to style everything we need for a base. Any custom styles SHOULD
+ * NOT be added or modified in inuit.css directly, but added via your theme
+ * stylesheet as per the open/closed principle:
+ *
+ * csswizardry.com/2012/06/the-open-closed-principle-applied-to-css
+ *
+ * Try not to edit any CSS beyond this point; if you find you need to do so
+ * it is a failing of the framework so please tweet at @inuitcss.
+ */
+/*------------------------------------*    $IMPORTS
+\*------------------------------------*/
+/**
+ * Generic utility styles etc.
+ */
+/*------------------------------------*    $DEFAULTS
+\*------------------------------------*/
+/**
+ * inuit.css’ default variables. Redefine these in your `_vars.scss` file (found
+ * in the inuit.css-web-template) to override them.
+ */
+/*------------------------------------*    $DEBUG
+\*------------------------------------*/
+/**
+ * Debug mode will visually highlight any potential markup/accessibility quirks
+ * in the browser. Set to `true` or `false`.
+ */
+/*------------------------------------*    $BORDER-BOX
+\*------------------------------------*/
+/**
+ * Do you want all elements to adopt `box-sizing:border-box;` as per
+ * paulirish.com/2012/box-sizing-border-box-ftw ?
+ */
+/*------------------------------------*    $BASE
+\*------------------------------------*/
+/**
+ * Base stuff
+ */
+/**
+ * Base font-family.
+ */
+/**
+ * Default colour for objects’ borders etc.
+ */
+/*------------------------------------*    $RESPONSIVE
+\*------------------------------------*/
+/**
+ * Responsiveness?
+ */
+/**
+ * Responsiveness for widescreen/high resolution desktop monitors and beyond?
+ * Note: `$responsive` variable above must be set to true before enabling this.
+ */
+/**
+ * Responsive push and pull produce a LOT of code, only turn them on if you
+ * definitely need them.
+ */
+/**
+ * Note: `$push` variable above must be set to true before enabling these.
+ */
+/**
+ * Note: `$pull` variable above must be set to true before enabling these.
+ */
+/**
+ * Tell inuit.css when breakpoints start.
+ */
+/*------------------------------------*    $FONT-SIZES
+\*------------------------------------*/
+/**
+ * Font-sizes (in pixels). Refer to relevant sections for their implementations.
+ */
+/*------------------------------------*    $QUOTES
+\*------------------------------------*/
+/**
+ * English quote marks?
+ */
+/**
+ * If you want English quotes then please do not edit these; they’re only here
+ * because Sass needs them.
+ */
+/**
+ * If you need non-English quotes, please alter the following values accordingly:
+ */
+/*------------------------------------*    $BRAND
+\*------------------------------------*/
+/**
+ * Brand stuff
+ */
+/**
+ * How big would you like round corners to be by default?
+ */
+/*------------------------------------*    $OBJECTS AND ABSTRACTIONS
+\*------------------------------------*/
+/**
+ * Which objects and abstractions would you like to use?
+ */
+/*------------------------------------*    $FRAMEWORK
+\*------------------------------------*/
+/**
+ * inuit.css will work these next ones out for use within the framework.
+ *
+ * Assign our `$base-line-height` to a new spacing var for more transparency.
+ */
+/*------------------------------------*    $MIXINS
+\*------------------------------------*/
+/**
+ * Create a fully formed type style (sizing and vertical rhythm) by passing in a
+ * single value, e.g.:
+ *
+   `@include font-size(10px);`
+ *
+ * Thanks to @redclov3r for the `line-height` Sass:
+ * twitter.com/redclov3r/status/250301539321798657
+ */
+/**
+ * Style any number of headings in one fell swoop, e.g.:
+ *
+   .foo{
+       @include headings(1, 3){
+           color:#BADA55;
+       }
+    }
+ *
+ * With thanks to @lar_zzz, @paranoida, @rowanmanning and ultimately
+ * @thierrylemoulec for refining and improving my initial mixin.
+ */
+/**
+ * Create vendor-prefixed CSS in one go, e.g.
+ *
+   `@include vendor(border-radius, 4px);`
+ *
+ */
+/**
+ * Create CSS keyframe animations for all vendors in one go, e.g.:
+ *
+   .foo{
+       @include vendor(animation, shrink 3s);
+   }
+
+   @include keyframe(shrink){
+       from{
+           font-size:5em;
+       }
+   }
+ *
+ * Courtesy of @integralist: twitter.com/integralist/status/260484115315437569
+ */
+/**
+ * Force overly long spans of text to truncate, e.g.:
+ *
+   `@include truncate(100%);`
+ *
+ * Where `$truncation-boundary` is a united measurement.
+ */
+/**
+ * CSS arrows!!! But... before you read on, you might want to grab a coffee...
+ *
+ * This mixin creates a CSS arrow on a given element. We can have the arrow
+ * appear in one of 12 locations, thus:
+ *
+ *       01    02    03
+ *    +------------------+
+ * 12 |                  | 04
+ *    |                  |
+ * 11 |                  | 05
+ *    |                  |
+ * 10 |                  | 06
+ *    +------------------+
+ *       09    08    07
+ *
+ * You pass this position in along with a desired arrow color and optional
+ * border color, for example:
+ *
+ * `@include arrow(top, left, red)`
+ *
+ * for just a single, red arrow, or:
+ *
+ * `@include arrow(bottom, center, red, black)`
+ *
+ * which will create a red triangle with a black border which sits at the bottom
+ * center of the element. Call the mixin thus:
+ *
+   .foo{
+       background-color:#BADA55;
+       border:1px solid #ACE;
+       @include arrow(top, left, #BADA55, #ACE);
+   }
+ *
+ */
+/**
+ * Media query mixin.
+ *
+ * It’s not great practice to define solid breakpoints up-front, preferring to
+ * modify your design when it needs it, rather than assuming you’ll want a
+ * change at ‘mobile’. However, as inuit.css is required to take a hands off
+ * approach to design decisions, this is the closest we can get to baked-in
+ * responsiveness. It’s flexible enough to allow you to set your own breakpoints
+ * but solid enough to be frameworkified.
+ *
+ * We define some broad breakpoints in our vars file that are picked up here
+ * for use in a simple media query mixin. Our options are:
+ *
+ * palm
+ * lap
+ * lap-and-up
+ * portable
+ * desk
+ * desk-wide
+ *
+ * Not using a media query will, naturally, serve styles to all devices.
+ *
+ * `@include media-query(palm){ [styles here] }`
+ *
+ * We work out your end points for you:
+ */
+/*! normalize.css v2.1.0 | MIT License | git.io/normalize */
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/*
+ * Correct `block` display not defined in IE 8/9.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/*
+ * Correct `inline-block` display not defined in IE 8/9.
+ */
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+
+/*
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/*
+ * Address styling not present in IE 8/9.
+ */
+[hidden] {
+  display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+/*
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/*
+ * Remove default margin.
+ */
+body {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+/*
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+a:focus {
+  outline: thin dotted;
+}
+
+/*
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/*
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/*
+ * Address styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/*
+ * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold;
+}
+
+/*
+ * Address styling not present in Safari 5 and Chrome.
+ */
+dfn {
+  font-style: italic;
+}
+
+/*
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/*
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/*
+ * Correct font family set oddly in Safari 5 and Chrome.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+
+/*
+ * Improve readability of pre-formatted text in all browsers.
+ */
+pre {
+  white-space: pre-wrap;
+}
+
+/*
+ * Set consistent quote types.
+ */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+/*
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/*
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+/*
+ * Remove border when inside `a` element in IE 8/9.
+ */
+img {
+  border: 0;
+}
+
+/*
+ * Correct overflow displayed oddly in IE 9.
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+/*
+ * Address margin not present in IE 8/9 and Safari 5.
+ */
+figure {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+/*
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/*
+ * 1. Correct `color` not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/*
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+
+/*
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+button,
+input {
+  line-height: normal;
+}
+
+/*
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+button,
+select {
+  text-transform: none;
+}
+
+/*
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"], input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+
+/*
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/*
+ * 1. Address box sizing set to `content-box` in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/*
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
+
+/*
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/*
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+/*
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*------------------------------------*    $RESET
+\*------------------------------------*/
+/**
+ * A more considered reset; more of a restart...
+ * As per: csswizardry.com/2011/10/reset-restarted
+ */
+/**
+    * Let’s make the box model all nice, shall we...?
+    */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/**
+ * The usual...
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+dl, dd, ol, ul,
+form, fieldset, legend,
+table, th, td, caption,
+hr {
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Give a help cursor to elements that give extra info on `:hover`.
+ */
+abbr[title], dfn[title] {
+  cursor: help;
+}
+
+/**
+ * Remove underlines from potentially troublesome elements.
+ */
+u, ins {
+  text-decoration: none;
+}
+
+/**
+ * Apply faux underline via `border-bottom`.
+ */
+ins {
+  border-bottom: 1px solid;
+}
+
+/**
+ * So that `alt` text is visually offset if images don’t load.
+ */
+img {
+  font-style: italic;
+}
+
+/**
+ * Give form elements some cursor interactions...
+ */
+label,
+input,
+textarea,
+button,
+select,
+option {
+  cursor: pointer;
+}
+
+.text-input:active,
+.text-input:focus,
+textarea:active,
+textarea:focus {
+  cursor: text;
+  outline: none;
+}
+
+/*------------------------------------*    $CLEARFIX
+\*------------------------------------*/
+/**
+ * Micro clearfix, as per: css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
+ * Extend the clearfix class with Sass to avoid the `.cf` class appearing over
+ * and over in your markup.
+ */
+.cf:after, .nav:after, .media:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*------------------------------------*    $SHARED
+\*------------------------------------*/
+/**
+ * Where `margin-bottom` is concerned, this value will be the same as the
+ * base line-height. This allows us to keep a consistent vertical rhythm.
+ * As per: csswizardry.com/2012/06/single-direction-margin-declarations
+ */
+/**
+ * Base elements
+ */
+h1, h2, h3, h4, h5, h6, hgroup,
+ul, ol, dl,
+blockquote, p, address,
+table,
+fieldset, figure,
+pre,
+.form-fields > li,
+.media,
+.island,
+.islet {
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
+}
+
+.islet h1, .islet h2, .islet h3, .islet h4, .islet h5, .islet h6, .islet hgroup,
+.islet ul, .islet ol, .islet dl,
+.islet blockquote, .islet p, .islet address,
+.islet table,
+.islet fieldset, .islet figure,
+.islet pre,
+.islet .form-fields > li,
+.islet .media,
+.islet .island,
+.islet .islet {
+  margin-bottom: 12px;
+  margin-bottom: 0.75rem;
+}
+
+/**
+ * Doubled up `margin-bottom` helper class.
+ */
+.landmark {
+  margin-bottom: 48px;
+  margin-bottom: 3rem;
+}
+
+/**
+ * `hr` elements only take up a few pixels, so we need to give them special
+ * treatment regarding vertical rhythm.
+ */
+hr {
+  margin-bottom: 22px;
+  margin-bottom: 1.375rem;
+}
+
+/**
+ * Where `margin-left` is concerned we want to try and indent certain elements
+ * by a consistent amount. Define that amount once, here.
+ */
+ul, ol, dd {
+  margin-left: 48px;
+  margin-left: 3rem;
+}
+
+/**
+ * Base styles; unclassed HTML elements etc.
+ */
+/*------------------------------------*    $MAIN
+\*------------------------------------*/
+html {
+  font: 1em/1.5 sans-serif;
+  overflow-y: scroll;
+  min-height: 100%;
+}
+
+/*------------------------------------*    $HEADINGS
+\*------------------------------------*/
+/**
+ * As per: csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css
+ *
+ * When we define a heading we also define a corresponding class to go with it.
+ * This allows us to apply, say, `class=alpha` to a `h3`; a double-stranded
+ * heading hierarchy.
+ */
+h1, .alpha {
+  font-size: 36px;
+  font-size: 2.25rem;
+  line-height: 1.33333;
+}
+
+h2, .beta {
+  font-size: 30px;
+  font-size: 1.875rem;
+  line-height: 1.6;
+}
+
+h3, .gamma {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+h4, .delta {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+h5, .epsilon {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+h6, .zeta {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.71429;
+}
+
+/**
+ * Heading groups and generic any-heading class.
+ * To target any heading of any level simply apply a class of `.hN`, e.g.:
+ *
+   <hgroup>
+       <h1 class=hN>inuit.css</h1>
+       <h2 class=hN>Best. Framework. Ever!</h2>
+   </hgroup>
+ *
+ */
+hgroup .hN {
+  margin-bottom: 0;
+}
+
+/**
+ * A series of classes for setting massive type; for use in heroes, mastheads,
+ * promos, etc.
+ */
+.giga {
+  font-size: 96px;
+  font-size: 6rem;
+  line-height: 1;
+}
+
+.mega {
+  font-size: 72px;
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.kilo {
+  font-size: 48px;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+/*------------------------------------*    $PARAGRAPHS
+\*------------------------------------*/
+/**
+ * The `.lede` class is used to make the introductory text (usually a paragraph)
+ * of a document slightly larger.
+ */
+.lede,
+.lead {
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.33333;
+}
+
+/*------------------------------------*    $SMALLPRINT
+\*------------------------------------*/
+/**
+ * A series of classes for setting tiny type; for use in smallprint etc.
+ */
+.smallprint,
+.milli {
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 2;
+}
+
+.micro {
+  font-size: 10px;
+  font-size: 0.625rem;
+  line-height: 2.4;
+}
+
+/*------------------------------------*    $QUOTES
+\*------------------------------------*/
+/**
+ * If English quotes are set in `_vars.scss`, define them here.
+ */
+/**
+ * Big up @boblet: html5doctor.com/blockquote-q-cite
+ */
+/**
+ * Inline quotes.
+ */
+q {
+  quotes: "‘" "’" "\\201C" "\\201D";
+}
+
+q:before {
+  content: "\2018";
+  content: open-quote;
+}
+
+q:after {
+  content: "\2019";
+  content: close-quote;
+}
+
+q q:before {
+  content: "\201C";
+  content: open-quote;
+}
+
+q q:after {
+  content: "\201D";
+  content: close-quote;
+}
+
+blockquote {
+  quotes: "\\201C" "\\201D";
+}
+
+blockquote p:before {
+  content: "\\201C";
+  content: open-quote;
+}
+
+blockquote p:after {
+  content: "";
+  content: no-close-quote;
+}
+
+blockquote p:last-of-type:after {
+  content: "\\201D";
+  content: close-quote;
+}
+
+blockquote q:before {
+  content: "\2018";
+  content: open-quote;
+}
+
+blockquote q:after {
+  content: "\2019";
+  content: close-quote;
+}
+
+/**
+ *
+   <blockquote>
+       <p>Insanity: doing the same thing over and over again and expecting
+       different results.</p>
+       <b class=source>Albert Einstein</b>
+   </blockquote>
+ *
+ */
+blockquote {
+  /**
+     * .4em is roughly equal to the width of the opening “ that we wish to hang.
+     */
+  text-indent: -0.41em;
+}
+
+blockquote p:last-of-type {
+  margin-bottom: 0;
+}
+
+.source {
+  display: block;
+  text-indent: 0;
+}
+
+.source:before {
+  content: "\2014";
+}
+
+/*------------------------------------*    $CODE
+\*------------------------------------*/
+/**
+ * Use an explicit font stack to ensure browsers render correct `line-height`.
+ */
+pre {
+  overflow: auto;
+}
+
+pre mark {
+  background: none;
+  border-bottom: 1px solid;
+  color: inherit;
+}
+
+/**
+ * Add comments to your code examples, e.g.:
+ *
+   <code>&lt;/div&gt;<span class=code-comment>&lt;!-- /wrapper --&gt;</span></code>
+ *
+ */
+.code-comment {
+  /**
+     * Override this setting in your theme stylesheet
+     */
+  opacity: 0.75;
+  filter: alpha(opacity=75);
+}
+
+/**
+ * You can add line numbers to your code examples but be warned, it requires
+ * some pretty funky looking markup, e.g.:
+ *
+   <ol class=line-numbers>
+       <li><code>.nav{</code></li>
+       <li><code>    list-style:none;</code></li>
+       <li><code>    margin-left:0;</code></li>
+       <li><code>}</code></li>
+       <li><code>    .nav > li,</code></li>
+       <li><code>        .nav > li > a{</code></li>
+       <li><code>            display:inline-block;</code></li>
+       <li><code>           *display:inline-block;</code></li>
+       <li><code>            zoom:1;</code></li>
+       <li><code>        }</code></li>
+   </ol>
+ *
+ * 1. Make the list look like code.
+ * 2. Give the list flush numbers with a leading zero.
+ * 3. Make sure lines of code don’t wrap.
+ * 4. Give the code form by forcing the `code` to honour white-space.
+ */
+.line-numbers {
+  font-family: monospace, serif;
+  /* [1] */
+  list-style: decimal-leading-zero inside;
+  /* [2] */
+  white-space: nowrap;
+  /* [3] */
+  overflow: auto;
+  /* [3] */
+  margin-left: 0;
+}
+
+.line-numbers code {
+  white-space: pre;
+  /* [4] */
+}
+
+/*------------------------------------*    $IMAGES
+\*------------------------------------*/
+/**
+ * Demo: jsfiddle.net/inuitcss/yMtur
+ */
+/**
+ * Fluid images.
+ */
+img {
+  max-width: 100%;
+}
+
+/**
+ * Non-fluid images if you specify `width` and/or `height` attributes.
+ */
+img[width],
+img[height] {
+  max-width: none;
+}
+
+/**
+ * Rounded images.
+ */
+.img--round {
+  border-radius: 6px;
+}
+
+/**
+ * Image placement variations.
+ */
+.img--right {
+  float: right;
+  margin-bottom: 24px;
+  margin-left: 24px;
+}
+
+.img--left {
+  float: left;
+  margin-right: 24px;
+  margin-bottom: 24px;
+}
+
+.img--center {
+  display: block;
+  margin-right: auto;
+  margin-bottom: 24px;
+  margin-left: auto;
+}
+
+/**
+ * Keep your images on your baseline.
+ *
+ * Please note, these will not work too nicely with fluid images and will
+ * distort when resized below a certain width. Use with caution.
+ */
+.img--short {
+  height: 120px;
+}
+
+.img--medium {
+  height: 240px;
+}
+
+.img--tall {
+  height: 360px;
+}
+
+/**
+ * Images in `figure` elements.
+ */
+figure > img {
+  display: block;
+}
+
+/*------------------------------------*    $LISTS
+\*------------------------------------*/
+/**
+ * Remove vertical spacing from nested lists.
+ */
+li > ul,
+li > ol {
+  margin-bottom: 0;
+}
+
+/**
+ * Have a numbered `ul` without the semantics implied by using an `ol`.
+ */
+/*ul*/
+.numbered-list {
+  list-style-type: decimal;
+}
+
+/*------------------------------------*    $TABLES
+\*------------------------------------*/
+/**
+ * We have a lot at our disposal for making very complex table constructs, e.g.:
+ *
+   <table class="table--bordered  table--striped  table--data">
+       <colgroup>
+           <col class=t10>
+           <col class=t10>
+           <col class=t10>
+           <col>
+       </colgroup>
+       <thead>
+           <tr>
+               <th colspan=3>Foo</th>
+               <th>Bar</th>
+           </tr>
+           <tr>
+               <th>Lorem</th>
+               <th>Ipsum</th>
+               <th class=numerical>Dolor</th>
+               <th>Sit</th>
+           </tr>
+       </thead>
+       <tbody>
+           <tr>
+               <th rowspan=3>Sit</th>
+               <td>Dolor</td>
+               <td class=numerical>03.788</td>
+               <td>Lorem</td>
+           </tr>
+           <tr>
+               <td>Dolor</td>
+               <td class=numerical>32.210</td>
+               <td>Lorem</td>
+           </tr>
+           <tr>
+               <td>Dolor</td>
+               <td class=numerical>47.797</td>
+               <td>Lorem</td>
+           </tr>
+           <tr>
+               <th rowspan=2>Sit</th>
+               <td>Dolor</td>
+               <td class=numerical>09.640</td>
+               <td>Lorem</td>
+           </tr>
+           <tr>
+               <td>Dolor</td>
+               <td class=numerical>12.117</td>
+               <td>Lorem</td>
+           </tr>
+       </tbody>
+   </table>
+ *
+ */
+table {
+  width: 100%;
+}
+
+th,
+td {
+  padding: 6px;
+  text-align: left;
+}
+
+@media screen and (min-width: 480px) {
+  th,
+  td {
+    padding: 12px;
+  }
+}
+
+/**
+ * Cell alignments
+ */
+[colspan] {
+  text-align: center;
+}
+
+[colspan="1"] {
+  text-align: left;
+}
+
+[rowspan] {
+  vertical-align: middle;
+}
+
+[rowspan="1"] {
+  vertical-align: top;
+}
+
+.numerical {
+  text-align: right;
+}
+
+/**
+ * In the HTML above we see several `col` elements with classes whose numbers
+ * represent a percentage width for that column. We leave one column free of a
+ * class so that column can soak up the effects of any accidental breakage in
+ * the table.
+ */
+.t5 {
+  width: 5%;
+}
+
+.t10 {
+  width: 10%;
+}
+
+.t12 {
+  width: 12.5%;
+}
+
+/* 1/8 */
+.t15 {
+  width: 15%;
+}
+
+.t20 {
+  width: 20%;
+}
+
+.t25 {
+  width: 25%;
+}
+
+/* 1/4 */
+.t30 {
+  width: 30%;
+}
+
+.t33 {
+  width: 33.333%;
+}
+
+/* 1/3 */
+.t35 {
+  width: 35%;
+}
+
+.t37 {
+  width: 37.5%;
+}
+
+/* 3/8 */
+.t40 {
+  width: 40%;
+}
+
+.t45 {
+  width: 45%;
+}
+
+.t50 {
+  width: 50%;
+}
+
+/* 1/2 */
+.t55 {
+  width: 55%;
+}
+
+.t60 {
+  width: 60%;
+}
+
+.t62 {
+  width: 62.5%;
+}
+
+/* 5/8 */
+.t65 {
+  width: 65%;
+}
+
+.t66 {
+  width: 66.666%;
+}
+
+/* 2/3 */
+.t70 {
+  width: 70%;
+}
+
+.t75 {
+  width: 75%;
+}
+
+/* 3/4*/
+.t80 {
+  width: 80%;
+}
+
+.t85 {
+  width: 85%;
+}
+
+.t87 {
+  width: 87.5%;
+}
+
+/* 7/8 */
+.t90 {
+  width: 90%;
+}
+
+.t95 {
+  width: 95%;
+}
+
+/**
+ * Bordered tables
+ */
+.table--bordered th,
+.table--bordered td {
+  border: 1px solid #ccc;
+}
+
+.table--bordered th:empty,
+.table--bordered td:empty {
+  border: none;
+}
+
+.table--bordered thead tr:last-child th {
+  border-bottom-width: 2px;
+}
+
+.table--bordered tbody tr th:last-of-type {
+  border-right-width: 2px;
+}
+
+/**
+ * Striped tables
+ */
+.table--striped tbody tr:nth-of-type(odd) {
+  background-color: #ffc;
+  /* Override this color in your theme stylesheet */
+}
+
+/**
+ * Data table
+ */
+.table--data {
+  font: 12px/1.5 sans-serif;
+}
+
+/*------------------------------------*    $FORMS
+\*------------------------------------*/
+/**
+ *
+ * Demo: jsfiddle.net/inuitcss/MhHHU
+ *
+ */
+fieldset {
+  padding: 24px;
+}
+
+/**
+ * Text inputs
+ *
+ * Instead of a `[type]` selector for each kind of form input, we just use a
+ * class to target any/every one, e.g.:
+   <input type=text class=text-input>
+   <input type=email class=text-input>
+   <input type=password class=text-input>
+ *
+ */
+.text-input,
+textarea {
+  /**
+     * Style these via your theme stylesheet.
+     */
+}
+
+/**
+ * Group sets of form fields in a list, e.g.:
+ *
+   <ul class=form-fields>
+       <li>
+           <label />
+           <input />
+       </li>
+       <li>
+           <label />
+           <select />
+       </li>
+       <li>
+           <label />
+           <input />
+       </li>
+   </ul>
+ *
+ */
+.form-fields {
+  list-style: none;
+  margin: 0;
+}
+
+.form-fields > li:last-child {
+  margin-bottom: 0;
+}
+
+/**
+ * Labels
+ *
+ * Define a `.label` class as well as a `label` element. This means we can apply
+ * label-like styling to meta-labels for groups of options where a `label`
+ * element is not suitable, e.g.:
+ *
+   <li>
+       <span class=label>Select an option below:</span>
+       <ul class="multi-list  four-cols">
+           <li>
+               <input /> <label />
+           </li>
+           <li>
+               <input /> <label />
+           </li>
+           <li>
+               <input /> <label />
+           </li>
+           <li>
+               <input /> <label />
+           </li>
+       </ul>
+   </li>
+ *
+ */
+label,
+.label {
+  display: block;
+}
+
+/**
+     * Extra help text in `label`s, e.g.:
+     *
+       <label>Card number <small class=additional>No spaces</small></label>
+     *
+     */
+.additional {
+  display: block;
+  font-weight: normal;
+}
+
+/*
+ * Groups of checkboxes and radios, e.g.:
+ *
+   <li>
+       <ul class=check-list>
+           <li>
+               <input /> <label />
+           </li>
+           <li>
+               <input /> <label />
+           </li>
+       </ul>
+   </li>
+ *
+ */
+.check-list {
+  list-style: none;
+  margin: 0;
+}
+
+/*
+     * Labels in check-lists
+     */
+.check-label,
+.check-list label,
+.check-list .label {
+  display: inline-block;
+}
+
+/**
+ * Spoken forms are for forms that read like spoken word, e.g.:
+ *
+   <li class=spoken-form>
+       Hello, my <label for=spoken-name>name</label> is
+       <input type=text class=text-input id=spoken-name>. My home
+       <label for=country>country</label> is
+       <select id=country>
+           <option>UK</option>
+           <option>US</option>
+           <option>Other</option>
+       </select>
+   </li>
+ *
+ */
+.spoken-form label {
+  display: inline-block;
+  font: inherit;
+}
+
+/**
+ * Extra help text displayed after a field when that field is in focus, e.g.:
+ *
+   <label for=email>Email:</label>
+   <input type=email class=text-input id=email>
+   <small class=extra-help>.edu emails only</small>
+ *
+ * We leave the help text in the document flow and merely set it to
+ * `visibility:hidden;`. This means that it won’t interfere with anything once
+ * it reappears.
+ *
+ */
+/*small*/
+.extra-help {
+  display: inline-block;
+  visibility: hidden;
+}
+
+.text-input:active + .extra-help,
+.text-input:focus + .extra-help {
+  visibility: visible;
+}
+
+/**
+ * Objects and abstractions
+ */
+/*------------------------------------*    $GRIDS
+\*------------------------------------*/
+/**
+ * Fluid and nestable grid system, e.g.:
+ *
+   <div class="grid">
+
+       <div class="grid__item  one-third">
+           <p>One third grid</p>
+       </div><!--
+
+    --><div class="grid__item  two-thirds">
+           <p>Two thirds grid</p>
+       </div><!--
+
+    --><div class="grid__item  one-half">
+           <p>One half grid</p>
+       </div><!--
+
+    --><div class="grid__item  one-quarter">
+           <p>One quarter grid</p>
+       </div><!--
+
+    --><div class="grid__item  one-quarter">
+           <p>One quarter grid</p>
+       </div>
+
+   </div>
+ *
+ * Demo: jsfiddle.net/inuitcss/CLYUC
+ *
+ */
+/**
+ * Grid wrapper
+ */
+.grid {
+  margin-left: -24px;
+  list-style: none;
+  margin-bottom: 0;
+}
+
+/**
+     * Very infrequently occuring grid wrappers as children of grid wrappers.
+     */
+.grid > .grid {
+  margin-left: 0;
+}
+
+/**
+     * Grid
+     */
+.grid__item {
+  display: inline-block;
+  width: 100%;
+  padding-left: 24px;
+  vertical-align: top;
+}
+
+/*------------------------------------*    $FLEXBOX
+\*------------------------------------*/
+/**
+ * Until we can utilise flexbox natively we can kinda, sorta, attempt to emulate
+ * it, in a way... e.g.:
+ *
+   <header class=flexbox>
+
+       <div class=flexbox__item>
+           <b>Welcome to</b>
+       </div>
+
+       <div class=flexbox__item>
+           <img src="//csswizardry.com/inuitcss/img/logo.jpg" alt="inuit.css">
+       </div>
+
+   </header>
+ *
+ * We can also combine our grid system classes with `.flexbox__item` classes,
+ * e.g.:
+ *
+   <div class=flexbox>
+       <div class="flexbox__item  one-quarter">
+       </div>
+       <div class="flexbox__item  three-quarters">
+       </div>
+   </div>
+ *
+ * It’s pretty poorly named I’m afraid, but it works...
+ *
+ * Demo: jsfiddle.net/inuitcss/ufUh2
+ *
+ */
+.flexbox {
+  display: table;
+  width: 100%;
+}
+
+/**
+ * Nasty hack to circumvent Modernizr conflicts.
+ */
+html.flexbox {
+  display: block;
+  width: auto;
+}
+
+.flexbox__item {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/*------------------------------------*    $COLUMNS
+\*------------------------------------*/
+/**
+ * Here we can set elements in columns of text using CSS3, e.g.:
+ *
+   <p class=text-cols--2>
+ *
+ * Demo: jsfiddle.net/inuitcss/E26Yd
+ *
+ */
+.text-cols--2, .text-cols--3, .text-cols--4, .text-cols--5 {
+  -webkit-column-gap: 24px;
+  -moz-column-gap: 24px;
+  -ms-column-gap: 24px;
+  -o-column-gap: 24px;
+  column-gap: 24px;
+}
+
+.text-cols--2 {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  -ms-column-count: 2;
+  -o-column-count: 2;
+  column-count: 2;
+}
+
+.text-cols--3 {
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  -ms-column-count: 3;
+  -o-column-count: 3;
+  column-count: 3;
+}
+
+.text-cols--4 {
+  -webkit-column-count: 4;
+  -moz-column-count: 4;
+  -ms-column-count: 4;
+  -o-column-count: 4;
+  column-count: 4;
+}
+
+.text-cols--5 {
+  -webkit-column-count: 5;
+  -moz-column-count: 5;
+  -ms-column-count: 5;
+  -o-column-count: 5;
+  column-count: 5;
+}
+
+/*------------------------------------*    $NAV
+\*------------------------------------*/
+/**
+ * Nav abstraction as per: csswizardry.com/2011/09/the-nav-abstraction
+ * When used on an `ol` or `ul`, this class throws the list into horizontal mode
+ * e.g.:
+ *
+   <ul class=nav>
+       <li><a href=#>Home</a></li>
+       <li><a href=#>About</a></li>
+       <li><a href=#>Portfolio</a></li>
+       <li><a href=#>Contact</a></li>
+   </ul>
+ *
+ * Demo: jsfiddle.net/inuitcss/Vnph4
+ *
+ */
+.nav {
+  list-style: none;
+  margin-left: 0;
+}
+
+.nav > li,
+.nav > li > a {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
+
+/**
+ * `.nav--stacked` extends `.nav` and throws the list into vertical mode, e.g.:
+ *
+   <ul class="nav  nav--stacked">
+       <li><a href=#>Home</a></li>
+       <li><a href=#>About</a></li>
+       <li><a href=#>Portfolio</a></li>
+       <li><a href=#>Contact</a></li>
+   </ul>
+ *
+ */
+.nav--stacked > li {
+  display: list-item;
+}
+
+.nav--stacked > li > a {
+  display: block;
+}
+
+/**
+ * `.nav--banner` extends `.nav` and centres the list, e.g.:
+ *
+   <ul class="nav  nav--banner">
+       <li><a href=#>Home</a></li>
+       <li><a href=#>About</a></li>
+       <li><a href=#>Portfolio</a></li>
+       <li><a href=#>Contact</a></li>
+   </ul>
+ *
+ */
+.nav--banner {
+  text-align: center;
+}
+
+/**
+ * Give nav links a big, blocky hit area. Extends `.nav`, e.g.:
+ *
+   <ul class="nav  nav--block">
+       <li><a href=#>Home</a></li>
+       <li><a href=#>About</a></li>
+       <li><a href=#>Portfolio</a></li>
+       <li><a href=#>Contact</a></li>
+   </ul>
+ *
+ */
+.nav--block {
+  line-height: 1;
+  /**
+     * Remove whitespace caused by `inline-block`.
+     */
+  letter-spacing: -0.31em;
+  word-spacing: -0.43em;
+  white-space: nowrap;
+}
+
+.nav--block > li {
+  letter-spacing: normal;
+  word-spacing: normal;
+}
+
+.nav--block > li > a {
+  padding: 12px;
+}
+
+/**
+ * Force a nav to occupy 100% of the available width of its parent. Extends
+ * `.nav`, e.g.:
+ *
+   <ul class="nav  nav--fit">
+       <li><a href=#>Home</a></li>
+       <li><a href=#>About</a></li>
+       <li><a href=#>Portfolio</a></li>
+       <li><a href=#>Contact</a></li>
+   </ul>
+ *
+ * Thanks to @pimpl for this idea!
+ */
+.nav--fit {
+  display: table;
+  width: 100%;
+}
+
+.nav--fit > li {
+  display: table-cell;
+}
+
+.nav--fit > li > a {
+  display: block;
+}
+
+/**
+ * Make a list of keywords. Extends `.nav`, e.g.:
+ *
+   `<ul class="nav  nav--keywords>`
+ *
+ */
+.nav--keywords > li:after {
+  content: "\002C" "\00A0";
+}
+
+.nav--keywords > li:last-child:after {
+  display: none;
+}
+
+/*------------------------------------*    $MEDIA
+\*------------------------------------*/
+/**
+ * Place any image- and text-like content side-by-side, as per:
+ * stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
+ * E.g.:
+ *
+   <div class=media>
+       <img src=http://placekitten.com/200/300 alt="" class=media__img>
+       <p class=media__body>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+   </div>
+ *
+ * Demo: jsfiddle.net/inuitcss/cf4Qs
+ *
+ */
+.media {
+  display: block;
+}
+
+.media__img {
+  float: left;
+  margin-right: 24px;
+}
+
+/**
+     * Reversed image location (right instead of left).
+     */
+.media__img--rev {
+  float: right;
+  margin-left: 24px;
+}
+
+.media__img img,
+.media__img--rev img {
+  display: block;
+}
+
+.media__body {
+  overflow: hidden;
+}
+
+.media__body,
+.media__body > :last-child {
+  margin-bottom: 0;
+}
+
+/**
+     * `.img`s in `.islet`s need an appropriately sized margin.
+     */
+.islet .media__img {
+  margin-right: 12px;
+}
+
+.islet .media__img--rev {
+  margin-left: 12px;
+}
+
+/*------------------------------------*    $BLOCK-LIST
+\*------------------------------------*/
+/**
+ * Create big blocky lists of content, e.g.:
+ *
+   <ul class=block-list>
+      <li>Foo</li>
+      <li>Bar</li>
+      <li>Baz</li>
+      <li><a href=# class=block-list__link>Foo Bar Baz</a></li>
+   </ul>
+ *
+ * Extend this object in your theme stylesheet.
+ *
+ * Demo: jsfiddle.net/inuitcss/hR57q
+ *
+ */
+.block-list,
+.block-list > li {
+  border: 0 solid #ccc;
+}
+
+.block-list {
+  list-style: none;
+  margin-left: 0;
+  border-top-width: 1px;
+}
+
+.block-list > li {
+  border-bottom-width: 1px;
+  padding: 12px;
+}
+
+.block-list__link {
+  display: block;
+  padding: 12px;
+  margin: -12px;
+}
+
+/*------------------------------------*    $SPLIT
+\*------------------------------------*/
+/**
+ * Simple split item for creating two elements floated away from one another,
+ * e.g.:
+ *
+   <dl class=split>
+       <dt class=split__title>Burger and fries</dt>
+       <dd>&pound;5.99</dd>
+       <dt class=split__title>Fillet steak</dt>
+       <dd>&pound;19.99</dd>
+       <dt class=split__title>Ice cream</dt>
+       <dd>&pound;2.99</dd>
+   </dl>
+ *
+   <ol class="split  results">
+       <li class=first><b class=split__title>1st place</b> Bob</li>
+       <li class=second><b class=split__title>2nd place</b> Lilly</li>
+       <li class=third><b class=split__title>3rd place</b> Ted</li>
+   </ol>​
+ *
+ * Demo: jsfiddle.net/inuitcss/9gZW7
+ *
+ */
+.split {
+  text-align: right;
+  list-style: none;
+  margin-left: 0;
+}
+
+.split__title {
+  text-align: left;
+  float: left;
+  clear: left;
+}
+
+/*------------------------------------*    $ARROWS
+\*------------------------------------*/
+/**
+ * It is a common design treatment to give an element a triangular points-out
+ * arrow, we typically build these with CSS. These following classes allow us to
+ * generate these arbitrarily with a mixin, `@arrow()`.
+ */
+/**
+ * Forms the basis for any/all CSS arrows.
+ */
+/**
+ * Define individual edges so we can combine what we need, when we need.
+ */
+/*------------------------------------*    $BEAUTONS.CSS
+\*------------------------------------*/
+/**
+ * beautons is a beautifully simple button toolkit.
+ *
+ * LICENSE
+ * 
+ * Copyright 2013 Harry Roberts
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * 
+ */
+/*!*
+ * 
+ * @csswizardry -- csswizardry.com/beautons
+ * 
+ */
+/*------------------------------------*    $BASE
+\*------------------------------------*/
+/**
+ * Base button styles.
+ *
+ * 1. Allow us to better style box model properties.
+ * 2. Line different sized buttons up a little nicer.
+ * 3. Stop buttons wrapping and looking broken.
+ * 4. Make buttons inherit font styles.
+ * 5. Force all elements using beautons to appear clickable.
+ * 6. Normalise box model styles.
+ * 7. If the button’s text is 1em, and the button is (3 * font-size) tall, then
+ *    there is 1em of space above and below that text. We therefore apply 1em
+ *    of space to the left and right, as padding, to keep consistent spacing.
+ * 8. Basic cosmetics for default buttons. Change or override at will.
+ * 9. Don’t allow buttons to have underlines; it kinda ruins the illusion.
+ */
+.btn {
+  display: inline-block;
+  /* [1] */
+  vertical-align: middle;
+  /* [2] */
+  white-space: nowrap;
+  /* [3] */
+  font-family: inherit;
+  /* [4] */
+  font-size: 100%;
+  /* [4] */
+  cursor: pointer;
+  /* [5] */
+  border: none;
+  /* [6] */
+  margin: 0;
+  /* [6] */
+  padding-top: 0;
+  /* [6] */
+  padding-bottom: 0;
+  /* [6] */
+  line-height: 3;
+  /* [7] */
+  padding-right: 1em;
+  /* [7] */
+  padding-left: 1em;
+  /* [7] */
+  border-radius: 6px;
+  /* [8] */
+}
+
+.btn,
+.btn:hover {
+  text-decoration: none;
+  /* [9] */
+}
+
+.btn:active,
+.btn:focus {
+  outline: none;
+}
+
+/*------------------------------------*    $SIZES
+\*------------------------------------*/
+/**
+ * Button size modifiers.
+ *
+ * These all follow the same sizing rules as above; text is 1em, space around it
+ * remains uniform.
+ */
+.btn--small {
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  line-height: 2;
+}
+
+.btn--large {
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+  line-height: 4;
+}
+
+.btn--huge {
+  padding-right: 2em;
+  padding-left: 2em;
+  line-height: 5;
+}
+
+/**
+ * These buttons will fill the entirety of their container.
+ *
+ * 1. Remove padding so that widths and paddings don’t conflict.
+ */
+.btn--full {
+  width: 100%;
+  padding-right: 0;
+  /* [1] */
+  padding-left: 0;
+  /* [1] */
+  text-align: center;
+}
+
+/*------------------------------------*    $FONT-SIZES
+\*------------------------------------*/
+/**
+ * Button font-size modifiers.
+ */
+.btn--alpha, .btn_group input[type=radio]:checked + label.btn_group_item {
+  font-size: 3rem;
+}
+
+.btn--beta, .btn_group input[type=radio] + label.btn_group_item {
+  font-size: 2rem;
+}
+
+.btn--gamma {
+  font-size: 1rem;
+}
+
+/**
+ * Make the button inherit sizing from its parent.
+ */
+.btn--natural {
+  vertical-align: baseline;
+  font-size: inherit;
+  line-height: inherit;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+}
+
+/*------------------------------------*    $FUNCTIONS
+\*------------------------------------*/
+/**
+ * Button function modifiers.
+ */
+/**
+ * Positive actions; e.g. sign in, purchase, submit, etc.
+ */
+.btn--positive {
+  background-color: #4A993E;
+  color: #fff;
+}
+
+/**
+ * Negative actions; e.g. close account, delete photo, remove friend, etc.
+ */
+.btn--negative {
+  background-color: #b33630;
+  color: #fff;
+}
+
+/**
+ * Inactive, disabled buttons.
+ * 
+ * 1. Make the button look like normal text when hovered.
+ */
+.btn--inactive,
+.btn--inactive:hover,
+.btn--inactive:active,
+.btn--inactive:focus {
+  background-color: #ddd;
+  color: #777;
+  cursor: text;
+  /* [1] */
+}
+
+/*------------------------------------*    $STYLES
+\*------------------------------------*/
+/**
+ * Button style modifiers.
+ *
+ * 1. Use an overly-large number to ensure completely rounded, pill-like ends.
+ */
+.btn--soft {
+  border-radius: 200px;
+  /* [1] */
+}
+
+.btn--hard {
+  border-radius: 0;
+}
+
+/*------------------------------------*    $LOZENGES
+\*------------------------------------*/
+/**
+ * Create pill- and lozenge-like runs of text, e.g.:
+ *
+   <p>This <span class=pill>here</span> is a pill!</p>
+ *
+   <p>This <span class=loz>here</span> is also a lozenge!</p>
+ *
+ * Pills have fully rounded ends, lozenges have only their corners rounded.
+ *
+ * Demo: jsfiddle.net/inuitcss/N3pGm
+ *
+ */
+.pill, .loz {
+  display: inline-block;
+  /**
+     * These numbers set in ems mean that, at its narrowest, a lozenge will be
+     * the same width as the `line-height` set on the `html` element.
+     * This allows us to use the `.loz` in almost any `font-size` we wish.
+     */
+  min-width: 1.0em;
+  padding-right: 0.25em;
+  padding-left: 0.25em;
+  /* =1.50em */
+  text-align: center;
+  background-color: #ccc;
+  color: #fff;
+  /* Override this color in your theme stylesheet */
+  /**
+     * Normally we’d use border-radius:100%; but instead here we just use an
+     * overly large number; `border-radius:100%;` would create an oval on
+     * non-square elements whereas we just want to round the ends of an element.
+     */
+  border-radius: 100px;
+}
+
+.loz {
+  border-radius: 6px;
+}
+
+/**
+ * Style trumps; helper and brand classes
+ */
+/*------------------------------------*    $WIDTHS
+\*------------------------------------*/
+/**
+ * Sizes in human readable format. These are used in conjunction with other
+ * objects and abstractions found in inuit.css, most commonly the grid system
+ * and faux flexbox.
+ *
+ * We have a mixin to generate our widths and their breakpoint-specific
+ * variations.
+ */
+/**
+    * Whole
+    */
+.one-whole {
+  width: 100%;
+}
+
+/**
+    * Halves
+    */
+.one-half, .two-quarters, .three-sixths, .four-eighths, .five-tenths, .six-twelfths {
+  width: 50%;
+}
+
+/**
+    * Thirds
+    */
+.one-third, .two-sixths, .four-twelfths {
+  width: 33.333%;
+}
+
+.two-thirds, .four-sixths, .eight-twelfths {
+  width: 66.666%;
+}
+
+/**
+    * Quarters
+    */
+.one-quarter, .two-eighths, .three-twelfths {
+  width: 25%;
+}
+
+.three-quarters, .six-eighths, .nine-twelfths {
+  width: 75%;
+}
+
+/**
+    * Fifths
+    */
+.one-fifth, .two-tenths {
+  width: 20%;
+}
+
+.two-fifths, .four-tenths {
+  width: 40%;
+}
+
+.three-fifths, .six-tenths {
+  width: 60%;
+}
+
+.four-fifths, .eight-tenths {
+  width: 80%;
+}
+
+/**
+    * Sixths
+    */
+.one-sixth, .two-twelfths {
+  width: 16.666%;
+}
+
+.five-sixths, .ten-twelfths {
+  width: 83.333%;
+}
+
+/**
+    * Eighths
+    */
+.one-eighth {
+  width: 12.5%;
+}
+
+.three-eighths {
+  width: 37.5%;
+}
+
+.five-eighths {
+  width: 62.5%;
+}
+
+.seven-eighths {
+  width: 87.5%;
+}
+
+/**
+    * Tenths
+    */
+.one-tenth {
+  width: 10%;
+}
+
+.three-tenths {
+  width: 30%;
+}
+
+.seven-tenths {
+  width: 70%;
+}
+
+.nine-tenths {
+  width: 90%;
+}
+
+/**
+    * Twelfths
+    */
+.one-twelfth {
+  width: 8.333%;
+}
+
+.five-twelfths {
+  width: 41.666%;
+}
+
+.seven-twelfths {
+  width: 58.333%;
+}
+
+.eleven-twelfths {
+  width: 91.666%;
+}
+
+/**
+ * If you have set `$responsive` to ‘true’ in `_vars.scss` then you now have
+ * access to these classes. You can define at which breakpoint you’d like an
+ * element to be a certain size, e.g.:
+ *
+ * `<div class="g  one-quarter  lap-one-half  palm-one-whole"> ... </div>`
+ *
+ * This would create a `div` that, at ‘desktop’ sizes, takes up a quarter of the
+ * horizontal space, a half of that space at ‘tablet’ sizes, and goes full width
+ * at ‘mobile’ sizes.
+ *
+ * Demo: jsfiddle.net/inuitcss/WS4Ge
+ *
+ */
+@media only screen and (max-width: 29.999em) {
+  /**
+    * Whole
+    */
+  .palm-one-whole {
+    width: 100%;
+  }
+  /**
+    * Halves
+    */
+  .palm-one-half, .palm-two-quarters, .palm-three-sixths, .palm-four-eighths, .palm-five-tenths, .palm-six-twelfths {
+    width: 50%;
+  }
+  /**
+    * Thirds
+    */
+  .palm-one-third, .palm-two-sixths, .palm-four-twelfths {
+    width: 33.333%;
+  }
+  .palm-two-thirds, .palm-four-sixths, .palm-eight-twelfths {
+    width: 66.666%;
+  }
+  /**
+    * Quarters
+    */
+  .palm-one-quarter, .palm-two-eighths, .palm-three-twelfths {
+    width: 25%;
+  }
+  .palm-three-quarters, .palm-six-eighths, .palm-nine-twelfths {
+    width: 75%;
+  }
+  /**
+    * Fifths
+    */
+  .palm-one-fifth, .palm-two-tenths {
+    width: 20%;
+  }
+  .palm-two-fifths, .palm-four-tenths {
+    width: 40%;
+  }
+  .palm-three-fifths, .palm-six-tenths {
+    width: 60%;
+  }
+  .palm-four-fifths, .palm-eight-tenths {
+    width: 80%;
+  }
+  /**
+    * Sixths
+    */
+  .palm-one-sixth, .palm-two-twelfths {
+    width: 16.666%;
+  }
+  .palm-five-sixths, .palm-ten-twelfths {
+    width: 83.333%;
+  }
+  /**
+    * Eighths
+    */
+  .palm-one-eighth {
+    width: 12.5%;
+  }
+  .palm-three-eighths {
+    width: 37.5%;
+  }
+  .palm-five-eighths {
+    width: 62.5%;
+  }
+  .palm-seven-eighths {
+    width: 87.5%;
+  }
+  /**
+    * Tenths
+    */
+  .palm-one-tenth {
+    width: 10%;
+  }
+  .palm-three-tenths {
+    width: 30%;
+  }
+  .palm-seven-tenths {
+    width: 70%;
+  }
+  .palm-nine-tenths {
+    width: 90%;
+  }
+  /**
+    * Twelfths
+    */
+  .palm-one-twelfth {
+    width: 8.333%;
+  }
+  .palm-five-twelfths {
+    width: 41.666%;
+  }
+  .palm-seven-twelfths {
+    width: 58.333%;
+  }
+  .palm-eleven-twelfths {
+    width: 91.666%;
+  }
+}
+
+@media only screen and (min-width: 30em) and (max-width: 49.999em) {
+  /**
+    * Whole
+    */
+  .lap-one-whole {
+    width: 100%;
+  }
+  /**
+    * Halves
+    */
+  .lap-one-half, .lap-two-quarters, .lap-three-sixths, .lap-four-eighths, .lap-five-tenths, .lap-six-twelfths {
+    width: 50%;
+  }
+  /**
+    * Thirds
+    */
+  .lap-one-third, .lap-two-sixths, .lap-four-twelfths {
+    width: 33.333%;
+  }
+  .lap-two-thirds, .lap-four-sixths, .lap-eight-twelfths {
+    width: 66.666%;
+  }
+  /**
+    * Quarters
+    */
+  .lap-one-quarter, .lap-two-eighths, .lap-three-twelfths {
+    width: 25%;
+  }
+  .lap-three-quarters, .lap-six-eighths, .lap-nine-twelfths {
+    width: 75%;
+  }
+  /**
+    * Fifths
+    */
+  .lap-one-fifth, .lap-two-tenths {
+    width: 20%;
+  }
+  .lap-two-fifths, .lap-four-tenths {
+    width: 40%;
+  }
+  .lap-three-fifths, .lap-six-tenths {
+    width: 60%;
+  }
+  .lap-four-fifths, .lap-eight-tenths {
+    width: 80%;
+  }
+  /**
+    * Sixths
+    */
+  .lap-one-sixth, .lap-two-twelfths {
+    width: 16.666%;
+  }
+  .lap-five-sixths, .lap-ten-twelfths {
+    width: 83.333%;
+  }
+  /**
+    * Eighths
+    */
+  .lap-one-eighth {
+    width: 12.5%;
+  }
+  .lap-three-eighths {
+    width: 37.5%;
+  }
+  .lap-five-eighths {
+    width: 62.5%;
+  }
+  .lap-seven-eighths {
+    width: 87.5%;
+  }
+  /**
+    * Tenths
+    */
+  .lap-one-tenth {
+    width: 10%;
+  }
+  .lap-three-tenths {
+    width: 30%;
+  }
+  .lap-seven-tenths {
+    width: 70%;
+  }
+  .lap-nine-tenths {
+    width: 90%;
+  }
+  /**
+    * Twelfths
+    */
+  .lap-one-twelfth {
+    width: 8.333%;
+  }
+  .lap-five-twelfths {
+    width: 41.666%;
+  }
+  .lap-seven-twelfths {
+    width: 58.333%;
+  }
+  .lap-eleven-twelfths {
+    width: 91.666%;
+  }
+}
+
+@media only screen and (min-width: 30em) {
+  /**
+    * Whole
+    */
+  .lap-and-up-one-whole {
+    width: 100%;
+  }
+  /**
+    * Halves
+    */
+  .lap-and-up-one-half, .lap-and-up-two-quarters, .lap-and-up-three-sixths, .lap-and-up-four-eighths, .lap-and-up-five-tenths, .lap-and-up-six-twelfths {
+    width: 50%;
+  }
+  /**
+    * Thirds
+    */
+  .lap-and-up-one-third, .lap-and-up-two-sixths, .lap-and-up-four-twelfths {
+    width: 33.333%;
+  }
+  .lap-and-up-two-thirds, .lap-and-up-four-sixths, .lap-and-up-eight-twelfths {
+    width: 66.666%;
+  }
+  /**
+    * Quarters
+    */
+  .lap-and-up-one-quarter, .lap-and-up-two-eighths, .lap-and-up-three-twelfths {
+    width: 25%;
+  }
+  .lap-and-up-three-quarters, .lap-and-up-six-eighths, .lap-and-up-nine-twelfths {
+    width: 75%;
+  }
+  /**
+    * Fifths
+    */
+  .lap-and-up-one-fifth, .lap-and-up-two-tenths {
+    width: 20%;
+  }
+  .lap-and-up-two-fifths, .lap-and-up-four-tenths {
+    width: 40%;
+  }
+  .lap-and-up-three-fifths, .lap-and-up-six-tenths {
+    width: 60%;
+  }
+  .lap-and-up-four-fifths, .lap-and-up-eight-tenths {
+    width: 80%;
+  }
+  /**
+    * Sixths
+    */
+  .lap-and-up-one-sixth, .lap-and-up-two-twelfths {
+    width: 16.666%;
+  }
+  .lap-and-up-five-sixths, .lap-and-up-ten-twelfths {
+    width: 83.333%;
+  }
+  /**
+    * Eighths
+    */
+  .lap-and-up-one-eighth {
+    width: 12.5%;
+  }
+  .lap-and-up-three-eighths {
+    width: 37.5%;
+  }
+  .lap-and-up-five-eighths {
+    width: 62.5%;
+  }
+  .lap-and-up-seven-eighths {
+    width: 87.5%;
+  }
+  /**
+    * Tenths
+    */
+  .lap-and-up-one-tenth {
+    width: 10%;
+  }
+  .lap-and-up-three-tenths {
+    width: 30%;
+  }
+  .lap-and-up-seven-tenths {
+    width: 70%;
+  }
+  .lap-and-up-nine-tenths {
+    width: 90%;
+  }
+  /**
+    * Twelfths
+    */
+  .lap-and-up-one-twelfth {
+    width: 8.333%;
+  }
+  .lap-and-up-five-twelfths {
+    width: 41.666%;
+  }
+  .lap-and-up-seven-twelfths {
+    width: 58.333%;
+  }
+  .lap-and-up-eleven-twelfths {
+    width: 91.666%;
+  }
+}
+
+@media only screen and (max-width: 49.999em) {
+  /**
+    * Whole
+    */
+  .portable-one-whole {
+    width: 100%;
+  }
+  /**
+    * Halves
+    */
+  .portable-one-half, .portable-two-quarters, .portable-three-sixths, .portable-four-eighths, .portable-five-tenths, .portable-six-twelfths {
+    width: 50%;
+  }
+  /**
+    * Thirds
+    */
+  .portable-one-third, .portable-two-sixths, .portable-four-twelfths {
+    width: 33.333%;
+  }
+  .portable-two-thirds, .portable-four-sixths, .portable-eight-twelfths {
+    width: 66.666%;
+  }
+  /**
+    * Quarters
+    */
+  .portable-one-quarter, .portable-two-eighths, .portable-three-twelfths {
+    width: 25%;
+  }
+  .portable-three-quarters, .portable-six-eighths, .portable-nine-twelfths {
+    width: 75%;
+  }
+  /**
+    * Fifths
+    */
+  .portable-one-fifth, .portable-two-tenths {
+    width: 20%;
+  }
+  .portable-two-fifths, .portable-four-tenths {
+    width: 40%;
+  }
+  .portable-three-fifths, .portable-six-tenths {
+    width: 60%;
+  }
+  .portable-four-fifths, .portable-eight-tenths {
+    width: 80%;
+  }
+  /**
+    * Sixths
+    */
+  .portable-one-sixth, .portable-two-twelfths {
+    width: 16.666%;
+  }
+  .portable-five-sixths, .portable-ten-twelfths {
+    width: 83.333%;
+  }
+  /**
+    * Eighths
+    */
+  .portable-one-eighth {
+    width: 12.5%;
+  }
+  .portable-three-eighths {
+    width: 37.5%;
+  }
+  .portable-five-eighths {
+    width: 62.5%;
+  }
+  .portable-seven-eighths {
+    width: 87.5%;
+  }
+  /**
+    * Tenths
+    */
+  .portable-one-tenth {
+    width: 10%;
+  }
+  .portable-three-tenths {
+    width: 30%;
+  }
+  .portable-seven-tenths {
+    width: 70%;
+  }
+  .portable-nine-tenths {
+    width: 90%;
+  }
+  /**
+    * Twelfths
+    */
+  .portable-one-twelfth {
+    width: 8.333%;
+  }
+  .portable-five-twelfths {
+    width: 41.666%;
+  }
+  .portable-seven-twelfths {
+    width: 58.333%;
+  }
+  .portable-eleven-twelfths {
+    width: 91.666%;
+  }
+}
+
+@media only screen and (min-width: 50em) {
+  /**
+    * Whole
+    */
+  .desk-one-whole {
+    width: 100%;
+  }
+  /**
+    * Halves
+    */
+  .desk-one-half, .desk-two-quarters, .desk-three-sixths, .desk-four-eighths, .desk-five-tenths, .desk-six-twelfths {
+    width: 50%;
+  }
+  /**
+    * Thirds
+    */
+  .desk-one-third, .desk-two-sixths, .desk-four-twelfths {
+    width: 33.333%;
+  }
+  .desk-two-thirds, .desk-four-sixths, .desk-eight-twelfths {
+    width: 66.666%;
+  }
+  /**
+    * Quarters
+    */
+  .desk-one-quarter, .desk-two-eighths, .desk-three-twelfths {
+    width: 25%;
+  }
+  .desk-three-quarters, .desk-six-eighths, .desk-nine-twelfths {
+    width: 75%;
+  }
+  /**
+    * Fifths
+    */
+  .desk-one-fifth, .desk-two-tenths {
+    width: 20%;
+  }
+  .desk-two-fifths, .desk-four-tenths {
+    width: 40%;
+  }
+  .desk-three-fifths, .desk-six-tenths {
+    width: 60%;
+  }
+  .desk-four-fifths, .desk-eight-tenths {
+    width: 80%;
+  }
+  /**
+    * Sixths
+    */
+  .desk-one-sixth, .desk-two-twelfths {
+    width: 16.666%;
+  }
+  .desk-five-sixths, .desk-ten-twelfths {
+    width: 83.333%;
+  }
+  /**
+    * Eighths
+    */
+  .desk-one-eighth {
+    width: 12.5%;
+  }
+  .desk-three-eighths {
+    width: 37.5%;
+  }
+  .desk-five-eighths {
+    width: 62.5%;
+  }
+  .desk-seven-eighths {
+    width: 87.5%;
+  }
+  /**
+    * Tenths
+    */
+  .desk-one-tenth {
+    width: 10%;
+  }
+  .desk-three-tenths {
+    width: 30%;
+  }
+  .desk-seven-tenths {
+    width: 70%;
+  }
+  .desk-nine-tenths {
+    width: 90%;
+  }
+  /**
+    * Twelfths
+    */
+  .desk-one-twelfth {
+    width: 8.333%;
+  }
+  .desk-five-twelfths {
+    width: 41.666%;
+  }
+  .desk-seven-twelfths {
+    width: 58.333%;
+  }
+  .desk-eleven-twelfths {
+    width: 91.666%;
+  }
+}
+
+/**
+ * If you have set the additional `$responsive-extra` variable to ‘true’ in
+ * `_vars.scss` then you now have access to the following class available to
+ * accomodate much larger screen resolutions.
+ */
+/* endif */
+/*------------------------------------*    $PUSH
+\*------------------------------------*/
+/**
+ * Push classes, to move grid items over to the right by certain amounts.
+ */
+/*------------------------------------*    $PULL
+\*------------------------------------*/
+/**
+ * Pull classes, to move grid items over to the right by certain amounts.
+ */
+/*------------------------------------*    $BRAND
+\*------------------------------------*/
+/**
+ * `.brand` is a quick and simple way to apply your brand face and/or color to
+ * any element using a handy helper class.
+ */
+.brand {
+  font-family: "Helvetica Neue", sans-serif!important;
+  color: #4a8ec2!important;
+}
+
+.brand-face {
+  font-family: "Helvetica Neue", sans-serif!important;
+}
+
+.brand-color,
+.brand-colour {
+  color: #4a8ec2!important;
+}
+
+/*------------------------------------*    $HELPER
+\*------------------------------------*/
+/**
+ * A series of helper classes to use arbitrarily. Only use a helper class if an
+ * element/component doesn’t already have a class to which you could apply this
+ * styling, e.g. if you need to float `.main-nav` left then add `float:left;` to
+ * that ruleset as opposed to adding the `.float--left` class to the markup.
+ *
+ * A lot of these classes carry `!important` as you will always want them to win
+ * out over other selectors.
+ */
+/**
+ * Add/remove floats
+ */
+.float--right {
+  float: right !important;
+}
+
+.float--left {
+  float: left !important;
+}
+
+.float--none {
+  float: none !important;
+}
+
+/**
+ * Text alignment
+ */
+.text--left {
+  text-align: left  !important;
+}
+
+.text--center {
+  text-align: center !important;
+}
+
+.text--right {
+  text-align: right !important;
+}
+
+/**
+ * Font weights
+ */
+.weight--light {
+  font-weight: 300 !important;
+}
+
+.weight--normal {
+  font-weight: 400 !important;
+}
+
+.weight--semibold {
+  font-weight: 600 !important;
+}
+
+/**
+ * Add/remove margins
+ */
+.push {
+  margin: 24px !important;
+}
+
+.push--top {
+  margin-top: 24px !important;
+}
+
+.push--right {
+  margin-right: 24px !important;
+}
+
+.push--bottom {
+  margin-bottom: 24px !important;
+}
+
+.push--left {
+  margin-left: 24px !important;
+}
+
+.push--ends {
+  margin-top: 24px !important;
+  margin-bottom: 24px !important;
+}
+
+.push--sides {
+  margin-right: 24px !important;
+  margin-left: 24px !important;
+}
+
+.push-half {
+  margin: 12px !important;
+}
+
+.push-half--top {
+  margin-top: 12px !important;
+}
+
+.push-half--right {
+  margin-right: 12px !important;
+}
+
+.push-half--bottom {
+  margin-bottom: 12px !important;
+}
+
+.push-half--left {
+  margin-left: 12px !important;
+}
+
+.push-half--ends {
+  margin-top: 12px !important;
+  margin-bottom: 12px !important;
+}
+
+.push-half--sides {
+  margin-right: 12px !important;
+  margin-left: 12px !important;
+}
+
+.flush {
+  margin: 0 !important;
+}
+
+.flush--top {
+  margin-top: 0 !important;
+}
+
+.flush--right {
+  margin-right: 0 !important;
+}
+
+.flush--bottom {
+  margin-bottom: 0 !important;
+}
+
+.flush--left {
+  margin-left: 0 !important;
+}
+
+.flush--ends {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.flush--sides {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+/**
+ * Add/remove paddings
+ */
+.soft {
+  padding: 24px !important;
+}
+
+.soft--top {
+  padding-top: 24px !important;
+}
+
+.soft--right {
+  padding-right: 24px !important;
+}
+
+.soft--bottom {
+  padding-bottom: 24px !important;
+}
+
+.soft--left {
+  padding-left: 24px !important;
+}
+
+.soft--ends {
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
+}
+
+.soft--sides {
+  padding-right: 24px !important;
+  padding-left: 24px !important;
+}
+
+.soft-half {
+  padding: 12px !important;
+}
+
+.soft-half--top {
+  padding-top: 12px !important;
+}
+
+.soft-half--right {
+  padding-right: 12px !important;
+}
+
+.soft-half--bottom {
+  padding-bottom: 12px !important;
+}
+
+.soft-half--left {
+  padding-left: 12px !important;
+}
+
+.soft-half--ends {
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+}
+
+.soft-half--sides {
+  padding-right: 12px !important;
+  padding-left: 12px !important;
+}
+
+.hard {
+  padding: 0 !important;
+}
+
+.hard--top {
+  padding-top: 0 !important;
+}
+
+.hard--right {
+  padding-right: 0 !important;
+}
+
+.hard--bottom {
+  padding-bottom: 0 !important;
+}
+
+.hard--left {
+  padding-left: 0 !important;
+}
+
+.hard--ends {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.hard--sides {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+/**
+ * Pull items full width of `.island` parents.
+ */
+.full-bleed {
+  margin-right: -24px !important;
+  margin-left: -24px !important;
+}
+
+.islet .full-bleed {
+  margin-right: -12px !important;
+  margin-left: -12px !important;
+}
+
+/**
+ * Add a help cursor to any element that gives the user extra information on
+ * `:hover`.
+ */
+.informative {
+  cursor: help !important;
+}
+
+/**
+ * Mute an object by reducing its opacity.
+ */
+.muted {
+  opacity: 0.5 !important;
+  filter: alpha(opacity=50) !important;
+}
+
+/**
+ * Align items to the right where they imply progression/movement forward, e.g.:
+ *
+   <p class=proceed><a href=#>Read more...</a></p>
+ *
+ */
+.proceed {
+  text-align: right !important;
+}
+
+/**
+ * Add a right-angled quote to links that imply movement, e.g.:
+ *
+   <a href=# class=go>Read more</a>
+ *
+ */
+.go:after {
+  content: " " "»" !important;
+}
+
+/**
+ * Apply capital case to an element (usually a `strong`).
+ */
+.caps {
+  text-transform: uppercase !important;
+}
+
+/**
+ * Hide content off-screen without resorting to `display:none;`, also provide
+ * breakpoint specific hidden elements.
+ */
+.accessibility,
+.visuallyhidden {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+}
+
+@media only screen and (max-width: 29.999em) {
+  .accessibility--palm,
+  .visuallyhidden--palm {
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+  }
+}
+
+@media only screen and (min-width: 30em) and (max-width: 49.999em) {
+  .accessibility--lap,
+  .visuallyhidden--lap {
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+  }
+}
+
+@media only screen and (min-width: 30em) {
+  .accessibility--lap-and-up,
+  .visuallyhidden--lap-and-up {
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+  }
+}
+
+@media only screen and (max-width: 49.999em) {
+  .accessibility--portable,
+  .visuallyhidden--portable {
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+  }
+}
+
+@media only screen and (min-width: 50em) {
+  .accessibility--desk,
+  .visuallyhidden--desk {
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+  }
+}
+
+@media only screen and (min-width: 75em) {
+  .accessibility--desk-wide,
+  .visuallyhidden--desk-wide {
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+  }
+}
+
+/* endif */
+/*
+ * Custom Styles
+ */
+.grid {
+  letter-spacing: -.3em !important;
+}
+
+.grid * {
+  letter-spacing: 0;
+}
+
+.btn--positive, button.btn--positive {
+  border: 1px solid #5e9c1c;
+  border-radius: 6px;
+  background-color: #59a71e;
+  background-image: -moz-linear-gradient(90deg, #59a71e 0%, #70b822 100%);
+  background-image: -webkit-linear-gradient(90deg, #59a71e 0%, #70b822 100%);
+  background-image: -ms-linear-gradient(90deg, #59a71e 0%, #70b822 100%);
+  font-size: 20px;
+  font-size: 1.25rem;
+  font-weight: bold !important;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+
+.btn--positive:hover, .btn--positive:focus, button.btn--positive:hover, button.btn--positive:focus {
+  border-color: #68ac1f;
+  background-color: #61b621;
+  background-image: -moz-linear-gradient(90deg, #61b621 0%, #7bca25 100%);
+  background-image: -webkit-linear-gradient(90deg, #61b621 0%, #7bca25 100%);
+  background-image: -ms-linear-gradient(90deg, #61b621 0%, #7bca25 100%);
+}
+
+.btn--positive:active, button.btn--positive:active {
+  background-color: #70b822;
+  background-image: -moz-linear-gradient(90deg, #70b822 0%, #59a71e 100%);
+  background-image: -webkit-linear-gradient(90deg, #70b822 0%, #59a71e 100%);
+  background-image: -ms-linear-gradient(90deg, #70b822 0%, #59a71e 100%);
+}
+
+.btn--secondary, .btn_group input[type=radio] + label.btn_group_item, .btn.btn--secondary, .btn_group input[type=radio] + label.btn.btn_group_item {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.btn--alpha, .btn_group input[type=radio]:checked + label.btn_group_item, .btn--beta, .btn_group input[type=radio] + label.btn_group_item, .btn--gamma, .tertiary {
+  font-size: inherit;
+}
+
+.btn--alpha:disabled, .btn_group input[type=radio]:checked + label.btn_group_item:disabled, .btn--alpha:disabled:hover, .btn_group input[type=radio]:checked + label.btn_group_item:disabled:hover, .btn--beta:disabled, .btn_group input[type=radio] + label.btn_group_item:disabled, .btn--beta:disabled:hover, .btn_group input[type=radio] + label.btn_group_item:disabled:hover, .btn--gamma:disabled, .btn--gamma:disabled:hover, .tertiary:disabled, .tertiary:disabled:hover {
+  border-color: #e7e7e7 !important;
+  background-color: #fafafa !important;
+  background-image: -moz-linear-gradient(90deg, #fafafa 0%, #fff 100%) !important;
+  background-image: -webkit-linear-gradient(90deg, #fafafa 0%, #fff 100%) !important;
+  background-image: -ms-linear-gradient(90deg, #fafafa 0%, #fff 100%) !important;
+  color: #b9b9b9 !important;
+  text-shadow: 0px 1px 0px #fff !important;
+}
+
+.btn--alpha, .btn_group input[type=radio]:checked + label.btn_group_item {
+  color: #fff;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
+  border-color: #4e88bd;
+  background-color: #4d83b6;
+  background-image: -moz-linear-gradient(90deg, #4d83b6 0%, #6aabd7 100%);
+  background-image: -webkit-linear-gradient(90deg, #4d83b6 0%, #6aabd7 100%);
+  background-image: -ms-linear-gradient(90deg, #4d83b6 0%, #6aabd7 100%);
+}
+
+.btn--alpha:hover, .btn_group input[type=radio]:checked + label.btn_group_item:hover, .btn--alpha:focus, .btn_group input[type=radio]:checked + label.btn_group_item:focus {
+  background-color: #5591ca;
+  background-image: -moz-linear-gradient(90deg, #5591ca 0%, #71b7e6 100%);
+  background-image: -webkit-linear-gradient(90deg, #5591ca 0%, #71b7e6 100%);
+  background-image: -ms-linear-gradient(90deg, #5591ca 0%, #71b7e6 100%);
+}
+
+.btn--alpha:active, .btn_group input[type=radio]:checked + label.btn_group_item:active {
+  background-color: #6aabd7;
+  background-image: -moz-linear-gradient(90deg, #6aabd7 0%, #4d83b6 100%);
+  background-image: -webkit-linear-gradient(90deg, #6aabd7 0%, #4d83b6 100%);
+  background-image: -ms-linear-gradient(90deg, #6aabd7 0%, #4d83b6 100%);
+}
+
+.btn--beta, .btn_group input[type=radio] + label.btn_group_item {
+  color: #515151;
+  text-shadow: 0px 1px 0px #fff;
+  border-color: #cdcdcd;
+  background-color: #f1f1f1;
+  background-image: -moz-linear-gradient(90deg, #f1f1f1 0%, #fff 100%);
+  background-image: -webkit-linear-gradient(90deg, #f1f1f1 0%, #fff 100%);
+  background-image: -ms-linear-gradient(90deg, #f1f1f1 0%, #fff 100%);
+}
+
+.btn--beta:hover, .btn_group input[type=radio] + label.btn_group_item:hover, .btn--beta:focus, .btn_group input[type=radio] + label.btn_group_item:focus {
+  background-color: #f8f8f8;
+  background-image: -moz-linear-gradient(90deg, #f8f8f8 0%, #fff 100%);
+  background-image: -webkit-linear-gradient(90deg, #f8f8f8 0%, #fff 100%);
+  background-image: -ms-linear-gradient(90deg, #f8f8f8 0%, #fff 100%);
+}
+
+.btn--beta:active, .btn_group input[type=radio] + label.btn_group_item:active {
+  background-color: #fff;
+  background-image: -moz-linear-gradient(90deg, #fff 0%, #f1f1f1 100%);
+  background-image: -webkit-linear-gradient(90deg, #fff 0%, #f1f1f1 100%);
+  background-image: -ms-linear-gradient(90deg, #fff 0%, #f1f1f1 100%);
+}
+
+.btn--gamma {
+  color: #fff;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
+  border-color: #808285 !important;
+  border-radius: 6px;
+  background-color: #a2a2a2;
+  background-image: -moz-linear-gradient(90deg, #a2a2a2 0%, #ababab 100%);
+  background-image: -webkit-linear-gradient(90deg, #a2a2a2 0%, #ababab 100%);
+  background-image: -ms-linear-gradient(90deg, #a2a2a2 0%, #ababab 100%);
+}
+
+.btn--gamma:hover, .btn--gamma:focus {
+  background-color: #b2b2b2;
+  background-image: -moz-linear-gradient(90deg, #b2b2b2 0%, #c2c2c2 100%);
+  background-image: -webkit-linear-gradient(90deg, #b2b2b2 0%, #c2c2c2 100%);
+  background-image: -ms-linear-gradient(90deg, #b2b2b2 0%, #c2c2c2 100%);
+}
+
+.btn--gamma:active {
+  background-color: #ababab;
+  background-image: -moz-linear-gradient(90deg, #ababab 0%, #a2a2a2 100%);
+  background-image: -webkit-linear-gradient(90deg, #ababab 0%, #a2a2a2 100%);
+  background-image: -ms-linear-gradient(90deg, #ababab 0%, #a2a2a2 100%);
+}
+
+.btn--natural, button.btn--natural {
+  min-height: 24px;
+  min-height: 1.5rem;
+  height: 24px;
+  height: 1.5rem;
+  line-height: 24px;
+  line-height: 1.5rem;
+}
+
+/* Override html style if popup overlay is currently open */
+html.flexbox.popup_visible {
+  display: table;
+  width: 100%;
+}
+
+.waiting-container {
+  min-height: 16px;
+  -moz-transition: opacity 0.25s;
+  -o-transition: opacity 0.25s;
+  -webkit-transition: opacity 0.25s;
+  transition: opacity 0.25s;
+  opacity: 1;
+}
+
+.waiting-container.hidden {
+  opacity: 0;
+}
+
+.waiting-container.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.waiting-container.fixed {
+  position: fixed;
+  z-index: 100005;
+}
+
+.waiting-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  background-color: rgba(0, 0, 0, 0.65);
+  /*z-index: 10004;*/
+}
+
+.waiting-indicator {
+  width: 250px;
+  height: 200px;
+  margin-left: -125px;
+  margin-top: -100px;
+  padding: 1em;
+  margin-top: -100px;
+  background: #fff;
+  box-shadow: 0px 0px 26px 1px rgba(0, 0, 0, 0.5);
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.waiting-indicator.center, .waiting-indicator.top, .waiting-indicator.bottom {
+  position: absolute;
+}
+
+.waiting-indicator.center {
+  top: 50%;
+  left: 50%;
+}
+
+.waiting-indicator.bottom {
+  top: auto;
+  bottom: 0;
+  margin-top: 0;
+}
+
+.waiting-indicator.left {
+  left: 0;
+  margin-left: 0;
+}
+
+.waiting-indicator.right {
+  left: auto;
+  right: 0;
+  margin-left: 0;
+}
+
+.waiting-indicator .message {
+  color: #282828;
+  position: relative;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 1em;
+  font-size: .889em;
+}
+
+.waiting-indicator .spinner {
+  position: relative;
+  margin: 0 auto;
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: solid 10px rgba(0, 0, 0, 0.1);
+  border-top-color: #282828;
+  -moz-animation-name: spin;
+  -o-animation-name: spin;
+  -webkit-animation-name: spin;
+  animation-name: spin;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -moz-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/* Graceful Degredation */
+.no-cssanimations .waiting-indicator .spinner {
+  background: url(//media.hairdirect.com/images/loading.gif) no-repeat center left;
+  border-radius: 0px;
+  border: none;
+}
+
+.select2-container {
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0;
+  position: relative;
+  vertical-align: middle;
+}
+
+.select2-container .select2-selection--single {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  height: 28px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+  display: block;
+  padding-left: 8px;
+  padding-right: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.select2-container .select2-selection--multiple {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  min-height: 32px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.select2-container .select2-selection--multiple .select2-selection__rendered {
+  display: inline-block;
+  overflow: hidden;
+  padding-left: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.select2-container .select2-search--inline {
+  float: left;
+}
+
+.select2-container .select2-search--inline .select2-search__field {
+  box-sizing: border-box;
+  border: none;
+  font-size: 100%;
+  margin-top: 5px;
+}
+
+.select2-container .select2-search--inline .select2-search__field::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.select2-dropdown {
+  background-color: white;
+  /*border: 1px solid $color_silver_chalice_approx;
+	border-radius: 4px;*/
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  left: -100000px;
+  width: 100%;
+  z-index: 1051;
+}
+
+.select2-dropdown .select2-results {
+  border: 1px solid #c5c8cc;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.select2-dropdown span.link {
+  border-bottom-color: #00E;
+  color: #00E;
+  cursor: pointer;
+}
+
+.select2-dropdown input[type=search] {
+  height: 3.25rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  border: 1px solid #c5c8cc;
+  border-radius: 6px;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding: 1em 1em 0;
+  color: #282828;
+  background-color: white;
+  outline: 0;
+}
+
+.select2-dropdown input[type=search]:focus {
+  padding-left: .944em;
+  padding-top: .944em;
+  border-width: 2px;
+  border-color: #6fadd6 !important;
+}
+
+.select2-results {
+  display: block;
+}
+
+.select2-results__options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.select2-results__option {
+  padding: 6px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.select2-results__option[aria-selected] {
+  cursor: pointer;
+}
+
+.select2-container--open .select2-dropdown {
+  left: 0;
+  top: -13px;
+}
+
+.select2-container--open .select2-dropdown--above {
+  border-bottom: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.select2-container--open .select2-dropdown--below {
+  border: none;
+}
+
+.select2-search--dropdown {
+  display: block;
+  padding: 0px;
+}
+
+.select2-search--dropdown .select2-search__field {
+  padding: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.select2-search--dropdown .select2-search__field::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.select2-search--dropdown.select2-search--hide {
+  display: none;
+}
+
+.select2-close-mask {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  min-height: 100%;
+  min-width: 100%;
+  height: auto;
+  width: auto;
+  opacity: 0;
+  z-index: 99;
+  background-color: white;
+  filter: alpha(opacity=0);
+}
+
+.select2-hidden-accessible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.select2-container--default .selection {
+  display: none;
+}
+
+.select2-container--default .select2-selection--single {
+  background-color: white;
+  /*border: 1px solid $color_silver_chalice_approx;*/
+  border-radius: 4px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #444;
+  line-height: 28px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__clear {
+  cursor: pointer;
+  float: right;
+  font-weight: bold;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+  color: #999;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 26px;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  width: 20px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+  border-color: #888 transparent transparent transparent;
+  border-style: solid;
+  border-width: 5px 4px 0 4px;
+  height: 0;
+  left: 50%;
+  margin-left: -4px;
+  margin-top: -2px;
+  position: absolute;
+  top: 50%;
+  width: 0;
+}
+
+.select2-container--default.select2-container--disabled .select2-selection--single {
+  background-color: #eee;
+  cursor: default;
+}
+
+.select2-container--default.select2-container--disabled .select2-selection--single .select2-selection__clear {
+  display: none;
+}
+
+.select2-container--default.select2-container--disabled .select2-selection--multiple {
+  background-color: #eee;
+  cursor: default;
+}
+
+.select2-container--default.select2-container--disabled .select2-selection__choice__remove {
+  display: none;
+}
+
+.select2-container--default.select2-container--open.select2-container--above .select2-selection--single {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.select2-container--default.select2-container--open.select2-container--above .select2-selection--multiple {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.select2-container--default.select2-container--open.select2-container--below .select2-selection--single {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+  border-color: transparent transparent #888 transparent;
+  border-width: 0 4px 5px 4px;
+}
+
+.select2-container--default .select2-selection--multiple {
+  background-color: white;
+  /*border: 1px solid $color_silver_chalice_approx;*/
+  border-radius: 4px;
+  cursor: text;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered {
+  box-sizing: border-box;
+  list-style: none;
+  margin: 0;
+  padding: 0 5px;
+  width: 100%;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__placeholder {
+  color: #999;
+  margin-top: 5px;
+  float: left;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__clear {
+  cursor: pointer;
+  float: right;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+  background-color: #e4e4e4;
+  /*border: 1px solid $color_silver_chalice_approx;*/
+  border-radius: 4px;
+  cursor: default;
+  float: left;
+  margin-right: 5px;
+  margin-top: 5px;
+  padding: 0 5px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+  color: #999;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 2px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
+  color: #333;
+}
+
+.select2-container--default .select2-results__option[role=group] {
+  padding: 0;
+}
+
+.select2-container--default .select2-results__option[aria-disabled=true] {
+  color: #999;
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+  background-color: #ddd;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: #5897fb;
+  color: white;
+}
+
+.select2-container--default .select2-results__group {
+  cursor: default;
+  display: block;
+  padding: 6px;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+  border: solid black 1px;
+  outline: 0;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+  /*border: 1px solid $gray20;
+        color: $gray12;
+        padding: 1em 1em 0;
+        border-top-right-radius: 6px;
+        border-top-left-radius: 6px;*/
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  position: relative;
+}
+
+.select2-container--default .select2-search--inline .select2-search__field {
+  background: transparent;
+  border: none;
+  outline: 0;
+}
+
+.select2-container--default .select2-results > .select2-results__options {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.select2-container--default .select2-results__option .select2-results__option {
+  padding-left: 1em;
+}
+
+.select2-container--default .select2-results__option .select2-results__option .select2-results__group {
+  padding-left: 0;
+}
+
+.select2-container--default .select2-results__option .select2-results__option .select2-results__option {
+  margin-left: -1em;
+  padding-left: 2em;
+}
+
+.select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option {
+  margin-left: -2em;
+  padding-left: 3em;
+}
+
+.select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option {
+  margin-left: -3em;
+  padding-left: 4em;
+}
+
+.select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option {
+  margin-left: -4em;
+  padding-left: 5em;
+}
+
+.select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option {
+  margin-left: -5em;
+  padding-left: 6em;
+}
+
+.select2-container--default[dir="rtl"] .select2-selection--single .select2-selection__clear {
+  float: left;
+}
+
+.select2-container--default[dir="rtl"] .select2-selection--single .select2-selection__arrow {
+  left: 1px;
+  right: auto;
+}
+
+.select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__choice {
+  float: right;
+  margin-left: 5px;
+  margin-right: auto;
+}
+
+.select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__placeholder {
+  float: right;
+}
+
+.select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__choice__remove {
+  margin-left: 2px;
+  margin-right: auto;
+}
+
+.select2-container--classic .select2-selection--single {
+  background-color: #f6f6f6;
+  /*border: 1px solid $color_silver_chalice_approx;*/
+  border-radius: 4px;
+  outline: 0;
+  background-image: linear, to bottom, white 50%, #eee 100%;
+  background-repeat: repeat-x;
+  filter: progid:dximagetransform.microsoft.gradient(startcolorstr='$white', endcolorstr='$color_gallery_approx', gradienttype=0);
+}
+
+.select2-container--classic .select2-selection--single:focus {
+  border: 1px solid #5897fb;
+}
+
+.select2-container--classic .select2-selection--single .select2-selection__rendered {
+  color: #444;
+  line-height: 28px;
+}
+
+.select2-container--classic .select2-selection--single .select2-selection__clear {
+  cursor: pointer;
+  float: right;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.select2-container--classic .select2-selection--single .select2-selection__placeholder {
+  color: #999;
+}
+
+.select2-container--classic .select2-selection--single .select2-selection__arrow {
+  background-color: #ddd;
+  border: none;
+  /*border-left: 1px solid $color_silver_chalice_approx;*/
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  height: 26px;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  width: 20px;
+  background-image: linear, to bottom, #eee 50%, #cccccc 100%;
+  background-repeat: repeat-x;
+  filter: progid:dximagetransform.microsoft.gradient(startcolorstr='$color_gallery_approx', endcolorstr='$color_celeste_approx', gradienttype=0);
+}
+
+.select2-container--classic .select2-selection--single .select2-selection__arrow b {
+  border-color: #888 transparent transparent transparent;
+  border-style: solid;
+  border-width: 5px 4px 0 4px;
+  height: 0;
+  left: 50%;
+  margin-left: -4px;
+  margin-top: -2px;
+  position: absolute;
+  top: 50%;
+  width: 0;
+}
+
+.select2-container--classic.select2-container--open .select2-selection--single {
+  border: 1px solid #5897fb;
+}
+
+.select2-container--classic.select2-container--open .select2-selection--single .select2-selection__arrow {
+  background: transparent;
+  border: none;
+}
+
+.select2-container--classic.select2-container--open .select2-selection--single .select2-selection__arrow b {
+  border-color: transparent transparent #888 transparent;
+  border-width: 0 4px 5px 4px;
+}
+
+.select2-container--classic.select2-container--open.select2-container--above .select2-selection--single {
+  border-top: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  background-image: linear, to bottom, white 0, #eee 50%;
+  background-repeat: repeat-x;
+  filter: progid:dximagetransform.microsoft.gradient(startcolorstr='$white', endcolorstr='$color_gallery_approx', gradienttype=0);
+}
+
+.select2-container--classic.select2-container--open.select2-container--above .select2-selection--multiple {
+  border-top: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.select2-container--classic.select2-container--open.select2-container--below .select2-selection--single {
+  border-bottom: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background-image: linear, to bottom, #eee 50%, white 100%;
+  background-repeat: repeat-x;
+  filter: progid:dximagetransform.microsoft.gradient(startcolorstr='$color_gallery_approx', endcolorstr='$white', gradienttype=0);
+}
+
+.select2-container--classic.select2-container--open.select2-container--below .select2-selection--multiple {
+  border-bottom: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.select2-container--classic.select2-container--open .select2-selection--multiple {
+  border: 1px solid #5897fb;
+}
+
+.select2-container--classic.select2-container--open .select2-dropdown {
+  border-color: #5897fb;
+}
+
+.select2-container--classic .select2-selection--multiple {
+  background-color: white;
+  border-radius: 4px;
+  cursor: text;
+  outline: 0;
+}
+
+.select2-container--classic .select2-selection--multiple:focus {
+  border: 1px solid #5897fb;
+}
+
+.select2-container--classic .select2-selection--multiple .select2-selection__rendered {
+  list-style: none;
+  margin: 0;
+  padding: 0 5px;
+}
+
+.select2-container--classic .select2-selection--multiple .select2-selection__clear {
+  display: none;
+}
+
+.select2-container--classic .select2-selection--multiple .select2-selection__choice {
+  background-color: #e4e4e4;
+  /*border: 1px solid $color_silver_chalice_approx;*/
+  border-radius: 4px;
+  cursor: default;
+  float: left;
+  margin-right: 5px;
+  margin-top: 5px;
+  padding: 0 5px;
+}
+
+.select2-container--classic .select2-selection--multiple .select2-selection__choice__remove {
+  color: #888;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 2px;
+}
+
+.select2-container--classic .select2-selection--multiple .select2-selection__choice__remove:hover {
+  color: #555;
+}
+
+.select2-container--classic .select2-dropdown {
+  background-color: white;
+  border: 1px solid transparent;
+}
+
+.select2-container--classic .select2-dropdown--above {
+  border-bottom: none;
+}
+
+.select2-container--classic .select2-dropdown--below {
+  border-top: none;
+}
+
+.select2-container--classic .select2-results__option[role=group] {
+  padding: 0;
+}
+
+.select2-container--classic .select2-results__option[aria-disabled=true] {
+  color: grey;
+}
+
+.select2-container--classic .select2-results__option--highlighted[aria-selected] {
+  background-color: #3875d7;
+  color: white;
+}
+
+.select2-container--classic .select2-results__group {
+  cursor: default;
+  display: block;
+  padding: 6px;
+}
+
+.select2-container--classic .select2-search--dropdown .select2-search__field {
+  outline: 0;
+}
+
+.select2-container--classic .select2-search--inline .select2-search__field {
+  outline: 0;
+}
+
+.select2-container--classic .select2-results > .select2-results__options {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.select2-container--classic[dir="rtl"] .select2-selection--single .select2-selection__clear {
+  float: left;
+}
+
+.select2-container--classic[dir="rtl"] .select2-selection--single .select2-selection__arrow {
+  border: none;
+  /*border-right: 1px solid $color_silver_chalice_approx;*/
+  border-radius: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  left: 1px;
+  right: auto;
+}
+
+.select2-container--classic[dir="rtl"] .select2-selection--multiple .select2-selection__choice {
+  float: right;
+  margin-left: 5px;
+  margin-right: auto;
+}
+
+.select2-container--classic[dir="rtl"] .select2-selection--multiple .select2-selection__choice__remove {
+  margin-left: 2px;
+  margin-right: auto;
+}
+
+.select2-container[dir="rtl"] .select2-selection--single .select2-selection__rendered {
+  padding-right: 8px;
+  padding-left: 20px;
+}
+
+.form > ul.card {
+  padding-left: 0;
+  padding-right: 24px;
+}
+
+input[type=radio] + label.card:hover, input[type=radio] + label.card:focus {
+  border-color: #cacaca;
+  color: #282828;
+}
+
+input[type=radio] + label.card:active {
+  color: #282828;
+  border-color: #e8e8e8;
+  background-color: white;
+  background-image: -moz-linear-gradient(90deg, white 0%, #fafafa 100%);
+  background-image: -webkit-linear-gradient(90deg, white 0%, #fafafa 100%);
+  background-image: -ms-linear-gradient(90deg, white 0%, #fafafa 100%);
+}
+
+input[type=radio] + label.card button {
+  display: block;
+}
+
+input[type=radio]:checked + label.card {
+  background-color: white;
+  background-image: none;
+  color: #282828;
+}
+
+input[type=radio]:checked + label.card .round-button {
+  background-color: #5088ba;
+  border-color: #5088ba;
+  color: white;
+}
+
+label > * {
+  display: block;
+  pointer-events: none;
+}
+
+input[type=radio]:disabled + label.card:hover, input[type=radio]:disabled + label.card:focus, input[type=radio]:disabled + label.card:active {
+  border: 1px solid #e8e8e8 !important;
+  background-color: #fafafa !important;
+  background-image: -moz-linear-gradient(90deg, #fafafa 0%, white 100%) !important;
+  background-image: -webkit-linear-gradient(90deg, #fafafa 0%, white 100%) !important;
+  background-image: -ms-linear-gradient(90deg, #fafafa 0%, white 100%) !important;
+  color: #7c7c7c !important;
+  cursor: default !important;
+}
+
+.success > .card, .success > input[type=radio] + label.card {
+  color: #4f86b7;
+  border-color: #6aa9d5;
+}
+
+@media only screen and (min-width: 30em) {
+  .success > .card > .grid, .success > input[type=radio] + label.card > .grid {
+    display: table;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 30em) {
+  .success > .card > .grid > .grid__item, .success > input[type=radio] + label.card > .grid > .grid__item {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.address-item.pca-result label.card {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.clear {
+  clear: both;
+}
+
+.hide {
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+
+.label {
+  font-weight: 500 !important;
+}
+
+.buttons {
+  margin-bottom: 1em;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  -webkit-box-sizing: border-box !important;
+}
+
+.address-wrapper {
+  list-style: none;
+}
+
+.address-wrapper li {
+  display: block;
+  float: left;
+}
+
+.changeaddress, .createaddress {
+  margin: 1em auto;
+  width: 100%;
+}
+
+@media only screen and (min-width: 30em) {
+  .changeaddress {
+    margin-top: 0;
+  }
+}
+
+.address-item {
+  text-align: left;
+}
+
+.address-item span {
+  display: inline-block;
+  text-align: left;
+}
+
+.address-item .name {
+  font-weight: bold;
+}
+
+.address-item .company, .address-item .country, .address-item .street, .address-item .street2, .address-item .type, .address-item .masked-number, .address-item .expiration {
+  display: block;
+}
+
+.address-item .edit {
+  position: relative;
+  float: left;
+  margin-bottom: 1em;
+}
+
+.address-item .address {
+  text-align: left;
+  display: block;
+  float: left;
+  margin-left: 0;
+  margin-top: 0;
+  clear: left !important;
+}
+
+@media only screen and (min-width: 30em) {
+  .address-item .address {
+    clear: none;
+  }
+}
+
+@media only screen and (min-width: 50em) {
+  .address-item .address {
+    clear: both;
+  }
+}
+
+input[type=radio] + label.card:hover, input[type=radio] + label.card:focus {
+  border-color: #cacaca;
+  color: #282828;
+}
+
+input[type=radio] + label.card:active {
+  color: #282828;
+  border-color: #e8e8e8;
+  background-color: white;
+  background-image: -moz-linear-gradient(90deg, white 0%, #fafafa 100%);
+  background-image: -webkit-linear-gradient(90deg, white 0%, #fafafa 100%);
+  background-image: -ms-linear-gradient(90deg, white 0%, #fafafa 100%);
+}
+
+input[type=radio] + label.card button {
+  display: block;
+}
+
+.new-address {
+  clear: both;
+  margin-bottom: 2em;
+}
+
+.new-address button {
+  margin-right: 1em;
+}
+
+.new-address .country {
+  /*text-align: center !important;*/
+}
+
+.new-address .country label {
+  margin-bottom: 1em;
+}
+
+.new-address h2 {
+  font-size: 1.875rem !important;
+  color: #222 !important;
+  line-height: 1.95rem !important;
+  font-weight: normal !important;
+  margin-top: .5em !important;
+}
+
+#shipping-addresses .buttons, #billing-addresses .buttons {
+  margin-bottom: 0 !important;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  -webkit-box-sizing: border-box !important;
+}
+
+body {
+  background-color: #fafafa;
+  max-width: 60em;
+}
+
+@media only screen and (min-width: 50em) {
+  body {
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: 0px 0px 62px -25px rgba(50, 50, 50, 0.5);
+  }
+}
+
+/* HEADER */
+.global-nav {
+  height: 4.0em;
+  background-color: white;
+  display: block;
+  overflow: hidden;
+}
+
+.global-nav > div.grid {
+  height: 100%;
+  position: relative;
+  /* LOGO */
+  /* HELP */
+  /* TRUST ASSET */
+}
+
+.global-nav > div.grid > .grid__item {
+  padding-left: 0;
+}
+
+.global-nav > div.grid > .logo {
+  position: absolute;
+  top: 14%;
+  padding-left: .5em;
+}
+
+@media only screen and (min-width: 50em) {
+  .global-nav > div.grid > .logo {
+    padding-left: 36px;
+    padding-left: 2.25rem;
+  }
+}
+
+.global-nav > div.grid > .logo > a {
+  text-decoration: none;
+  border: none;
+}
+
+.global-nav > div.grid > .logo > a img {
+  min-width: 82px;
+  width: 82px;
+}
+
+.global-nav > div.grid > .help {
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 30%;
+}
+
+@media only screen and (min-width: 30em) {
+  .global-nav > div.grid > .help {
+    left: 26%;
+  }
+}
+
+.global-nav > div.grid > .help > a {
+  cursor: pointer;
+  margin-bottom: 0;
+  text-align: center;
+  color: #4f86b7;
+  line-height: 3.6em;
+}
+
+@media only screen and (min-width: 50em) {
+  .global-nav > div.grid > .help > a {
+    display: none;
+  }
+}
+
+.global-nav > div.grid > .trust {
+  position: absolute;
+  right: 0;
+}
+
+@media only screen and (min-width: 30em) {
+  .global-nav > div.grid > .trust {
+    min-width: 224px;
+    min-width: 14rem;
+  }
+}
+
+@media only screen and (min-width: 50em) {
+  .global-nav > div.grid > .trust {
+    right: 36px;
+    right: 2.25rem;
+  }
+}
+
+.global-nav > div.grid > .trust .trust-asset {
+  display: block;
+  float: right;
+  margin-top: 16px;
+  margin-top: 1rem;
+  line-height: 46px;
+  line-height: 2.875rem;
+  color: #282828;
+}
+
+@media only screen and (min-width: 30em) {
+  .global-nav > div.grid > .trust .trust-asset:before {
+    display: inline-block;
+    position: relative;
+    content: "Secure Transaction";
+    width: 10em;
+    height: 1em;
+    display: inline;
+    content: "Secure Transaction";
+    position: relative;
+    bottom: 6px;
+  }
+}
+
+.global-nav > div.grid > .trust .trust-asset .trust-asset-lock {
+  width: 2em;
+  height: 2em;
+}
+
+.checkout > header {
+  /* PROGRESS BAR */
+}
+
+@media only screen and (min-width: 50em) {
+  .checkout > header {
+    padding: 1em 2em;
+  }
+}
+
+.checkout > header .progress {
+  text-align: center;
+  margin-top: 0;
+  position: relative;
+}
+
+@media only screen and (min-width: 50em) {
+  .checkout > header .progress {
+    margin-top: .5em;
+    width: 98.6%;
+  }
+}
+
+.checkout > header .progress ul {
+  margin: 0;
+  display: table;
+  width: 100%;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.04);
+}
+
+@media only screen and (min-width: 50em) {
+  .checkout > header .progress ul {
+    box-shadow: none;
+    display: block;
+    width: auto;
+  }
+}
+
+@media only screen and (min-width: 50em) {
+  .checkout > header .progress ul:after {
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.04);
+    width: 95%;
+    height: 5px;
+  }
+}
+
+.checkout > header .progress ul li {
+  list-style: none;
+  position: relative;
+  display: block;
+  float: left;
+  margin: 0;
+  width: 25%;
+  height: 3em;
+  border: 1px solid #e8e8e8;
+  background-color: #fafafa;
+  line-height: 14.224px;
+  line-height: 0.889rem;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  cursor: default;
+  /* Specific step styles */
+  /* ARROWS */
+}
+
+.checkout > header .progress ul li.active {
+  background-color: #4e88bd !important;
+  border-color: #4e88bd !important;
+}
+
+.checkout > header .progress ul li.active > .outer-container > .inner-container > .element a {
+  color: #fefefe !important;
+  font-weight: bold !important;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4) !important;
+}
+
+.checkout > header .progress ul li.active > .outer-container > .inner-container > .element a:hover {
+  cursor: pointer;
+}
+
+.checkout > header .progress ul li.completed {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.checkout > header .progress ul li.completed:hover {
+  background-color: white;
+  border-color: #e8e8e8;
+}
+
+.checkout > header .progress ul li.completed > .outer-container > .inner-container > .element a, .checkout > header .progress ul li.completed > .outer-container > .inner-container > .element a:hover {
+  cursor: pointer;
+  color: #7a7a7a;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (min-width: 50em) {
+  .checkout > header .progress ul li.shipping a {
+    left: 10px;
+  }
+}
+
+@media only screen and (min-width: 50em) {
+  .checkout > header .progress ul li.method a, .checkout > header .progress ul li.billing a, .checkout > header .progress ul li.review a {
+    left: 16px;
+  }
+}
+
+@media only screen and (min-width: 50em) {
+  .checkout > header .progress ul li.review {
+    width: 22.5%;
+  }
+}
+
+.checkout > header .progress ul li > .outer-container {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.checkout > header .progress ul li > .outer-container > .inner-container {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.checkout > header .progress ul li > .outer-container > .inner-container > .element {
+  /* Progress item text */
+}
+
+.checkout > header .progress ul li > .outer-container > .inner-container > .element a {
+  text-align: center;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  border-bottom: 0;
+  color: #7a7a7a;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+  cursor: default;
+  font-size: 12px;
+  font-size: 0.75rem;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+@media only screen and (min-width: 30em) {
+  .checkout > header .progress ul li > .outer-container > .inner-container > .element a {
+    font-size: 14px;
+    font-size: 0.875rem;
+  }
+}
+
+@media only screen and (min-width: 50em) {
+  .checkout > header .progress ul li > .outer-container > .inner-container > .element a {
+    position: relative;
+  }
+}
+
+@media only screen and (min-width: 50em) {
+  .checkout > header .progress ul li {
+    /* ARROW OVERRIDES */
+  }
+  .checkout > header .progress ul li:before, .checkout > header .progress ul li:after {
+    box-shadow: none;
+    content: "";
+    position: absolute;
+    border-collapse: separate;
+    left: 100%;
+    top: 21%;
+    margin-top: -12px;
+    z-index: 1;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  .checkout > header .progress ul li:before {
+    border: 27px solid transparent;
+    border-left-color: #e8e8e8;
+  }
+  .checkout > header .progress ul li:after {
+    margin-top: -11px;
+    border: 26px solid transparent;
+    border-left-color: #fafafa !important;
+  }
+  .checkout > header .progress ul li.active:before, .checkout > header .progress ul li.active:hover:before, .checkout > header .progress ul li.active.completed:before, .checkout > header .progress ul li.active.completed:hover:before {
+    border-left-color: #4e88bd;
+  }
+  .checkout > header .progress ul li.active:after, .checkout > header .progress ul li.active:hover:after, .checkout > header .progress ul li.active.completed:after, .checkout > header .progress ul li.active.completed:hover:after {
+    border-left-color: #4e88bd !important;
+  }
+  .checkout > header .progress ul li.completed:hover:after {
+    border-left-color: white !important;
+  }
+  .checkout > header .progress ul li.completed:after {
+    border-left-color: #f5f5f5 !important;
+  }
+  .checkout > header .progress ul li:hover:before {
+    border-left-color: #e8e8e8;
+  }
+}
+
+.checkout > article {
+  padding: 0 0.313em;
+}
+
+@media only screen and (min-width: 50em) {
+  .checkout > article {
+    padding: 1em 2em;
+  }
+}
+
+.checkout > article form h2 {
+  margin-top: 16px;
+  margin-top: 1rem;
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 31.2px;
+  line-height: 1.95rem;
+  color: #222;
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 50em) {
+  .checkout > article form h2 {
+    font-size: 30px;
+    font-size: 1.875rem;
+    font-weight: normal;
+  }
+}
+
+.checkout > article h2 {
+  margin-top: 32px;
+  margin-top: 2rem;
+}
+
+@media only screen and (min-width: 50em) {
+  .checkout > article h2 {
+    margin-top: 0;
+  }
+}
+
+.checkout > footer {
+  padding: 1em 0.25em 3em 0.25em;
+}
+
+@media only screen and (min-width: 50em) {
+  .checkout > footer {
+    padding: 1em 5em;
+  }
+}
+
+.span-link {
+  cursor: pointer;
+  color: #4f86b7;
+}
+
+.span-link:hover {
+  text-decoration: underline;
+}
+
+.vat-mobile {
+  display: block;
+}
+
+.vat-mobile > .span-link {
+  font-size: 0.625rem;
+  top: 1rem;
+  position: relative;
+}
+
+.vat-inline {
+  display: none;
+}
+
+@media only screen and (min-width: 30em) {
+  .vat-inline {
+    display: inline;
+  }
+  .vat-mobile {
+    display: none;
+  }
+}
+
+.cta_bar {
+  margin-bottom: 2em;
+  height: auto;
+}
+
+.cta_bar .grid__item {
+  height: 64px;
+  height: 4rem;
+  clear: both;
+  display: block;
+  text-align: center;
+  float: left;
+}
+
+@media only screen and (min-width: 30em) {
+  .cta_bar .grid__item {
+    clear: none;
+  }
+}
+
+@media only screen and (max-width: 29.999em) {
+  .cta_bar .grid__item {
+    margin-top: 1em;
+  }
+}
+
+@media only screen and (max-width: 29.999em) {
+  .cta_bar .grid__item.one-whole {
+    padding-left: 0;
+  }
+}
+
+.cta_bar .footer-total-container {
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  background-color: #fafafa;
+  background-image: -moz-linear-gradient(90deg, #fafafa 0%, white 100%);
+  background-image: -webkit-linear-gradient(90deg, #fafafa 0%, white 100%);
+  background-image: -ms-linear-gradient(90deg, #fafafa 0%, white 100%);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.04);
+  position: relative;
+}
+
+.cta_bar .footer-total-container .total {
+  text-align: center;
+  font-size: 24px;
+  font-size: 1.5rem;
+  font-family: HelveticaNeueETW01-45Lt, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 20.8px;
+  line-height: 1.3rem;
+  position: relative;
+  top: 32%;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.004);
+  margin-bottom: 0;
+}
+
+@media only screen and (min-width: 50em) {
+  .cta_bar .footer-total-container .total {
+    font-size: 30.4px;
+    font-size: 1.9rem;
+    font-family: HelveticaNeueETW01-45Lt, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    letter-spacing: 0;
+    line-height: 20.8px;
+    line-height: 1.3rem;
+  }
+}
+
+.cta_bar .footer-total-container .total:before {
+  display: inline-block;
+  position: relative;
+  content: "Total";
+  width: auto;
+  height: auto;
+  font-size: 12.8px;
+  font-size: 0.8rem;
+  font-family: HelveticaNeueETW01-45Lt, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 20.8px;
+  line-height: 1.3rem;
+  top: -5px;
+  text-transform: uppercase;
+  margin-right: .5em;
+}
+
+.cta_bar .footer-total-container .footer-message {
+  position: absolute;
+  text-align: right;
+  right: 6px;
+  bottom: -2px;
+  color: #8a8a8a;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-size: 0.625rem;
+}
+
+.cta_bar .btn {
+  height: 100%;
+  width: 100%;
+}
+
+.checkout > footer {
+  min-height: 3em;
+  border: 1px solid #d8d8d8;
+  background-color: #eaeaea;
+  padding-top: 1em;
+  padding-bottom: 3em;
+}
+
+.checkout > footer #help-content h2, .checkout > footer #help-content p {
+  text-align: center;
+  margin: 32px;
+  margin: 2rem;
+  color: #5d5d5d;
+  text-shadow: 0px 1px 0px #fff;
+}
+
+.checkout > footer #help-content h2 {
+  margin-bottom: .5em;
+}
+
+.checkout > footer #help-content .btn {
+  text-align: center;
+}
+
+.checkout > footer #help-content > div {
+  margin-bottom: 1em;
+}
+
+.checkout > footer #help-content > div.left {
+  text-align: left;
+}
+
+.checkout > footer #help-content > div.right {
+  text-align: right;
+}
+
+.cancel-order {
+  padding-left: .25em;
+  padding-right: .25em;
+}
+
+.cancel-order > div {
+  text-align: center;
+  margin: 2em 0;
+}
+
+@media only screen and (max-width: 29.999em) {
+  .cancel-order > div > button {
+    width: 100%;
+  }
+}
+
+.credit-card {
+  text-align: left;
+}
+
+.credit-card span {
+  display: inline-block;
+  text-align: left;
+}
+
+.credit-card .name {
+  font-weight: bold;
+}
+
+.credit-card .type, .credit-card .masked-number, .credit-card .expiration {
+  display: block;
+}
+
+.credit-card .edit {
+  position: relative;
+  float: left;
+  margin-bottom: 1em;
+}
+
+.create-credit-card-wrapper {
+  margin-bottom: 1em;
+}
+
+/* Shipping Method Styles */
+.shipping-option-item {
+  font-size: 16px;
+  font-size: 1rem;
+}
+
+@media only screen and (min-width: 30em) {
+  .shipping-option-item {
+    font-size: 18px;
+    font-size: 1.125rem;
+  }
+}
+
+.shipping-option-item.no-shipping > label.card, .shipping-option-item.no-shipping > input[type=radio] + label.card {
+  margin-top: 16px;
+  margin-top: 1rem;
+  color: #282828;
+}
+
+.shipping-option-item > label.card > .grid, .shipping-option-item > input[type=radio] + label.card > .grid {
+  width: 110%;
+}
+
+@media only screen and (min-width: 30em) {
+  .shipping-option-item > label.card > .grid, .shipping-option-item > input[type=radio] + label.card > .grid {
+    width: 100%;
+  }
+}
+
+.shipping-option-item .grid__item {
+  padding-left: 8px;
+  padding-left: 0.5rem;
+}
+
+@media only screen and (min-width: 30em) {
+  .shipping-option-item .grid__item {
+    padding-left: 32px !important;
+    padding-left: 2rem !important;
+  }
+}
+
+.shipping-option-item label.card:hover .carrier-image > span:after, .shipping-option-item input[type=radio]:checked + label.card .carrier-image > span:after {
+  background-color: transparent;
+}
+
+.shipping-option-item .carrier-image {
+  position: relative;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  height: 48px;
+  height: 3rem;
+  margin-left: 16px;
+  margin-left: 1rem;
+}
+
+.shipping-option-item .carrier-image.grid__item {
+  padding-left: 12px;
+  padding-left: 0.75rem;
+}
+
+@media only screen and (min-width: 30em) {
+  .shipping-option-item .carrier-image.grid__item {
+    padding-left: 32px !important;
+    padding-left: 2rem !important;
+  }
+}
+
+.shipping-option-item .carrier-image span {
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 40px;
+  width: 2.5rem;
+  height: 40px;
+  height: 2.5rem;
+}
+
+.shipping-option-item .carrier-image span.ups {
+  background-image: url("//media.hairdirect.com/store/images/ups-icon.svg");
+}
+
+.shipping-option-item .carrier-image span.usps {
+  margin-top: 16px;
+  margin-top: 1rem;
+  background-image: url("//media.hairdirect.com/store/images/usps-icon.svg");
+}
+
+.shipping-option-item .carrier-image span.postnl {
+  background-image: url("//media.hairdirect.com/store/images/postnl-icon.svg");
+}
+
+.shipping-option-item .carrier-image span.gls {
+  height: 12px;
+  height: 0.75rem;
+  background-image: url("//media.hairdirect.com/store/images/gls-icon.svg");
+}
+
+.shipping-option-item .carrier-image span:after {
+  height: 100%;
+  width: 100%;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  content: " ";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fafafa;
+  /* FALLBACK */
+  background-color: rgba(250, 250, 250, 0.5);
+  z-index: 2;
+}
+
+@media only screen and (min-width: 50em) {
+  .shipping-option-item .details {
+    padding-left: 0px !important;
+    padding-left: 0rem !important;
+  }
+}
+
+.shipping-option-item .details ul, .shipping-option-item .details li {
+  list-style-image: none;
+  list-style-type: none;
+  margin: 0;
+}
+
+@media only screen and (min-width: 50em) {
+  .shipping-option-item .details ul {
+    display: table;
+    width: 100%;
+  }
+}
+
+.shipping-option-item .details li {
+  font-size: 16px;
+  font-size: 1rem;
+}
+
+@media only screen and (min-width: 50em) {
+  .shipping-option-item .details li {
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 8px;
+    padding-right: 0.5rem;
+  }
+}
+
+.shipping-option-item .details li.carrier {
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 50em) {
+  .shipping-option-item .details li.carrier {
+    width: 19%;
+    font-weight: normal;
+  }
+}
+
+@media only screen and (min-width: 50em) {
+  .shipping-option-item .details li.method {
+    width: 41%;
+    font-weight: bold;
+  }
+}
+
+@media only screen and (min-width: 50em) {
+  .shipping-option-item .details li.delivery-date {
+    width: 40%;
+  }
+}
+
+@media only screen and (min-width: 30em) {
+  .shipping-option-item .price, .shipping-option-item .selection {
+    padding-left: 8px !important;
+    padding-left: 0.5rem !important;
+  }
+}
+
+.shipping-option-item .price {
+  text-align: right;
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 30em) {
+  .shipping-option-item .price {
+    font-size: 30px;
+    font-size: 1.875rem;
+  }
+}
+
+@media only screen and (min-width: 50em) {
+  .shipping-option-item .price {
+    padding-left: 0 !important;
+  }
+}
+
+.shipping-method p {
+  margin-left: 1em;
+}
+
+@media only screen and (min-width: 50em) {
+  .shipping-method p {
+    margin-left: 0;
+  }
+}
+
+.payment-option-list.btn_group {
+  margin-bottom: 0;
+}
+
+.credit-card-list-container {
+  margin-top: 32px;
+  margin-top: 2rem;
+}
+
+/* Promo code styles */
+.promo-code-container {
+  font-size: 14px;
+  font-size: 0.875rem;
+  /* Promo code entry form styles */
+}
+
+.promo-code-container button {
+  width: 100%;
+}
+
+@media only screen and (min-width: 50em) {
+  .promo-code-container button {
+    width: auto;
+  }
+}
+
+.promo-code-container .remove-promo, .promo-code-container .apply-promo {
+  margin-top: 16px;
+  margin-top: 1rem;
+}
+
+@media only screen and (min-width: 50em) {
+  .promo-code-container .remove-promo, .promo-code-container .apply-promo {
+    text-align: right;
+    margin-top: 0px;
+    margin-top: 0rem;
+  }
+}
+
+.promo-code-container > .promo-form {
+  margin-bottom: 32px;
+  margin-bottom: 2rem;
+}
+
+.promo-code-container > .promo-form input[type=text] {
+  height: 48px;
+  height: 3rem;
+  text-transform: uppercase;
+}
+
+.same-as-shipping > label {
+  display: inline-block;
+  margin-left: 8px;
+  margin-left: 0.5rem;
+}
+
+/* Shared credit card item & payment summary styles */
+.credit-card-item .card .masked-number > span, .billing-information .card .masked-number > span {
+  font-weight: bold;
+}
+
+/* Credit card item styles */
+.credit-card-item ul, .credit-card-item li {
+  list-style-image: none;
+  list-style-type: none;
+  margin: 0;
+}
+
+.credit-card-item input[type=radio]:checked + label.card .type:after {
+  background-color: transparent;
+}
+
+.credit-card-item label.card:hover .type:after {
+  background-color: transparent;
+}
+
+.credit-card-item input[type=radio]:disabled + label.card .expiration {
+  color: #f87d7f;
+}
+
+.credit-card-item input[type=radio]:disabled + label.card .type:after {
+  background-color: #fafafa;
+  /* FALLBACK */
+  background-color: rgba(250, 250, 250, 0.5);
+}
+
+.credit-card-item .card .button-item {
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
+}
+
+.credit-card-item .card .button-item .btn.tertiary {
+  float: left;
+}
+
+.credit-card-item .card .button-item .btn.secondary, .credit-card-item .card .button-item .expired-label {
+  float: right;
+}
+
+.credit-card-item .card .button-item .expired-label {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #f87d7f;
+}
+
+/* Credit Card Form */
+#credit-card-form[data-mode=new] .form-fields > li.card-number_read_only {
+  display: none;
+}
+
+#credit-card-form .card-wallet {
+  text-align: left;
+  margin-bottom: 0;
+  margin-top: -8px;
+  margin-top: -0.5rem;
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
+}
+
+#credit-card-form .card-wallet .input, #credit-card-form .card-wallet label {
+  display: inline;
+}
+
+#credit-card-form .form-fields > li.form-title {
+  margin-bottom: 0;
+}
+
+#credit-card-form .form-fields .card-number_read_only > .type:after {
+  background-color: transparent;
+}
+
+#credit-card-form .form-fields .card-number {
+  position: relative;
+}
+
+#credit-card-form .form-fields .card-number.visa:after, #credit-card-form .form-fields .card-number.mastercard:after, #credit-card-form .form-fields .card-number.amex:after, #credit-card-form .form-fields .card-number.americanexpress:after, #credit-card-form .form-fields .card-number.discover:after {
+  content: " ";
+  display: inline-block;
+  position: absolute;
+  top: 1px;
+  border-top-right-radius: 6px;
+  right: 1px;
+  z-index: 2;
+  background: url("//media.hairdirect.com/store/images/creditcards.png") 0 0;
+  background-repeat: no-repeat;
+  background-size: auto 1em;
+  width: 1.5em;
+  height: 1em;
+  overflow: hidden;
+}
+
+#credit-card-form .form-fields .card-number.visa:after {
+  background-position: 0 0;
+}
+
+#credit-card-form .form-fields .card-number.mastercard:after {
+  background-position: -1.5em 0;
+}
+
+#credit-card-form .form-fields .card-number.amex:after, #credit-card-form .form-fields .card-number.americanexpress:after {
+  background-position: -3em 0;
+}
+
+#credit-card-form .form-fields .card-number.discover:after {
+  background-position: -4.5em 0;
+}
+
+#credit-card-form .form-fields > li.buttons {
+  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
+}
+
+/* CREDIT CARD ICONS */
+.type {
+  background: url("//media.hairdirect.com/store/images/creditcards.png") 0 0;
+  background-repeat: no-repeat;
+  background-size: auto 33px;
+  display: block;
+  width: 49px;
+  height: 33px;
+  overflow: hidden;
+  position: relative;
+  text-indent: 1000%;
+  text-align: right !important;
+  clear: left !important;
+}
+
+.type.visa {
+  background-position: 0 0;
+}
+
+.type.mastercard {
+  background-position: -50px 0;
+}
+
+.type.amex, .type.americanexpress {
+  background-position: -99px 0;
+}
+
+.type.discover {
+  background-position: -149px 0;
+}
+
+.type.paypal {
+  background-position: -199px 0;
+}
+
+.type:after {
+  height: 100%;
+  width: 100%;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  content: " ";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fafafa;
+  /* FALLBACK */
+  background-color: rgba(250, 250, 250, 0.5);
+  z-index: 2;
+}
+
+.paypal-container {
+  margin-top: -1.5em;
+  margin-bottom: 1em;
+}
+
+.card-number_read_only .type {
+  float: left;
+  margin-right: 0.5em;
+}
+
+.cart-total-container {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.04);
+}
+
+.cart-total-container ul, .cart-total-container li {
+  list-style-image: none;
+  list-style-type: none;
+  margin: 0;
+}
+
+.cart-total-container .shopping-cart-container {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cart-total-container .shopping-cart-container .cart-items {
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+}
+
+.cart-total-container .shopping-cart-container .cart-items .cart-item {
+  position: relative;
+  width: 100%;
+  padding: .5em 0;
+  border-bottom: 1px solid #ccc;
+}
+
+@media only screen and (min-width: 50em) {
+  .cart-total-container .shopping-cart-container .cart-items .cart-item {
+    max-height: 147.008px;
+    max-height: 9.188rem;
+  }
+}
+
+.cart-total-container .shopping-cart-container .cart-items .cart-item.sale > .grid > .grid__item.thumbnail > span:after {
+  content: "Sale";
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  background-color: #ff4801;
+  background-color: rgba(255, 72, 1, 0.75);
+  display: block;
+  color: white;
+  position: absolute;
+  font-size: 10px;
+  font-size: 0.625rem;
+  width: 100%;
+  bottom: 0;
+}
+
+.cart-total-container .shopping-cart-container .cart-items .cart-item > .confirmation {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  background-color: white;
+  text-align: center;
+  height: 98%;
+  margin-top: -6px;
+  margin-top: -0.375rem;
+}
+
+.cart-total-container .shopping-cart-container .cart-items .cart-item > .confirmation > h4 {
+  text-align: center;
+  font-weight: bold;
+}
+
+.cart-total-container .shopping-cart-container .cart-items .cart-item > .confirmation button.btn {
+  font-weight: normal;
+  font-size: 16px;
+  font-size: 1rem;
+  min-width: 96px;
+  min-width: 6rem;
+}
+
+.cart-total-container .shopping-cart-container .cart-items .cart-item > .confirmation button.btn.cancel {
+  margin-right: 16px;
+  margin-right: 1rem;
+}
+
+.cart-total-container .shopping-cart-container .cart-items .cart-item > .confirmation button.btn.confirm {
+  margin-left: 16px;
+  margin-left: 1rem;
+}
+
+.cart-total-container .shopping-cart-container .cart-items .cart-item > .grid {
+  margin: 0;
+  z-index: 1;
+}
+
+@media only screen and (min-width: 50em) {
+  .cart-total-container .shopping-cart-container .cart-items .cart-item > .grid {
+    display: table;
+    width: 100%;
+  }
+}
+
+.cart-total-container .shopping-cart-container .cart-items .cart-item > .grid > .grid__item {
+  padding-left: 8px;
+  padding-left: 0.5rem;
+}
+
+@media only screen and (min-width: 50em) {
+  .cart-total-container .shopping-cart-container .cart-items .cart-item > .grid > .grid__item {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.cart-total-container .shopping-cart-container .cart-items .cart-item > .grid > .grid__item.thumbnail > span {
+  position: relative;
+}
+
+.cart-total-container .shopping-cart-container .cart-items .cart-item > .grid > .grid__item.thumbnail > span > img {
+  max-height: 144px;
+  max-height: 9rem;
+}
+
+@media only screen and (min-width: 50em) {
+  .cart-total-container .shopping-cart-container .cart-items .cart-item > .grid > .grid__item.thumbnail > span > img {
+    max-height: 128px;
+    max-height: 8rem;
+  }
+}
+
+.cart-total-container .shopping-cart-container .cart-items .cart-item > .grid > .details > .grid {
+  position: relative;
+}
+
+.cart-total-container .shopping-cart-container .cart-items .cart-item > .grid > .details > .grid > li {
+  padding-left: 0;
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
+}
+
+.cart-total-container .shopping-cart-container .cart-items .cart-item > .grid > .details > .grid > li.description > span {
+  min-height: 46px;
+  min-height: 2.875rem;
+  padding-right: 48px;
+  padding-right: 3rem;
+}
+
+@media only screen and (min-width: 50em) {
+  .cart-total-container .shopping-cart-container .cart-items .cart-item > .grid > .details > .grid > li.description > span {
+    padding-right: 0;
+    min-height: 0;
+    padding-right: 0;
+  }
+}
+
+.cart-total-container .shopping-cart-container .cart-items .cart-item > .grid > .details > .grid > li.quantity > input, .cart-total-container .shopping-cart-container .cart-items .cart-item > .grid > .details > .grid > li.quantity button {
+  display: inline-block;
+  height: 32px;
+  height: 2rem;
+  vertical-align: top;
+  margin: 0px;
+}
+
+.cart-total-container .shopping-cart-container .cart-items .cart-item > .grid > .details > .grid > li.quantity > input {
+  width: 50%;
+  padding: 0 0 0 0.5em;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.cart-total-container .shopping-cart-container .cart-items .cart-item > .grid > .details > .grid > li.quantity > input:focus {
+  border-color: #c5c8cc;
+  border-width: 1px;
+  padding-left: .5em;
+  padding-top: inherit;
+}
+
+.cart-total-container .shopping-cart-container .cart-items .cart-item > .grid > .details > .grid > li.quantity > button {
+  width: 46%;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  position: relative;
+  right: 7px;
+}
+
+.cart-total-container .shopping-cart-container .cart-items .cart-item > .grid > .details > .grid > li.unit-price {
+  font-size: 16px;
+  font-size: 1rem;
+}
+
+@media only screen and (min-width: 50em) {
+  .cart-total-container .shopping-cart-container .cart-items .cart-item > .grid > .details > .grid > li.unit-price {
+    position: relative;
+    top: .25em;
+  }
+}
+
+.cart-total-container .shopping-cart-container .cart-items .cart-item > .grid > .details > .grid > li.extended-price {
+  text-align: right;
+  padding-right: .5em;
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 30em) {
+  .cart-total-container .shopping-cart-container .cart-items .cart-item > .grid > .details > .grid > li.extended-price {
+    font-size: 24px;
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 50em) {
+  .cart-total-container .shopping-cart-container .cart-items .cart-item > .grid > .details > .grid > li.extended-price {
+    text-align: right;
+    display: block;
+    float: right;
+    right: 10%;
+    top: 3px;
+    position: relative;
+    padding-right: 0;
+  }
+}
+
+.cart-total-container .shopping-cart-container .cart-items .cart-item > .grid > .details > .grid > li.remove-item {
+  position: absolute;
+  top: 0%;
+  right: 1%;
+  margin-right: 8px;
+  margin-right: 0.5rem;
+}
+
+.cart-total-container .shopping-cart-container .cart-items .cart-item > .grid > .details > .grid > li.remove-item:after {
+  display: inline-block;
+  position: relative;
+  content: " ";
+  width: 100%;
+  height: 0;
+  display: table;
+  clear: both;
+}
+
+@media only screen and (min-width: 50em) {
+  .cart-total-container .shopping-cart-container .cart-items .cart-item > .grid > .details > .grid > li.remove-item {
+    right: .5em;
+    top: 45%;
+  }
+}
+
+.cart-total-container .total-container {
+  padding: 1em;
+  z-index: 1;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cart-total-container .total-container > div.float--right {
+  width: 100%;
+  max-width: 320px;
+  max-width: 20rem;
+}
+
+@media only screen and (min-width: 30em) {
+  .cart-total-container .total-container > div.float--right {
+    width: 100%;
+    max-width: 384px;
+    max-width: 24rem;
+  }
+}
+
+.cart-total-container .total-container dd {
+  margin-bottom: 6.4px;
+  margin-bottom: 0.4rem;
+}
+
+.cart-total-container .total-container dd.exclude-tax {
+  position: relative;
+  top: 32px;
+  top: 2rem;
+  color: #8a8a8a;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-size: 0.625rem;
+}
+
+.cart-total-container .total-container dd.exclude-tax strong {
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+
+.cart-total-container .total-container dd.subtotal, .cart-total-container .total-container dd.tax, .cart-total-container .total-container dd.total {
+  margin-right: 22.4px;
+  margin-right: 1.4rem;
+}
+
+.cart-total-container .total-container dt.split__title {
+  min-width: 91.2px;
+  min-width: 5.7rem;
+  text-align: right;
+}
+
+@media only screen and (min-width: 30em) {
+  .cart-total-container .total-container dt.split__title {
+    min-width: 160px;
+    min-width: 10rem;
+  }
+}
+
+.cart-total-container .total-container .total {
+  padding-top: 8px;
+  padding-top: 0.5rem;
+  border-top: 1px solid #e8e8e8;
+  font-size: 22.4px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 30em) {
+  .cart-total-container .total-container .total {
+    font-size: 30px;
+    font-size: 1.875rem;
+  }
+}
+
+.cart-total-container .total-container .round-button {
+  z-index: 2;
+  margin: 0.111em 0 0.111em 0.222em;
+}
+
+.selection-container {
+  /* Shipping address selection styles */
+  /* Shipping option selection styles */
+  /* Payment information styles */
+}
+
+.selection-container .top-content {
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
+}
+
+.selection-container .top-content h4 {
+  text-align: left;
+  font-weight: bold;
+  color: #282828;
+}
+
+.selection-container .top-content button {
+  display: block;
+  float: right;
+}
+
+.selection-container .shipping-address .address {
+  line-height: 24px;
+  line-height: 1.5rem;
+}
+
+.selection-container .shipping-address .address > .company, .selection-container .shipping-address .address > .street, .selection-container .shipping-address .address > .street-additional, .selection-container .shipping-address .address > .country, .selection-container .shipping-address .address > .phone {
+  display: block;
+}
+
+.selection-container .shipping-option .details {
+  padding-left: 0;
+  text-align: left;
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+
+.selection-container .shipping-option .details ul, .selection-container .shipping-option .details li {
+  list-style-image: none;
+  list-style-type: none;
+  margin: 0;
+}
+
+@media only screen and (min-width: 30em) {
+  .selection-container .shipping-option .details {
+    font-size: 16px;
+    font-size: 1rem;
+  }
+}
+
+.selection-container .shipping-option .details li {
+  clear: both;
+}
+
+.selection-container .shipping-option .details li span {
+  display: block;
+}
+
+.selection-container .shipping-option .details li span.label {
+  width: 31%;
+  text-align: right;
+  float: left;
+}
+
+@media only screen and (min-width: 30em) {
+  .selection-container .shipping-option .details li span.label {
+    width: 20%;
+  }
+}
+
+.selection-container .shipping-option .details li span.value {
+  float: right;
+  width: 69%;
+  padding-left: .5em;
+}
+
+@media only screen and (min-width: 30em) {
+  .selection-container .shipping-option .details li span.value {
+    width: 80%;
+  }
+}
+
+.selection-container .shipping-option .carrier-image {
+  padding-left: 0;
+  position: relative;
+  vertical-align: top;
+  height: 48px;
+  height: 3rem;
+}
+
+.selection-container .shipping-option .carrier-image span {
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 40px;
+  width: 2.5rem;
+  height: 40px;
+  height: 2.5rem;
+}
+
+.selection-container .shipping-option .carrier-image span.ups {
+  background-image: url("//media.hairdirect.com/store/images/ups-icon.svg");
+}
+
+.selection-container .shipping-option .carrier-image span.usps {
+  margin-top: 16px;
+  margin-top: 1rem;
+  background-image: url("//media.hairdirect.com/store/images/usps-icon.svg");
+}
+
+.selection-container .shipping-option .carrier-image span.postnl {
+  background-image: url("//media.hairdirect.com/store/images/postnl-icon.svg");
+}
+
+.selection-container .shipping-option .carrier-image span.gls {
+  margin-top: 20.8px;
+  margin-top: 1.3rem;
+  background-image: url("//media.hairdirect.com/store/images/gls-icon.svg");
+}
+
+.selection-container .shipping-option .surepost {
+  color: #8a8a8a;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-size: 0.625rem;
+  margin-top: 1em;
+  color: #282828;
+  text-transform: uppercase;
+  line-height: 1.5em;
+  position: relative;
+  top: 1em;
+}
+
+.selection-container .billing-information ul, .selection-container .billing-information li {
+  list-style-image: none;
+  list-style-type: none;
+  margin: 0;
+}
+
+.selection-container .billing-information .type:after {
+  content: "";
+  display: none;
+}
+
+.selection-container .billing-information .address {
+  line-height: 24px;
+  line-height: 1.5rem;
+}
+
+.selection-container .billing-information .address .name, .selection-container .billing-information .address .company, .selection-container .billing-information .address .country, .selection-container .billing-information .address .phone {
+  display: block;
+}
+
+#vat-exclusion-form-modal {
+  width: 100%;
+}
+
+@media only screen and (min-width: 30em) {
+  #vat-exclusion-form-modal {
+    width: auto;
+  }
+}
+
+#vat-exclusion-form-modal .apply {
+  width: 100%;
+}
+
+@media only screen and (min-width: 50em) {
+  #vat-exclusion-form-modal .apply {
+    width: auto;
+  }
+}
+
+#vat-exclusion-form-modal .field {
+  margin-top: 16px;
+  margin-top: 1rem;
+}
+
+@media only screen and (min-width: 30em) {
+  #vat-exclusion-form-modal.semantic-content {
+    height: auto !important;
+  }
+}
+
+/* Special Instructions */
+.special-instructions-container h3 {
+  color: #282828;
+  margin-top: 16px;
+  margin-top: 1rem;
+}
+
+.special-instructions-container label {
+  color: #8a8a8a;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-size: 0.625rem;
+}
+
+.special-instructions-container textarea {
+  padding-top: 16px;
+  padding-top: 1rem;
+}
+
+.special-instructions-container textarea:focus {
+  padding-top: 16px;
+  padding-top: 1rem;
+}
+
+/* Modal */
+.semantic-content {
+  background-color: white;
+}
+
+@media only screen and (min-width: 30em) {
+  .semantic-content {
+    width: 85%;
+    border-radius: 6px;
+    margin-top: 48px;
+    margin-top: 3rem;
+    height: 85%;
+    max-height: 960px;
+    max-height: 60rem;
+    box-shadow: 0px 0px 26px 1px rgba(0, 0, 0, 0.5);
+    max-width: 604.448px;
+    max-width: 37.778rem;
+  }
+}
+
+.semantic-content > header {
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 16px;
+  padding: 1rem;
+  position: relative;
+}
+
+@media only screen and (min-width: 30em) {
+  .semantic-content > header {
+    font-size: 24px;
+    font-size: 1.5rem;
+    font-weight: normal;
+  }
+}
+
+.semantic-content > header > .round-button {
+  display: block;
+  float: right;
+  position: absolute;
+  top: 12px;
+  top: 0.75rem;
+  right: 16px;
+  right: 1rem;
+}
+
+.semantic-content > .modal-inner {
+  padding: 1em;
+  color: #282828;
+  background-color: white;
+}
+
+@media only screen and (min-width: 30em) {
+  .semantic-content > .modal-inner {
+    height: 89%;
+    width: 99.9%;
+    overflow-y: auto;
+  }
+}
+
+.semantic-content > .modal-inner > .modal-content h1 {
+  text-align: left !important;
+  color: #282828 !important;
+  font-size: 2em !important;
+  padding: 0;
+  margin-top: 0 !important;
+}
+
+.semantic-content > .modal-inner > .modal-content h2 {
+  text-align: left !important;
+  color: #282828 !important;
+  font-size: 1.5em !important;
+  padding: 0 !important;
+}
+
+.semantic-content > .modal-inner > .modal-content h3 {
+  text-align: left !important;
+  font-size: 1em !important;
+  font-weight: bold !important;
+  padding: 0 !important;
+}
+
+/* Modal Overrides */
+#cancel-order-modal.semantic-content, #promo-discount-help-modal.semantic-content, #shipping-option-help-modal.semantic-content, #store-changer-modal.semantic-content, #call-us-modal.semantic-content, #vat-exclusion-form-modal.semantic-content {
+  /* Make sure that mobile height fills the screen when the content wouldn't. */
+  height: 100%;
+}
+
+@media only screen and (min-width: 30em) {
+  #cancel-order-modal.semantic-content, #promo-discount-help-modal.semantic-content, #shipping-option-help-modal.semantic-content, #call-us-modal.semantic-content {
+    height: 224px;
+    height: 14rem;
+  }
+}
+
+@media only screen and (min-width: 30em) {
+  #cancel-order-modal.semantic-content > .modal-inner, #promo-discount-help-modal.semantic-content > .modal-inner, #shipping-option-help-modal.semantic-content > .modal-inner, #call-us-modal.semantic-content > .modal-inner {
+    height: auto;
+  }
+}
+
+#cancel-order-modal.semantic-content > .modal-inner > .modal-content h3 {
+  text-align: center !important;
+}
+
+#cancel-order-modal.semantic-content > .modal-inner > .modal-content ul li:first-child {
+  text-align: right;
+}
+
+#cancel-order-modal.semantic-content > .modal-inner > .modal-content ul li:last-child {
+  text-align: left;
+}
+
+#cancel-order-modal.semantic-content > .modal-inner > .modal-content ul button {
+  width: 96px;
+  width: 6rem;
+}
+
+@media only screen and (min-width: 30em) {
+  #store-changer-modal.semantic-content {
+    height: 85%;
+  }
+}
+
+#store-changer-modal.semantic-content > .modal-inner {
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
+}
+
+#store-changer-modal.semantic-content > .modal-inner.store-changer > .modal-content .flags {
+  text-align: center;
+  padding-top: 16px;
+  padding-top: 1rem;
+  padding-bottom: 32px;
+  padding-bottom: 2rem;
+}
+
+#store-changer-modal.semantic-content > .modal-inner.store-changer > .modal-content .flags #fromStore {
+  position: relative;
+}
+
+#store-changer-modal.semantic-content > .modal-inner.store-changer > .modal-content .flags #fromStore:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  opacity: .75;
+}
+
+#store-changer-modal.semantic-content > .modal-inner.store-changer > .modal-content .flags .flag {
+  margin-left: 16px;
+  margin-left: 1rem;
+  margin-right: 16px;
+  margin-right: 1rem;
+  height: 66px;
+  height: 4.125rem;
+  width: 99.008px;
+  width: 6.188rem;
+  display: inline-block;
+}
+
+@media only screen and (min-width: 30em) {
+  #store-changer-modal.semantic-content > .modal-inner.store-changer > .modal-content .flags .flag {
+    height: 88px;
+    height: 5.5rem;
+    width: 132px;
+    width: 8.25rem;
+  }
+}
+
+#store-changer-modal.semantic-content > .modal-inner.store-changer > .modal-content .flags .flag.us {
+  background: url(//media.hairdirect.com/store/images/us-flag.svg) no-repeat;
+}
+
+#store-changer-modal.semantic-content > .modal-inner.store-changer > .modal-content .flags .flag.uk {
+  background: url(//media.hairdirect.com/store/images/uk-flag.svg) no-repeat;
+}
+
+#store-changer-modal.semantic-content > .modal-inner.store-changer > .modal-content .flags .flag.eu {
+  background: url(//media.hairdirect.com/store/images/eu-flag.svg) no-repeat;
+}
+
+#store-changer-modal.semantic-content > .modal-inner.store-changer > .modal-content .flags .arrow {
+  display: inline-block;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid #a2a2a2;
+}
+
+#store-changer-modal.semantic-content > .modal-inner.store-changer > .modal-content .explanation {
+  font-weight: bold;
+}
+
+#store-changer-modal.semantic-content > .modal-inner.store-changer > .modal-content .learn-more {
+  text-align: center;
+}
+
+#store-changer-modal.semantic-content > .modal-inner.store-changer > .modal-content .learn-more > span {
+  cursor: pointer;
+  color: #4f86b7;
+  font-weight: bold;
+  font-size: 16px;
+  font-size: 1rem;
+}
+
+#store-changer-modal.semantic-content > .modal-inner.store-change-outcome {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+}
+
+#store-changer-modal.semantic-content > .modal-inner.store-change-outcome > .modal-content ul, #store-changer-modal.semantic-content > .modal-inner.store-change-outcome > .modal-content li {
+  list-style-image: none;
+  list-style-type: none;
+  margin: 0;
+}
+
+#store-changer-modal.semantic-content > .modal-inner.store-change-outcome > .modal-content .cart-items .cart-item {
+  border-bottom: 1px solid #e8e8e8;
+  padding-top: 16px;
+  padding-top: 1rem;
+  padding-bottom: 16px;
+  padding-bottom: 1rem;
+  padding-left: 16px !important;
+  padding-left: 1rem !important;
+  padding-right: 16px !important;
+  padding-right: 1rem !important;
+}
+
+#store-changer-modal.semantic-content > .modal-inner.store-change-outcome > .modal-content .cart-items .cart-item.removed .details > span.message {
+  color: #d26a6c;
+}
+
+#store-changer-modal.semantic-content > .modal-inner.store-change-outcome > .modal-content .cart-items .cart-item .image {
+  padding-left: 0;
+}
+
+#store-changer-modal.semantic-content > .modal-inner.store-change-outcome > .modal-content .cart-items .cart-item .image > img {
+  vertical-align: middle;
+  min-width: 128px;
+  min-width: 8rem;
+}
+
+@media only screen and (min-width: 30em) {
+  #store-changer-modal.semantic-content > .modal-inner.store-change-outcome > .modal-content .cart-items .cart-item .details {
+    padding-left: 0;
+  }
+}
+
+#store-changer-modal.semantic-content > .modal-inner.store-change-outcome > .modal-content .cart-items .cart-item .details > span {
+  display: block;
+}
+
+#store-changer-modal.semantic-content > .modal-inner.store-change-outcome > .modal-content .cart-items .cart-item .details > span.description {
+  margin-bottom: 4px;
+  margin-bottom: 0.25rem;
+}
+
+#store-changer-modal.semantic-content > .modal-inner.store-change-outcome > .modal-content .cart-items .cart-item .details > span.message {
+  margin-top: 16px;
+  margin-top: 1rem;
+  color: #4f86b7;
+  font-weight: bold;
+}
+
+#store-changer-modal.semantic-content > .modal-inner .buttons {
+  margin-top: 40px;
+  margin-top: 2.5rem;
+  padding-left: 16px;
+  padding-left: 1rem;
+  padding-right: 16px;
+  padding-right: 1rem;
+}
+
+#store-changer-modal.semantic-content > .modal-inner .buttons > div {
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
+}
+
+/* ORDER CONFIRMATION */
+.order-confirmation {
+  min-height: 400px;
+  min-height: 25rem;
+}
+
+.order-confirmation > .card, .order-confirmation > input[type=radio] + label.card {
+  color: #282828;
+  margin-top: .5em;
+}
+
+.order-confirmation > .card > h3, .order-confirmation > input[type=radio] + label.card > h3 {
+  color: #4f86b7;
+  font-weight: bold;
+  margin-top: 16px;
+  margin-top: 1rem;
+}
+
+.order-confirmation > .card > div, .order-confirmation > input[type=radio] + label.card > div {
+  margin-bottom: 32px;
+  margin-bottom: 2rem;
+}
+
+.order-confirmation > .card > div > p, .order-confirmation > input[type=radio] + label.card > div > p {
+  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.order-confirmation > .card > button.btn--positive, .order-confirmation > input[type=radio] + label.card > button.btn--positive {
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 29.999em) {
+  .order-confirmation > .card > button.btn--positive, .order-confirmation > input[type=radio] + label.card > button.btn--positive {
+    font-size: 16px;
+    font-size: 1rem;
+  }
+}
+
+/* Feature Detection */
+/* NO SVG */
+.no-svg #store-changer-modal.semantic-content > .modal-inner.store-changer > .modal-content .flags .flag.us {
+  background: url(//media.hairdirect.com/store/images/us-flag.png) no-repeat;
+}
+
+.no-svg #store-changer-modal.semantic-content > .modal-inner.store-changer > .modal-content .flags .flag.uk {
+  background: url(//media.hairdirect.com/store/images/uk-flag.png) no-repeat;
+}
+
+.no-svg #store-changer-modal.semantic-content > .modal-inner.store-changer > .modal-content .flags .flag.eu {
+  background: url(//media.hairdirect.com/store/images/eu-flag.png) no-repeat;
+}
+
+/* Typography */
+a, a:link, a:hover, a:active, a:focus, .link {
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+
+.link {
+  border-bottom-color: #00E;
+  color: #00E;
+  cursor: pointer;
+}
+
+.btn, .cta, button {
+  height: 64px;
+  height: 4rem;
+  min-height: 48px;
+  min-height: 3rem;
+  height: 2em;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  margin: 0;
+  font-size: 16px;
+  font-size: 1rem;
+  font-family: HelveticaNeueETW01-45Lt, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 45.76px;
+  line-height: 2.86rem;
+}
+
+.btn.small, .cta.small, button.small {
+  height: 32px;
+  height: 2rem;
+  min-height: 16px;
+  min-height: 1rem;
+  line-height: 16px;
+  line-height: 1rem;
+}
+
+@media only screen and (min-width: 30em) {
+  .btn, .cta, button {
+    font-weight: 300;
+  }
+}
+
+.tertiary {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
+  border: 1px solid #b2b2b2;
+  border-radius: 4px;
+  background-color: white;
+  color: #7c7c7c;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.tertiary:hover, .tertiary:focus, .tertiary:active {
+  border-color: #afafaf;
+}
+
+.tertiary:hover, .tertiary:focus {
+  background-color: #eee;
+}
+
+.tertiary:active {
+  background-color: #d5d5d5;
+}
+
+.tertiary-hover {
+  background-color: #eee;
+}
+
+.add:before {
+  display: inline-block;
+  position: relative;
+  content: "+";
+  width: 1.2em;
+  height: 2em;
+  text-align: center;
+  font-size: 1.25em;
+  font-weight: 300;
+}
+
+.remove {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  padding-left: 0.25em;
+}
+
+@media only screen and (min-width: 30em) {
+  .remove {
+    padding-left: .75em;
+  }
+}
+
+.remove:before {
+  display: inline-block;
+  position: relative;
+  content: "✕";
+  width: 1.2em;
+  height: 2em;
+  text-align: left;
+  font-size: 1em;
+  font-weight: 300;
+}
+
+.remove:hover {
+  background-color: #f87d7f;
+  color: white;
+}
+
+.btn_group {
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
+}
+
+.btn_group input[type=radio] + label.btn_group_item {
+  text-align: center;
+  border-radius: 0 !important;
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
+}
+
+.btn_group input[type=radio] + label.btn_group_item:first-of-type {
+  border-top-left-radius: 6px !important;
+  border-bottom-left-radius: 6px !important;
+}
+
+.btn_group input[type=radio] + label.btn_group_item:last-of-type {
+  border-top-right-radius: 6px !important;
+  border-bottom-right-radius: 6px !important;
+}
+
+.btn_group input[type=radio]:checked + label.btn_group_item:hover, .btn_group input[type=radio]:checked + label.btn_group_item:focus, .btn_group input[type=radio]:checked + label.btn_group_item:active {
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
+  background-color: #4d83b6;
+  background-image: -moz-linear-gradient(90deg, #4d83b6 0%, #6aabd7 100%);
+  background-image: -webkit-linear-gradient(90deg, #4d83b6 0%, #6aabd7 100%);
+  background-image: -ms-linear-gradient(90deg, #4d83b6 0%, #6aabd7 100%);
+}
+
+input[type=radio]:checked + label.card .round-button, .round-button:hover, .round-button:active {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #5088ba;
+  border-color: #5088ba;
+  color: white;
+}
+
+input[type=radio]:checked + label.card .round-button svg path, .round-button:hover svg path, .round-button:active svg path {
+  fill: white;
+}
+
+.round-button {
+  width: 32px;
+  width: 2rem;
+  height: 32px;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid #b2b2b2;
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  /* Size overrides */
+  /* Negative overrides */
+}
+
+.round-button svg {
+  height: 100%;
+  width: 100%;
+}
+
+.round-button svg path {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  fill: #7c7c7c;
+}
+
+.round-button.small {
+  position: relative;
+  width: 1em;
+  height: 1em;
+}
+
+.round-button.small svg {
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  right: 3px;
+  top: 3px;
+}
+
+.round-button.negative {
+  border-color: #cecece;
+}
+
+.round-button.negative:hover {
+  background-color: #f87d7f;
+  border-color: #d26a6c;
+}
+
+.round-button.negative:hover svg path {
+  fill: white;
+}
+
+.round-button.negative svg path {
+  fill: #cecece;
+}
+
+.card, input[type=radio] + label.card {
+  overflow: hidden;
+  padding: 1em;
+  margin-bottom: 1em;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  background-color: #fafafa;
+  background-image: -moz-linear-gradient(90deg, #fafafa 0%, white 100%);
+  background-image: -webkit-linear-gradient(90deg, #fafafa 0%, white 100%);
+  background-image: -ms-linear-gradient(90deg, #fafafa 0%, white 100%);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.04);
+  color: #7c7c7c;
+}
+
+.card.info, input[type=radio] + label.info.card {
+  background-image: none;
+  background-color: #fff5ae;
+  border-bottom-color: #e7de9e;
+  color: #282828;
+  font-size: 16px;
+  font-size: 1rem;
+}
+
+.card.info > p, input[type=radio] + label.info.card > p {
+  margin-bottom: 0;
+}
+
+.no-touch .card, .no-touch input[type=radio] + label.card {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.error, .error > * {
+  color: #f87d7f;
+}
+
+.loading-panel {
+  width: 200px;
+  height: 100px;
+  padding-top: 20px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.loading-panel p {
+  display: block;
+  clear: both;
+  margin: 2em auto 4em;
+  text-align: center;
+  -webkit-animation: grey 2s infinite ease-in-out;
+  -moz-animation: grey 2s infinite ease-in-out;
+  animation: grey 2s infinite ease-in-out;
+}
+
+form {
+  display: block;
+}
+
+input[type=text], input[type=tel], input[type=search], input[type=number], select {
+  height: 52px;
+  height: 3.25rem;
+}
+
+input[type=text] + label, input[type=tel] + label, input[type=number] + label, textarea + label, select + label {
+  position: absolute;
+  font-size: 16px;
+  font-size: 1rem;
+  font-family: HelveticaNeueETW01-45Lt, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 62.4px;
+  line-height: 3.9rem;
+  z-index: 99;
+  color: #464646;
+  padding: 0;
+  padding-left: 16px;
+  padding-left: 1rem;
+  padding-right: 16px;
+  padding-right: 1rem;
+  margin-top: -3.5em;
+  letter-spacing: 0;
+}
+
+input[type=text], input[type=tel], input[type=search], input[type=number], textarea, select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  border: 1px solid #c5c8cc;
+  border-radius: 6px;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding: 1em 1em 0;
+  color: #282828;
+  background-color: white;
+  outline: 0;
+}
+
+input[type=text].nolabel, input[type=tel].nolabel, input[type=search].nolabel, input[type=number].nolabel, textarea.nolabel, select.nolabel {
+  padding-top: 0;
+}
+
+input[type=text] + label, input[type=tel] + label, input[type=search] + label, input[type=number] + label, textarea + label, select + label {
+  color: #a1a1a1;
+}
+
+input[type=text]:focus, input[type=tel]:focus, input[type=search]:focus, input[type=number]:focus, textarea:focus, select:focus {
+  padding-left: .944em;
+  padding-top: .944em;
+  border-width: 2px;
+  border-color: #6fadd6 !important;
+}
+
+input[type=text].required, input[type=tel].required, input[type=search].required, input[type=number].required, textarea.required, select.required {
+  border-color: #818386;
+}
+
+input[type=text].required + label, input[type=tel].required + label, input[type=search].required + label, input[type=number].required + label, textarea.required + label, select.required + label {
+  color: #464646;
+}
+
+input[type=text].required.complete + label:after, input[type=tel].required.complete + label:after, input[type=search].required.complete + label:after, input[type=number].required.complete + label:after, textarea.required.complete + label:after, select.required.complete + label:after {
+  color: #464646 !important;
+}
+
+input[type=text].error, input[type=tel].error, input[type=search].error, input[type=number].error, textarea.error, select.error {
+  border-color: #f87d7f !important;
+}
+
+input[type=text].error + label, input[type=tel].error + label, input[type=search].error + label, input[type=number].error + label, textarea.error + label, select.error + label {
+  font-weight: bold;
+  color: #f87d7f !important;
+}
+
+.select2-dropdown input[type=search]:focus + label, input[type=text]:focus + label, input[type=tel]:focus + label, input[type=search]:focus + label, input[type=number]:focus + label, textarea:focus + label, select:focus + label, label.notempty {
+  padding: 0;
+  padding-left: 16px;
+  padding-left: 1rem;
+  padding-right: 16px;
+  padding-right: 1rem;
+  font-size: 9.6px;
+  font-size: 0.6rem;
+  font-family: HelveticaNeueETW01-45Lt, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 20.8px;
+  line-height: 1.3rem;
+  height: 16px;
+  height: 1rem;
+  text-transform: uppercase;
+  margin-top: -48px;
+  margin-top: -3rem;
+  letter-spacing: 1px !important;
+  pointer-events: none;
+}
+
+label.notempty {
+  font-size: 9.6px !important;
+  font-size: 0.6rem !important;
+  line-height: 16px !important;
+  line-height: 1rem !important;
+  margin-top: -48px !important;
+  margin-top: -3rem !important;
+  font-weight: 500 !important;
+}
+
+textarea {
+  height: 104px !important;
+  height: 6.5rem !important;
+  line-height: 31.2px;
+  line-height: 1.95rem;
+  display: block;
+  resize: none;
+  padding-top: 24px;
+  padding-top: 1.5rem;
+}
+
+textarea + label {
+  margin-top: -104px;
+  margin-top: -6.5rem;
+}
+
+textarea + label.notempty {
+  margin-top: -99.2px !important;
+  margin-top: -6.2rem !important;
+}
+
+textarea:focus {
+  padding-top: 23.008px;
+  padding-top: 1.438rem;
+}
+
+textarea:focus + label {
+  margin-top: -99.2px;
+  margin-top: -6.2rem;
+}
+
+/********************************
+
+RADIO BUTTON CARD STYLE
+
+*********************************/
+input[type=radio] {
+  display: none;
+}
+
+.card.selected:before, input[type=radio] + label.selected.card:before {
+  font-size: 32px;
+  font-size: 2rem;
+  line-height: 20.8px;
+  line-height: 1.3rem;
+  text-align: center;
+  display: block;
+}
+
+.card.selected.label div:first-of-type:after {
+  position: relative;
+  display: block;
+  float: right;
+  margin-top: -.7em;
+  margin-right: 1em;
+}
+
+/********************************
+
+DROP DOWN
+
+*********************************/
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.dropdownlabel {
+  text-align: left;
+}
+
+/********************************
+
+OTHER STYLES
+
+*********************************/
+.required_indicator:after, input[type=text].required + label:after, input[type=tel].required + label:after, input[type=search].required + label:after, input[type=number].required + label:after, textarea.required + label:after, select.required + label:after, input[type=text].required.complete + label:after, input[type=tel].required.complete + label:after, input[type=search].required.complete + label:after, input[type=number].required.complete + label:after, textarea.required.complete + label:after, select.required.complete + label:after, .required-field-message:after {
+  display: inline-block;
+  position: relative;
+  content: "*";
+  width: auto;
+  height: auto;
+  color: #f87d7f;
+  margin-left: 2px;
+  font-weight: bold;
+  float: right;
+  font-size: 22.4px;
+  font-size: 1.4rem;
+}
+
+.required-field-message {
+  font-size: 9.6px;
+  font-size: 0.6rem;
+  font-family: HelveticaNeueETW01-45Lt, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 12.48px;
+  line-height: 0.78rem;
+  text-transform: uppercase;
+  color: #f87d7f;
+  text-align: right;
+}
+
+/********************************
+
+VALIDATION
+
+*********************************/
+.error-container, #warning-container {
+  padding-left: 1.34em;
+}
+
+.error-container .card, .error-container input[type=radio] + label.card, #warning-container .card {
+  margin-top: 32px;
+  margin-top: 2rem;
+  background-image: none;
+}
+
+@media only screen and (min-width: 50em) {
+  .error-container .card, .error-container input[type=radio] + label.card, #warning-container .card {
+    margin-top: 0;
+  }
+}
+
+.error-container .card h3.message, #warning-container .card h3.message {
+  margin-top: 0;
+}
+
+.error-container .card .details, #warning-container .card .details {
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.error-container .card ul, .error-container input[type=radio] + label.card ul, #warning-container .card ul {
+  list-style-type: none;
+  font-size: 16px;
+  font-size: 1rem;
+  margin-left: 16px;
+  margin-left: 1rem;
+}
+
+.error-container .card ul li, #warning-container .card ul li {
+  list-style-type: none;
+  line-height: 26px;
+  line-height: 1.625rem;
+  font-weight: 300;
+}
+
+.error-container .card, .error-container input[type=radio] + label.card {
+  border: 1px solid #d26a6c;
+  background-color: #f87d7f;
+  color: #72393a;
+}
+
+.error-container .card ul li {
+  color: white;
+}
+
+input.error, textarea.error {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+input ~ .error, label ~ .error {
+  display: block;
+  clear: both;
+  background: #f87d7f;
+  color: white;
+  padding: .5em;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border: 1px solid #f87d7f;
+  border-top-width: 0px;
+  text-align: left;
+}
+
+.checkbox-input {
+  clear: none;
+  float: left;
+  margin-right: 1em;
+  margin-top: 3px;
+}
+
+.heading, h1, .h1, h2, .h2, .semantic-content > .modal-inner > .modal-content h1, h3, .h3, .semantic-content > .modal-inner > .modal-content h2, h4, .h4, .semantic-content > .modal-inner > .modal-content h3 {
+  margin-top: 1em;
+  padding: 0;
+  text-align: center;
+}
+
+@media only screen and (min-width: 50em) {
+  .heading, h1, .h1, h2, .h2, .semantic-content > .modal-inner > .modal-content h1, h3, .h3, .semantic-content > .modal-inner > .modal-content h2, h4, .h4, .semantic-content > .modal-inner > .modal-content h3 {
+    text-align: left;
+  }
+}
+
+h1, .h1 {
+  font-size: 48px;
+  font-size: 3rem;
+  font-family: HelveticaNeueETW01-45Lt, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 62.4px;
+  line-height: 3.9rem;
+}
+
+@media only screen and (min-width: 30em) {
+  h1, .h1 {
+    font-size: 48px;
+    font-size: 3rem;
+    font-family: HelveticaNeueETW01-45Lt, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 62.4px;
+    line-height: 3.9rem;
+  }
+}
+
+@media only screen and (min-width: 50em) {
+  h1, .h1 {
+    font-size: 64px;
+    font-size: 4rem;
+    font-family: HelveticaNeueETW01-45Lt, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    letter-spacing: 0;
+    line-height: 83.2px;
+    line-height: 5.2rem;
+  }
+}
+
+h2, .h2, .semantic-content > .modal-inner > .modal-content h1 {
+  color: #4f86b7;
+  font-size: 30px;
+  font-size: 1.875rem;
+  font-family: HelveticaNeueETW01-45Lt, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 41.6px;
+  line-height: 2.6rem;
+}
+
+@media only screen and (min-width: 50em) {
+  h2, .h2, .semantic-content > .modal-inner > .modal-content h1 {
+    text-align: left;
+    font-size: 50px;
+    font-size: 3.125rem;
+    font-family: HelveticaNeueETW01-45Lt, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    letter-spacing: 0;
+    line-height: 65px;
+    line-height: 4.0625rem;
+  }
+}
+
+h3, .h3, .semantic-content > .modal-inner > .modal-content h2 {
+  font-size: 24px;
+  font-size: 1.5rem;
+  font-family: HelveticaNeueETW01-45Lt, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 31.2px;
+  line-height: 1.95rem;
+}
+
+@media only screen and (min-width: 30em) {
+  h3, .h3, .semantic-content > .modal-inner > .modal-content h2 {
+    font-size: 24px;
+    font-size: 1.5rem;
+    font-family: HelveticaNeueETW01-45Lt, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    letter-spacing: 0;
+    line-height: 31.2px;
+    line-height: 1.95rem;
+  }
+}
+
+@media only screen and (min-width: 50em) {
+  h3, .h3, .semantic-content > .modal-inner > .modal-content h2 {
+    font-size: 32px;
+    font-size: 2rem;
+    font-family: HelveticaNeueETW01-45Lt, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 41.6px;
+    line-height: 2.6rem;
+  }
+}
+
+h4, .h4, .semantic-content > .modal-inner > .modal-content h3 {
+  font-size: 16px;
+  font-size: 1rem;
+  font-family: HelveticaNeueETW01-45Lt, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 20.8px;
+  line-height: 1.3rem;
+}
+
+@media only screen and (min-width: 30em) {
+  h4, .h4, .semantic-content > .modal-inner > .modal-content h3 {
+    font-size: 20px;
+    font-size: 1.25rem;
+    font-family: HelveticaNeueETW01-45Lt, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 26px;
+    line-height: 1.625rem;
+  }
+}
+
+@media only screen and (min-width: 50em) {
+  h4, .h4, .semantic-content > .modal-inner > .modal-content h3 {
+    font-size: 24px;
+    font-size: 1.5rem;
+    font-family: HelveticaNeueETW01-45Lt, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 31.2px;
+    line-height: 1.95rem;
+  }
+}
+
+body {
+  font-size: 18px;
+  font-size: 1.125rem;
+  font-family: HelveticaNeueETW01-45Lt, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 1.25;
+  letter-spacing: 0;
+  line-height: 23.92px;
+  line-height: 1.495rem;
+}
