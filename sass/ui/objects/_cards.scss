@@ -35,12 +35,6 @@ input[type=radio]:checked + label.card {
     }
 }
 
-//fast-click bug fix
-label > * {
-    display: block;
-    pointer-events: none;
-}
-
 input[type=radio]:disabled + label.card {
     &:hover, &:focus, &:active {
         border: 1px solid $medium-gray !important;
@@ -70,7 +64,6 @@ input[type=radio]:disabled + label.card {
 }
 
 .address-item.pca-result {
-
     label.card {
         margin-top: 0px !important;
         margin-bottom: 0px !important;

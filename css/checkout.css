@@ -4478,11 +4478,6 @@ input[type=radio]:checked + label.card .round-button {
   color: white;
 }
 
-label > * {
-  display: block;
-  pointer-events: none;
-}
-
 input[type=radio]:disabled + label.card:hover, input[type=radio]:disabled + label.card:focus, input[type=radio]:disabled + label.card:active {
   border: 1px solid #e8e8e8 !important;
   background-color: #fafafa !important;
@@ -4646,6 +4641,12 @@ input[type=radio] + label.card button {
   line-height: 1.95rem !important;
   font-weight: normal !important;
   margin-top: .5em !important;
+}
+
+@media only screen and (max-width: 50em) {
+  .new-address h2 {
+    font-size: 1.5rem !important;
+  }
 }
 
 #shipping-addresses .buttons, #billing-addresses .buttons {
