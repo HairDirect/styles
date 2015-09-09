@@ -1,0 +1,241 @@
+@charset "UTF-8";
+/*------------------------------------*    VARS.SCSS
+\*------------------------------------*/
+/**
+ * Any variables you find set in inuit.css’ `_vars.scss` that you do not wish to
+ * keep, simply redefine here. This means that if inuit.css, for example, sets
+ * your `$base-font-size` at 16px and you wish it to be 14px, simply redeclare
+ * that variable in this file. inuit.css ignores its own variables in favour of
+ * using your own, so you can completely modify how inuit.css works without ever
+ * having to alter the framework itself.
+ */
+/*------------------------------------*    $OVERRIDES
+\*------------------------------------*/
+/**
+ * Place any variables that should override inuit.css’ defaults here.
+ */
+/*------------------------------------*    $BRAND
+\*------------------------------------*/
+/**
+ * How big would you like round corners to be by default?
+ */
+/*------------------------------------*    $CUSTOM
+\*------------------------------------*/
+/**
+ * Place any of your own variables that sit on top of inuit.css here.
+ */
+/* Typography */
+/* Opacity */
+/* MEDIA QUERIES */
+/* Animations and Transitions */
+/* Atoms */
+/* Give the body a border to provide some structure to the checkout. */
+body {
+  border: 1px solid #eaeaea;
+  padding: 0 1em;
+}
+
+input[type=radio] + label.card {
+  /* Override for round button styles.*/
+}
+
+input[type=radio] + label.card .round-button {
+  vertical-align: middle;
+  text-align: center;
+  padding-top: 3px;
+}
+
+/* Hide the animated divs, and use an animated gif instead */
+.waiting-indicator .spinner {
+  background: url(//media.hairdirect.com/images/loading.gif) no-repeat center left;
+}
+
+.waiting-indicator .spinner-item {
+  display: none;
+}
+
+/* Since IE8 doesn't recognize the pseudo selector :disabled, we need to target the attribute value */
+.btn--alpha[disabled=disabled], .btn--alpha[disabled=disabled]:hover, .btn--beta[disabled=disabled], .btn--beta[disabled=disabled]:hover, .btn--gamma[disabled=disabled], .btn--gamma[disabled=disabled]:hover, .tertiary[disabled=disabled], .tertiary[disabled=disabled]:hover {
+  border-color: #e7e7e7 !important;
+  background-color: #fafafa !important;
+  color: #b9b9b9 !important;
+  text-shadow: 0px 1px 0px #fff !important;
+}
+
+.btn--alpha {
+  color: #fff;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
+  border-color: #4e88bd;
+  background-color: #4d83b6;
+  background-image: -moz-linear-gradient(90deg, #4d83b6 0%, #6aabd7 100%);
+  background-image: -webkit-linear-gradient(90deg, #4d83b6 0%, #6aabd7 100%);
+  background-image: -ms-linear-gradient(90deg, #4d83b6 0%, #6aabd7 100%);
+}
+
+.btn--alpha:hover, .btn--alpha:focus {
+  background-color: #5591ca;
+  background-image: -moz-linear-gradient(90deg, #5591ca 0%, #71b7e6 100%);
+  background-image: -webkit-linear-gradient(90deg, #5591ca 0%, #71b7e6 100%);
+  background-image: -ms-linear-gradient(90deg, #5591ca 0%, #71b7e6 100%);
+}
+
+.btn--alpha:active {
+  background-color: #6aabd7;
+  background-image: -moz-linear-gradient(90deg, #6aabd7 0%, #4d83b6 100%);
+  background-image: -webkit-linear-gradient(90deg, #6aabd7 0%, #4d83b6 100%);
+  background-image: -ms-linear-gradient(90deg, #6aabd7 0%, #4d83b6 100%);
+}
+
+/* Need to use [checked=checked] in place of :checked since IE8 doesn't support that pseudo selector */
+.btn_group input[type=radio][checked=checked] + label.btn_group_item {
+  color: #fff;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
+  border-color: #4e88bd;
+  background-color: #4d83b6;
+  background-image: -moz-linear-gradient(90deg, #4d83b6 0%, #6aabd7 100%);
+  background-image: -webkit-linear-gradient(90deg, #4d83b6 0%, #6aabd7 100%);
+  background-image: -ms-linear-gradient(90deg, #4d83b6 0%, #6aabd7 100%);
+}
+
+.btn_group input[type=radio][checked=checked] + label.btn_group_item:hover, .btn_group input[type=radio][checked=checked] + label.btn_group_item:focus {
+  background-color: #5591ca;
+  background-image: -moz-linear-gradient(90deg, #5591ca 0%, #71b7e6 100%);
+  background-image: -webkit-linear-gradient(90deg, #5591ca 0%, #71b7e6 100%);
+  background-image: -ms-linear-gradient(90deg, #5591ca 0%, #71b7e6 100%);
+}
+
+.btn_group input[type=radio][checked=checked] + label.btn_group_item:active {
+  background-color: #6aabd7;
+  background-image: -moz-linear-gradient(90deg, #6aabd7 0%, #4d83b6 100%);
+  background-image: -webkit-linear-gradient(90deg, #6aabd7 0%, #4d83b6 100%);
+  background-image: -ms-linear-gradient(90deg, #6aabd7 0%, #4d83b6 100%);
+}
+
+.btn_group input[type=radio][checked=checked] + label.btn_group_item:hover, .btn_group input[type=radio][checked=checked] + label.btn_group_item:focus, .btn_group input[type=radio][checked=checked] + label.btn_group_item:active {
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
+  background-color: #4d83b6;
+  background-image: -moz-linear-gradient(90deg, #4d83b6 0%, #6aabd7 100%);
+  background-image: -webkit-linear-gradient(90deg, #4d83b6 0%, #6aabd7 100%);
+  background-image: -ms-linear-gradient(90deg, #4d83b6 0%, #6aabd7 100%);
+}
+
+/* Hide the arrow pseudo elements in the progress bar */
+.checkout > header .progress ul li:before, li:after {
+  display: none !important;
+}
+
+/* Remove background color of flag pseudo element since opacity is not supported. */
+#store-changer-modal.semantic-content > .modal-inner.store-changer > .modal-content .flags #fromStore:after {
+  display: none;
+}
+
+/* Hide image container since SVG is not supported. The images aren't critical to the design. */
+.shipping-option-item .carrier-image span.ups, .shipping-option-item .carrier-image span.usps, .shipping-option-item .carrier-image span.postnl, .shipping-option-item .carrier-image span.gls, .selection-container .shipping-option .carrier-image span.ups, .selection-container .shipping-option .carrier-image span.usps, .selection-container .shipping-option .carrier-image span.postnl, .selection-container .shipping-option .carrier-image span.gls {
+  display: none !important;
+}
+
+/* Need to use [checked=checked] in place of :checked since IE8 doesn't support that pseudo selector */
+.shipping-option-item label.card:hover .carrier-image > span:after, .shipping-option-item input[type=radio][checked=checked] + label.card .carrier-image > span:after {
+  background-color: transparent !important;
+}
+
+/* Need to use [checked=checked] in place of :checked since IE8 doesn't support that pseudo selector */
+input[type=radio][checked=checked] + label.card {
+  color: #282828;
+}
+
+input[type=radio][checked=checked] + label.card .round-button {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #5088ba;
+  border-color: #5088ba;
+  color: #fff;
+}
+
+/* Credit card item styles */
+.type {
+  background: none !important;
+  text-indent: 0 !important;
+  overflow: visible !important;
+  text-align: right !important;
+  height: 100% !important;
+  width: 100% !important;
+  text-transform: capitalize !important;
+  display: inline !important;
+}
+
+.type:after {
+  display: none !important;
+}
+
+/* Hide the credit card icons, and move the card type to the upper-right hand corner of the card (next to the select box) */
+.credit-card-item label.card > div.grid {
+  position: relative !important;
+}
+
+.credit-card-item label.card > div.grid > .type-item {
+  width: 9em !important;
+  position: absolute !important;
+  top: .3em !important;
+  right: 3em !important;
+  text-align: right !important;
+}
+
+.credit-card-item .type-item {
+  position: relative !important;
+}
+
+.credit-card-item input[type=radio][checked=checked] + label.card .type:after {
+  display: none !important;
+}
+
+.credit-card-item label.card:hover .type:after {
+  display: none !important;
+}
+
+.credit-card-item input[type=radio][disabled] + label.card .type:after {
+  display: none !important;
+}
+
+/* Cart overrides */
+.cart-total-container .cart-items .cart-item > .grid > .details > .grid {
+  /*  fix quantity field padding */
+  /* fix remove button styles */
+}
+
+.cart-total-container .cart-items .cart-item > .grid > .details > .grid > li.quantity > input {
+  padding-top: 4px;
+}
+
+.cart-total-container .cart-items .cart-item > .grid > .details > .grid > li.quantity > input:focus {
+  padding-top: 4px;
+}
+
+.cart-total-container .cart-items .cart-item > .grid > .details > .grid > li.remove-item > .round-button {
+  text-align: center;
+  color: #7c7c7c;
+}
+
+.cart-total-container .cart-items .cart-item > .grid > .details > .grid > li.remove-item > .round-button:hover {
+  color: #fff;
+}
+
+.cart-total-container .total-container .cost-breakdown dd.shipping > .round-button, .cart-total-container .total-container .cost-breakdown dd.discount > .round-button {
+  text-align: center;
+  position: relative;
+  bottom: -3px;
+  line-height: 12px;
+  color: #7c7c7c;
+}
+
+.cart-total-container .total-container .cost-breakdown dd.shipping > .round-button:hover, .cart-total-container .total-container .cost-breakdown dd.discount > .round-button:hover {
+  color: #fff;
+  background-color: #5088ba;
+}
+
+.checkout li {
+  zoom: 1;
+}

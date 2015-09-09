@@ -156,6 +156,7 @@ a, a:link, a:hover, a:active, a:focus, .link {
 	&:hover, &:active {
 		@extend %round-button-selected;
 	}
+
 	/* Size overrides */
 	&.small {
 		position: relative;

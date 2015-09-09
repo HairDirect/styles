@@ -4512,6 +4512,26 @@ input[type=radio]:disabled + label.card:hover, input[type=radio]:disabled + labe
   margin-bottom: 0px !important;
 }
 
+#shipping-addresses label.card, #billing-addresses label.card {
+  min-height: 230px;
+}
+
+#shipping-addresses select::-ms-expand, #billing-addresses select::-ms-expand {
+  display: none;
+}
+
+#shipping-addresses input[type=radio]:checked + label.card, #billing-addresses input[type=radio]:checked + label.card {
+  background-color: white;
+  background-image: none;
+  color: #282828;
+}
+
+#shipping-addresses input[type=radio]:checked + label.card .round-button, #billing-addresses input[type=radio]:checked + label.card .round-button {
+  background-color: #5088ba;
+  border-color: #5088ba;
+  color: white;
+}
+
 .clear {
   clear: both;
 }
@@ -6724,7 +6744,7 @@ a, a:link, a:hover, a:active, a:focus, .link {
   background-image: -ms-linear-gradient(90deg, #4d83b6 0%, #6aabd7 100%);
 }
 
-input[type=radio]:checked + label.card .round-button, .round-button:hover, .round-button:active {
+input[type=radio]:checked + label.card .round-button, #shipping-addresses input[type=radio]:checked + label.card .round-button, #billing-addresses input[type=radio]:checked + label.card .round-button, .round-button:hover, .round-button:active {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -6733,7 +6753,7 @@ input[type=radio]:checked + label.card .round-button, .round-button:hover, .roun
   color: white;
 }
 
-input[type=radio]:checked + label.card .round-button svg path, .round-button:hover svg path, .round-button:active svg path {
+input[type=radio]:checked + label.card .round-button svg path, #shipping-addresses input[type=radio]:checked + label.card .round-button svg path, #billing-addresses input[type=radio]:checked + label.card .round-button svg path, .round-button:hover svg path, .round-button:active svg path {
   fill: white;
 }
 
