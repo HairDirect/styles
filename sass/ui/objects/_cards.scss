@@ -71,23 +71,23 @@ input[type=radio]:disabled + label.card {
 }
 
 #shipping-addresses, #billing-addresses {
-    label.card {
-        min-height: 230px;
-    }
+    // label.card {
+    //     min-height: 230px;
+    // }
     //hide the dropdown arrow for ie 
     select::-ms-expand {
         display: none;
     }
-    input[type=radio]:checked + label.card {
-        background-color: $white;
-        background-image: none;
-        color: $gray12;
+    // input[type=radio]:checked + label.card {
+    //     background-color: $white;
+    //     background-image: none;
+    //     color: $gray12;
 
-        .round-button {
-            @extend %round-button-selected;
-            background-color: $blue4;
-            border-color: $blue4;
-            color: white;
-        }
-    }
+    //     .round-button {
+    //         @extend %round-button-selected;
+    //         background-color: $blue4;
+    //         border-color: $blue4;
+    //         color: white;
+    //     }
+    // }
 }
