@@ -2,7 +2,7 @@ $('<style type="text/css"> .round-button-active { background-color: #5088ba; } <
 
 $(document).on('click','label.card', function (event) {
 		  var $this = $(this);
-		  $(this).children(":first").toggleClass("round-button-active");
+		  $(this).children(":first").toggleClass("round-button-active").siblings().removeClass('round-button-active');;
 		  evt.preventDefault()
   //alert('Clicked');
 });
