@@ -4512,8 +4512,12 @@ VALIDATION
 }
 
 .addresses .address-wrapper li {
-  display: block;
-  float: left;
+  display: inline-block;
+  float: none;
+}
+
+.addresses .address-wrapper li button.changeaddress {
+  float: right !important;
 }
 
 .addresses .changeaddress, .addresses .createaddress {
@@ -4621,7 +4625,8 @@ VALIDATION
 }
 
 .addresses #shipping-addresses .buttons, .addresses #billing-addresses .buttons {
-  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 20px !important;
 }
 
 .addresses .form > ul.card {

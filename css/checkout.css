@@ -4545,8 +4545,12 @@ input[type=radio]:disabled + label.card:hover, input[type=radio]:disabled + labe
 }
 
 .address-wrapper li {
-  display: block;
-  float: left;
+  display: inline-block;
+  float: none;
+}
+
+.address-wrapper li button.changeaddress {
+  float: right !important;
 }
 
 .changeaddress, .createaddress {
@@ -4654,7 +4658,8 @@ input[type=radio] + label.card button {
 }
 
 #shipping-addresses .buttons, #billing-addresses .buttons {
-  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 20px !important;
 }
 
 *, *:before, *:after {

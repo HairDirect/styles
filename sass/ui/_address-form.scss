@@ -8,13 +8,20 @@
     list-style: none;
 
     li {
-        display: block;
-        float: left;
+        display: inline-block;
+        float: none;
+        
+        button.changeaddress {   
+        float: right !important;       
+        }
     }
 
-
-
+// .createaddress {
+//     display: block;
+//     float: left !important;
+// }
 }
+
 .changeaddress, .createaddress {
     margin: 1em auto;
     width: 100%;
@@ -117,6 +124,7 @@ input[type=radio] + label.card {
 }
 #shipping-addresses, #billing-addresses {
     .buttons{
-        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 20px !important;
     }
 }
