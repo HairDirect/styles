@@ -4544,13 +4544,9 @@ input[type=radio]:disabled + label.card:hover, input[type=radio]:disabled + labe
   list-style: none;
 }
 
-.address-wrapper li {
-  display: inline-block;
-  float: none;
-}
-
-.address-wrapper li button.changeaddress {
-  float: right !important;
+.address-wrapper .address-wrapper li {
+  display: block;
+  float: left;
 }
 
 .changeaddress, .createaddress {

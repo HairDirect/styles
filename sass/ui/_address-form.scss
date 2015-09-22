@@ -5,21 +5,13 @@
 }
 
 .address-wrapper {
-    list-style: none;
-
-    li {
-        display: inline-block;
-        float: none;
-        
-        button.changeaddress {   
-        float: right !important;       
+    list-style: none;   
+    .address-wrapper {
+       li {
+            display: block;
+            float: left;
         }
     }
-
-// .createaddress {
-//     display: block;
-//     float: left !important;
-// }
 }
 
 .changeaddress, .createaddress {

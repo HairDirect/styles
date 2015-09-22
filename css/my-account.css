@@ -4511,13 +4511,9 @@ VALIDATION
   list-style: none;
 }
 
-.addresses .address-wrapper li {
-  display: inline-block;
-  float: none;
-}
-
-.addresses .address-wrapper li button.changeaddress {
-  float: right !important;
+.addresses .address-wrapper .address-wrapper li {
+  display: block;
+  float: left;
 }
 
 .addresses .changeaddress, .addresses .createaddress {
