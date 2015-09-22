@@ -4511,7 +4511,7 @@ VALIDATION
   list-style: none;
 }
 
-.addresses .address-wrapper .address-wrapper li {
+.addresses .address-wrapper li {
   display: block;
   float: left;
 }
@@ -4622,7 +4622,17 @@ VALIDATION
 
 .addresses #shipping-addresses .buttons, .addresses #billing-addresses .buttons {
   margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.addresses #shipping-addresses .buttons button.createaddress, .addresses #billing-addresses .buttons button.createaddress {
   margin-bottom: 20px !important;
+}
+
+@media only screen and (min-width: 50em) {
+  .addresses #shipping-addresses label.card, .addresses #billing-addresses label.card {
+    min-height: 230px;
+  }
 }
 
 .addresses .form > ul.card {

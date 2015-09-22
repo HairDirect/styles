@@ -4544,7 +4544,7 @@ input[type=radio]:disabled + label.card:hover, input[type=radio]:disabled + labe
   list-style: none;
 }
 
-.address-wrapper .address-wrapper li {
+.address-wrapper li {
   display: block;
   float: left;
 }
@@ -4655,7 +4655,17 @@ input[type=radio] + label.card button {
 
 #shipping-addresses .buttons, #billing-addresses .buttons {
   margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+#shipping-addresses .buttons button.createaddress, #billing-addresses .buttons button.createaddress {
   margin-bottom: 20px !important;
+}
+
+@media only screen and (min-width: 50em) {
+  #shipping-addresses label.card, #billing-addresses label.card {
+    min-height: 230px;
+  }
 }
 
 *, *:before, *:after {

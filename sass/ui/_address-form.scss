@@ -5,14 +5,18 @@
 }
 
 .address-wrapper {
-    list-style: none;   
-    .address-wrapper {
-       li {
-            display: block;
-            float: left;
-        }
-    }
+    list-style: none;
+        
+        li {
+        display: block;
+        float: left;
+        }   
 }
+
+// .address-wrapper li {
+//     display: block;
+//     float: left;
+// }
 
 .changeaddress, .createaddress {
     margin: 1em auto;
@@ -117,6 +121,14 @@ input[type=radio] + label.card {
 #shipping-addresses, #billing-addresses {
     .buttons{
         margin-top: 0 !important;
-        margin-bottom: 20px !important;
+        margin-bottom: 0 !important;
+            button.createaddress {
+                margin-bottom: 20px !important;
+            }
+    }
+    @media only screen and (min-width: 50em) {
+        label.card {
+            min-height: 230px;
+        }
     }
 }
