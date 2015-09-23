@@ -113,8 +113,18 @@ input[type=radio] + label.card {
     }
 }
 #shipping-addresses, #billing-addresses {
-    .buttons{
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
+    .buttons {
+       margin-bottom: 0px !important;
+    }
+            button.changeaddress {
+                margin-bottom: 0px !important;
+            }
+            button.createaddress {
+                margin-bottom: 20px !important;
+            }
+        @media only screen and (min-width: 50em) {
+        label.card {
+            min-height: 230px;
+        }
     }
 }

@@ -4621,8 +4621,21 @@ VALIDATION
 }
 
 .addresses #shipping-addresses .buttons, .addresses #billing-addresses .buttons {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
+  margin-bottom: 0px !important;
+}
+
+.addresses #shipping-addresses button.changeaddress, .addresses #billing-addresses button.changeaddress {
+  margin-bottom: 0px !important;
+}
+
+.addresses #shipping-addresses button.createaddress, .addresses #billing-addresses button.createaddress {
+  margin-bottom: 20px !important;
+}
+
+@media only screen and (min-width: 50em) {
+  .addresses #shipping-addresses label.card, .addresses #billing-addresses label.card {
+    min-height: 230px;
+  }
 }
 
 .addresses .form > ul.card {

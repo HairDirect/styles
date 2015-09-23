@@ -4654,8 +4654,21 @@ input[type=radio] + label.card button {
 }
 
 #shipping-addresses .buttons, #billing-addresses .buttons {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
+  margin-bottom: 0px !important;
+}
+
+#shipping-addresses button.changeaddress, #billing-addresses button.changeaddress {
+  margin-bottom: 0px !important;
+}
+
+#shipping-addresses button.createaddress, #billing-addresses button.createaddress {
+  margin-bottom: 20px !important;
+}
+
+@media only screen and (min-width: 50em) {
+  #shipping-addresses label.card, #billing-addresses label.card {
+    min-height: 230px;
+  }
 }
 
 *, *:before, *:after {
