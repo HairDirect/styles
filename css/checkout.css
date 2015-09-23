@@ -4658,16 +4658,6 @@ input[type=radio] + label.card button {
   margin-bottom: 0 !important;
 }
 
-#shipping-addresses .buttons button.createaddress, #billing-addresses .buttons button.createaddress {
-  margin-bottom: 20px !important;
-}
-
-@media only screen and (min-width: 50em) {
-  #shipping-addresses label.card, #billing-addresses label.card {
-    min-height: 230px;
-  }
-}
-
 *, *:before, *:after {
   box-sizing: border-box !important;
   -moz-box-sizing: border-box !important;
