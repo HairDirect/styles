@@ -123,6 +123,7 @@ input[type=radio] + label.card {
                 margin-bottom: 20px !important;
             }
         @media only screen and (min-width: 50em) {
+            //force same hight of address card on desktop to prevent white space
         label.card {
             min-height: 230px;
         }
