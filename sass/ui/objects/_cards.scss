@@ -26,10 +26,21 @@ input[type=radio]:checked + label.card {
     background-color: $white;
     background-image: none;
     color: $gray12;
+    
+        .round-button {
+            @extend %round-button-selected;
+        }
+}
 
-    .round-button {
-        @extend %round-button-selected;
-    }
+// for IOS Safari
+input[type=radio][checked=checked] + label.card {
+    background-color: $white;
+    background-image: none;
+    color: $gray12;
+    
+        .round-button {
+            @extend %round-button-selected;
+        }
 }
 
 // .round-button-active {
